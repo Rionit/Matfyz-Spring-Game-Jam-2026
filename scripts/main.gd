@@ -17,6 +17,8 @@ func _ready() -> void:
 	pauseScene.hide()
 	create_timer()
 	start_timer()
+	var game_manager = $'../GameManager'
+	game_manager.main_game()
 
 func _input(event):
 	if event.is_action_pressed("pause_action"):
