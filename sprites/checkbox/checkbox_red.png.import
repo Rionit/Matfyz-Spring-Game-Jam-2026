@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5fwcfh7modef"
-path="res://.godot/imported/viza.png-a1e589a7b7bc22ab0c5eb3d453d80a18.ctex"
+uid="uid://d0n24ukai1f3s"
+path="res://.godot/imported/checkbox_red.png-67db60c65c927acbdd423b6e1b9eaed6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/blue/viza.png"
-dest_files=["res://.godot/imported/viza.png-a1e589a7b7bc22ab0c5eb3d453d80a18.ctex"]
+source_file="res://sprites/checkbox/checkbox_red.png"
+dest_files=["res://.godot/imported/checkbox_red.png-67db60c65c927acbdd423b6e1b9eaed6.ctex"]
 
 [params]
 

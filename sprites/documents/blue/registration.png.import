@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0y1kvdp8e57q"
-path="res://.godot/imported/tax.png-f9e41f37a0aadec7055d23759cdc600f.ctex"
+uid="uid://cbc2an22842sm"
+path="res://.godot/imported/registration.png-b7318a5b61fe07e88a628ac8b7baac3f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/blue/tax.png"
-dest_files=["res://.godot/imported/tax.png-f9e41f37a0aadec7055d23759cdc600f.ctex"]
+source_file="res://sprites/documents/blue/registration.png"
+dest_files=["res://.godot/imported/registration.png-b7318a5b61fe07e88a628ac8b7baac3f.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ekkvjphenlfo"
-path="res://.godot/imported/driving.png-41827a26247e4dfd6f844e88c7294635.ctex"
+uid="uid://28yxnhwhnhjd"
+path="res://.godot/imported/sign_green.png-649591baf765751d746fad9745300044.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/blue/driving.png"
-dest_files=["res://.godot/imported/driving.png-41827a26247e4dfd6f844e88c7294635.ctex"]
+source_file="res://sprites/signs/sign_green.png"
+dest_files=["res://.godot/imported/sign_green.png-649591baf765751d746fad9745300044.ctex"]
 
 [params]
 
