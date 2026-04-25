@@ -5,4 +5,4 @@ extends Control
 var receives_input : bool = false
 
 func evaluate(): # override
-    return 0
+	return 0

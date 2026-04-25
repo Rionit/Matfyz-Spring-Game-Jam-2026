@@ -11,19 +11,21 @@
 [ext_resource type="FontFile" uid="uid://ia0gu52dxka1" path="res://fonts/green_font.ttf" id="9_cxhg5"]
 [ext_resource type="FontFile" uid="uid://duyo07uotl2qi" path="res://fonts/blue_font.ttf" id="10_rpexa"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kcm51"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aqsik"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vhnp4"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u671s"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2fuve"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i7rui"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ypaxk"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eacck"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oy6wt"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i61pa"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2v0bo"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_14o2x"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ydknv"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gshfp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3b2qp"]
 
 [node name="CheckboxField" type="Control" unique_id=979512527]
 layout_mode = 3
@@ -35,7 +37,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_aqsik")
 color_type = 2
-correct_answers = 0
 red_unchecked = ExtResource("2_i7rui")
 red_checked = ExtResource("3_eacck")
 green_unchecked = ExtResource("4_i61pa")
@@ -69,14 +70,15 @@ theme_override_colors/font_hovered_selected_color = Color(0, 0, 0, 1)
 theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("10_rpexa")
 theme_override_font_sizes/font_size = 60
-theme_override_styles/panel = SubResource("StyleBoxEmpty_kcm51")
-theme_override_styles/hovered = SubResource("StyleBoxEmpty_vhnp4")
-theme_override_styles/hovered_selected = SubResource("StyleBoxEmpty_2fuve")
-theme_override_styles/hovered_selected_focus = SubResource("StyleBoxEmpty_ypaxk")
-theme_override_styles/selected = SubResource("StyleBoxEmpty_oy6wt")
-theme_override_styles/selected_focus = SubResource("StyleBoxEmpty_2v0bo")
-theme_override_styles/cursor_unfocused = SubResource("StyleBoxEmpty_ydknv")
-select_mode = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_aqsik")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_u671s")
+theme_override_styles/hovered = SubResource("StyleBoxEmpty_i7rui")
+theme_override_styles/hovered_selected = SubResource("StyleBoxEmpty_eacck")
+theme_override_styles/hovered_selected_focus = SubResource("StyleBoxEmpty_i61pa")
+theme_override_styles/selected = SubResource("StyleBoxEmpty_14o2x")
+theme_override_styles/selected_focus = SubResource("StyleBoxEmpty_gshfp")
+theme_override_styles/cursor_unfocused = SubResource("StyleBoxEmpty_3b2qp")
+select_mode = 2
 allow_search = false
 auto_width = true
 auto_height = true

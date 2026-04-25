@@ -38,7 +38,7 @@ func _ready():
 	if not checkbox_list:
 		return
 
-	checkbox_list.select_mode = ItemList.SELECT_MULTI
+	checkbox_list.select_mode = ItemList.SELECT_TOGGLE
 	checkbox_list.item_clicked.connect(_on_item_selected)
 
 	checked.resize(checkbox_list.item_count)
