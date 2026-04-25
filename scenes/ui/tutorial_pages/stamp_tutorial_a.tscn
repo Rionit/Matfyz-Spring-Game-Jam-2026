@@ -1,0 +1,210 @@
+[gd_scene format=3 uid="uid://s6q7gltfpls2"]
+
+[ext_resource type="Texture2D" uid="uid://co443y2svexni" path="res://sprites/documents/red/driving.png" id="1_s0xh7"]
+[ext_resource type="Texture2D" uid="uid://b81mnvrcveljg" path="res://sprites/documents/red/registration.png" id="2_dc0k7"]
+[ext_resource type="Texture2D" uid="uid://dm3y58jv3wdq8" path="res://sprites/documents/red/tax.png" id="3_2tldg"]
+[ext_resource type="Texture2D" uid="uid://uqoj3vnqwfpt" path="res://sprites/documents/red/viza.png" id="4_1mkh1"]
+[ext_resource type="Texture2D" uid="uid://dsq1kp7gcngae" path="res://sprites/counters/counter_red.png" id="5_0b06t"]
+[ext_resource type="Texture2D" uid="uid://d2ljr8hlutxac" path="res://sprites/documents/green/driving.png" id="6_3pw54"]
+[ext_resource type="Texture2D" uid="uid://cjcepc24axcih" path="res://sprites/documents/green/registration.png" id="7_x0357"]
+[ext_resource type="Texture2D" uid="uid://uxd0g5gr2ouo" path="res://sprites/documents/green/tax.png" id="8_uxg7v"]
+[ext_resource type="Texture2D" uid="uid://co5r5c36yv87h" path="res://sprites/documents/green/viza.png" id="9_r32uw"]
+[ext_resource type="Texture2D" uid="uid://bkd6fs3nrube6" path="res://sprites/counters/counter_green.png" id="10_eorkg"]
+[ext_resource type="Texture2D" uid="uid://ekkvjphenlfo" path="res://sprites/documents/blue/driving.png" id="11_cfa4y"]
+[ext_resource type="Texture2D" uid="uid://cbc2an22842sm" path="res://sprites/documents/blue/registration.png" id="12_yce7c"]
+[ext_resource type="Texture2D" uid="uid://c0y1kvdp8e57q" path="res://sprites/documents/blue/tax.png" id="13_v8gwq"]
+[ext_resource type="Texture2D" uid="uid://5fwcfh7modef" path="res://sprites/documents/blue/viza.png" id="14_4r7oa"]
+[ext_resource type="Texture2D" uid="uid://rihffwl3ytdg" path="res://sprites/counters/counter_blue.png" id="15_tk6fp"]
+
+[node name="StampTutorialA" type="Control" unique_id=1646810992]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Red" type="Control" parent="." unique_id=1883654075]
+layout_mode = 1
+anchor_top = 0.042000003
+anchor_right = 1.0
+anchor_bottom = 0.21700001
+offset_top = 0.20999908
+offset_bottom = 0.5849991
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Red" unique_id=559628121]
+layout_mode = 0
+offset_right = 651.0
+offset_bottom = 875.0
+rotation = -0.050988164
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_s0xh7")
+
+[node name="TextureRect2" type="TextureRect" parent="Red" unique_id=1864771723]
+layout_mode = 0
+offset_left = 42.000008
+offset_right = 693.0
+offset_bottom = 875.0
+rotation = 0.023749527
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_dc0k7")
+
+[node name="TextureRect3" type="TextureRect" parent="Red" unique_id=644614234]
+layout_mode = 0
+offset_left = 83.00002
+offset_right = 734.0
+offset_bottom = 875.0
+rotation = -0.031934604
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_2tldg")
+
+[node name="TextureRect4" type="TextureRect" parent="Red" unique_id=622087762]
+layout_mode = 0
+offset_left = 122.0
+offset_right = 773.0
+offset_bottom = 875.0
+rotation = 0.04756307
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_1mkh1")
+
+[node name="Counter" type="TextureRect" parent="Red" unique_id=1134955344]
+layout_mode = 0
+offset_left = 247.0
+offset_top = 7.9999986
+offset_right = 903.0
+offset_bottom = 724.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_0b06t")
+stretch_mode = 4
+
+[node name="Line" type="ColorRect" parent="Red" unique_id=812596912]
+layout_mode = 0
+offset_left = 194.0
+offset_top = 45.0
+offset_right = 234.0
+offset_bottom = 85.0
+scale = Vector2(1.0616505, 0.14661726)
+color = Color(0, 0, 0, 1)
+
+[node name="Green" type="Control" parent="." unique_id=671741813]
+layout_mode = 1
+anchor_top = 0.36200002
+anchor_right = 0.96500003
+anchor_bottom = 0.54300004
+offset_top = -0.19000244
+offset_right = -0.06500244
+offset_bottom = 0.21496582
+
+[node name="TextureRect" type="TextureRect" parent="Green" unique_id=343203586]
+layout_mode = 0
+offset_right = 651.0
+offset_bottom = 875.0
+rotation = -0.050988164
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_3pw54")
+
+[node name="TextureRect2" type="TextureRect" parent="Green" unique_id=190332722]
+layout_mode = 0
+offset_left = 42.000008
+offset_right = 693.0
+offset_bottom = 875.0
+rotation = 0.023749527
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_x0357")
+
+[node name="TextureRect3" type="TextureRect" parent="Green" unique_id=1660077151]
+layout_mode = 0
+offset_left = 83.00002
+offset_right = 734.0
+offset_bottom = 875.0
+rotation = -0.031934604
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("8_uxg7v")
+
+[node name="TextureRect4" type="TextureRect" parent="Green" unique_id=73372074]
+layout_mode = 0
+offset_left = 122.0
+offset_right = 773.0
+offset_bottom = 875.0
+rotation = 0.04756307
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("9_r32uw")
+
+[node name="Counter2" type="TextureRect" parent="Green" unique_id=643283123]
+layout_mode = 0
+offset_left = 251.0
+offset_top = 15.0
+offset_right = 758.0
+offset_bottom = 560.0
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("10_eorkg")
+stretch_mode = 4
+
+[node name="Line2" type="ColorRect" parent="Green" unique_id=1940825406]
+layout_mode = 0
+offset_left = 194.0
+offset_top = 45.999985
+offset_right = 234.0
+offset_bottom = 85.999985
+scale = Vector2(1.0616505, 0.14661726)
+color = Color(0, 0, 0, 1)
+
+[node name="Blue" type="Control" parent="." unique_id=170090585]
+layout_mode = 1
+anchor_top = 0.70900005
+anchor_right = 0.938
+anchor_bottom = 0.89900005
+offset_top = 0.04498291
+offset_right = 0.14199829
+offset_bottom = -0.0050354004
+
+[node name="TextureRect" type="TextureRect" parent="Blue" unique_id=1680392336]
+layout_mode = 0
+offset_right = 651.0
+offset_bottom = 875.0
+rotation = -0.050988164
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("11_cfa4y")
+
+[node name="TextureRect2" type="TextureRect" parent="Blue" unique_id=879895236]
+layout_mode = 0
+offset_left = 42.000008
+offset_right = 693.0
+offset_bottom = 875.0
+rotation = 0.023749527
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("12_yce7c")
+
+[node name="TextureRect3" type="TextureRect" parent="Blue" unique_id=183678691]
+layout_mode = 0
+offset_left = 83.00002
+offset_right = 734.0
+offset_bottom = 875.0
+rotation = -0.031934604
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("13_v8gwq")
+
+[node name="TextureRect4" type="TextureRect" parent="Blue" unique_id=299907833]
+layout_mode = 0
+offset_left = 122.0
+offset_right = 773.0
+offset_bottom = 875.0
+rotation = 0.04756307
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("14_4r7oa")
+
+[node name="Counter3" type="TextureRect" parent="Blue" unique_id=1963391052]
+layout_mode = 0
+offset_left = 251.0
+offset_right = 771.0
+offset_bottom = 748.0
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("15_tk6fp")
+stretch_mode = 4
+
+[node name="Line3" type="ColorRect" parent="Blue" unique_id=39759148]
+layout_mode = 0
+offset_left = 194.0
+offset_top = 45.99997
+offset_right = 234.0
+offset_bottom = 85.99997
+scale = Vector2(1.0616505, 0.14661726)
+color = Color(0, 0, 0, 1)

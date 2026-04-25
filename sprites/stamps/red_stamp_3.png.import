@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byw0pjmxge1te"
-path="res://.godot/imported/sigh_blue.png-c8503f67851eefcb305f73d19e4e4bce.ctex"
+uid="uid://bfnxbo682fn2u"
+path="res://.godot/imported/red_stamp_3.png-c615f29ab2b958dc460a9a5bdcdbd380.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/signs/sigh_blue.png"
-dest_files=["res://.godot/imported/sigh_blue.png-c8503f67851eefcb305f73d19e4e4bce.ctex"]
+source_file="res://sprites/stamps/red_stamp_3.png"
+dest_files=["res://.godot/imported/red_stamp_3.png-c615f29ab2b958dc460a9a5bdcdbd380.ctex"]
 
 [params]
 
