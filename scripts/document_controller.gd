@@ -36,7 +36,16 @@ var submitted : bool = false
 var can_highlight : bool = false
 var can_click : bool = false
 
-var can_drag_drop : bool = false
+var can_drag_drop : bool = false # Whether the document can be dragged & dropped
+var counting_drag_drop : bool = false # Whether the cooldown for drag & drop is currently counted
+var is_drag_dropping : bool = false # Whether the document is currently being dragged & dropped
+
+@export var drag_drop_table_height_offset : float = 0.01
+
+
+@export var drag_drop_time : float = 0.8
+var current_drag_drop_time : float = 0.0
+
 
 @export var listed_scale : Vector3 = Vector3(0.3,0.3,0.3)
 
@@ -178,5 +187,53 @@ func on_mouse_exited():
 	if can_highlight:
 		highlight_overlay.visible = false
 
-func _process() -> void:
-	pass # Handle drag & drop
+func on_mouse_pressed():
+	if can_drag_drop:
+		counting_drag_drop = true
+
+
+func on_mouse_released():
+	if is_drag_dropping:
+		is_drag_dropping = false
+		counting_drag_drop = false
+		current_drag_drop_time = 0.0
+		current_table_pos = move_parent.position
+		return
+
+	if can_click:
+		GameManager.select_document(self)
+
+
+func _get_drag_camera() -> Camera3D:
+	if GameManager.camera_node != null:
+		return GameManager.camera_node
+
+	return get_viewport().get_camera_3d()
+
+
+func _get_cursor_table_position() -> Variant:
+	var camera := _get_drag_camera()
+	if camera == null:
+		return null
+
+	var mouse_pos := get_viewport().get_mouse_position()
+	var ray_origin := camera.project_ray_origin(mouse_pos)
+	var ray_normal := camera.project_ray_normal(mouse_pos)
+
+	var table_plane := Plane(Vector3.UP, default_table_pos.y)
+	return table_plane.intersects_ray(ray_origin, ray_normal)
+	
+func _process(delta: float) -> void:
+	if counting_drag_drop:
+		current_drag_drop_time += delta
+		if current_drag_drop_time >= drag_drop_time:
+			is_drag_dropping = true
+			counting_drag_drop = false
+			current_drag_drop_time = 0.0
+	if is_drag_dropping:
+		var cursor_pos = _get_cursor_table_position()
+		if cursor_pos != null:
+			var drag_pos: Vector3 = cursor_pos
+			drag_pos.y += drag_drop_table_height_offset
+			move_parent.position = drag_pos
+			current_table_pos = drag_pos
