@@ -37,6 +37,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_aqsik")
 color_type = 2
+correct_answers = 0
 red_unchecked = ExtResource("2_i7rui")
 red_checked = ExtResource("3_eacck")
 green_unchecked = ExtResource("4_i61pa")
