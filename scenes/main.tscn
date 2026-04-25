@@ -16,6 +16,6 @@ environment = SubResource("Environment_0wfyh")
 compositor = SubResource("Compositor_sugp2")
 
 [node name="MainCamera" type="Camera3D" parent="." unique_id=184220275]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00036376715, 0.19898345, 1)
 fov = 35.0
 script = ExtResource("1_0wfyh")
