@@ -21,6 +21,7 @@ layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 bbcode_enabled = true
 text = "[i][b]Signature[/b][/i]
+
 This is where I write my signature."
 fit_content = true
 autowrap_mode = 2

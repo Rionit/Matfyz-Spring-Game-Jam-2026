@@ -1,0 +1,220 @@
+[gd_scene format=3 uid="uid://2c6uct1o5gt4"]
+
+[ext_resource type="Texture2D" uid="uid://b81mnvrcveljg" path="res://sprites/documents/red/registration.png" id="1_2phdj"]
+[ext_resource type="Texture2D" uid="uid://cjcepc24axcih" path="res://sprites/documents/green/registration.png" id="2_canme"]
+[ext_resource type="Texture2D" uid="uid://cbc2an22842sm" path="res://sprites/documents/blue/registration.png" id="3_3kps0"]
+[ext_resource type="Texture2D" uid="uid://dm3y58jv3wdq8" path="res://sprites/documents/red/tax.png" id="4_1xli4"]
+[ext_resource type="Texture2D" uid="uid://uxd0g5gr2ouo" path="res://sprites/documents/green/tax.png" id="5_4q10i"]
+[ext_resource type="Texture2D" uid="uid://c0y1kvdp8e57q" path="res://sprites/documents/blue/tax.png" id="6_magrv"]
+[ext_resource type="Texture2D" uid="uid://uqoj3vnqwfpt" path="res://sprites/documents/red/viza.png" id="7_1v1b3"]
+[ext_resource type="Texture2D" uid="uid://co5r5c36yv87h" path="res://sprites/documents/green/viza.png" id="8_6ajx3"]
+[ext_resource type="Texture2D" uid="uid://5fwcfh7modef" path="res://sprites/documents/blue/viza.png" id="9_866hy"]
+
+[node name="CheckboxTutorial" type="Control" unique_id=638489415]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1722914383]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="RichTextLabel" parent="VBoxContainer" unique_id=1083111977]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[i][b]Checkboxes[/b][/i]"
+fit_content = true
+autowrap_mode = 2
+
+[node name="Registration" type="HBoxContainer" parent="VBoxContainer" unique_id=926921246]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="Red" type="VBoxContainer" parent="VBoxContainer/Registration" unique_id=893976353]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Registration/Red" unique_id=303520049]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_2phdj")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Registration/Red" unique_id=66087647]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "☐☒☒"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Green" type="VBoxContainer" parent="VBoxContainer/Registration" unique_id=1120727621]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/Registration/Green" unique_id=2064543835]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_canme")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer/Registration/Green" unique_id=300729512]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "☒☐☐"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Blue" type="VBoxContainer" parent="VBoxContainer/Registration" unique_id=1479881356]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/Registration/Blue" unique_id=661107997]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_3kps0")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="VBoxContainer/Registration/Blue" unique_id=1498529944]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "☐☐☐"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Tax" type="HBoxContainer" parent="VBoxContainer" unique_id=879695626]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="Red" type="VBoxContainer" parent="VBoxContainer/Tax" unique_id=1392625271]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Tax/Red" unique_id=821628415]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_1xli4")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Tax/Red" unique_id=1165445048]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "☒☐☐"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Green" type="VBoxContainer" parent="VBoxContainer/Tax" unique_id=50028669]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/Tax/Green" unique_id=1172535151]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("5_4q10i")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer/Tax/Green" unique_id=288830790]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "☒☐☐"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Blue" type="VBoxContainer" parent="VBoxContainer/Tax" unique_id=326516242]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/Tax/Blue" unique_id=1933462806]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("6_magrv")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="VBoxContainer/Tax/Blue" unique_id=488506995]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "☐☒☐"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Visa" type="HBoxContainer" parent="VBoxContainer" unique_id=1156680286]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="Red" type="VBoxContainer" parent="VBoxContainer/Visa" unique_id=708052920]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Visa/Red" unique_id=654091422]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("7_1v1b3")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Visa/Red" unique_id=2031344665]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "☒☐☐"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Green" type="VBoxContainer" parent="VBoxContainer/Visa" unique_id=1897750120]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/Visa/Green" unique_id=687762538]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("8_6ajx3")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer/Visa/Green" unique_id=1108601939]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "☒☐☒"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Blue" type="VBoxContainer" parent="VBoxContainer/Visa" unique_id=1585753084]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/Visa/Blue" unique_id=1588108181]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("9_866hy")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="VBoxContainer/Visa/Blue" unique_id=396420954]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "☐☐☒"
+fit_content = true
+horizontal_alignment = 1

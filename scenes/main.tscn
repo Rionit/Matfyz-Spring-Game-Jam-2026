@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://thhm5whoy2gr" path="res://scripts/main_camera.gd" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://b2f3frvqldyhg" path="res://models/map/room.glb" id="2_sugp2"]
-[ext_resource type="PackedScene" uid="uid://cldduaquiddtd" path="res://scenes/ui/handbook_gui.tscn" id="3_sugp2"]
 
 [sub_resource type="Environment" id="Environment_0wfyh"]
 
@@ -11,7 +10,7 @@
 [node name="Main" type="Node3D" unique_id=31963921]
 
 [node name="room" parent="." unique_id=50673408 instance=ExtResource("2_sugp2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010587871, 6.5371394e-05, -0.0004247427)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26911533, 0.2132553, -0.1518287)
 
 [node name="SpotLight3D4" type="SpotLight3D" parent="room" unique_id=36142895]
 transform = Transform3D(0.9999395, 0.010538173, -0.0031705708, 0.0022672773, 0.08464875, 0.9964083, 0.010768707, -0.9963552, 0.08461973, -0.6381782, 0.7702954, -0.78548396)
@@ -82,6 +81,3 @@ compositor = SubResource("Compositor_sugp2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00036376715, 0.19898345, 1)
 fov = 35.0
 script = ExtResource("1_0wfyh")
-
-[node name="HandbookGUI" parent="." unique_id=1668765249 instance=ExtResource("3_sugp2")]
-transform = Transform3D(0.16789472, 0, 0, 0, 0.15882374, 0.054439466, 0, -0.054439466, 0.15882374, 0.10730785, -0.02160436, 0.70664835)

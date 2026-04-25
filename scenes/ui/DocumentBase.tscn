@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://3liiy6o3nguj"]
+
+[ext_resource type="Script" uid="uid://b1p2iss5lclho" path="res://scripts/test_move.gd" id="1_2x7qw"]
+
+[node name="Control" type="Control" unique_id=1050868416]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1000.0
+offset_bottom = 1080.0
+script = ExtResource("1_2x7qw")
+test_move_duration = 0.8
+test_move_end_rotation = Vector3(0, -45, 0)
+receives_input = true
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1692172604]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1061472344]
+layout_mode = 2
+alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer" unique_id=295369457]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(1, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="MarginContainer/HBoxContainer" unique_id=150581162]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.24933854, 0.74245703, 0, 1)
+
+[connection signal="mouse_entered" from="." to="." method="on_click"]

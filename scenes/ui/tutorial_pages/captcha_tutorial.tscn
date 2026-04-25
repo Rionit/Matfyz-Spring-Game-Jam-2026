@@ -1,0 +1,272 @@
+[gd_scene format=3 uid="uid://bm7xbkgdhohjt"]
+
+[ext_resource type="Texture2D" uid="uid://co443y2svexni" path="res://sprites/documents/red/driving.png" id="1_mqigr"]
+[ext_resource type="Texture2D" uid="uid://b81mnvrcveljg" path="res://sprites/documents/red/registration.png" id="2_ut72k"]
+[ext_resource type="Texture2D" uid="uid://dm3y58jv3wdq8" path="res://sprites/documents/red/tax.png" id="3_m2mm3"]
+[ext_resource type="Texture2D" uid="uid://uqoj3vnqwfpt" path="res://sprites/documents/red/viza.png" id="4_uco2y"]
+[ext_resource type="Texture2D" uid="uid://cqnjx6jwp0atr" path="res://sprites/capcha/capcha_red.png" id="5_f0pb1"]
+[ext_resource type="Texture2D" uid="uid://driiscsf1af2b" path="res://sprites/capcha/capcha_human.png" id="6_5u5b3"]
+[ext_resource type="Texture2D" uid="uid://cepv46hbo451n" path="res://sprites/capcha/capcha_green.png" id="7_ortyt"]
+[ext_resource type="Texture2D" uid="uid://d2ljr8hlutxac" path="res://sprites/documents/green/driving.png" id="8_nwo05"]
+[ext_resource type="Texture2D" uid="uid://cjcepc24axcih" path="res://sprites/documents/green/registration.png" id="9_p4tov"]
+[ext_resource type="Texture2D" uid="uid://uxd0g5gr2ouo" path="res://sprites/documents/green/tax.png" id="10_wng31"]
+[ext_resource type="Texture2D" uid="uid://co5r5c36yv87h" path="res://sprites/documents/green/viza.png" id="11_6h6gb"]
+[ext_resource type="Texture2D" uid="uid://dh82bvmn5mw4v" path="res://sprites/capcha/capcha_blue.png" id="12_e5ruo"]
+[ext_resource type="Texture2D" uid="uid://ekkvjphenlfo" path="res://sprites/documents/blue/driving.png" id="13_vq103"]
+[ext_resource type="Texture2D" uid="uid://cbc2an22842sm" path="res://sprites/documents/blue/registration.png" id="14_vtkw6"]
+[ext_resource type="Texture2D" uid="uid://c0y1kvdp8e57q" path="res://sprites/documents/blue/tax.png" id="15_n7l0g"]
+[ext_resource type="Texture2D" uid="uid://5fwcfh7modef" path="res://sprites/documents/blue/viza.png" id="16_gfswg"]
+
+[node name="CaptchaTutorial" type="Control" unique_id=160557411]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=259413000]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="RichTextLabel" parent="VBoxContainer" unique_id=1729088841]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[i][b]Captcha[/b][/i]
+
+I need to select all correct aliens."
+autowrap_mode = 2
+
+[node name="Red" type="HBoxContainer" parent="VBoxContainer" unique_id=371056613]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="StackOfDocs" type="Control" parent="VBoxContainer/Red" unique_id=1921555760]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Red/StackOfDocs" unique_id=441164509]
+layout_mode = 0
+offset_right = 651.0
+offset_bottom = 875.0
+rotation = -0.050988164
+scale = Vector2(0.08170774, 0.08170774)
+texture = ExtResource("1_mqigr")
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/Red/StackOfDocs" unique_id=1972872159]
+layout_mode = 0
+offset_left = 22.69779
+offset_right = 673.6978
+offset_bottom = 875.0
+rotation = 0.023749527
+scale = Vector2(0.08170774, 0.08170774)
+texture = ExtResource("2_ut72k")
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/Red/StackOfDocs" unique_id=1459983322]
+layout_mode = 0
+offset_left = 46.0
+offset_right = 697.0
+offset_bottom = 875.0
+rotation = -0.031934604
+scale = Vector2(0.08170774, 0.08170774)
+texture = ExtResource("3_m2mm3")
+
+[node name="TextureRect4" type="TextureRect" parent="VBoxContainer/Red/StackOfDocs" unique_id=1193483040]
+layout_mode = 0
+offset_left = 78.3992
+offset_right = 729.3992
+offset_bottom = 875.0
+rotation = 0.04756307
+scale = Vector2(0.08170774, 0.08170774)
+texture = ExtResource("4_uco2y")
+
+[node name="Line" type="ColorRect" parent="VBoxContainer/Red" unique_id=1059431334]
+custom_minimum_size = Vector2(75, 10)
+layout_mode = 2
+size_flags_vertical = 4
+color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" parent="VBoxContainer/Red" unique_id=539492153]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Red/Control" unique_id=572135921]
+layout_mode = 0
+offset_left = 14.0
+offset_top = -36.0
+offset_right = 89.0
+offset_bottom = 39.0
+texture = ExtResource("5_f0pb1")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/Red/Control" unique_id=1574198530]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 5.0
+offset_right = 123.0
+offset_bottom = 80.0
+texture = ExtResource("6_5u5b3")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/Red/Control" unique_id=275068361]
+layout_mode = 0
+offset_left = -21.0
+offset_top = 5.0
+offset_right = 54.0
+offset_bottom = 80.0
+texture = ExtResource("7_ortyt")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Green" type="HBoxContainer" parent="VBoxContainer" unique_id=992553003]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="StackOfDocs" type="Control" parent="VBoxContainer/Green" unique_id=978577130]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Green/StackOfDocs" unique_id=393058178]
+layout_mode = 0
+offset_right = 651.0
+offset_bottom = 875.0
+rotation = -0.050988164
+scale = Vector2(0.08170774, 0.08170774)
+texture = ExtResource("8_nwo05")
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/Green/StackOfDocs" unique_id=230505614]
+layout_mode = 0
+offset_left = 22.69779
+offset_right = 673.6978
+offset_bottom = 875.0
+rotation = 0.023749527
+scale = Vector2(0.08170774, 0.08170774)
+texture = ExtResource("9_p4tov")
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/Green/StackOfDocs" unique_id=1885636174]
+layout_mode = 0
+offset_left = 46.0
+offset_right = 697.0
+offset_bottom = 875.0
+rotation = -0.031934604
+scale = Vector2(0.08170774, 0.08170774)
+texture = ExtResource("10_wng31")
+
+[node name="TextureRect4" type="TextureRect" parent="VBoxContainer/Green/StackOfDocs" unique_id=845442295]
+layout_mode = 0
+offset_left = 78.3992
+offset_right = 729.3992
+offset_bottom = 875.0
+rotation = 0.04756307
+scale = Vector2(0.08170774, 0.08170774)
+texture = ExtResource("11_6h6gb")
+
+[node name="Line" type="ColorRect" parent="VBoxContainer/Green" unique_id=117990408]
+custom_minimum_size = Vector2(75, 10)
+layout_mode = 2
+size_flags_vertical = 4
+color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" parent="VBoxContainer/Green" unique_id=2122383357]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Green/Control" unique_id=433533856]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -15.0
+offset_right = 73.0
+offset_bottom = 60.0
+texture = ExtResource("12_e5ruo")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/Green/Control" unique_id=79038915]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 6.0
+offset_right = 118.0
+offset_bottom = 81.0
+texture = ExtResource("5_f0pb1")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Blue" type="HBoxContainer" parent="VBoxContainer" unique_id=1559793184]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="StackOfDocs" type="Control" parent="VBoxContainer/Blue" unique_id=1808260189]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Blue/StackOfDocs" unique_id=1053807151]
+layout_mode = 0
+offset_right = 651.0
+offset_bottom = 875.0
+rotation = -0.050988164
+scale = Vector2(0.08170774, 0.08170774)
+texture = ExtResource("13_vq103")
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/Blue/StackOfDocs" unique_id=1970548113]
+layout_mode = 0
+offset_left = 22.69779
+offset_right = 673.6978
+offset_bottom = 875.0
+rotation = 0.023749527
+scale = Vector2(0.08170774, 0.08170774)
+texture = ExtResource("14_vtkw6")
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/Blue/StackOfDocs" unique_id=720945350]
+layout_mode = 0
+offset_left = 46.0
+offset_right = 697.0
+offset_bottom = 875.0
+rotation = -0.031934604
+scale = Vector2(0.08170774, 0.08170774)
+texture = ExtResource("15_n7l0g")
+
+[node name="TextureRect4" type="TextureRect" parent="VBoxContainer/Blue/StackOfDocs" unique_id=1542502453]
+layout_mode = 0
+offset_left = 78.3992
+offset_right = 729.3992
+offset_bottom = 875.0
+rotation = 0.04756307
+scale = Vector2(0.08170774, 0.08170774)
+texture = ExtResource("16_gfswg")
+
+[node name="Line" type="ColorRect" parent="VBoxContainer/Blue" unique_id=574525167]
+custom_minimum_size = Vector2(75, 10)
+layout_mode = 2
+size_flags_vertical = 4
+color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" parent="VBoxContainer/Blue" unique_id=398369403]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Blue/Control" unique_id=2027521699]
+layout_mode = 0
+offset_left = -13.0
+offset_top = 3.0
+offset_right = 62.0
+offset_bottom = 78.0
+texture = ExtResource("6_5u5b3")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/Blue/Control" unique_id=185842708]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 3.0
+offset_right = 113.0
+offset_bottom = 78.0
+texture = ExtResource("7_ortyt")
+expand_mode = 2
+stretch_mode = 5
