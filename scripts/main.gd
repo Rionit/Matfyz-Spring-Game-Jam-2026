@@ -4,6 +4,8 @@ extends Node3D
 @onready var tutorialScene: Node = $TutorialMenu
 @onready var timer = $Timer
 
+@export var time_for_documents: int = 180
+
 var pause: bool = false
 var tutorial: bool = false
 
@@ -31,7 +33,7 @@ func _input(event):
 ###
 func create_timer():
 	timer.timeout.connect(_on_timer_timeout)
-	timer.wait_time = 3.0
+	timer.wait_time = time_for_documents
 
 func start_timer():
 	timer.start()
