@@ -1,9 +1,7 @@
 
 class_name BaseMove
 
-
 extends Control
-
 
 @export var move_parent : Node3D = null
 @export var base_move_duration : float = 0.7
@@ -29,6 +27,15 @@ func show_item():
 
 func hide_item():
 	is_hidden.emit()
+
+func enable_camera():
+	GameManager.camera_active = true
+
+func _ready() -> void:
+	move_finished.connect(enable_camera)
+	pass
+	#move_finished.connect()
+
 
 
 func move(startPos : Vector3, endPos : Vector3, startRot : Vector3, endRot : Vector3, startScale : Vector3, endScale : Vector3, duration : float, ease : Tween.EaseType = base_move_ease, transition : Tween.TransitionType = base_move_transition):
