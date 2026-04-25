@@ -16,9 +16,10 @@ var max_misstakes_from_main : int
 ## new documents, not submitted documents from previous day, recurent documents
 var documents_to_submit : Array[DocumentController] = []
 
-@onready var main = $'../Main' 
+var main : Node = null
 
-func _ready() -> void:
+func main_game() -> void:
+	main = $'../Main'
 	max_misstakes_from_main = main.max_misstakes
 	max_misstakes = max_misstakes_from_main
 
