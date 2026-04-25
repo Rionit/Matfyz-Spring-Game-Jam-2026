@@ -1,13 +1,23 @@
 [gd_scene format=3 uid="uid://np02yhw2hh21"]
 
 [ext_resource type="Script" uid="uid://thhm5whoy2gr" path="res://scripts/main_camera.gd" id="1_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://cdptnkmj1256p" path="res://scenes/ui/pause_menu.tscn" id="1_jyhfs"]
+[ext_resource type="Script" uid="uid://bevavgob5p1ah" path="res://scripts/main.gd" id="1_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://b2f3frvqldyhg" path="res://models/map/room.glb" id="2_sugp2"]
+[ext_resource type="PackedScene" uid="uid://dv6ic7cllyp02" path="res://scenes/ui/tutorial_menu.tscn" id="2_tbgi4"]
 
 [sub_resource type="Environment" id="Environment_0wfyh"]
 
 [sub_resource type="Compositor" id="Compositor_sugp2"]
 
 [node name="Main" type="Node3D" unique_id=31963921]
+script = ExtResource("1_tbgi4")
+
+[node name="Timer" type="Timer" parent="." unique_id=141712067]
+
+[node name="PauseMenu" parent="." unique_id=2111182383 instance=ExtResource("1_jyhfs")]
+
+[node name="TutorialMenu" parent="." unique_id=2146562982 instance=ExtResource("2_tbgi4")]
 
 [node name="room" parent="." unique_id=50673408 instance=ExtResource("2_sugp2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26911533, 0.2132553, -0.1518287)
@@ -81,3 +91,12 @@ compositor = SubResource("Compositor_sugp2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00036376715, 0.19898345, 1)
 fov = 35.0
 script = ExtResource("1_0wfyh")
+
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/ButtonsVBox/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/ButtonsVBox/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="TutorialMenu/MarginContainer/VBoxContainer/ButtonsHBox/PreviousButton" to="." method="_on_previous_button_pressed"]
+[connection signal="pressed" from="TutorialMenu/MarginContainer/VBoxContainer/ButtonsHBox/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="TutorialMenu/MarginContainer/VBoxContainer/ButtonsHBox/NextButton" to="." method="_on_next_button_pressed"]
+
+[editable path="PauseMenu"]
+[editable path="TutorialMenu"]

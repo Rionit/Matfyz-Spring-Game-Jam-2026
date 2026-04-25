@@ -8,6 +8,8 @@ extends Camera3D
 @export var trigger_margin: int = 50
 @export var max_tilt: float = 5.0
 
+@onready var timer = $"../Timer"
+
 enum CameraState { FORWARD, DOWN, LEFT, RIGHT }
 
 var current_state: CameraState = CameraState.FORWARD
@@ -28,8 +30,9 @@ func _process(_delta: float) -> void:
 	var mouse_pos := get_viewport().get_mouse_position()
 	var screen_size := get_viewport().get_visible_rect().size
 
-	_apply_tilt(mouse_pos, screen_size)
-	_handle_triggers(mouse_pos, screen_size)
+	if !timer.is_paused():
+		_apply_tilt(mouse_pos, screen_size)
+		_handle_triggers(mouse_pos, screen_size)
 
 func _apply_tilt(mouse_pos: Vector2, screen_size: Vector2) -> void:
 	var tilt := Vector2.ZERO
