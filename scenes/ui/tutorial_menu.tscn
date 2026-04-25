@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dv6ic7cllyp02"]
 
-[node name="PauseMenu" type="CanvasLayer" unique_id=2111182383]
+[node name="TutorialMenu" type="CanvasLayer" unique_id=2111182383]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=129077195]
 modulate = Color(1, 1, 1, 0.39215687)

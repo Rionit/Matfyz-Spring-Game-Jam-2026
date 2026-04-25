@@ -1,11 +1,8 @@
-# main_menu.gd
 extends Control
 
 @onready var buttons_v_box: VBoxContainer = $MarginContainer/VBoxContainer/ButtonsVBox
-var credit_scene = preload("res://scenes/ui/credit.tscn")
 
 func _ready() -> void:
-	print('main')
 	focus_button()
 
 func _on_start_game_button_pressed() -> void:
