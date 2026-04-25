@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dy3l3huxsmnui"]
+
+[ext_resource type="Texture2D" uid="uid://ekkvjphenlfo" path="res://sprites/documents/blue/driving.png" id="1_yo0lp"]
+
+[node name="Control" type="Control" unique_id=766491024]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=131182643]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.33900002
+anchor_bottom = 0.81000006
+offset_right = -610.88
+offset_bottom = -834.80005
+texture = ExtResource("1_yo0lp")
+stretch_mode = 5

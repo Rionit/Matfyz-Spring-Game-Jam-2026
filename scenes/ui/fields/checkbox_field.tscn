@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://b2b2qewlviril"]
+
+[ext_resource type="Script" uid="uid://c7avs7iutabmb" path="res://scripts/checkbox_field.gd" id="1_aqsik"]
+[ext_resource type="Texture2D" uid="uid://d0n24ukai1f3s" path="res://sprites/checkbox/checkbox_red.png" id="2_i7rui"]
+[ext_resource type="Texture2D" uid="uid://danmfyqcca8su" path="res://sprites/checkbox/checked_red.png" id="3_eacck"]
+[ext_resource type="Texture2D" uid="uid://dkvoa3icnf4ge" path="res://sprites/checkbox/checkbox_green.png" id="4_i61pa"]
+[ext_resource type="Texture2D" uid="uid://dwrfwsvnsceoj" path="res://sprites/checkbox/checked_green.png" id="5_gshfp"]
+[ext_resource type="Texture2D" uid="uid://dr6a8w3cfp70c" path="res://sprites/checkbox/checkbox_blue.png" id="6_3b2qp"]
+[ext_resource type="Texture2D" uid="uid://b1ylvbrn2c3ut" path="res://sprites/checkbox/checked_blue.png" id="7_14o2x"]
+[ext_resource type="FontFile" uid="uid://chsiqrkupps43" path="res://fonts/red_font.ttf" id="8_u671s"]
+[ext_resource type="FontFile" uid="uid://ia0gu52dxka1" path="res://fonts/green_font.ttf" id="9_cxhg5"]
+[ext_resource type="FontFile" uid="uid://duyo07uotl2qi" path="res://fonts/blue_font.ttf" id="10_rpexa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aqsik"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u671s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i7rui"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eacck"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i61pa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_14o2x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gshfp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3b2qp"]
+
+[node name="CheckboxField" type="Control" unique_id=979512527]
+layout_mode = 3
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_aqsik")
+color_type = 2
+red_unchecked = ExtResource("2_i7rui")
+red_checked = ExtResource("3_eacck")
+green_unchecked = ExtResource("4_i61pa")
+green_checked = ExtResource("5_gshfp")
+blue_unchecked = ExtResource("6_3b2qp")
+blue_checked = ExtResource("7_14o2x")
+red_font = ExtResource("8_u671s")
+green_font = ExtResource("9_cxhg5")
+blue_font = ExtResource("10_rpexa")
+red_font_size = 30
+green_font_size = 42
+blue_font_size = 60
+
+[node name="CheckboxList" type="ItemList" parent="." unique_id=1838125501]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -183.0
+offset_top = -38.0
+offset_right = 183.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hovered_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hovered_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_rpexa")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/panel = SubResource("StyleBoxEmpty_aqsik")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_u671s")
+theme_override_styles/hovered = SubResource("StyleBoxEmpty_i7rui")
+theme_override_styles/hovered_selected = SubResource("StyleBoxEmpty_eacck")
+theme_override_styles/hovered_selected_focus = SubResource("StyleBoxEmpty_i61pa")
+theme_override_styles/selected = SubResource("StyleBoxEmpty_14o2x")
+theme_override_styles/selected_focus = SubResource("StyleBoxEmpty_gshfp")
+theme_override_styles/cursor_unfocused = SubResource("StyleBoxEmpty_3b2qp")
+select_mode = 2
+allow_search = false
+auto_width = true
+auto_height = true
+wraparound_items = false
+item_count = 3
+max_columns = 0
+same_column_width = true
+icon_scale = 0.75
+item_0/text = "asd"
+item_0/icon = ExtResource("6_3b2qp")
+item_1/text = "qwe"
+item_1/icon = ExtResource("6_3b2qp")
+item_2/text = "tzu"
+item_2/icon = ExtResource("6_3b2qp")
