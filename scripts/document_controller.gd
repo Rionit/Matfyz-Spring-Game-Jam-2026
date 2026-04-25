@@ -144,7 +144,7 @@ func change_parent(new_parent : Node3D):
 	move_parent.reparent(new_parent)
 
 func select():
-	if move_parent.get_parent() == GameManager.tableObject:
+	if move_parent.get_parent() == GameManager.table_object:
 		current_table_pos = move_parent.position
 	
 	change_parent(GameManager.player_face)
@@ -164,10 +164,9 @@ func put_on_table():
 	move_finished.connect(enable_click)
 
 	# TODO: Potentionally wrong rotation
-	move(move_parent.position, current_table_pos, move_parent.rotation_degrees, move_parent.rotation_degrees, move_parent.scale, listed_scale, base_move_duration)
+	move(move_parent.position, current_table_pos, move_parent.rotation_degrees, Vector3.ZERO, move_parent.scale, listed_scale, base_move_duration)
 
 func stash(folderPos : Vector3, folderRot : Vector3):
-
 	change_parent(GameManager.table_object)
 	disable_click()
 	disable_highlight()

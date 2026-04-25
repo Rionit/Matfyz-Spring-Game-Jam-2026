@@ -64,6 +64,7 @@ func _handle_triggers(mouse_pos: Vector2, screen_size: Vector2) -> void:
 		func():
 			if _is_tweening(): return
 			if current_state == CameraState.DOWN:
+				GameManager.move_to_top()
 				look_forward()
 	)
 
@@ -73,6 +74,7 @@ func _handle_triggers(mouse_pos: Vector2, screen_size: Vector2) -> void:
 		func():
 			if _is_tweening(): return
 			if current_state == CameraState.FORWARD:
+				GameManager.move_from_top()
 				look_down()
 	)
 

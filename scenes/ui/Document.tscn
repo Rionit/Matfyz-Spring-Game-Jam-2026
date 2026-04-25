@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c6t6wnq3gd84v" path="res://scripts/document_controller.gd" id="1_hov0c"]
 [ext_resource type="Texture2D" uid="uid://ekkvjphenlfo" path="res://sprites/documents/blue/driving.png" id="2_k7g7x"]
 
-[node name="Document" type="Control" unique_id=2125992226]
+[node name="Document" type="Control" unique_id=2125992226 node_paths=PackedStringArray("highlight_overlay")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,6 +15,7 @@ grow_vertical = 2
 script = ExtResource("1_hov0c")
 top_look_pos = Vector3(2, 1, 0)
 top_look_rot = Vector3(45, 0, 0)
+highlight_overlay = NodePath("HighlightOverlay")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1903551588]
 layout_mode = 0
@@ -33,3 +34,13 @@ theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
+
+[node name="HighlightOverlay" type="ColorRect" parent="." unique_id=1902409606]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.25490198, 1, 1, 0.2509804)

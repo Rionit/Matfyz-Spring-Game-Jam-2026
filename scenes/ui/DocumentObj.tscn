@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ba4bplautlgba" path="res://scenes/ui/Document.tscn" id="1_tfy2x"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_5yl67"]
-size = Vector2(1.92, 1.08)
+size = Vector2(0.1, 0.141)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_75eap"]
 viewport_path = NodePath("SubViewport")
@@ -21,7 +21,8 @@ size = Vector3(1.4072266, 0.703125, 0.009521484)
 size = Vector2i(651, 875)
 size_2d_override = Vector2i(1920, 1080)
 
-[node name="Document" parent="SubViewport" unique_id=2125992226 instance=ExtResource("1_tfy2x")]
+[node name="Document" parent="SubViewport" unique_id=2125992226 node_paths=PackedStringArray("move_parent") instance=ExtResource("1_tfy2x")]
+move_parent = NodePath("../..")
 
 [node name="Quad" type="MeshInstance3D" parent="." unique_id=1419982194]
 mesh = SubResource("QuadMesh_5yl67")
