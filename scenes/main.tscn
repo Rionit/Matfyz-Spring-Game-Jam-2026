@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://np02yhw2hh21"]
+
+[ext_resource type="Script" uid="uid://thhm5whoy2gr" path="res://scripts/main_camera.gd" id="1_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://b2f3frvqldyhg" path="res://models/map/room.glb" id="2_sugp2"]
+
+[sub_resource type="Environment" id="Environment_0wfyh"]
+
+[sub_resource type="Compositor" id="Compositor_sugp2"]
+
+[node name="Main" type="Node3D" unique_id=31963921]
+
+[node name="room" parent="." unique_id=50673408 instance=ExtResource("2_sugp2")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=583504047]
+environment = SubResource("Environment_0wfyh")
+compositor = SubResource("Compositor_sugp2")
+
+[node name="MainCamera" type="Camera3D" parent="." unique_id=184220275]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 1)
+fov = 35.0
+script = ExtResource("1_0wfyh")
