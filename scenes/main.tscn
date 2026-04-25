@@ -10,7 +10,7 @@
 [node name="Main" type="Node3D" unique_id=31963921]
 
 [node name="room" parent="." unique_id=50673408 instance=ExtResource("2_sugp2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010587871, 6.5371394e-05, -0.0004247427)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26911533, 0.2132553, -0.1518287)
 
 [node name="SpotLight3D4" type="SpotLight3D" parent="room" unique_id=36142895]
 transform = Transform3D(0.9999395, 0.010538173, -0.0031705708, 0.0022672773, 0.08464875, 0.9964083, 0.010768707, -0.9963552, 0.08461973, -0.6381782, 0.7702954, -0.78548396)
