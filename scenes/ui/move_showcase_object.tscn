@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cw4qutxb7l5s8"]
 
 [ext_resource type="Script" path="res://scripts/gui_3d.gd" id="1_6gx8s"]
-[ext_resource type="PackedScene" uid="uid://3liiy6o3nguj" path="res://scenes/ui/DocumentBase.tscn" id="2_mcgcl"]
+[ext_resource type="PackedScene" uid="uid://3liiy6o3nguj" path="res://scenes/ui/MoveBase.tscn" id="2_mcgcl"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_hw568"]
 size = Vector2(1.92, 1.08)
