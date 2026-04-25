@@ -1,35 +1,27 @@
-[gd_scene format=3 uid="uid://cldduaquiddtd"]
+[gd_scene format=3 uid="uid://c7fc07r17fe15"]
 
-[ext_resource type="Script" uid="uid://dmau22786qpha" path="res://scripts/gui_3d.gd" id="1_hw568"]
+[ext_resource type="Texture2D" uid="uid://cl278hjbckvgv" path="res://sprites/handbook/handbook.png" id="1_hw568"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_hw568"]
-size = Vector2(1.414, 0.7)
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_hw568"]
-viewport_path = NodePath("SubViewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yg5x4"]
-resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_hw568")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_hw568"]
-size = Vector3(1.4072266, 0.703125, 0.009521484)
-
-[node name="HandbookGUI" type="Node3D" unique_id=1668765249]
-script = ExtResource("1_hw568")
-
-[node name="SubViewport" type="SubViewport" parent="." unique_id=518393152]
-size = Vector2i(842, 595)
-
-[node name="Control" type="Control" parent="SubViewport" unique_id=1276115503]
+[node name="Handbook" type="Control" unique_id=1985724167]
 layout_mode = 3
+anchor_right = 0.439
+anchor_bottom = 0.551
+offset_right = -0.8800049
+offset_bottom = -0.08001709
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2012810609]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("1_hw568")
+expand_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="SubViewport/Control" unique_id=1302827266]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1338638078]
 layout_direction = 2
 layout_mode = 1
 anchors_preset = 15
@@ -38,25 +30,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="SubViewport/Control/HBoxContainer" unique_id=346101179]
-custom_minimum_size = Vector2(200, 0)
+[node name="LeftPageMargin" type="MarginContainer" parent="HBoxContainer" unique_id=322084412]
+custom_minimum_size = Vector2(421, 0)
 layout_mode = 2
-color = Color(1, 0, 0, 1)
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 70
 
-[node name="ColorRect2" type="ColorRect" parent="SubViewport/Control/HBoxContainer" unique_id=978151726]
-custom_minimum_size = Vector2(200, 0)
+[node name="RightPageMargin" type="MarginContainer" parent="HBoxContainer" unique_id=1182282021]
+custom_minimum_size = Vector2(421, 0)
 layout_mode = 2
-color = Color(0.24933854, 0.74245703, 0, 1)
-
-[node name="Button" type="Button" parent="SubViewport/Control/HBoxContainer" unique_id=550100389]
-layout_mode = 2
-text = "asdasdasdasdsadsadsadsadsadadasd"
-
-[node name="Quad" type="MeshInstance3D" parent="." unique_id=1341834876]
-mesh = SubResource("QuadMesh_hw568")
-surface_material_override/0 = SubResource("StandardMaterial3D_yg5x4")
-
-[node name="Area3D" type="Area3D" parent="Quad" unique_id=776341431]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Quad/Area3D" unique_id=525376047]
-shape = SubResource("BoxShape3D_hw568")
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 70

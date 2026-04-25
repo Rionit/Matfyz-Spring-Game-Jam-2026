@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://bkw887mh3dht3"]
+
+[ext_resource type="Texture2D" uid="uid://bk44u3t6aiaeh" path="res://sprites/signs/sign_red.png" id="1_dohpo"]
+[ext_resource type="Texture2D" uid="uid://28yxnhwhnhjd" path="res://sprites/signs/sign_green.png" id="2_t0dcv"]
+[ext_resource type="Texture2D" uid="uid://byw0pjmxge1te" path="res://sprites/signs/sign_blue.png" id="3_5cdo2"]
+
+[node name="TutorialSign" type="Control" unique_id=1975700824]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2078153277]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="RichTextLabel" parent="VBoxContainer" unique_id=637332976]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[i][b]Signature[/b][/i]
+This is where I write my signature."
+fit_content = true
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=734275043]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer" unique_id=1685094524]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_dohpo")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer" unique_id=827441322]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_t0dcv")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/HBoxContainer" unique_id=1775831965]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_5cdo2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label2" type="RichTextLabel" parent="VBoxContainer" unique_id=1616254984]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "Important: the signature must exist only within the signature box.
+
+Almost got deported once.
+
+So now I obey.
+
+I write [u]only inside the box[/u].
+
+[i]Always[/i] inside the box.
+
+Because if I don’t… my signature [b][i]will not be valid![/i][/b]"
+fit_content = true
+autowrap_mode = 2

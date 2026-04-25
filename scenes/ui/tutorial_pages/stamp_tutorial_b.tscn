@@ -1,0 +1,198 @@
+[gd_scene format=3 uid="uid://dr0i3g3jyotp6"]
+
+[ext_resource type="Texture2D" uid="uid://dumn3rkjxpa0y" path="res://sprites/stamps/black_stamp_1.png" id="1_6olqv"]
+[ext_resource type="Texture2D" uid="uid://c5eh35lhvskmp" path="res://sprites/stamps/black_stamp_2.png" id="2_bb23e"]
+[ext_resource type="Texture2D" uid="uid://c1dl6od3dhhyx" path="res://sprites/stamps/black_stamp_3.png" id="3_wuwch"]
+[ext_resource type="Texture2D" uid="uid://cr2pada3do7ex" path="res://sprites/stamps/red_stamp_1.png" id="4_b8qfd"]
+[ext_resource type="Texture2D" uid="uid://dspq4hnwt7vsb" path="res://sprites/stamps/red_stamp_2.png" id="5_4hivw"]
+[ext_resource type="Texture2D" uid="uid://bfnxbo682fn2u" path="res://sprites/stamps/red_stamp_3.png" id="6_2exow"]
+[ext_resource type="Texture2D" uid="uid://bhrbtapsgsqu2" path="res://sprites/stamps/green_stamp_1.png" id="7_kjdrx"]
+[ext_resource type="Texture2D" uid="uid://cjnb0kp5r3jix" path="res://sprites/stamps/green_stamp_2.png" id="8_j0dhw"]
+[ext_resource type="Texture2D" uid="uid://beqx4e2ox1qrm" path="res://sprites/stamps/green_stamp_3.png" id="9_k88bi"]
+[ext_resource type="Texture2D" uid="uid://dcb4atvqp522" path="res://sprites/stamps/blue_stamp_1.png" id="10_v5juw"]
+[ext_resource type="Texture2D" uid="uid://co6rso85ncdcj" path="res://sprites/stamps/blue_stamp_2.png" id="11_gtpck"]
+[ext_resource type="Texture2D" uid="uid://b35snm4dor705" path="res://sprites/stamps/blue_stamp_3.png" id="12_awqfq"]
+
+[node name="StampTutorialB" type="Control" unique_id=76748603]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Line4" type="ColorRect" parent="." unique_id=1195571938]
+layout_mode = 0
+offset_left = 72.99997
+offset_top = 140.0
+offset_right = 112.99997
+offset_bottom = 180.0
+rotation = -0.7357478
+scale = Vector2(3.922461, 0.14661726)
+color = Color(0.7647059, 0.16470589, 0.1254902, 1)
+
+[node name="Line5" type="ColorRect" parent="." unique_id=1271174302]
+layout_mode = 0
+offset_left = 75.5759
+offset_top = 234.76262
+offset_right = 115.5759
+offset_bottom = 274.76263
+rotation = -0.8882995
+scale = Vector2(4.7507863, 0.14497809)
+color = Color(0.7647059, 0.16470589, 0.1254902, 1)
+
+[node name="Line6" type="ColorRect" parent="." unique_id=1131753287]
+layout_mode = 0
+offset_left = 72.99997
+offset_top = 306.0
+offset_right = 112.99997
+offset_bottom = 346.0
+rotation = -0.8821626
+scale = Vector2(5.002748, 0.14661726)
+color = Color(0.7647059, 0.16470589, 0.1254902, 1)
+
+[node name="Line7" type="ColorRect" parent="." unique_id=2067039390]
+layout_mode = 0
+offset_left = 72.99997
+offset_top = 140.0
+offset_right = 112.99997
+offset_bottom = 180.0
+rotation = 0.35107553
+scale = Vector2(3.3703663, 0.14661726)
+color = Color(0.40392157, 0.57254905, 0.30588236, 1)
+
+[node name="Line8" type="ColorRect" parent="." unique_id=487138118]
+layout_mode = 0
+offset_left = 75.5759
+offset_top = 232.76263
+offset_right = 115.5759
+offset_bottom = 272.76263
+rotation = 0.018564284
+scale = Vector2(3.0458107, 0.14661726)
+color = Color(0.40392157, 0.57254905, 0.30588236, 1)
+
+[node name="Line9" type="ColorRect" parent="." unique_id=1191405917]
+layout_mode = 0
+offset_left = 72.99997
+offset_top = 304.99997
+offset_right = 112.99997
+offset_bottom = 344.99997
+rotation = -0.13594802
+scale = Vector2(3.1957033, 0.14661726)
+color = Color(0.40392157, 0.57254905, 0.30588236, 1)
+
+[node name="Line10" type="ColorRect" parent="." unique_id=1476748800]
+layout_mode = 0
+offset_left = 73.0
+offset_top = 140.0
+offset_right = 113.0
+offset_bottom = 180.0
+rotation = 0.9989933
+scale = Vector2(6.083545, 0.14661726)
+color = Color(0.30588236, 0.33333334, 0.5137255, 1)
+
+[node name="Line11" type="ColorRect" parent="." unique_id=114940833]
+layout_mode = 0
+offset_left = 78.57593
+offset_top = 232.76262
+offset_right = 118.57593
+offset_bottom = 272.76263
+rotation = 0.89338994
+scale = Vector2(5.1037064, 0.14661726)
+color = Color(0.30588236, 0.33333334, 0.5137255, 1)
+
+[node name="Line12" type="ColorRect" parent="." unique_id=1999947132]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 302.99997
+offset_right = 116.0
+offset_bottom = 342.99997
+rotation = 0.80713046
+scale = Vector2(4.7708106, 0.14661726)
+color = Color(0.30588236, 0.33333334, 0.5137255, 1)
+
+[node name="BlackStamp7" type="Sprite2D" parent="." unique_id=1775433595]
+position = Vector2(50.637634, 157.00002)
+scale = Vector2(0.42426792, 0.42426792)
+texture = ExtResource("1_6olqv")
+
+[node name="BlackStamp8" type="Sprite2D" parent="." unique_id=195981057]
+position = Vector2(50.637634, 240.09082)
+scale = Vector2(0.42426792, 0.42426792)
+texture = ExtResource("2_bb23e")
+
+[node name="BlackStamp9" type="Sprite2D" parent="." unique_id=1903777766]
+position = Vector2(50.637634, 324)
+scale = Vector2(0.42426792, 0.42426792)
+texture = ExtResource("3_wuwch")
+
+[node name="Red" type="Control" parent="." unique_id=45045359]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 76.0
+offset_bottom = 76.0
+grow_horizontal = 2
+
+[node name="RedStamp1" type="Sprite2D" parent="Red" unique_id=495901556]
+position = Vector2(223.19342, -43.500122)
+scale = Vector2(0.27741778, 0.27741778)
+texture = ExtResource("4_b8qfd")
+
+[node name="RedStamp2" type="Sprite2D" parent="Red" unique_id=1969804675]
+position = Vector2(223.19342, 11)
+scale = Vector2(0.27741778, 0.27741778)
+texture = ExtResource("5_4hivw")
+
+[node name="RedStamp3" type="Sprite2D" parent="Red" unique_id=450221771]
+position = Vector2(223.19342, 58)
+scale = Vector2(0.27741778, 0.27741778)
+texture = ExtResource("6_2exow")
+
+[node name="Green" type="Control" parent="." unique_id=1600118438]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -5.5
+offset_bottom = -5.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GreenStamp1" type="Sprite2D" parent="Green" unique_id=1887711256]
+position = Vector2(223.40674, -51.5)
+scale = Vector2(0.2706884, 0.2706884)
+texture = ExtResource("7_kjdrx")
+
+[node name="GreenStamp2" type="Sprite2D" parent="Green" unique_id=1493736655]
+position = Vector2(222.99994, -0.80084205)
+scale = Vector2(0.2706884, 0.2706884)
+texture = ExtResource("8_j0dhw")
+
+[node name="GreenStamp3" type="Sprite2D" parent="Green" unique_id=1155819297]
+position = Vector2(223.40674, 45.5)
+scale = Vector2(0.2706884, 0.2706884)
+texture = ExtResource("9_k88bi")
+
+[node name="Blue" type="Control" parent="." unique_id=1471831898]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -93.0
+offset_bottom = -93.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="BlueStamp1" type="Sprite2D" parent="Blue" unique_id=509099527]
+position = Vector2(224.09308, -48.999985)
+scale = Vector2(0.24418756, 0.24418756)
+texture = ExtResource("10_v5juw")
+
+[node name="BlueStamp2" type="Sprite2D" parent="Blue" unique_id=1345621062]
+position = Vector2(224.09308, -0.9999876)
+scale = Vector2(0.24418756, 0.24418756)
+texture = ExtResource("11_gtpck")
+
+[node name="BlueStamp3" type="Sprite2D" parent="Blue" unique_id=1744900515]
+position = Vector2(224.09308, 45.000015)
+scale = Vector2(0.24418756, 0.24418756)
+texture = ExtResource("12_awqfq")
