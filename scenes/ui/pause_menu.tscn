@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://cdptnkmj1256p"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=2111182383]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=129077195]
+modulate = Color(1, 1, 1, 0.39215687)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.35686275, 1, 1, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1880439485]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=897576247]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1299195240]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Pause"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonsVBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1259124778]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="ResumeButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsVBox" unique_id=52132214]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../ExitButton")
+focus_neighbor_bottom = NodePath("../ExitButton")
+focus_next = NodePath("../ExitButton")
+focus_previous = NodePath("../ExitButton")
+text = "Resume"
+
+[node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsVBox" unique_id=1963620422]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../ResumeButton")
+focus_neighbor_bottom = NodePath("../ResumeButton")
+focus_next = NodePath("../ResumeButton")
+focus_previous = NodePath("../ResumeButton")
+text = "Exit"
