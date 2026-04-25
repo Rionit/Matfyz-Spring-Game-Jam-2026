@@ -18,10 +18,14 @@ var current_state = DocState.HIDDEN
 
 # Default position on the table where the document should be put
 @export var default_table_pos : Vector3
+@export var default_table_rot : Vector3
 
 @export var top_look_pos : Vector3
 @export var top_look_rot : Vector3
 @export var highlight_overlay : Control
+
+@export var selection_pos : Vector3
+@export var selection_rot : Vector3
 
 var current_table_pos : Vector3
 
@@ -40,13 +44,15 @@ var can_drag_drop : bool = false # Whether the document can be dragged & dropped
 var counting_drag_drop : bool = false # Whether the cooldown for drag & drop is currently counted
 var is_drag_dropping : bool = false # Whether the document is currently being dragged & dropped
 
-@export var drag_drop_table_height_offset : float = 0.01
 
+#How high from the table the document should be when being dragged & dropped
+@export var drag_drop_table_height_offset : float = 0.01 
 
+# Time the document needs to be pressed for to start drag & drop
 @export var drag_drop_time : float = 0.8
 var current_drag_drop_time : float = 0.0
 
-
+# Scale of the document when it's listed in a folder
 @export var listed_scale : Vector3 = Vector3(0.3,0.3,0.3)
 
 # Hidden -> Listed
@@ -97,7 +103,8 @@ var current_drag_drop_time : float = 0.0
 func evaluate() -> int:
 	var total = 0
 	for field in fields:
-		total += field.evaluate()
+		if field.evaluate():
+			total += 1
 	return total
 
 ### ENABLE/DISABLE TOGGLES
@@ -133,21 +140,35 @@ func disable_drag_drop():
 
 ### ACTIONS (SELECT, PUT ON TABLE, STASH, MOVE TO TOP, MOVE FROM TOP)
 
-func select(selectionPos : Vector3, selectionRot : Vector3):
+func change_parent(new_parent : Node3D):
+	move_parent.reparent(new_parent)
+
+func select():
+	if move_parent.get_parent() == GameManager.tableObject:
+		current_table_pos = move_parent.position
+	
+	change_parent(GameManager.player_face)
+
 	disable_click()
 	disable_highlight()
 	move_finished.connect(enable_fields)
 	# TODO: Make helpbook offset conditional
-	move(move_parent.position, selectionPos + GameManager.helpbook_offset, move_parent.rotation_degrees, selectionRot, move_parent.scale, Vector3.ONE, base_move_duration)
+	move(move_parent.position, selection_pos + GameManager.helpbook_offset, move_parent.rotation_degrees, selection_rot, move_parent.scale, Vector3.ONE, base_move_duration)
 
 func put_on_table():
 	disable_fields()
+	change_parent(GameManager.table_object)
 
 	move_finished.connect(enable_drag_drop)
 	move_finished.connect(enable_highlight)
 	move_finished.connect(enable_click)
 
-func stash(folderPos : Vector3, folderRot : Vector3):	
+	# TODO: Potentionally wrong rotation
+	move(move_parent.position, current_table_pos, move_parent.rotation_degrees, move_parent.rotation_degrees, move_parent.scale, listed_scale, base_move_duration)
+
+func stash(folderPos : Vector3, folderRot : Vector3):
+
+	change_parent(GameManager.table_object)
 	disable_click()
 	disable_highlight()
 	disable_drag_drop()
@@ -159,11 +180,11 @@ func move_to_top():
 	# TODO: Make helpbook offset conditional
 	move(move_parent.position, top_look_pos + GameManager.helpbook_offset, move_parent.rotation_degrees, top_look_rot, move_parent.scale, Vector3.ONE, base_move_duration)
 
-func move_from_top(selectionPos : Vector3, selectionRot : Vector3):
+func move_from_top():
 	#TODO: Make helpbook offset conditional
 
 	move_finished.connect(enable_fields)
-	move(move_parent.position, selectionPos + GameManager.helpbook_offset, move_parent.rotation_degrees, selectionRot, move_parent.scale, Vector3.ONE, base_move_duration)
+	move(move_parent.position, selection_pos + GameManager.helpbook_offset, move_parent.rotation_degrees, selection_rot, move_parent.scale, Vector3.ONE, base_move_duration)
 
 func list(folderPos : Vector3, listPos : Vector3, listScale : Vector3):
 	move_finished.connect(enable_highlight)
@@ -198,6 +219,9 @@ func on_mouse_released():
 		counting_drag_drop = false
 		current_drag_drop_time = 0.0
 		current_table_pos = move_parent.position - drag_drop_table_height_offset * Vector3.UP
+
+		var cursor_folder_object = _get_cursor_folder_object()
+		# TODO: Add folder logic
 		return
 	elif can_click:
 		GameManager.select_document(self)
@@ -220,6 +244,28 @@ func _get_cursor_table_position() -> Variant:
 
 	var table_plane := Plane(Vector3.UP, default_table_pos.y)
 	return table_plane.intersects_ray(ray_origin, ray_normal)
+
+
+func _get_cursor_folder_object() -> Object:
+	var camera := _get_drag_camera()
+	if camera == null:
+		return null
+
+	var mouse_pos := get_viewport().get_mouse_position()
+	var ray_origin := camera.project_ray_origin(mouse_pos)
+	var ray_normal := camera.project_ray_normal(mouse_pos)
+	var ray_end := ray_origin + ray_normal * 1000.0
+
+	var layer_mask := 1 << (5 - 1)
+	var query := PhysicsRayQueryParameters3D.create(ray_origin, ray_end, layer_mask)
+	query.collide_with_areas = true
+	query.collide_with_bodies = true
+
+	var result := camera.get_world_3d().direct_space_state.intersect_ray(query)
+	if result.is_empty():
+		return null
+
+	return result.get("collider", null)
 	
 func _process(delta: float) -> void:
 	if counting_drag_drop:
