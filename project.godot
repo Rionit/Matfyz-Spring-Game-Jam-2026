@@ -11,8 +11,15 @@ config_version=5
 [application]
 
 config/name="Matfyz Spring Game Jam 2026"
+run/main_scene="uid://np02yhw2hh21"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
 
 [physics]
 
