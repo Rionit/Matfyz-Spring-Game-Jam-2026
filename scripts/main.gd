@@ -5,6 +5,8 @@ extends Node3D
 @onready var timer = $Timer
 
 @export var time_for_documents: int = 180
+@export var max_misstakes: int = 10
+@export var submission_folder: SubmissionFolder
 
 var pause: bool = false
 var tutorial: bool = false
@@ -15,11 +17,6 @@ func _ready() -> void:
 	pauseScene.hide()
 	create_timer()
 	start_timer()
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func _input(event):
 	if event.is_action_pressed("pause_action"):
@@ -53,6 +50,8 @@ func _on_timer_timeout():
 ###
 func game_over(reason):
 	if reason == "timeout":
+		get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
+	if reason == "misstakes":
 		get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
 	else:
 		get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
