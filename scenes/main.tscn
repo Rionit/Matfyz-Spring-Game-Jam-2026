@@ -13,6 +13,8 @@
 [node name="Main" type="Node3D" unique_id=31963921]
 script = ExtResource("1_tbgi4")
 
+[node name="Timer" type="Timer" parent="." unique_id=141712067]
+
 [node name="PauseMenu" parent="." unique_id=2111182383 instance=ExtResource("1_jyhfs")]
 
 [node name="TutorialMenu" parent="." unique_id=2146562982 instance=ExtResource("2_tbgi4")]
