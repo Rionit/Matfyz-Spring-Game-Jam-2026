@@ -29,6 +29,7 @@ func test_move():
 		startRot = test_move_start_rotation
 		endRot = test_move_end_rotation
 	else:
+
 		startPos = test_move_end_position
 		endPos = test_move_start_position
 		startRot = test_move_end_rotation
@@ -36,7 +37,7 @@ func test_move():
 
 	move_finished.connect(test_callback)
 
-	move(startPos, endPos, startRot, endRot, test_move_duration, test_move_ease, test_move_transition)
+	move(startPos, endPos, startRot, endRot, base_start_scale, base_end_scale, test_move_duration, test_move_ease, test_move_transition)
 
 func test_callback():
 	move_finished.disconnect(test_callback) # Disconnect the callback to prevent it from being called again on future moves.
