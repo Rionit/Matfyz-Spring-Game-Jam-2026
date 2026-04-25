@@ -191,18 +191,16 @@ func on_mouse_pressed():
 	if can_drag_drop:
 		counting_drag_drop = true
 
-
 func on_mouse_released():
+	current_drag_drop_time = 0.0
 	if is_drag_dropping:
 		is_drag_dropping = false
 		counting_drag_drop = false
 		current_drag_drop_time = 0.0
-		current_table_pos = move_parent.position
+		current_table_pos = move_parent.position - drag_drop_table_height_offset * Vector3.UP
 		return
-
-	if can_click:
+	elif can_click:
 		GameManager.select_document(self)
-
 
 func _get_drag_camera() -> Camera3D:
 	if GameManager.camera_node != null:
