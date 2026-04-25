@@ -23,7 +23,17 @@ script = ExtResource("1_6gx8s")
 size = Vector2i(1920, 1080)
 
 [node name="Control" parent="SubViewport" unique_id=1050868416 node_paths=PackedStringArray("move_parent") instance=ExtResource("2_mcgcl")]
+test_move_ease = null
+test_move_transition = null
+test_move_start_position = null
+test_move_end_position = null
+test_move_start_rotation = null
 move_parent = NodePath("../..")
+base_move_duration = null
+base_move_ease = null
+base_move_transition = null
+base_start_scale = null
+base_end_scale = null
 
 [node name="Quad" type="MeshInstance3D" parent="." unique_id=1341834876]
 mesh = SubResource("QuadMesh_hw568")
