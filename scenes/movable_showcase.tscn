@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cfjpm1lpusay5"]
+
+[ext_resource type="PackedScene" uid="uid://cw4qutxb7l5s8" path="res://scenes/ui/move_showcase_object.tscn" id="1_f3ae4"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_s641x"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_c1xsc"]
+sky_material = SubResource("ProceduralSkyMaterial_s641x")
+
+[sub_resource type="Environment" id="Environment_eqqqa"]
+background_mode = 2
+sky = SubResource("Sky_c1xsc")
+tonemap_mode = 2
+
+[node name="Control" type="Node3D" unique_id=1352540700]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1281324006]
+environment = SubResource("Environment_eqqqa")
+
+[node name="DocumentGUI" parent="." unique_id=1668765249 instance=ExtResource("1_f3ae4")]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2314533]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.1289593)
