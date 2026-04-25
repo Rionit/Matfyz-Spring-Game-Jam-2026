@@ -10,6 +10,7 @@
 [node name="Main" type="Node3D" unique_id=31963921]
 
 [node name="room" parent="." unique_id=50673408 instance=ExtResource("2_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=583504047]
 environment = SubResource("Environment_0wfyh")
