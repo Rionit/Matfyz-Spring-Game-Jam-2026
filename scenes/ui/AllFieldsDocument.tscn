@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b2b2qewlviril" path="res://scenes/ui/fields/checkbox_field.tscn" id="4_ex8nn"]
 [ext_resource type="PackedScene" uid="uid://dkw6ev72i83gp" path="res://scenes/ui/fields/photo_field.tscn" id="5_l84ho"]
 [ext_resource type="PackedScene" uid="uid://gok16fqapo66" path="res://scenes/ui/fields/signature_field.tscn" id="6_yit6g"]
+[ext_resource type="PackedScene" uid="uid://bl4yhqk1xuunw" path="res://scenes/ui/fields/stamp_field.tscn" id="7_ex8nn"]
 
 [node name="Document" type="Control" unique_id=2125992226 node_paths=PackedStringArray("fields", "highlight_overlay")]
 layout_mode = 3
@@ -74,6 +75,13 @@ offset_bottom = 155.0
 layout_mode = 1
 offset_top = 136.5
 offset_bottom = 136.5
+
+[node name="StampField" parent="MarginContainer/Body" unique_id=507597388 instance=ExtResource("7_ex8nn")]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 214.0
+offset_right = 212.0
+offset_bottom = 314.0
 
 [node name="HighlightOverlay" type="ColorRect" parent="." unique_id=1902409606]
 visible = false
