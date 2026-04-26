@@ -7,29 +7,25 @@
 [ext_resource type="Script" uid="uid://thhm5whoy2gr" path="res://scripts/main_camera.gd" id="5_7n0sf"]
 [ext_resource type="PackedScene" uid="uid://dqww7m5dojdwd" path="res://scenes/ui/DocumentObj.tscn" id="6_thi68"]
 [ext_resource type="Script" path="res://scripts/ui/test_document.gd" id="7_ahnse"]
-[ext_resource type="Script" uid="uid://de7a5nuhpqnmn" path="res://scripts/folder.gd" id="7_l6tnw"]
+[ext_resource type="PackedScene" uid="uid://d0frkjyyypykh" path="res://scenes/IncomingFolder.tscn" id="7_l6tnw"]
 
 [sub_resource type="Environment" id="Environment_0wfyh"]
 
 [sub_resource type="Compositor" id="Compositor_sugp2"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_l6tnw"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_jyudn"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jyudn"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r5kkv"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_l6tnw")
+albedo_texture = SubResource("ViewportTexture_jyudn")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_tsa4w"]
-size = Vector3(0.1, 0.1, 0.1)
+[sub_resource type="ViewportTexture" id="ViewportTexture_bmpos"]
+viewport_path = NodePath("SubViewport")
 
-[sub_resource type="TextMesh" id="TextMesh_tsa4w"]
-text = "Folder"
-font_size = 2
-
-[sub_resource type="TextMesh" id="TextMesh_l6tnw"]
-text = "List"
-font_size = 2
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_110go"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_bmpos")
 
 [node name="Main" type="Node3D" unique_id=31963921]
 script = ExtResource("1_twmxf")
@@ -121,38 +117,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.19021136)
 [node name="TableObject" type="Node3D" parent="." unique_id=1123201830]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.12755403, 0.55396736)
 
-[node name="DocumentObj" parent="TableObject" unique_id=1503292003 instance=ExtResource("6_thi68")]
+[node name="Document1" parent="TableObject" unique_id=1503292003 instance=ExtResource("6_thi68")]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 0.19508682, 0, 0)
+
+[node name="Quad" parent="TableObject/Document1" index="1" unique_id=1419982194]
+surface_material_override/0 = SubResource("StandardMaterial3D_r5kkv")
+
+[node name="TestFolder" parent="TableObject" unique_id=1106081498 instance=ExtResource("7_l6tnw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28472355, 0.00067687035, -0.031061232)
+input_ray_pickable = true
+
+[node name="Document2" parent="TableObject" unique_id=1463082052 instance=ExtResource("6_thi68")]
 transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 0, 0, 0)
 
-[node name="Quad" parent="TableObject/DocumentObj" index="1" unique_id=1419982194]
-surface_material_override/0 = SubResource("StandardMaterial3D_jyudn")
-
-[node name="Folder" type="Area3D" parent="TableObject" unique_id=122781295]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1621772, 0.013079464, -0.06928557)
-collision_layer = 16
-collision_mask = 0
-input_ray_pickable = false
-script = ExtResource("7_l6tnw")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TableObject/Folder" unique_id=1174539363]
-shape = SubResource("BoxShape3D_tsa4w")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="TableObject/Folder" unique_id=717778570]
-transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.14142136, 0, -0.70710677, 0.14142136, 0, 0, 0)
-mesh = SubResource("TextMesh_tsa4w")
-
-[node name="TestList" type="Node3D" parent="TableObject/Folder" unique_id=1689292382]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0025146604, 0.030394584, -0.051092893)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="TableObject/Folder/TestList" unique_id=2040231896]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.2, 0, 0, 0)
-mesh = SubResource("TextMesh_l6tnw")
-
-[node name="TestFolder" type="Node3D" parent="TableObject" unique_id=1499222637]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1621772, 0.013079464, -0.06928557)
-
-[node name="Node3D" type="Node3D" parent="TableObject" unique_id=470051546]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
+[node name="Quad" parent="TableObject/Document2" index="1" unique_id=1419982194]
+surface_material_override/0 = SubResource("StandardMaterial3D_110go")
 
 [node name="Control" type="Control" parent="." unique_id=1860320911 node_paths=PackedStringArray("select_button", "put_on_table_button", "stash_button", "list_button", "document")]
 layout_mode = 3
@@ -168,7 +147,7 @@ select_button = NodePath("Buttons/SelectButton")
 put_on_table_button = NodePath("Buttons/MoveOnTableButton")
 stash_button = NodePath("Buttons/StashButton")
 list_button = NodePath("Buttons/ListButton")
-document = NodePath("../TableObject/DocumentObj/SubViewport/Document")
+document = NodePath("../TableObject/Document1/SubViewport/Document")
 
 [node name="Buttons" type="HBoxContainer" parent="Control" unique_id=323850746]
 layout_mode = 1
@@ -216,5 +195,6 @@ text = "List"
 
 [editable path="PauseMenu"]
 [editable path="TutorialMenu"]
-[editable path="TableObject/DocumentObj"]
-[editable path="TableObject/DocumentObj/SubViewport/Document"]
+[editable path="TableObject/Document1"]
+[editable path="TableObject/Document1/SubViewport/Document"]
+[editable path="TableObject/Document2"]

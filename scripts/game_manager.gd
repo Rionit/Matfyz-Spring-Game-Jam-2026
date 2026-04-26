@@ -12,11 +12,12 @@ var camera_active : bool = true
 
 var helpbook_selected : bool = false
 
-@export var test_folder :Node3D # Position where documents will be stashed when moved to folder (relative to player face)
-
-@export var test_folder_list : Node3D
+@export var test_folder : Folder # Position where documents will be stashed when moved to folder (relative to player face)
 
 @export var testing_folders : bool = false
+
+# 2 documents are tested
+var tested_documents : Array[DocumentController]
 
 # TODO: Add helpbook
 var helpbook : Node3D
@@ -42,7 +43,13 @@ func main_game() -> void:
 
 	if testing_folders:
 		test_folder = $'../Main/TableObject/TestFolder'
-		test_folder_list = $'../Main/TableObject/TestList'
+		tested_documents.append($'../Main/TableObject/Document1/SubViewport/Document')
+		tested_documents.append($'../Main/TableObject/Document2/SubViewport/Document')
+
+		test_folder.add_docs(tested_documents)
+
+		tested_documents[0].stash(test_folder)
+		tested_documents[1].stash(test_folder)
 
 	#helpbook = $'../Main/Helpbook'
 
@@ -74,10 +81,12 @@ func move_from_top():
 	# 	helpbook.move_from_top()
 
 func move_to_folder_test(document : DocumentController):
-	document.stash(test_folder.position)
+	pass # Disabled
+	#document.stash(test_folder.position)
 
 func move_to_list_test(document : DocumentController):
-	document.list(test_folder.position, test_folder_list.position)
+	pass # Disabled
+	#document.list(test_folder.position, test_folder_list.position)
 
 func evaluate_day():
 	max_misstakes = max_misstakes_from_main
