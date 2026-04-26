@@ -20,3 +20,8 @@ mono_crash.*.json
 
 # Testing scenes
 **/[tT]est*.tscn
+
+# Builds
+[bB]uild
+[bB]uild/*
+[bB]uild.*

@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://chbtx82tf5yoh"]
+[gd_scene format=3 uid="uid://bsnfdqhgelq2l"]
 
 [ext_resource type="Script" uid="uid://bevavgob5p1ah" path="res://scripts/main.gd" id="1_twmxf"]
 [ext_resource type="PackedScene" uid="uid://cdptnkmj1256p" path="res://scenes/ui/pause_menu.tscn" id="2_thi68"]
@@ -30,6 +30,7 @@ albedo_texture = SubResource("ViewportTexture_bmpos")
 [node name="Main" type="Node3D" unique_id=31963921]
 script = ExtResource("1_twmxf")
 time_for_documents = 100000
+max_misstakes = null
 testing_folders = true
 
 [node name="Timer" type="Timer" parent="." unique_id=141712067]

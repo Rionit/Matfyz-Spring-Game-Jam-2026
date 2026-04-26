@@ -24,8 +24,15 @@ var helpbook : Node3D
 
 var selected_document : DocumentController = null
 
+enum PaymentType { NONE, RED, GREEN, BLUE }
+
+var selected_payment : PaymentType = PaymentType.NONE
+
 var max_misstakes : int
+
 var max_misstakes_from_main : int
+
+var actual_level : int = 1
 
 ## new documents, not submitted documents from previous day, recurent documents
 var documents_to_submit : Array[DocumentController] = []
@@ -56,10 +63,10 @@ func main_game() -> void:
 func select_document(doc : DocumentController): 
 	if selected_document != null:
 		put_on_table()
-
+	
 	if doc.folder != null:
 		doc.folder.remove_reorder(doc)
-	
+
 	doc.select()
 	selected_document = doc
 
@@ -88,9 +95,22 @@ func move_to_list_test(document : DocumentController):
 	pass # Disabled
 	#document.list(test_folder.position, test_folder_list.position)
 
+func load_level(docs: Array[DocumentController]) ->void:
+	for i in docs:
+		documents_to_submit.append(i)
+
 func evaluate_day():
 	max_misstakes = max_misstakes_from_main
 	var misstakes = main.submission_folder.evaluate(documents_to_submit)
 	max_misstakes -= misstakes
 	if max_misstakes <= 0:
 		main.game_over('misstakes')
+		return
+	var missing_documents = main.submission_folder.missing(documents_to_submit)
+	documents_to_submit = []
+	for i in missing_documents:
+		documents_to_submit.append(i)
+
+func next_level() -> void:
+	actual_level += 1
+	
