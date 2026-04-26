@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://bmwd46ptvars7"]
+
+[ext_resource type="Script" uid="uid://c6t6wnq3gd84v" path="res://scripts/document_controller.gd" id="1_1yekq"]
+[ext_resource type="Texture2D" uid="uid://b81mnvrcveljg" path="res://sprites/documents/red/registration.png" id="2_gcpsh"]
+[ext_resource type="PackedScene" uid="uid://chu43i7oryotp" path="res://scenes/ui/fields/captcha_field.tscn" id="3_514cj"]
+[ext_resource type="PackedScene" uid="uid://dkw6ev72i83gp" path="res://scenes/ui/fields/photo_field.tscn" id="5_jgqli"]
+[ext_resource type="PackedScene" uid="uid://gok16fqapo66" path="res://scenes/ui/fields/signature_field.tscn" id="6_u3tk3"]
+
+[node name="Document" type="Control" unique_id=2125992226 node_paths=PackedStringArray("fields", "highlight_overlay")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1269.0
+offset_bottom = -205.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_1yekq")
+fields = [NodePath("MarginContainer/Body/CaptchaField"), NodePath("MarginContainer/Body/SignatureField2"), NodePath("MarginContainer/Body/PhotoField"), NodePath("MarginContainer/Body/SignatureField")]
+highlight_overlay = NodePath("HighlightOverlay")
+top_look_pos = Vector3(0, -0.1, -0.12)
+top_look_rot = Vector3(-75, 0, 0)
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1903551588]
+layout_mode = 0
+offset_right = 651.0
+offset_bottom = 875.0
+texture = ExtResource("2_gcpsh")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1799867776]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 13
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 10
+
+[node name="Body" type="Control" parent="MarginContainer" unique_id=134183375]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="CaptchaField" parent="MarginContainer/Body" unique_id=9917882 instance=ExtResource("3_514cj")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -334.0
+offset_top = 224.0
+offset_right = -61.0
+offset_bottom = 541.0
+grow_horizontal = 0
+color_type = 0
+correct_answer_types = 1
+
+[node name="PhotoField" parent="MarginContainer/Body" unique_id=1679272487 instance=ExtResource("5_jgqli")]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 309.0
+offset_right = 212.0
+offset_bottom = 459.0
+
+[node name="SignatureField" parent="MarginContainer/Body" unique_id=739498873 instance=ExtResource("6_u3tk3")]
+layout_mode = 1
+offset_left = 12.039999
+offset_top = 268.5
+offset_right = 11.973938
+offset_bottom = 268.5
+color_type = 0
+
+[node name="SignatureField2" parent="MarginContainer/Body" unique_id=587505805 instance=ExtResource("6_u3tk3")]
+layout_mode = 1
+offset_left = 21.039999
+offset_top = -278.5
+offset_right = 20.973938
+offset_bottom = -278.5
+color_type = 0
+
+[node name="HighlightOverlay" type="ColorRect" parent="." unique_id=1902409606]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.25490198, 1, 1, 0.2509804)
+
+[connection signal="gui_input" from="MarginContainer/Body" to="." method="on_input_event"]
+[connection signal="mouse_entered" from="MarginContainer/Body" to="." method="on_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/Body" to="." method="on_mouse_exited"]
