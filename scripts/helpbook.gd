@@ -7,8 +7,8 @@ extends BaseMove
 
 @export var page_turn_duration : float = 0.05
 
-@export var left_arrow : RichTextLabel
-@export var right_arrow : RichTextLabel
+@export var left_arrow : TextureRect
+@export var right_arrow : TextureRect
 
 @export var table_pos : Vector3
 
@@ -44,23 +44,23 @@ func show_page(index : int):
 
 func next_page():
 	if receives_input and can_browse:
-		left_arrow.add_theme_color_override("default_color", default_arrow_color)
+		left_arrow.modulate = default_arrow_color
 
 		if current_page >= total_pages - 2:
-			right_arrow.add_theme_color_override("default_color", Color(0.5, 0.5, 0.5))
+			right_arrow.modulate = Color(0.5, 0.5, 0.5)
 		else:
-			right_arrow.add_theme_color_override("default_color", default_arrow_color)
+			right_arrow.modulate = default_arrow_color
 
 		if current_page < total_pages - 1:
 			show_page(current_page + 1)
 
 func previous_page():
 	if can_browse and receives_input:
-		right_arrow.add_theme_color_override("default_color", default_arrow_color)
+		right_arrow.modulate = default_arrow_color
 		if current_page <= 1:
-			left_arrow.add_theme_color_override("default_color", Color(0.5, 0.5, 0.5))
+			left_arrow.modulate = Color(0.5, 0.5, 0.5)
 		else:
-			left_arrow.add_theme_color_override("default_color", default_arrow_color)
+			left_arrow.modulate = default_arrow_color
 
 		if current_page > 0:
 			show_page(current_page - 1)
@@ -101,4 +101,6 @@ func on_input_event(event : InputEvent):
 		on_helpbook_input()
 
 func _ready() -> void:
+	right_arrow.modulate = default_arrow_color
+	left_arrow.modulate = Color(0.5, 0.5, 0.5)
 	receives_input = true

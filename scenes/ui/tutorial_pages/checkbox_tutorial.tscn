@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://2c6uct1o5gt4"]
 
 [ext_resource type="Texture2D" uid="uid://b81mnvrcveljg" path="res://sprites/documents/red/registration.png" id="1_2phdj"]
+[ext_resource type="Texture2D" uid="uid://cy6mmuqewhf7y" path="res://sprites/checkbox/unchecked.png" id="2_1xli4"]
+[ext_resource type="Texture2D" uid="uid://bv8ywvhay67lg" path="res://sprites/checkbox/checked.png" id="2_3kps0"]
 [ext_resource type="Texture2D" uid="uid://cjcepc24axcih" path="res://sprites/documents/green/registration.png" id="2_canme"]
 [ext_resource type="Texture2D" uid="uid://cbc2an22842sm" path="res://sprites/documents/blue/registration.png" id="3_3kps0"]
 [ext_resource type="Texture2D" uid="uid://dm3y58jv3wdq8" path="res://sprites/documents/red/tax.png" id="4_1xli4"]
@@ -11,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://5fwcfh7modef" path="res://sprites/documents/blue/viza.png" id="9_866hy"]
 
 [node name="CheckboxTutorial" type="Control" unique_id=638489415]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 3
 anchors_preset = 0
 
@@ -48,12 +51,30 @@ texture = ExtResource("1_2phdj")
 expand_mode = 4
 stretch_mode = 5
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Registration/Red" unique_id=66087647]
+[node name="Checkboxes" type="HBoxContainer" parent="VBoxContainer/Registration/Red" unique_id=968558737]
 layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "☐☒☒"
-fit_content = true
-horizontal_alignment = 1
+alignment = 1
+
+[node name="Unchecked" type="TextureRect" parent="VBoxContainer/Registration/Red/Checkboxes" unique_id=1400797035]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("2_1xli4")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Checked2" type="TextureRect" parent="VBoxContainer/Registration/Red/Checkboxes" unique_id=2093506816]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("2_3kps0")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Checked3" type="TextureRect" parent="VBoxContainer/Registration/Red/Checkboxes" unique_id=903104109]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("2_3kps0")
+expand_mode = 2
+stretch_mode = 5
 
 [node name="Green" type="VBoxContainer" parent="VBoxContainer/Registration" unique_id=1120727621]
 layout_mode = 2
@@ -67,12 +88,30 @@ texture = ExtResource("2_canme")
 expand_mode = 4
 stretch_mode = 5
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer/Registration/Green" unique_id=300729512]
+[node name="Checkboxes2" type="HBoxContainer" parent="VBoxContainer/Registration/Green" unique_id=1283540226]
 layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "☒☐☐"
-fit_content = true
-horizontal_alignment = 1
+alignment = 1
+
+[node name="Checked3" type="TextureRect" parent="VBoxContainer/Registration/Green/Checkboxes2" unique_id=1254559517]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("2_3kps0")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Unchecked" type="TextureRect" parent="VBoxContainer/Registration/Green/Checkboxes2" unique_id=1368440272]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("2_1xli4")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Unchecked2" type="TextureRect" parent="VBoxContainer/Registration/Green/Checkboxes2" unique_id=1494066908]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("2_1xli4")
+expand_mode = 2
+stretch_mode = 5
 
 [node name="Blue" type="VBoxContainer" parent="VBoxContainer/Registration" unique_id=1479881356]
 layout_mode = 2
@@ -86,12 +125,30 @@ texture = ExtResource("3_3kps0")
 expand_mode = 4
 stretch_mode = 5
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="VBoxContainer/Registration/Blue" unique_id=1498529944]
+[node name="Checkboxes2" type="HBoxContainer" parent="VBoxContainer/Registration/Blue" unique_id=1639908094]
 layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "☐☐☐"
-fit_content = true
-horizontal_alignment = 1
+alignment = 1
+
+[node name="Unchecked" type="TextureRect" parent="VBoxContainer/Registration/Blue/Checkboxes2" unique_id=2106297663]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("2_1xli4")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Unchecked2" type="TextureRect" parent="VBoxContainer/Registration/Blue/Checkboxes2" unique_id=1583606494]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("2_1xli4")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Unchecked3" type="TextureRect" parent="VBoxContainer/Registration/Blue/Checkboxes2" unique_id=1001321955]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("2_1xli4")
+expand_mode = 2
+stretch_mode = 5
 
 [node name="Tax" type="HBoxContainer" parent="VBoxContainer" unique_id=879695626]
 custom_minimum_size = Vector2(0, 60)
@@ -111,12 +168,30 @@ texture = ExtResource("4_1xli4")
 expand_mode = 4
 stretch_mode = 5
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Tax/Red" unique_id=1165445048]
+[node name="Checkboxes2" type="HBoxContainer" parent="VBoxContainer/Tax/Red" unique_id=744546400]
 layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "☒☐☐"
-fit_content = true
-horizontal_alignment = 1
+alignment = 1
+
+[node name="Checked" type="TextureRect" parent="VBoxContainer/Tax/Red/Checkboxes2" unique_id=454948860]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("2_3kps0")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Unchecked" type="TextureRect" parent="VBoxContainer/Tax/Red/Checkboxes2" unique_id=1048367810]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("2_1xli4")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Unchecked2" type="TextureRect" parent="VBoxContainer/Tax/Red/Checkboxes2" unique_id=1059162652]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("2_1xli4")
+expand_mode = 2
+stretch_mode = 5
 
 [node name="Green" type="VBoxContainer" parent="VBoxContainer/Tax" unique_id=50028669]
 layout_mode = 2
@@ -130,12 +205,30 @@ texture = ExtResource("5_4q10i")
 expand_mode = 4
 stretch_mode = 5
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer/Tax/Green" unique_id=288830790]
+[node name="Checkboxes2" type="HBoxContainer" parent="VBoxContainer/Tax/Green" unique_id=953993473]
 layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "☒☐☐"
-fit_content = true
-horizontal_alignment = 1
+alignment = 1
+
+[node name="Checked" type="TextureRect" parent="VBoxContainer/Tax/Green/Checkboxes2" unique_id=682815906]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("2_3kps0")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Unchecked" type="TextureRect" parent="VBoxContainer/Tax/Green/Checkboxes2" unique_id=1016986920]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("2_1xli4")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Unchecked2" type="TextureRect" parent="VBoxContainer/Tax/Green/Checkboxes2" unique_id=2141248541]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("2_1xli4")
+expand_mode = 2
+stretch_mode = 5
 
 [node name="Blue" type="VBoxContainer" parent="VBoxContainer/Tax" unique_id=326516242]
 layout_mode = 2
@@ -149,12 +242,30 @@ texture = ExtResource("6_magrv")
 expand_mode = 4
 stretch_mode = 5
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="VBoxContainer/Tax/Blue" unique_id=488506995]
+[node name="Checkboxes2" type="HBoxContainer" parent="VBoxContainer/Tax/Blue" unique_id=609197643]
 layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "☐☒☐"
-fit_content = true
-horizontal_alignment = 1
+alignment = 1
+
+[node name="Unchecked2" type="TextureRect" parent="VBoxContainer/Tax/Blue/Checkboxes2" unique_id=1086059261]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("2_1xli4")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Checked" type="TextureRect" parent="VBoxContainer/Tax/Blue/Checkboxes2" unique_id=1988920445]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("2_3kps0")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Unchecked3" type="TextureRect" parent="VBoxContainer/Tax/Blue/Checkboxes2" unique_id=297688596]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("2_1xli4")
+expand_mode = 2
+stretch_mode = 5
 
 [node name="Visa" type="HBoxContainer" parent="VBoxContainer" unique_id=1156680286]
 custom_minimum_size = Vector2(0, 60)
@@ -174,12 +285,30 @@ texture = ExtResource("7_1v1b3")
 expand_mode = 4
 stretch_mode = 5
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Visa/Red" unique_id=2031344665]
+[node name="Checkboxes2" type="HBoxContainer" parent="VBoxContainer/Visa/Red" unique_id=1469904766]
 layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "☒☐☐"
-fit_content = true
-horizontal_alignment = 1
+alignment = 1
+
+[node name="Checked" type="TextureRect" parent="VBoxContainer/Visa/Red/Checkboxes2" unique_id=1698849546]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("2_3kps0")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Unchecked" type="TextureRect" parent="VBoxContainer/Visa/Red/Checkboxes2" unique_id=2043327456]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("2_1xli4")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Unchecked2" type="TextureRect" parent="VBoxContainer/Visa/Red/Checkboxes2" unique_id=1678991141]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("2_1xli4")
+expand_mode = 2
+stretch_mode = 5
 
 [node name="Green" type="VBoxContainer" parent="VBoxContainer/Visa" unique_id=1897750120]
 layout_mode = 2
@@ -193,12 +322,30 @@ texture = ExtResource("8_6ajx3")
 expand_mode = 4
 stretch_mode = 5
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer/Visa/Green" unique_id=1108601939]
+[node name="Checkboxes2" type="HBoxContainer" parent="VBoxContainer/Visa/Green" unique_id=607090877]
 layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "☒☐☒"
-fit_content = true
-horizontal_alignment = 1
+alignment = 1
+
+[node name="Checked" type="TextureRect" parent="VBoxContainer/Visa/Green/Checkboxes2" unique_id=1720235723]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("2_3kps0")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Unchecked" type="TextureRect" parent="VBoxContainer/Visa/Green/Checkboxes2" unique_id=1856911387]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("2_1xli4")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Checked3" type="TextureRect" parent="VBoxContainer/Visa/Green/Checkboxes2" unique_id=1186580639]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("2_3kps0")
+expand_mode = 2
+stretch_mode = 5
 
 [node name="Blue" type="VBoxContainer" parent="VBoxContainer/Visa" unique_id=1585753084]
 layout_mode = 2
@@ -212,9 +359,27 @@ texture = ExtResource("9_866hy")
 expand_mode = 4
 stretch_mode = 5
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="VBoxContainer/Visa/Blue" unique_id=396420954]
+[node name="Checkboxes2" type="HBoxContainer" parent="VBoxContainer/Visa/Blue" unique_id=1162555855]
 layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "☐☐☒"
-fit_content = true
-horizontal_alignment = 1
+alignment = 1
+
+[node name="Unchecked" type="TextureRect" parent="VBoxContainer/Visa/Blue/Checkboxes2" unique_id=2090153130]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("2_1xli4")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Unchecked2" type="TextureRect" parent="VBoxContainer/Visa/Blue/Checkboxes2" unique_id=735879983]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("2_1xli4")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Checked" type="TextureRect" parent="VBoxContainer/Visa/Blue/Checkboxes2" unique_id=88283097]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("2_3kps0")
+expand_mode = 2
+stretch_mode = 5
