@@ -1,15 +1,25 @@
 [gd_scene format=3 uid="uid://cdptnkmj1256p"]
 
+[ext_resource type="FontFile" uid="uid://chsiqrkupps43" path="res://fonts/red_font.ttf" id="1_6tw0m"]
+[ext_resource type="FontFile" uid="uid://duyo07uotl2qi" path="res://fonts/blue_font.ttf" id="1_f6eus"]
+[ext_resource type="FontFile" uid="uid://ia0gu52dxka1" path="res://fonts/green_font.ttf" id="2_8uki6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f6eus"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8uki6"]
+
+[sub_resource type="SystemFont" id="SystemFont_6tw0m"]
+
 [node name="PauseMenu" type="CanvasLayer" unique_id=2111182383]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=129077195]
-modulate = Color(1, 1, 1, 0.39215687)
+modulate = Color(1, 1, 1, 0.45882353)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.35686275, 1, 1, 1)
+color = Color(0, 0, 0, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1880439485]
 anchors_preset = 15
@@ -25,15 +35,6 @@ theme_override_constants/margin_bottom = 32
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=897576247]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1299195240]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
-text = "Pause"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="ButtonsVBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1259124778]
 layout_mode = 2
 size_flags_vertical = 10
@@ -46,6 +47,8 @@ focus_neighbor_top = NodePath("../ExitButton")
 focus_neighbor_bottom = NodePath("../ExitButton")
 focus_next = NodePath("../ExitButton")
 focus_previous = NodePath("../ExitButton")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxEmpty_f6eus")
 text = "Resume"
 
 [node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsVBox" unique_id=1963620422]
@@ -56,4 +59,58 @@ focus_neighbor_top = NodePath("../ResumeButton")
 focus_neighbor_bottom = NodePath("../ResumeButton")
 focus_next = NodePath("../ResumeButton")
 focus_previous = NodePath("../ResumeButton")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8uki6")
 text = "Exit"
+
+[node name="Label" type="Label" parent="." unique_id=1299195240]
+offset_left = 33.0
+offset_top = 416.0
+offset_right = 1889.0
+offset_bottom = 922.0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.88, 0.88, 0.88, 1)
+theme_override_fonts/font = SubResource("SystemFont_6tw0m")
+theme_override_font_sizes/font_size = 32
+text = "(Pause)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=978733617]
+offset_left = 33.0
+offset_top = 66.0
+offset_right = 1889.0
+offset_bottom = 402.0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.6024352, 0.7753075, 0.90093386, 1)
+theme_override_fonts/font = ExtResource("1_f6eus")
+theme_override_font_sizes/font_size = 200
+text = "Pause"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="." unique_id=363792423]
+offset_left = 35.0
+offset_top = 206.0
+offset_right = 1891.0
+offset_bottom = 542.0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.5425232, 0.85025436, 0.31537664, 1)
+theme_override_fonts/font = ExtResource("2_8uki6")
+theme_override_font_sizes/font_size = 170
+text = "ause"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="." unique_id=153048560]
+offset_left = 35.0
+offset_top = 380.0
+offset_right = 1891.0
+offset_bottom = 716.0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.85, 0.3145, 0.3145, 1)
+theme_override_fonts/font = ExtResource("1_6tw0m")
+theme_override_font_sizes/font_size = 100
+text = "ause"
+horizontal_alignment = 1
+vertical_alignment = 1
