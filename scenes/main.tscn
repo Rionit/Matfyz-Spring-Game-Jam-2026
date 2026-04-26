@@ -1,41 +1,45 @@
 [gd_scene format=3 uid="uid://b3rtey3td6lb5"]
 
-[ext_resource type="Script" uid="uid://bevavgob5p1ah" path="res://scripts/main.gd" id="1_how18"]
-[ext_resource type="PackedScene" uid="uid://dccm5wkm0nlvl" path="res://scenes/ui/TimerCountdown.tscn" id="2_7oi8n"]
-[ext_resource type="PackedScene" uid="uid://cdptnkmj1256p" path="res://scenes/ui/pause_menu.tscn" id="3_gs8qe"]
-[ext_resource type="PackedScene" uid="uid://dv6ic7cllyp02" path="res://scenes/ui/tutorial_menu.tscn" id="4_pr66g"]
-[ext_resource type="PackedScene" uid="uid://b2f3frvqldyhg" path="res://models/map/room.glb" id="5_2jfmm"]
-[ext_resource type="Script" uid="uid://thhm5whoy2gr" path="res://scripts/main_camera.gd" id="6_7obif"]
-[ext_resource type="PackedScene" uid="uid://c4c1o7hc6u6l" path="res://sprites/clock.glb" id="7_1reov"]
-[ext_resource type="PackedScene" uid="uid://d0frkjyyypykh" path="res://scenes/IncomingFolder.tscn" id="8_1dis4"]
-[ext_resource type="PackedScene" uid="uid://cjuct5j48uqah" path="res://scenes/ui/AllFieldsDocObj.tscn" id="9_c77lx"]
-[ext_resource type="PackedScene" uid="uid://4tc3bju77eu6" path="res://scenes/ui/HelpbookObj.tscn" id="10_b77ej"]
-[ext_resource type="PackedScene" uid="uid://cdrkieb7mimdx" path="res://scenes/SubmissionFolder.tscn" id="11_ljnj7"]
-[ext_resource type="PackedScene" uid="uid://bxtxqfthsaj13" path="res://scenes/ui/submit_gui.tscn" id="12_0wgk2"]
-[ext_resource type="PackedScene" uid="uid://cwtuh1abisqt3" path="res://scenes/ui/payment_buttons_gui.tscn" id="13_sws6j"]
-[ext_resource type="PackedScene" uid="uid://bw12ikpch1k0q" path="res://scenes/ui/stamp_buttons_gui_red.tscn" id="14_jhcjm"]
-[ext_resource type="PackedScene" uid="uid://byquhyes7qrl2" path="res://scenes/ui/stamp_buttons_gui_green.tscn" id="15_28w4p"]
-[ext_resource type="PackedScene" uid="uid://bf1qrj151504f" path="res://scenes/ui/stamp_buttons_gui_blue.tscn" id="16_63uc6"]
-[ext_resource type="AudioStream" uid="uid://cxwa43i8c3c6o" path="res://sounds/alien_background.wav" id="17_bfdpt"]
+[ext_resource type="Script" uid="uid://thhm5whoy2gr" path="res://scripts/main_camera.gd" id="1_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://cdptnkmj1256p" path="res://scenes/ui/pause_menu.tscn" id="1_jyhfs"]
+[ext_resource type="Script" uid="uid://bevavgob5p1ah" path="res://scripts/main.gd" id="1_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://b2f3frvqldyhg" path="res://models/map/room.glb" id="2_sugp2"]
+[ext_resource type="PackedScene" uid="uid://dv6ic7cllyp02" path="res://scenes/ui/tutorial_menu.tscn" id="2_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://dccm5wkm0nlvl" path="res://scenes/ui/TimerCountdown.tscn" id="2_tipki"]
+[ext_resource type="PackedScene" uid="uid://c4c1o7hc6u6l" path="res://sprites/clock.glb" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://d0frkjyyypykh" path="res://scenes/IncomingFolder.tscn" id="8_85g3d"]
+[ext_resource type="PackedScene" uid="uid://4tc3bju77eu6" path="res://scenes/ui/HelpbookObj.tscn" id="9_85g3d"]
+[ext_resource type="PackedScene" uid="uid://cdrkieb7mimdx" path="res://scenes/SubmissionFolder.tscn" id="10_choun"]
+[ext_resource type="PackedScene" uid="uid://bxtxqfthsaj13" path="res://scenes/ui/submit_gui.tscn" id="11_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://cwtuh1abisqt3" path="res://scenes/ui/payment_buttons_gui.tscn" id="12_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://bgop400jhtjnq" path="res://scenes/TaxReport/TaxReport_Blue_A_Obj.tscn" id="13_gqmmt"]
+[ext_resource type="PackedScene" uid="uid://bw12ikpch1k0q" path="res://scenes/ui/stamp_buttons_gui_red.tscn" id="14_a8y0u"]
+[ext_resource type="PackedScene" uid="uid://caeky4ivqovhr" path="res://scenes/TaxReport/TaxReport_Blue_B_Obj.tscn" id="14_yc10j"]
+[ext_resource type="PackedScene" uid="uid://byquhyes7qrl2" path="res://scenes/ui/stamp_buttons_gui_green.tscn" id="15_jkv2x"]
+[ext_resource type="PackedScene" uid="uid://c8sn36o5f2k8b" path="res://scenes/TaxReport/TaxReport_Green_A_Obj.tscn" id="15_jscy8"]
+[ext_resource type="PackedScene" uid="uid://bf1qrj151504f" path="res://scenes/ui/stamp_buttons_gui_blue.tscn" id="16_jbj1t"]
+[ext_resource type="PackedScene" uid="uid://bosumfedw3or3" path="res://scenes/TaxReport/TaxReport_Green_B_Obj.tscn" id="16_pm3ni"]
+[ext_resource type="AudioStream" uid="uid://cxwa43i8c3c6o" path="res://sounds/alien_background.wav" id="17_muem4"]
 
 [sub_resource type="Environment" id="Environment_0wfyh"]
 
 [sub_resource type="Compositor" id="Compositor_sugp2"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_muem4"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_gqmmt"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dp3eg"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yc10j"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_muem4")
+albedo_texture = SubResource("ViewportTexture_gqmmt")
 
-[node name="Main" type="Node3D" unique_id=31963921 node_paths=PackedStringArray("submission_folder", "incoming_folder")]
-script = ExtResource("1_how18")
+[node name="Main" type="Node3D" unique_id=31963921 node_paths=PackedStringArray("submission_folder", "incoming_folder", "level_1_guis", "level_2_guis")]
+script = ExtResource("1_tbgi4")
 submission_folder = NodePath("TableObject/SubmissionFolder")
 incoming_folder = NodePath("TableObject/TestFolder")
-testing_folders = true
+level_1_guis = [NodePath("TableObject/DocumentObj"), NodePath("TableObject/DocumentObj2")]
+level_2_guis = [NodePath("TableObject/DocumentObj3"), NodePath("TableObject/DocumentObj4")]
 
-[node name="TimerCountdown" parent="." unique_id=1144034343 instance=ExtResource("2_7oi8n")]
+[node name="TimerCountdown" parent="." unique_id=1144034343 instance=ExtResource("2_tipki")]
 
 [node name="Label3D" parent="TimerCountdown" index="0" unique_id=473602639]
 transform = Transform3D(0.7774097, 0, 0.6289947, 0, 1, 0, -0.6289947, 0, 0.7774097, -0.7999948, 0.43576896, -0.32709554)
@@ -45,11 +49,11 @@ outline_size = 1
 
 [node name="Timer" type="Timer" parent="." unique_id=141712067]
 
-[node name="PauseMenu" parent="." unique_id=2111182383 instance=ExtResource("3_gs8qe")]
+[node name="PauseMenu" parent="." unique_id=2111182383 instance=ExtResource("1_jyhfs")]
 
-[node name="TutorialMenu" parent="." unique_id=2146562982 instance=ExtResource("4_pr66g")]
+[node name="TutorialMenu" parent="." unique_id=2146562982 instance=ExtResource("2_tbgi4")]
 
-[node name="room" parent="." unique_id=50673408 instance=ExtResource("5_2jfmm")]
+[node name="room" parent="." unique_id=50673408 instance=ExtResource("2_sugp2")]
 
 [node name="SpotLight3D4" type="SpotLight3D" parent="room" unique_id=36142895]
 transform = Transform3D(0.9999395, 0.010538173, -0.0031705708, 0.0022672773, 0.08464875, 0.9964083, 0.010768707, -0.9963552, 0.08461973, -0.6381782, 0.7702954, -0.78548396)
@@ -119,40 +123,46 @@ compositor = SubResource("Compositor_sugp2")
 [node name="MainCamera" type="Camera3D" parent="." unique_id=184220275]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00036376715, 0.19898345, 1)
 fov = 35.0
-script = ExtResource("6_7obif")
+script = ExtResource("1_0wfyh")
 
 [node name="PlayerFace" type="Node3D" parent="MainCamera" unique_id=177487933]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.19021136)
 
-[node name="clock2" parent="." unique_id=1875545924 instance=ExtResource("7_1reov")]
+[node name="clock2" parent="." unique_id=1875545924 instance=ExtResource("6_tefeu")]
 transform = Transform3D(0.7671922, -0.003428014, 0.64140815, 0.0032231687, 0.9999937, 0.0014892351, -0.6414092, 0.0009248547, 0.76719844, -0.6621188, 0.051334888, -0.45982236)
 
 [node name="TableObject" type="Node3D" parent="." unique_id=722712540]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.12755403, 0.55396736)
 
-[node name="TestFolder" parent="TableObject" unique_id=1106081498 instance=ExtResource("8_1dis4")]
+[node name="TestFolder" parent="TableObject" unique_id=1106081498 instance=ExtResource("8_85g3d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28472355, 0.00067687035, -0.031061232)
 
-[node name="Document1" parent="TableObject" unique_id=1503292003 instance=ExtResource("9_c77lx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15147972, 0.2842134, 0.010760665)
-
-[node name="Document2" parent="TableObject" unique_id=109233284 instance=ExtResource("9_c77lx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15147972, 0.2842134, 0.010760665)
-
-[node name="HelpbookObj" parent="TableObject" unique_id=1668765249 instance=ExtResource("10_b77ej")]
+[node name="HelpbookObj" parent="TableObject" unique_id=1668765249 instance=ExtResource("9_85g3d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33928284, 0, 0.111617625)
 
 [node name="Quad" parent="TableObject/HelpbookObj" index="1" unique_id=1341834876]
-surface_material_override/0 = SubResource("StandardMaterial3D_dp3eg")
+surface_material_override/0 = SubResource("StandardMaterial3D_yc10j")
 
-[node name="SubmissionFolder" parent="TableObject" unique_id=1151233729 instance=ExtResource("11_ljnj7")]
+[node name="SubmissionFolder" parent="TableObject" unique_id=1151233729 instance=ExtResource("10_choun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19524977, -0.01045239, -0.019834101)
 
-[node name="PaymentButtonsGUI" parent="TableObject" unique_id=1391087144 instance=ExtResource("12_0wgk2")]
+[node name="PaymentButtonsGUI" parent="TableObject" unique_id=1391087144 instance=ExtResource("11_ya4ey")]
 transform = Transform3D(1.9604162, 0, 2.5225315, 0, 3.194745, 0, -2.5225315, 0, 1.9604162, -0.7220303, 0.16315308, -0.25705954)
 
-[node name="PaymentButtonsGUI2" parent="TableObject" unique_id=612734104 instance=ExtResource("13_sws6j")]
+[node name="PaymentButtonsGUI2" parent="TableObject" unique_id=612734104 instance=ExtResource("12_eb6dy")]
 transform = Transform3D(0.5992611, 0, -1.1452582, 0, 1.2925673, 0, 1.1452582, 0, 0.5992611, 0.71437466, 0.2375531, -0.42608202)
+
+[node name="DocumentObj" parent="TableObject" unique_id=1503292003 instance=ExtResource("13_gqmmt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.9106951)
+
+[node name="DocumentObj2" parent="TableObject" unique_id=519397076 instance=ExtResource("14_yc10j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.9106951)
+
+[node name="DocumentObj3" parent="TableObject" unique_id=2094945276 instance=ExtResource("15_jscy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.9106951)
+
+[node name="DocumentObj4" parent="TableObject" unique_id=724279471 instance=ExtResource("16_pm3ni")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.9106951)
 
 [node name="Label3D" type="Label3D" parent="." unique_id=1255954377]
 transform = Transform3D(0.001571035, 0, 0.99999887, 0, 1, 0, -0.99999887, 0, 0.001571035, -0.98750967, 0.06762849, 0.12241647)
@@ -160,17 +170,17 @@ text = "09:00 - 12:00"
 font_size = 14
 outline_size = 4
 
-[node name="StampButtonsGUI" parent="." unique_id=1825527057 instance=ExtResource("14_jhcjm")]
+[node name="StampButtonsGUI" parent="." unique_id=1825527057 instance=ExtResource("14_a8y0u")]
 transform = Transform3D(1.6484566, 0, 0.7882875, 0, 1.8272401, 0, -0.7882875, 0, 1.6484566, -0.5006839, 0.29448894, -0.5905257)
 
-[node name="StampButtonsGUI2" parent="." unique_id=1477930166 instance=ExtResource("15_28w4p")]
+[node name="StampButtonsGUI2" parent="." unique_id=1477930166 instance=ExtResource("15_jkv2x")]
 transform = Transform3D(1.79724, 0, 0, 0, 1.79724, 0, 0, 0, 1.79724, 0.04323028, 0.30880535, -0.54737616)
 
-[node name="StampButtonsGUI3" parent="." unique_id=1608181359 instance=ExtResource("16_63uc6")]
+[node name="StampButtonsGUI3" parent="." unique_id=1608181359 instance=ExtResource("16_jbj1t")]
 transform = Transform3D(1.4108834, 0, -0.69543403, 0, 1.5729655, 0, 0.69543403, 0, 1.4108834, 0.45139056, 0.32027367, -0.34043682)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1565050669]
-stream = ExtResource("17_bfdpt")
+stream = ExtResource("17_muem4")
 autoplay = true
 
 [connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/ButtonsVBox/ResumeButton" to="." method="_on_resume_button_pressed"]
