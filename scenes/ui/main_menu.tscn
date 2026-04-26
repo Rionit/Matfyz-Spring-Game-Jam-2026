@@ -1,6 +1,25 @@
 [gd_scene format=3 uid="uid://sy0q2r7xo415"]
 
 [ext_resource type="Script" uid="uid://dmyusnm47hini" path="res://scripts/ui/main_menu.gd" id="1_sl1te"]
+[ext_resource type="Texture2D" uid="uid://bs2cq4hp1f2le" path="res://sprites/images/mainmenu.png" id="2_fe2o3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fe2o3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x2yvf"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_uhagc"]
+thickness = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m1kxf"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_fe2o3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1g8jr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_btxxm"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_1g8jr"]
+thickness = 5
 
 [node name="MainMenu" type="Control" unique_id=297501966]
 layout_mode = 3
@@ -11,73 +30,80 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sl1te")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=754031602]
+[node name="Background" type="TextureRect" parent="." unique_id=1264879454]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -0.5
+offset_top = -2.5
+offset_right = -0.5
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.35686275, 1, 1, 1)
+texture = ExtResource("2_fe2o3")
+expand_mode = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=748198632]
+[node name="StartGameButton" type="Button" parent="." unique_id=1562334521]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 945.00586
+offset_top = -274.2174
+offset_right = 1213.8442
+offset_bottom = -100.73862
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 32
-theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 32
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1334034604]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=237294265]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
-text = "[Placeholder for name or image of game name]"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ButtonsVBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=42605082]
-layout_mode = 2
-size_flags_vertical = 10
-
-[node name="StartGameButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsVBox" unique_id=1562334521]
-layout_mode = 2
+rotation = -3.537959
+scale = Vector2(1.6899023, 1.703374)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 focus_neighbor_top = NodePath("../ExitButton")
 focus_neighbor_bottom = NodePath("../CreditButton")
 focus_next = NodePath("../CreditButton")
 focus_previous = NodePath("../ExitButton")
-text = "Start Game"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fe2o3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_x2yvf")
+theme_override_styles/hover = SubResource("StyleBoxLine_uhagc")
 
-[node name="CreditButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsVBox" unique_id=1146384219]
-layout_mode = 2
+[node name="CreditButton" type="Button" parent="." unique_id=1146384219]
+layout_mode = 0
+offset_left = 1262.2327
+offset_top = 929.6652
+offset_right = 1308.7804
+offset_bottom = 940.8929
+rotation = -3.4598188
+scale = Vector2(6.044943, 5.8130097)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 focus_neighbor_top = NodePath("../StartGameButton")
 focus_neighbor_bottom = NodePath("../ExitButton")
 focus_next = NodePath("../ExitButton")
 focus_previous = NodePath("../StartGameButton")
-text = "Credits"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_m1kxf")
+theme_override_styles/hover = SubResource("StyleBoxLine_fe2o3")
 
-[node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsVBox" unique_id=1829853515]
-layout_mode = 2
+[node name="ExitButton" type="Button" parent="." unique_id=1829853515]
+layout_mode = 0
+offset_left = 1941.0
+offset_top = 718.99994
+offset_right = 2282.9998
+offset_bottom = 955.4286
+rotation = -3.5670578
+scale = Vector2(1.5315332, 1.1650586)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 focus_neighbor_top = NodePath("../CreditButton")
 focus_neighbor_bottom = NodePath("../StartGameButton")
 focus_next = NodePath("../StartGameButton")
 focus_previous = NodePath("../CreditButton")
-text = "Exit"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1g8jr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_btxxm")
+theme_override_styles/hover = SubResource("StyleBoxLine_1g8jr")
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsVBox/StartGameButton" to="." method="_on_start_game_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsVBox/CreditButton" to="." method="_on_credit_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsVBox/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="CreditButton" to="." method="_on_credit_button_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
