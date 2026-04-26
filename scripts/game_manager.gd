@@ -28,6 +28,8 @@ enum PaymentType { NONE, RED, GREEN, BLUE }
 
 var selected_payment : PaymentType = PaymentType.NONE
 
+var selected_stamp : Texture2D = null
+
 var max_misstakes : int
 
 var max_misstakes_from_main : int

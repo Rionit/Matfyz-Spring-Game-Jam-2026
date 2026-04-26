@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bf1qrj151504f"]
+
+[ext_resource type="Script" uid="uid://dmau22786qpha" path="res://scripts/gui_3d.gd" id="1_ta8s7"]
+[ext_resource type="PackedScene" uid="uid://dkpmw0u3xljj3" path="res://scenes/ui/stamp_buttons_blue.tscn" id="2_ta8s7"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_hw568"]
+size = Vector2(0.15, 0.35)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_hw568"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yg5x4"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = SubResource("ViewportTexture_hw568")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hw568"]
+size = Vector3(0.1015625, 0.35351563, 0.009521484)
+
+[node name="StampButtonsGUI" type="Node3D" unique_id=1668765249]
+script = ExtResource("1_ta8s7")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=518393152]
+transparent_bg = true
+size = Vector2i(300, 700)
+
+[node name="StampButtonsBlue" parent="SubViewport" unique_id=1904282165 instance=ExtResource("2_ta8s7")]
+
+[node name="Quad" type="MeshInstance3D" parent="." unique_id=1341834876]
+mesh = SubResource("QuadMesh_hw568")
+surface_material_override/0 = SubResource("StandardMaterial3D_yg5x4")
+
+[node name="Area3D" type="Area3D" parent="Quad" unique_id=776341431]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quad/Area3D" unique_id=525376047]
+shape = SubResource("BoxShape3D_hw568")
+
+[connection signal="mouse_entered" from="Quad/Area3D" to="SubViewport/StampButtonsBlue" method="show_buttons"]
+[connection signal="mouse_exited" from="Quad/Area3D" to="SubViewport/StampButtonsBlue" method="hide_buttons"]

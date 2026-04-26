@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cdptnkmj1256p" path="res://scenes/ui/pause_menu.tscn" id="1_jyhfs"]
 [ext_resource type="Script" uid="uid://bevavgob5p1ah" path="res://scripts/main.gd" id="1_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://b2f3frvqldyhg" path="res://models/map/room.glb" id="2_sugp2"]
-[ext_resource type="PackedScene" uid="uid://dv6ic7cllyp02" path="res://scenes/ui/tutorial_menu.tscn" id="2_tbgi4"]
+[ext_resource type="PackedScene" path="res://scenes/ui/tutorial_menu.tscn" id="2_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://dccm5wkm0nlvl" path="res://scenes/ui/TimerCountdown.tscn" id="2_tipki"]
 [ext_resource type="PackedScene" uid="uid://c4c1o7hc6u6l" path="res://sprites/clock.glb" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://d0frkjyyypykh" path="res://scenes/IncomingFolder.tscn" id="8_85g3d"]
@@ -13,10 +13,21 @@
 [ext_resource type="PackedScene" uid="uid://cdrkieb7mimdx" path="res://scenes/SubmissionFolder.tscn" id="10_choun"]
 [ext_resource type="PackedScene" uid="uid://bxtxqfthsaj13" path="res://scenes/ui/submit_gui.tscn" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://cwtuh1abisqt3" path="res://scenes/ui/payment_buttons_gui.tscn" id="12_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://bw12ikpch1k0q" path="res://scenes/ui/stamp_buttons_gui_red.tscn" id="14_a8y0u"]
+[ext_resource type="PackedScene" uid="uid://byquhyes7qrl2" path="res://scenes/ui/stamp_buttons_gui_green.tscn" id="15_jkv2x"]
+[ext_resource type="PackedScene" uid="uid://bf1qrj151504f" path="res://scenes/ui/stamp_buttons_gui_blue.tscn" id="16_jbj1t"]
+[ext_resource type="AudioStream" uid="uid://cxwa43i8c3c6o" path="res://sounds/alien_background.wav" id="17_muem4"]
 
 [sub_resource type="Environment" id="Environment_0wfyh"]
 
 [sub_resource type="Compositor" id="Compositor_sugp2"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_dp3eg"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ld40"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_dp3eg")
 
 [node name="Main" type="Node3D" unique_id=31963921 node_paths=PackedStringArray("submission_folder", "incoming_folder")]
 script = ExtResource("1_tbgi4")
@@ -128,6 +139,10 @@ transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, -0.2882089, 0.034
 [node name="Document2" parent="TableObject" unique_id=109233284 instance=ExtResource("8_tipki")]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -0.004524976, 0.2842134, 0.15153551)
 
+[node name="Quad" parent="TableObject/HelpbookObj" index="1" unique_id=1341834876]
+surface_material_override/0 = SubResource("StandardMaterial3D_0ld40")
+>>>>>>> main
+
 [node name="SubmissionFolder" parent="TableObject" unique_id=1151233729 instance=ExtResource("10_choun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19524977, -0.01045239, -0.019834101)
 
@@ -146,11 +161,22 @@ text = "09:00 - 12:00"
 font_size = 14
 outline_size = 4
 
+[node name="StampButtonsGUI" parent="." unique_id=1825527057 instance=ExtResource("14_a8y0u")]
+transform = Transform3D(1.6484566, 0, 0.7882875, 0, 1.8272401, 0, -0.7882875, 0, 1.6484566, -0.5006839, 0.29448894, -0.5905257)
+
+[node name="StampButtonsGUI2" parent="." unique_id=1477930166 instance=ExtResource("15_jkv2x")]
+transform = Transform3D(1.79724, 0, 0, 0, 1.79724, 0, 0, 0, 1.79724, 0.04323028, 0.30880535, -0.54737616)
+
+[node name="StampButtonsGUI3" parent="." unique_id=1608181359 instance=ExtResource("16_jbj1t")]
+transform = Transform3D(1.4108834, 0, -0.69543403, 0, 1.5729655, 0, 0.69543403, 0, 1.4108834, 0.45139056, 0.32027367, -0.34043682)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1565050669]
+stream = ExtResource("17_muem4")
+autoplay = true
+
 [connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/ButtonsVBox/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/ButtonsVBox/ExitButton" to="." method="_on_exit_button_pressed"]
-[connection signal="pressed" from="TutorialMenu/MarginContainer/VBoxContainer/ButtonsHBox/PreviousButton" to="." method="_on_previous_button_pressed"]
 [connection signal="pressed" from="TutorialMenu/MarginContainer/VBoxContainer/ButtonsHBox/ContinueButton" to="." method="_on_continue_button_pressed"]
-[connection signal="pressed" from="TutorialMenu/MarginContainer/VBoxContainer/ButtonsHBox/NextButton" to="." method="_on_next_button_pressed"]
 
 [editable path="TimerCountdown"]
 [editable path="PauseMenu"]
