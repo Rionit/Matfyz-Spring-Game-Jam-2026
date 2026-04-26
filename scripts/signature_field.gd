@@ -27,8 +27,8 @@ enum ColorType { RED, GREEN, BLUE }
 
 @export_range(2000, 6000) var max_progress: float = 5000.0
 
+var mouse_down := false
 var is_hovering := false
-var is_mouse_down := false
 var last_mouse_pos := Vector2.ZERO
 var progress := 0.0
 
@@ -83,25 +83,34 @@ func _on_mouse_enter():
 	last_mouse_pos = get_global_mouse_position()
 
 func _on_mouse_exit():
-	is_hovering = false
-	if finished or not is_mouse_down:
+	if finished:
 		return
-	
-	if progress < max_progress:
+
+	is_hovering = false
+
+	# Only fail if the user was actively holding the mouse
+	if mouse_down:
 		field_result = false
 		finished = true
 		print("Result:", field_result)
 
+	mouse_down = false
+
 func _gui_input(event):
 	if finished:
 		return
-		
-	if is_hovering and event is InputEventMouseMotion:
-		print("TADY JSEM KURVAA")
+
+	# Track mouse button state
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			mouse_down = event.pressed
+
+	# Only count progress if hovering AND mouse is held down
+	if is_hovering and mouse_down and event is InputEventMouseMotion:
 		var current_pos = event.global_position
 		var delta = current_pos - last_mouse_pos
 		last_mouse_pos = current_pos
-		
+
 		progress += delta.length()
 		print("Progress:", progress)
 
@@ -112,11 +121,3 @@ func _gui_input(event):
 
 func evaluate() -> bool:
 	return field_result
-
-func _on_button_button_down() -> void:
-	is_mouse_down = true
-	print("mouse: ", is_mouse_down)
-
-func _on_button_button_up() -> void:
-	is_mouse_down = false
-	print("mouse: ", is_mouse_down)

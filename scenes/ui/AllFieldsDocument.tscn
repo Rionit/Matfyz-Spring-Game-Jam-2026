@@ -16,6 +16,7 @@ offset_right = -1269.0
 offset_bottom = -205.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_up8r7")
 fields = [NodePath("MarginContainer/Body/CaptchaField"), NodePath("MarginContainer/Body/CheckboxField"), NodePath("MarginContainer/Body/PhotoField"), NodePath("MarginContainer/Body/SignatureField")]
 highlight_overlay = NodePath("HighlightOverlay")
@@ -42,6 +43,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="Body" type="Control" parent="MarginContainer" unique_id=134183375]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="CaptchaField" parent="MarginContainer/Body" unique_id=9917882 instance=ExtResource("3_k5sh0")]
 layout_mode = 1
