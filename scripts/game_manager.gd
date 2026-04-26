@@ -42,14 +42,19 @@ func main_game() -> void:
 	camera_node = $'../Main/MainCamera'
 	player_face = $'../Main/MainCamera/PlayerFace'
 	table_object = $'../Main/TableObject'
-	test_folder = $'../Main/TableObject/TestFolder'
-	test_folder_list = $'../Main/TableObject/TestList'
+
+	if testing_folders:
+		test_folder = $'../Main/TableObject/TestFolder'
+		test_folder_list = $'../Main/TableObject/TestList'
 
 	#helpbook = $'../Main/Helpbook'
 
 func select_document(doc : DocumentController): 
 	if selected_document != null:
 		put_on_table()
+	
+	if doc.folder != null:
+		doc.folder.remove_reorder(doc)
 
 	doc.select()
 	selected_document = doc
