@@ -14,6 +14,7 @@
 
 [node name="Main" type="Node3D" unique_id=31963921 node_paths=PackedStringArray("incoming_folder")]
 script = ExtResource("1_tbgi4")
+time_for_documents = 3.0
 incoming_folder = NodePath("TableObject/TestFolder")
 
 [node name="Timer" type="Timer" parent="." unique_id=141712067]

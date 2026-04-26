@@ -97,13 +97,13 @@ func _on_timer_timeout() -> void:
 ###
 func game_over(reason) -> void:
 	if reason == "timeout":
-		get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
+		get_tree().change_scene_to_file("res://scenes/ui/deport_menu.tscn")
 	elif reason == "misstakes":
-		get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
+		get_tree().change_scene_to_file("res://scenes/ui/deport_menu.tscn")
 	elif reason == "win":
-		get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
+		get_tree().change_scene_to_file("res://scenes/ui/win_menu.tscn")
 	else:
-		get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
+		get_tree().change_scene_to_file("res://scenes/ui/deport_menu.tscn")
 
 ###
 # tutorial menu functionality
