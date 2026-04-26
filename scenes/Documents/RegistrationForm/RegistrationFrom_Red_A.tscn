@@ -51,34 +51,34 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -334.0
-offset_top = 224.0
+offset_top = 261.0
 offset_right = -61.0
-offset_bottom = 541.0
+offset_bottom = 578.0
 grow_horizontal = 0
 color_type = 0
-correct_answer_types = 1
+correct_answer_types = 11
 
 [node name="PhotoField" parent="MarginContainer/Body" unique_id=1679272487 instance=ExtResource("5_jgqli")]
 layout_mode = 0
-offset_left = 92.0
-offset_top = 309.0
-offset_right = 212.0
-offset_bottom = 459.0
+offset_left = 94.0
+offset_top = 404.0
+offset_right = 214.0
+offset_bottom = 554.0
 
 [node name="SignatureField" parent="MarginContainer/Body" unique_id=739498873 instance=ExtResource("6_u3tk3")]
 layout_mode = 1
-offset_left = 12.039999
-offset_top = 268.5
-offset_right = 11.973938
-offset_bottom = 268.5
+offset_left = 25.039999
+offset_top = 267.5
+offset_right = -11.31604
+offset_bottom = 280.5
 color_type = 0
 
 [node name="SignatureField2" parent="MarginContainer/Body" unique_id=587505805 instance=ExtResource("6_u3tk3")]
 layout_mode = 1
-offset_left = 21.039999
-offset_top = -278.5
-offset_right = 20.973938
-offset_bottom = -278.5
+offset_left = 29.039999
+offset_top = -260.5
+offset_right = -289.31604
+offset_bottom = -146.5
 color_type = 0
 
 [node name="HighlightOverlay" type="ColorRect" parent="." unique_id=1902409606]

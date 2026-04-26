@@ -54,33 +54,33 @@ offset_top = 298.0
 offset_right = -291.0
 offset_bottom = 615.0
 grow_horizontal = 0
-correct_answer_types = 4
+correct_answer_types = 10
 
 [node name="CaptchaField2" parent="MarginContainer/Body" unique_id=1159376008 instance=ExtResource("3_txn8s")]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -312.0
-offset_top = 43.0
-offset_right = -39.0
-offset_bottom = 360.0
+offset_left = -313.0
+offset_top = 30.0
+offset_right = -40.0
+offset_bottom = 347.0
 grow_horizontal = 0
-correct_answer_types = 4
+correct_answer_types = 10
 
 [node name="PhotoField" parent="MarginContainer/Body" unique_id=1679272487 instance=ExtResource("4_keg3a")]
 layout_mode = 0
-offset_left = 377.0
-offset_top = 398.0
-offset_right = 497.0
-offset_bottom = 548.0
+offset_left = 364.0
+offset_top = 404.0
+offset_right = 484.0
+offset_bottom = 554.0
 color_type = 2
 
 [node name="SignatureField" parent="MarginContainer/Body" unique_id=739498873 instance=ExtResource("5_ea8nm")]
 layout_mode = 1
 offset_left = 12.039999
 offset_top = 293.5
-offset_right = 11.973938
+offset_right = 15.68396
 offset_bottom = 293.5
 
 [node name="HighlightOverlay" type="ColorRect" parent="." unique_id=1902409606]

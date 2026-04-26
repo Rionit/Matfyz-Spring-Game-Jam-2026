@@ -49,18 +49,18 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -421.0
+offset_left = -433.0
 offset_top = 72.0
-offset_right = -148.0
+offset_right = -160.0
 offset_bottom = 389.0
 grow_horizontal = 0
-correct_answer_types = 4
+correct_answer_types = 10
 
 [node name="PhotoField" parent="MarginContainer/Body" unique_id=1679272487 instance=ExtResource("4_j8ons")]
 layout_mode = 0
-offset_left = 363.0
+offset_left = 355.0
 offset_top = 415.0
-offset_right = 483.0
+offset_right = 475.0
 offset_bottom = 565.0
 color_type = 2
 
@@ -74,10 +74,10 @@ color_type = 2
 
 [node name="SignatureField" parent="MarginContainer/Body" unique_id=739498873 instance=ExtResource("5_sgth1")]
 layout_mode = 1
-offset_left = 12.039999
-offset_top = 268.5
-offset_right = 11.973938
-offset_bottom = 268.5
+offset_left = 23.039999
+offset_top = 276.5
+offset_right = 1.68396
+offset_bottom = 279.5
 
 [node name="HighlightOverlay" type="ColorRect" parent="." unique_id=1902409606]
 visible = false
