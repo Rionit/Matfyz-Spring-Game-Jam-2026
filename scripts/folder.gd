@@ -31,13 +31,9 @@ func add(doc: DocumentController) -> void:
 	doc.folder = self
 
 func add_docs(docs: Array[DocumentController]) -> void:
-	for doc in docs:
-		add(doc)
-
-func add_docs(docs: Array[DocumentController]) -> void:
 	documents = []
 	for i in docs:
-		documents.append(i)
+		add(i)
 
 func remove(doc: DocumentController) -> void:
 	doc.folder = null
