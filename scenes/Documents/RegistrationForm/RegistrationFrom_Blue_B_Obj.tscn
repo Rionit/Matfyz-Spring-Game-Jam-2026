@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dac322guukij1"]
 
 [ext_resource type="Script" uid="uid://dmau22786qpha" path="res://scripts/gui_3d.gd" id="1_3xnx5"]
-[ext_resource type="PackedScene" uid="uid://da8d48hld82ul" path="res://scenes/ui/RegistrationForm/RegistrationFrom_Blue_B.tscn" id="2_3xnx5"]
+[ext_resource type="PackedScene" uid="uid://da8d48hld82ul" path="res://scenes/Documents/RegistrationForm/RegistrationFrom_Blue_B.tscn" id="2_3xnx5"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_5yl67"]
 size = Vector2(0.1, 0.141)
