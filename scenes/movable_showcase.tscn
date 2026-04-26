@@ -14,6 +14,13 @@ background_mode = 2
 sky = SubResource("Sky_c1xsc")
 tonemap_mode = 2
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_f3ae4"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s641x"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_f3ae4")
+
 [node name="Control" type="Node3D" unique_id=1352540700]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1281324006]
@@ -21,5 +28,12 @@ environment = SubResource("Environment_eqqqa")
 
 [node name="DocumentGUI" parent="." unique_id=1668765249 instance=ExtResource("1_f3ae4")]
 
+[node name="Quad" parent="DocumentGUI" index="1" unique_id=1341834876]
+surface_material_override/0 = SubResource("StandardMaterial3D_s641x")
+
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2314533]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.1289593)
+
+[connection signal="mouse_entered" from="DocumentGUI/Quad/Area3D" to="DocumentGUI/SubViewport/Control" method="on_click"]
+
+[editable path="DocumentGUI"]

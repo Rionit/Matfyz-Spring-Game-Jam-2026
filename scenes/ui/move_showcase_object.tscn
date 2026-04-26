@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cw4qutxb7l5s8"]
 
 [ext_resource type="Script" path="res://scripts/gui_3d.gd" id="1_6gx8s"]
-[ext_resource type="PackedScene" uid="uid://3liiy6o3nguj" path="res://scenes/ui/DocumentBase.tscn" id="2_mcgcl"]
+[ext_resource type="PackedScene" uid="uid://3liiy6o3nguj" path="res://scenes/ui/MoveBase.tscn" id="2_mcgcl"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_hw568"]
 size = Vector2(1.92, 1.08)
@@ -14,7 +14,7 @@ resource_local_to_scene = true
 albedo_texture = SubResource("ViewportTexture_hw568")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hw568"]
-size = Vector3(1.4072266, 0.703125, 0.009521484)
+size = Vector3(1.97, 1.08, 0.01)
 
 [node name="DocumentGUI" type="Node3D" unique_id=1668765249]
 script = ExtResource("1_6gx8s")
@@ -23,17 +23,7 @@ script = ExtResource("1_6gx8s")
 size = Vector2i(1920, 1080)
 
 [node name="Control" parent="SubViewport" unique_id=1050868416 node_paths=PackedStringArray("move_parent") instance=ExtResource("2_mcgcl")]
-test_move_ease = null
-test_move_transition = null
-test_move_start_position = null
-test_move_end_position = null
-test_move_start_rotation = null
 move_parent = NodePath("../..")
-base_move_duration = null
-base_move_ease = null
-base_move_transition = null
-base_start_scale = null
-base_end_scale = null
 
 [node name="Quad" type="MeshInstance3D" parent="." unique_id=1341834876]
 mesh = SubResource("QuadMesh_hw568")
@@ -43,5 +33,3 @@ surface_material_override/0 = SubResource("StandardMaterial3D_yg5x4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quad/Area3D" unique_id=525376047]
 shape = SubResource("BoxShape3D_hw568")
-
-[connection signal="mouse_entered" from="Quad/Area3D" to="SubViewport/Control" method="on_click"]

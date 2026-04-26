@@ -1,3 +1,5 @@
+class_name MainCamera
+
 extends Camera3D
 
 @export var tween_duration: float = 0.6
@@ -15,6 +17,8 @@ enum CameraState { FORWARD, DOWN, LEFT, RIGHT }
 var current_state: CameraState = CameraState.FORWARD
 var base_rotation: Vector3
 var _tween: Tween
+var unlocked : bool = true
+
 
 var _zone_active := {
 	"top": false,
@@ -30,7 +34,7 @@ func _process(_delta: float) -> void:
 	var mouse_pos := get_viewport().get_mouse_position()
 	var screen_size := get_viewport().get_visible_rect().size
 
-	if !timer.is_paused():
+	if unlocked && !timer.is_paused():
 		_apply_tilt(mouse_pos, screen_size)
 		_handle_triggers(mouse_pos, screen_size)
 
@@ -64,6 +68,7 @@ func _handle_triggers(mouse_pos: Vector2, screen_size: Vector2) -> void:
 		func():
 			if _is_tweening(): return
 			if current_state == CameraState.DOWN:
+				GameManager.move_to_top()
 				look_forward()
 	)
 
@@ -73,6 +78,7 @@ func _handle_triggers(mouse_pos: Vector2, screen_size: Vector2) -> void:
 		func():
 			if _is_tweening(): return
 			if current_state == CameraState.FORWARD:
+				GameManager.move_from_top()
 				look_down()
 	)
 
