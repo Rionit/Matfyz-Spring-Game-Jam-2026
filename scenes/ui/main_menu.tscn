@@ -14,6 +14,8 @@ thickness = 5
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_fe2o3"]
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_m1kxf"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1g8jr"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_btxxm"]
@@ -65,9 +67,11 @@ focus_neighbor_top = NodePath("../ExitButton")
 focus_neighbor_bottom = NodePath("../CreditButton")
 focus_next = NodePath("../CreditButton")
 focus_previous = NodePath("../ExitButton")
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_fe2o3")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_x2yvf")
 theme_override_styles/hover = SubResource("StyleBoxLine_uhagc")
+theme_override_styles/focus = SubResource("StyleBoxLine_uhagc")
 
 [node name="CreditButton" type="Button" parent="." unique_id=1146384219]
 layout_mode = 0
@@ -85,6 +89,7 @@ focus_next = NodePath("../ExitButton")
 focus_previous = NodePath("../StartGameButton")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_m1kxf")
 theme_override_styles/hover = SubResource("StyleBoxLine_fe2o3")
+theme_override_styles/focus = SubResource("StyleBoxLine_m1kxf")
 
 [node name="ExitButton" type="Button" parent="." unique_id=1829853515]
 layout_mode = 0
@@ -103,6 +108,7 @@ focus_previous = NodePath("../CreditButton")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_1g8jr")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_btxxm")
 theme_override_styles/hover = SubResource("StyleBoxLine_1g8jr")
+theme_override_styles/focus = SubResource("StyleBoxLine_uhagc")
 
 [connection signal="pressed" from="StartGameButton" to="." method="_on_start_game_button_pressed"]
 [connection signal="pressed" from="CreditButton" to="." method="_on_credit_button_pressed"]
