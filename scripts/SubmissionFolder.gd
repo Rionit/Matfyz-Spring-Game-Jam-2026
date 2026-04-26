@@ -10,7 +10,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func evaluate(docs_to_submit: Array[DocumentController]):
+func evaluate(docs_to_submit: Array[DocumentController]) -> int:
 	var misstakes: int = 0
 	misstakes += docs_to_submit.filter(func(doc): return doc not in documents).size()
 	misstakes += documents.filter(func(doc): return doc not in docs_to_submit).size()
@@ -19,3 +19,6 @@ func evaluate(docs_to_submit: Array[DocumentController]):
 		misstakes += misstake_in_document
 	
 	return misstakes
+
+func missing(docs_to_submit: Array[DocumentController]) -> Array[DocumentController]:
+	return docs_to_submit.filter(func(doc): return doc not in documents)
