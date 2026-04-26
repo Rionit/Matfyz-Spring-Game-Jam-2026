@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b35j112b6ufxl"]
 
+[ext_resource type="Script" uid="uid://pvpilhw1o45l" path="res://scripts/ui/deport_menu.gd" id="1_6t7xl"]
 [ext_resource type="Texture2D" uid="uid://x6t3nlyl27k7" path="res://sprites/images/ending_back.png" id="1_q1ola"]
 [ext_resource type="Texture2D" uid="uid://d34rv66xlbhm2" path="res://sprites/images/ending_docs.png" id="2_6t7xl"]
 [ext_resource type="Texture2D" uid="uid://bs80k1q1icoej" path="res://sprites/images/ending_front.png" id="3_d0ra4"]
@@ -17,6 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_6t7xl")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2121931692]
 layout_mode = 0
@@ -24,12 +26,12 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_q1ola")
 
-[node name="TextureRect" type="TextureRect" parent="TextureRect" unique_id=1081726639]
+[node name="Docs" type="TextureRect" parent="TextureRect" unique_id=1081726639]
 layout_mode = 0
 offset_left = 1247.0
-offset_top = 540.0
+offset_top = 600.0
 offset_right = 1489.0
-offset_bottom = 825.0
+offset_bottom = 885.0
 texture = ExtResource("2_6t7xl")
 
 [node name="TextureRect2" type="TextureRect" parent="TextureRect" unique_id=793336250]
@@ -39,7 +41,7 @@ offset_right = 1920.0
 offset_bottom = 1083.0
 texture = ExtResource("3_d0ra4")
 
-[node name="ExitButton" type="Button" parent="." unique_id=481168807]
+[node name="MainMenuButton" type="Button" parent="." unique_id=481168807]
 layout_mode = 0
 offset_left = 856.0
 offset_top = 980.0
@@ -56,3 +58,5 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_bugvk")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_woslg")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_hohof")
 text = "Exit to Menu"
+
+[connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
