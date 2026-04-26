@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://8lgo8weuvgxl"]
+
+[ext_resource type="Script" uid="uid://ccayjq8r086fb" path="res://scripts/ui/payment_buttons.gd" id="1_pg7hj"]
+
+[node name="SubmitUI" type="Control" unique_id=1904282165]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 600.0
+offset_bottom = 214.0
+script = ExtResource("1_pg7hj")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=576150517]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1566157231]
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="Holder" type="Control" parent="MarginContainer/VBoxContainer" unique_id=941975792]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Submit" type="Button" parent="MarginContainer/VBoxContainer/Holder" unique_id=49068673]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 44
+text = "SUBMIT DOCUMENTS"
+icon_alignment = 1
+expand_icon = true

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dmyusnm47hini" path="res://scripts/ui/main_menu.gd" id="1_sl1te"]
 [ext_resource type="Texture2D" uid="uid://bs2cq4hp1f2le" path="res://sprites/images/mainmenu.png" id="2_fe2o3"]
+[ext_resource type="AudioStream" uid="uid://cwlwifc2ets3q" path="res://sounds/alien_music.wav" id="3_1g8jr"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fe2o3"]
 
@@ -97,6 +98,12 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_1g8jr")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_btxxm")
 theme_override_styles/hover = SubResource("StyleBoxLine_1g8jr")
 theme_override_styles/focus = SubResource("StyleBoxLine_uhagc")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2130962265]
+stream = ExtResource("3_1g8jr")
+volume_db = -1.0
+autoplay = true
+attenuation = 1.0717734
 
 [connection signal="pressed" from="StartGameButton" to="." method="_on_start_game_button_pressed"]
 [connection signal="pressed" from="CreditButton" to="." method="_on_credit_button_pressed"]
