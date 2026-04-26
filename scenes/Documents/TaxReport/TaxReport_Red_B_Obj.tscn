@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://4cbfsg8l0yfe"]
+
+[ext_resource type="Script" uid="uid://dmau22786qpha" path="res://scripts/gui_3d.gd" id="1_su518"]
+[ext_resource type="PackedScene" uid="uid://dvm1vmcia8ojk" path="res://scenes/TaxReport/TaxReport_Red_B.tscn" id="2_su518"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_5yl67"]
+size = Vector2(0.1, 0.141)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_75eap"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8w4jj"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = SubResource("ViewportTexture_75eap")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_woy83"]
+size = Vector3(0.1, 0.141, 0.01)
+
+[node name="DocumentObj" type="Node3D" unique_id=1503292003]
+script = ExtResource("1_su518")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1923274324]
+transparent_bg = true
+size = Vector2i(651, 875)
+size_2d_override = Vector2i(1920, 1080)
+
+[node name="Document" parent="SubViewport" unique_id=2125992226 node_paths=PackedStringArray("move_parent") instance=ExtResource("2_su518")]
+move_parent = NodePath("../..")
+
+[node name="Quad" type="MeshInstance3D" parent="." unique_id=1419982194]
+mesh = SubResource("QuadMesh_5yl67")
+surface_material_override/0 = SubResource("StandardMaterial3D_8w4jj")
+
+[node name="Area3D" type="Area3D" parent="Quad" unique_id=198080043]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quad/Area3D" unique_id=2092406814]
+shape = SubResource("BoxShape3D_woy83")
