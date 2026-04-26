@@ -14,22 +14,24 @@
 
 [sub_resource type="Compositor" id="Compositor_sugp2"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_r5kkv"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_jyudn"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bmpos"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r5kkv"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_r5kkv")
+albedo_texture = SubResource("ViewportTexture_jyudn")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_110go"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_bmpos"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8spu0"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_110go"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_110go")
+albedo_texture = SubResource("ViewportTexture_bmpos")
 
-[node name="Main" type="Node3D" unique_id=31963921]
+[node name="Main" type="Node3D" unique_id=31963921 node_paths=PackedStringArray("incoming_folder", "level_1_guis")]
 script = ExtResource("1_twmxf")
+incoming_folder = NodePath("TableObject/TestFolder")
+level_1_guis = [NodePath("TableObject/Document2")]
 testing_folders = true
 
 [node name="Timer" type="Timer" parent="." unique_id=141712067]
@@ -121,7 +123,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.12755403, 0.55396736)
 transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 0.024846181, 0, -0.0851233)
 
 [node name="Quad" parent="TableObject/Document1" index="1" unique_id=1419982194]
-surface_material_override/0 = SubResource("StandardMaterial3D_bmpos")
+surface_material_override/0 = SubResource("StandardMaterial3D_r5kkv")
 
 [node name="TestFolder" parent="TableObject" unique_id=1106081498 instance=ExtResource("7_l6tnw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28472355, 0.00067687035, -0.031061232)
@@ -130,7 +132,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28472355, 0.00067687035, -
 transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, -0.112648204, 0, -0.08197045)
 
 [node name="Quad" parent="TableObject/Document2" index="1" unique_id=1419982194]
-surface_material_override/0 = SubResource("StandardMaterial3D_8spu0")
+surface_material_override/0 = SubResource("StandardMaterial3D_110go")
 
 [node name="HelpbookObj" parent="TableObject" unique_id=1668765249 instance=ExtResource("8_jyudn")]
 transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, -0.029850438, 0.0006658286, 0.21719158)
