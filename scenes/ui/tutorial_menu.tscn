@@ -29,68 +29,41 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
-text = "Pause"
+theme_override_font_sizes/font_size = 48
+text = "Intro"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer" unique_id=1306931130]
-modulate = Color(1, 1, 1, 0.39215687)
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1869131194]
 layout_mode = 2
 size_flags_vertical = 3
-color = Color(0.35686275, 1, 1, 1)
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ColorRect" unique_id=1869131194]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -166.5
-offset_top = -22.5
-offset_right = 166.5
-offset_bottom = 22.5
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
-text = "[Tutorial placeholder]"
+theme_override_font_sizes/font_size = 34
+text = "Welcome to the new human colony on an alien planet.
+Yes, you have officially left Earth and begun a new life far away from home.
+
+A new life… full of paperwork.
+
+As a foreigner here, you are required to complete all necessary documents. Be careful—mistakes
+are not tolerated. The aliens are not fond of visitors, and if you annoy them enough, they won’t hesitate to
+send youstraight back to Earth.
+
+Please note that official working hours are strictly enforced. You are expected to process all documents
+within your assigned shift. Overtime is neither guaranteed nor appreciated.
+
+Fortunately, you were wise enough to bring your notes. You can access your notebook anytime by pressing [H].
+It’s waiting for you on your desk.
+
+Good luck—and enjoy the bureaucracy outside your home."
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ButtonsHBox" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1869911607]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 3
-
-[node name="PreviousButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsHBox" unique_id=52132214]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-focus_neighbor_left = NodePath("../NextButton")
-focus_neighbor_right = NodePath("../ContinueButton")
-focus_next = NodePath("../ContinueButton")
-focus_previous = NodePath("../NextButton")
-text = "Previous"
+size_flags_vertical = 6
 
 [node name="ContinueButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsHBox" unique_id=1963620422]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
-focus_neighbor_left = NodePath("../PreviousButton")
-focus_neighbor_right = NodePath("../NextButton")
-focus_next = NodePath("../NextButton")
-focus_previous = NodePath("../PreviousButton")
 text = "Continue"
-
-[node name="NextButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsHBox" unique_id=1887724880]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-focus_neighbor_left = NodePath("../ContinueButton")
-focus_neighbor_right = NodePath("../PreviousButton")
-focus_next = NodePath("../PreviousButton")
-focus_previous = NodePath("../ContinueButton")
-text = "Next"
