@@ -35,6 +35,9 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
+[node name="Body" type="Control" parent="MarginContainer" unique_id=134183375]
+layout_mode = 2
+
 [node name="HighlightOverlay" type="ColorRect" parent="." unique_id=1902409606]
 visible = false
 layout_mode = 1
@@ -43,4 +46,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0.25490198, 1, 1, 0.2509804)
+
+[connection signal="gui_input" from="MarginContainer/Body" to="." method="on_input_event"]
+[connection signal="mouse_entered" from="MarginContainer/Body" to="." method="on_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/Body" to="." method="on_mouse_exited"]

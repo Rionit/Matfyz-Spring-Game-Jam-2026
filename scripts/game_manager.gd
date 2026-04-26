@@ -2,7 +2,7 @@ extends Node
 
 var helpbook_offset : Vector3 = Vector3(0.1, 0, 0) 
 
-var camera_node : Camera3D
+var camera_node : MainCamera
 
 var player_face : Node3D # Where the selected documents will be reparented
 
@@ -34,18 +34,20 @@ func main_game() -> void:
 	max_misstakes_from_main = main.max_misstakes
 	max_misstakes = max_misstakes_from_main
 
+	camera_node = $'../Main/MainCamera'
+	player_face = $'../Main/MainCamera/PlayerFace'
+	table_object = $'../Main/TableObject'
+	test_folder = $'../Main/TableObject/TestFolder'
+	test_folder_list = $'../Main/TableObject/TestList'
+
+	#helpbook = $'../Main/Helpbook'
+
 func select_document(doc : DocumentController): 
 	if selected_document != null:
 		put_on_table()
 
 	doc.select()
 	selected_document = doc
-	
-func _ready() -> void:
-	camera_node = $'../Main/MainCamera'
-	player_face = $'../Main/MainCamera/PlayerFace'
-	table_object = $'../Main/TableObject'
-	#helpbook = $'../Main/Helpbook'
 
 func put_on_table():
 	if selected_document != null:
@@ -65,10 +67,10 @@ func move_from_top():
 	# 	helpbook.move_from_top()
 
 func move_to_folder_test(document : DocumentController):
-	document.stash(test_folder.position, Vector3.ZERO)
+	document.stash(test_folder.position)
 
 func move_to_list_test(document : DocumentController):
-	document.list(test_folder.position, test_folder_list.position, Vector3.ONE)
+	document.list(test_folder.position, test_folder_list.position)
 
 func evaluate_day():
 	max_misstakes = max_misstakes_from_main
@@ -76,4 +78,3 @@ func evaluate_day():
 	max_misstakes -= misstakes
 	if max_misstakes <= 0:
 		main.game_over('misstakes')
-

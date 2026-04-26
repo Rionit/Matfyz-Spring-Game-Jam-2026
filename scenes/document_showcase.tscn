@@ -12,12 +12,23 @@
 
 [sub_resource type="Compositor" id="Compositor_sugp2"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ahnse"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_tsa4w"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_spqhl"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l6tnw"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_ahnse")
+albedo_texture = SubResource("ViewportTexture_tsa4w")
+
+[sub_resource type="TextMesh" id="TextMesh_tsa4w"]
+text = "Folder"
+font_size = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tsa4w"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="TextMesh" id="TextMesh_l6tnw"]
+text = "List"
+font_size = 2
 
 [node name="Main" type="Node3D" unique_id=31963921]
 script = ExtResource("1_twmxf")
@@ -30,6 +41,7 @@ time_for_documents = 100000
 [node name="TutorialMenu" parent="." unique_id=2146562982 instance=ExtResource("3_ahnse")]
 
 [node name="room" parent="." unique_id=50673408 instance=ExtResource("4_spqhl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.006497681, 0.008528054, -0.0017590523)
 
 [node name="SpotLight3D4" type="SpotLight3D" parent="room" unique_id=36142895]
 transform = Transform3D(0.9999395, 0.010538173, -0.0031705708, 0.0022672773, 0.08464875, 0.9964083, 0.010768707, -0.9963552, 0.08461973, -0.6381782, 0.7702954, -0.78548396)
@@ -107,11 +119,36 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.19021136)
 [node name="TableObject" type="Node3D" parent="." unique_id=1123201830]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.12755403, 0.55396736)
 
-[node name="DocumentObj" parent="." unique_id=1503292003 instance=ExtResource("6_thi68")]
-transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 0, -0.11834052, 0.5718533)
+[node name="DocumentObj" parent="TableObject" unique_id=1503292003 instance=ExtResource("6_thi68")]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 0, 0, 0)
 
-[node name="Quad" parent="DocumentObj" index="1" unique_id=1419982194]
-surface_material_override/0 = SubResource("StandardMaterial3D_spqhl")
+[node name="Quad" parent="TableObject/DocumentObj" index="1" unique_id=1419982194]
+surface_material_override/0 = SubResource("StandardMaterial3D_l6tnw")
+
+[node name="TestFolder" type="Node3D" parent="TableObject" unique_id=1499222637]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1621772, 0.013079464, -0.06928557)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TableObject/TestFolder" unique_id=717778570]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.14142136, 0, -0.70710677, 0.14142136, 0, 0, 0)
+mesh = SubResource("TextMesh_tsa4w")
+
+[node name="Area3D" type="Area3D" parent="TableObject/TestFolder" unique_id=122781295]
+collision_layer = 16
+collision_mask = 0
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TableObject/TestFolder/Area3D" unique_id=1174539363]
+shape = SubResource("BoxShape3D_tsa4w")
+
+[node name="TestList" type="Node3D" parent="TableObject" unique_id=1689292382]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15966254, 0.04347405, -0.120378464)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TableObject/TestList" unique_id=2040231896]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.2, 0, 0, 0)
+mesh = SubResource("TextMesh_l6tnw")
+
+[node name="Node3D" type="Node3D" parent="TableObject" unique_id=470051546]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
 
 [node name="Control" type="Control" parent="." unique_id=1860320911 node_paths=PackedStringArray("select_button", "put_on_table_button", "stash_button", "list_button", "document")]
 layout_mode = 3
@@ -120,12 +157,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
 script = ExtResource("7_ahnse")
 select_button = NodePath("Buttons/SelectButton")
 put_on_table_button = NodePath("Buttons/MoveOnTableButton")
 stash_button = NodePath("Buttons/StashButton")
 list_button = NodePath("Buttons/ListButton")
-document = NodePath("../DocumentObj/SubViewport/Document")
+document = NodePath("../TableObject/DocumentObj/SubViewport/Document")
 
 [node name="Buttons" type="HBoxContainer" parent="Control" unique_id=323850746]
 layout_mode = 1
@@ -136,27 +175,33 @@ anchor_bottom = 1.0
 offset_top = -200.0
 grow_horizontal = 2
 grow_vertical = 0
+mouse_filter = 2
+mouse_behavior_recursive = 1
 theme_override_constants/separation = 100
 alignment = 1
 
 [node name="SelectButton" type="Button" parent="Control/Buttons" unique_id=817304687]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_behavior_recursive = 2
 text = "Select"
 
 [node name="MoveOnTableButton" type="Button" parent="Control/Buttons" unique_id=1747210988]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_behavior_recursive = 2
 text = "Move On Table"
 
 [node name="StashButton" type="Button" parent="Control/Buttons" unique_id=1524186255]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_behavior_recursive = 2
 text = "Stash"
 
 [node name="ListButton" type="Button" parent="Control/Buttons" unique_id=1052133957]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_behavior_recursive = 2
 text = "List"
 
 [connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/ButtonsVBox/ResumeButton" to="." method="_on_resume_button_pressed"]
@@ -167,4 +212,5 @@ text = "List"
 
 [editable path="PauseMenu"]
 [editable path="TutorialMenu"]
-[editable path="DocumentObj"]
+[editable path="TableObject/DocumentObj"]
+[editable path="TableObject/DocumentObj/SubViewport/Document"]
