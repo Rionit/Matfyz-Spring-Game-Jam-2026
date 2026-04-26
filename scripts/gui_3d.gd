@@ -1,4 +1,5 @@
 extends Node3D
+class_name GUI_3D
 
 # Used for checking if the mouse is inside the Area3D.
 var is_mouse_inside = false
