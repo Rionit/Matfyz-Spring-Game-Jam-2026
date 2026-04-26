@@ -12,8 +12,10 @@ func _process(delta: float) -> void:
 
 func evaluate(docs_to_submit: Array[DocumentController]) -> int:
 	var misstakes: int = 0
-	misstakes += docs_to_submit.filter(func(doc): return doc not in documents).size()
-	misstakes += documents.filter(func(doc): return doc not in docs_to_submit).size()
+	# Missing documents are counted differently now
+	# misstakes += docs_to_submit.filter(func(doc): return doc not in documents).size()
+	#misstakes += documents.filter(func(doc): return doc not in docs_to_submit).size() 
+
 	for i in documents:
 		var misstake_in_document = i.evaluate()
 		misstakes += misstake_in_document
