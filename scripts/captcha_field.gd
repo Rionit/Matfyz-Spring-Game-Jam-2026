@@ -145,4 +145,4 @@ func test():
 		_success_feedback()
 
 func evaluate() -> bool:
-	return true # TODO: Finish me based on success/fail
+	return check_captcha() 

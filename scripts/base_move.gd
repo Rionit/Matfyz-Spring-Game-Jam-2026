@@ -38,6 +38,10 @@ func enable_camera():
 	
 
 func _ready() -> void:
+	if move_parent == null:
+		move_parent = $"../.." as GUI_3D
+		if move_parent == null:
+			print("ERROR: Move Parent is not set and could not be found as a parent node.")
 	move_finished.connect(enable_camera)
 
 func move(startPos : Vector3, endPos : Vector3, startRot : Vector3, endRot : Vector3, startScale : Vector3, endScale : Vector3, duration : float, ease : Tween.EaseType = base_move_ease, transition : Tween.TransitionType = base_move_transition):

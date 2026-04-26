@@ -14,8 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://b71gyybgtskgd" path="res://scenes/Documents/RegistrationForm/RegistrationFrom_Blue_A_Obj.tscn" id="12_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://cwtuh1abisqt3" path="res://scenes/ui/payment_buttons_gui.tscn" id="12_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://bo0txc4qbmiwo" path="res://scenes/Documents/Visa/Visa_Blue_A_Obj.tscn" id="13_0ld40"]
+[ext_resource type="PackedScene" uid="uid://c8sn36o5f2k8b" path="res://scenes/Documents/TaxReport/TaxReport_Green_A_Obj.tscn" id="13_jscy8"]
 [ext_resource type="PackedScene" uid="uid://bw12ikpch1k0q" path="res://scenes/ui/stamp_buttons_gui_red.tscn" id="14_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://bmc6yv3028vhj" path="res://scenes/Documents/Visa/Visa_Green_A_Obj.tscn" id="14_gqmmt"]
+[ext_resource type="PackedScene" uid="uid://4cbfsg8l0yfe" path="res://scenes/Documents/TaxReport/TaxReport_Red_B_Obj.tscn" id="14_pm3ni"]
 [ext_resource type="PackedScene" uid="uid://byquhyes7qrl2" path="res://scenes/ui/stamp_buttons_gui_green.tscn" id="15_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://bf1qrj151504f" path="res://scenes/ui/stamp_buttons_gui_blue.tscn" id="16_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://bgop400jhtjnq" path="res://scenes/Documents/TaxReport/TaxReport_Blue_A_Obj.tscn" id="17_dp3eg"]
@@ -28,18 +30,26 @@ glow_bloom = 0.3
 
 [sub_resource type="Compositor" id="Compositor_sugp2"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_gqmmt"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_jscy8"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yc10j"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pm3ni"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_gqmmt")
+albedo_texture = SubResource("ViewportTexture_jscy8")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_y6deb"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_og1vs"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = SubResource("ViewportTexture_y6deb")
 
 [node name="Main" type="Node3D" unique_id=31963921 node_paths=PackedStringArray("submission_folder", "incoming_folder", "level_1_guis", "level_2_guis")]
 script = ExtResource("1_tbgi4")
 submission_folder = NodePath("TableObject/SubmissionFolder")
 incoming_folder = NodePath("TableObject/TestFolder")
-level_1_guis = [NodePath("TableObject/Documents/Level1/DocumentObj"), NodePath("TableObject/Documents/Level1/DocumentObj2")]
+level_1_guis = [NodePath("TableObject/Documents/Level1/DocumentObj"), NodePath("TableObject/Documents/Level1/DocumentObj2"), NodePath("TableObject/Documents/Level1/DocumentObj3"), NodePath("TableObject/Documents/Level1/DocumentObj4")]
 level_2_guis = [NodePath("TableObject/Documents/Level2/DocumentObj3"), NodePath("TableObject/Documents/Level2/DocumentObj4")]
 
 [node name="TimerCountdown" parent="." unique_id=1144034343 instance=ExtResource("2_tipki")]
@@ -153,7 +163,7 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.0
 table_pos = Vector3(-0.027567744, -0.024873972, 0.18987125)
 
 [node name="Quad" parent="TableObject/HelpbookObj" index="1" unique_id=1341834876]
-surface_material_override/0 = SubResource("StandardMaterial3D_yc10j")
+surface_material_override/0 = SubResource("StandardMaterial3D_pm3ni")
 
 [node name="SubmissionFolder" parent="TableObject" unique_id=1151233729 instance=ExtResource("10_choun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17859145, -0.030712515, 0.2026568)
@@ -167,6 +177,15 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.14734572, 0)
 
 [node name="DocumentObj2" parent="TableObject/Documents/Level1" unique_id=1509063483 instance=ExtResource("12_dp3eg")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.1207048, 0)
+
+[node name="Quad" parent="TableObject/Documents/Level1/DocumentObj2" index="1" unique_id=1419982194]
+surface_material_override/0 = SubResource("StandardMaterial3D_og1vs")
+
+[node name="DocumentObj3" parent="TableObject/Documents/Level1" unique_id=633190018 instance=ExtResource("13_jscy8")]
+transform = Transform3D(0.1, 0, 0, 0, -4.371139e-09, 0.1, 0, -0.1, -4.371139e-09, -0.2747094, -0.029683366, 0)
+
+[node name="DocumentObj4" parent="TableObject/Documents/Level1" unique_id=1638920540 instance=ExtResource("14_pm3ni")]
+transform = Transform3D(0.1, 0, 0, 0, -4.371139e-09, 0.1, 0, -0.1, -4.371139e-09, -0.2747094, -0.029683366, 0)
 
 [node name="Level2" type="Node3D" parent="TableObject/Documents" unique_id=1189079364]
 
@@ -211,3 +230,5 @@ transform = Transform3D(1.4108834, 0, -0.69543403, 0, 1.5729655, 0, 0.69543403, 
 [editable path="PauseMenu"]
 [editable path="TutorialMenu"]
 [editable path="TableObject/HelpbookObj"]
+[editable path="TableObject/Documents/Level1/DocumentObj2"]
+[editable path="TableObject/Documents/Level1/DocumentObj2/SubViewport/Document"]

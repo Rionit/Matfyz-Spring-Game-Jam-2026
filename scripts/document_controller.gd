@@ -110,8 +110,9 @@ func _ready() -> void:
 func evaluate() -> int:
 	var total = 0
 	for field in fields:
-		if field.evaluate():
+		if !field.evaluate():
 			total += 1
+	print("Total mistakes from a document: " + str(total))
 	return total
 
 ### ENABLE/DISABLE TOGGLES

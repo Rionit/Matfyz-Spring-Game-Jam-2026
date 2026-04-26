@@ -33,6 +33,10 @@ var max_misstakes : int
 
 var max_misstakes_from_main : int
 
+var max_documents_unsubmitted : int = 2 
+
+var documents_unsubmitted_addition : int = 1 # How many additional unsubmitted documents are allowed each day
+
 var actual_level : int = 1
 
 ## new documents, not submitted documents from previous day, recurent documents
@@ -104,14 +108,24 @@ func load_level(docs: Array[DocumentController]) ->void:
 func evaluate_day():
 	max_misstakes = max_misstakes_from_main
 	var misstakes = main.submission_folder.evaluate(documents_to_submit)
+	print("Mistakes from submitted folder: " + str(misstakes))
 	max_misstakes -= misstakes
 	if max_misstakes <= 0:
+		print("Too many mistakes!")
 		main.game_over('misstakes')
 		return
+
 	var missing_documents = main.submission_folder.missing(documents_to_submit)
+
+	if missing_documents.size() > max_documents_unsubmitted:
+		print("Too many unsubmitted documents!")
+		main.game_over('misstakes')
+		return
 	documents_to_submit = []
 	for i in missing_documents:
 		documents_to_submit.append(i)
+	
+	max_documents_unsubmitted += documents_unsubmitted_addition
 
 func next_level() -> void:
 	actual_level += 1

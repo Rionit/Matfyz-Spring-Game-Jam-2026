@@ -6,7 +6,7 @@ extends Node3D
 var game_manager
 
 @export var time_for_documents: float = 180.0
-@export var max_misstakes: int = 10
+@export var max_misstakes: int = 5
 @export var submission_folder: SubmissionFolder
 @export var incoming_folder : Folder
 @export var level_1_guis: Array[GUI_3D] = []
