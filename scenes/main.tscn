@@ -11,8 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://4tc3bju77eu6" path="res://scenes/ui/HelpbookObj.tscn" id="9_85g3d"]
 [ext_resource type="PackedScene" uid="uid://cdrkieb7mimdx" path="res://scenes/SubmissionFolder.tscn" id="10_choun"]
 [ext_resource type="PackedScene" uid="uid://bxtxqfthsaj13" path="res://scenes/ui/submit_gui.tscn" id="11_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://b71gyybgtskgd" path="res://scenes/Documents/RegistrationForm/RegistrationFrom_Blue_A_Obj.tscn" id="12_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://cwtuh1abisqt3" path="res://scenes/ui/payment_buttons_gui.tscn" id="12_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://bo0txc4qbmiwo" path="res://scenes/Documents/Visa/Visa_Blue_A_Obj.tscn" id="13_0ld40"]
 [ext_resource type="PackedScene" uid="uid://bw12ikpch1k0q" path="res://scenes/ui/stamp_buttons_gui_red.tscn" id="14_a8y0u"]
+[ext_resource type="PackedScene" uid="uid://bmc6yv3028vhj" path="res://scenes/Documents/Visa/Visa_Green_A_Obj.tscn" id="14_gqmmt"]
 [ext_resource type="PackedScene" uid="uid://byquhyes7qrl2" path="res://scenes/ui/stamp_buttons_gui_green.tscn" id="15_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://bf1qrj151504f" path="res://scenes/ui/stamp_buttons_gui_blue.tscn" id="16_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://bgop400jhtjnq" path="res://scenes/Documents/TaxReport/TaxReport_Blue_A_Obj.tscn" id="17_dp3eg"]
@@ -25,18 +28,19 @@ glow_bloom = 0.3
 
 [sub_resource type="Compositor" id="Compositor_sugp2"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_muem4"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_gqmmt"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dp3eg"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yc10j"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_muem4")
+albedo_texture = SubResource("ViewportTexture_gqmmt")
 
-[node name="Main" type="Node3D" unique_id=31963921 node_paths=PackedStringArray("submission_folder", "incoming_folder", "level_1_guis")]
+[node name="Main" type="Node3D" unique_id=31963921 node_paths=PackedStringArray("submission_folder", "incoming_folder", "level_1_guis", "level_2_guis")]
 script = ExtResource("1_tbgi4")
 submission_folder = NodePath("TableObject/SubmissionFolder")
 incoming_folder = NodePath("TableObject/TestFolder")
-level_1_guis = [NodePath("TableObject/Documents/Level1/DocumentObj")]
+level_1_guis = [NodePath("TableObject/Documents/Level1/DocumentObj"), NodePath("TableObject/Documents/Level1/DocumentObj2")]
+level_2_guis = [NodePath("TableObject/Documents/Level2/DocumentObj3"), NodePath("TableObject/Documents/Level2/DocumentObj4")]
 
 [node name="TimerCountdown" parent="." unique_id=1144034343 instance=ExtResource("2_tipki")]
 
@@ -149,7 +153,7 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.0
 table_pos = Vector3(-0.027567744, -0.024873972, 0.18987125)
 
 [node name="Quad" parent="TableObject/HelpbookObj" index="1" unique_id=1341834876]
-surface_material_override/0 = SubResource("StandardMaterial3D_dp3eg")
+surface_material_override/0 = SubResource("StandardMaterial3D_yc10j")
 
 [node name="SubmissionFolder" parent="TableObject" unique_id=1151233729 instance=ExtResource("10_choun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17859145, -0.030712515, 0.2026568)
@@ -161,7 +165,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17859145, -0.030712515, 0.2
 [node name="DocumentObj" parent="TableObject/Documents/Level1" unique_id=1503292003 instance=ExtResource("17_dp3eg")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.14734572, 0)
 
+[node name="DocumentObj2" parent="TableObject/Documents/Level1" unique_id=1509063483 instance=ExtResource("12_dp3eg")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.1207048, 0)
+
 [node name="Level2" type="Node3D" parent="TableObject/Documents" unique_id=1189079364]
+
+[node name="DocumentObj3" parent="TableObject/Documents/Level2" unique_id=1120436100 instance=ExtResource("13_0ld40")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.14623651, 0)
+
+[node name="DocumentObj4" parent="TableObject/Documents/Level2" unique_id=1091833348 instance=ExtResource("14_gqmmt")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.14623651, 0)
 
 [node name="OpenTime" type="Label3D" parent="." unique_id=1255954377]
 transform = Transform3D(0.001571035, 0, 0.99999887, 0, 1, 0, -0.99999887, 0, 0.001571035, -0.98750967, 0.06762849, 0.12241647)

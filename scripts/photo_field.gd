@@ -25,6 +25,7 @@ enum ColorType { RED, GREEN, BLUE }
 var photo_distance: float
 
 func _ready() -> void:
+	_request_update()
 	photo.hide()
 
 func _get_screen_pos() -> Vector2:

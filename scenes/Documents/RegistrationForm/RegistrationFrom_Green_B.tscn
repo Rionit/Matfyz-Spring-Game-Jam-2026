@@ -55,14 +55,14 @@ offset_right = -271.0
 offset_bottom = 768.0
 grow_horizontal = 0
 color_type = 1
-correct_answer_types = 2
+correct_answer_types = 5
 
 [node name="PhotoField" parent="MarginContainer/Body" unique_id=1679272487 instance=ExtResource("4_6iox4")]
 layout_mode = 0
-offset_left = 388.0
-offset_top = 499.0
-offset_right = 508.0
-offset_bottom = 649.0
+offset_left = 378.0
+offset_top = 522.0
+offset_right = 498.0
+offset_bottom = 672.0
 color_type = 1
 
 [node name="PhotoField2" parent="MarginContainer/Body" unique_id=1554203268 instance=ExtResource("4_6iox4")]
