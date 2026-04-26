@@ -44,6 +44,9 @@ var can_drag_drop : bool = false # Whether the document can be dragged & dropped
 var counting_drag_drop : bool = false # Whether the cooldown for drag & drop is currently counted
 var is_drag_dropping : bool = false # Whether the document is currently being dragged & dropped
 
+
+var folder : Folder = null # The folder the document is currently in, null if not in any folder
+
 #How high from the table the document should be when being dragged & dropped
 @export var drag_drop_table_height_offset : float = 0.01 
 
@@ -55,6 +58,8 @@ var current_drag_drop_time : float = 0.0
 @export var listed_scale : Vector3 = Vector3(0.5,0.5,0.5)
 
 @export var drag_drop_stick : float = 40
+
+@export var list_time : float = 0.5
 
 # Hidden -> Listed
 # Moves from folder base position to listed position
@@ -196,7 +201,7 @@ func list(folderPos : Vector3, listPos : Vector3):
 	move_finished.connect(enable_click)
 
 	move(folderPos, listPos, move_parent.rotation_degrees, Vector3.ZERO, \
-	move_parent.scale, listed_scale , base_move_duration)
+	move_parent.scale, listed_scale , list_time)
 
 func unlist(listPos : Vector3, folderPos : Vector3):
 	disable_highlight()
@@ -246,7 +251,6 @@ func on_mouse_released():
 		GameManager.select_document(self)
 
 func release_drag_drop():
-	print("Released drag & drop.")
 
 	GameManager.camera_node.unlocked = true
 	is_drag_dropping = false
@@ -256,10 +260,8 @@ func release_drag_drop():
 
 	
 	current_table_pos = move_parent.position
-	print("Releasing drag & drop, current table pos: ", current_table_pos)
 
 func on_input_event(event : InputEvent):
-	print("Input event: ", event)
 	if event is InputEventMouseButton:
 		if event.pressed:
 			on_mouse_pressed()
@@ -280,10 +282,8 @@ func _get_cursor_table_position() -> Variant:
 
 	var mouse_pos := get_tree().root.get_mouse_position()
 	var ray_origin := camera.project_ray_origin(mouse_pos)
-	print("Mouse origin ", ray_origin )
 
 	var ray_normal := camera.project_ray_normal(mouse_pos)
-	print("Mouse direction ", ray_normal)
 
 	var table_1 = GameManager.table_object.global_position
 	table_1.y += drag_drop_table_height_offset
@@ -318,10 +318,8 @@ func _process(delta: float) -> void:
 	if counting_drag_drop:
 		current_drag_drop_time += delta
 		if current_drag_drop_time >= drag_drop_time:
-			print("Started drag & drop")
 			GameManager.camera_node.unlocked = false
 
-			print("Camera unlocked ? ", !GameManager.camera_node.unlocked)
 			is_drag_dropping = true
 			counting_drag_drop = false
 			current_drag_drop_time = 0.0

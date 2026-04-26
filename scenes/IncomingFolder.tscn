@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://d0frkjyyypykh"]
+
+[ext_resource type="Script" uid="uid://de7a5nuhpqnmn" path="res://scripts/folder.gd" id="1_emufp"]
+[ext_resource type="Texture2D" uid="uid://croip881ce36e" path="res://sprites/folders/folder_incoming_top.png" id="2_n8no7"]
+[ext_resource type="Texture2D" uid="uid://bhvllwc38abih" path="res://sprites/folders/folder_incoming_bottom.png" id="3_oqiap"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tsa4w"]
+size = Vector3(0.11, 0.01, 0.155)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_78x4e"]
+cull_mode = 2
+albedo_texture = ExtResource("2_n8no7")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_0f8dc"]
+material = SubResource("StandardMaterial3D_78x4e")
+size = Vector2(0.1, 0.156)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mpvgd"]
+albedo_texture = ExtResource("3_oqiap")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_78x4e"]
+material = SubResource("StandardMaterial3D_mpvgd")
+size = Vector2(0.11, 0.156)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0f8dc"]
+transparency = 1
+albedo_color = Color(0, 1, 1, 0.2509804)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_21ie1"]
+material = SubResource("StandardMaterial3D_0f8dc")
+size = Vector2(0.1, 0.155)
+
+[node name="IncomingFolder" type="Area3D" unique_id=1106081498 node_paths=PackedStringArray("folder_list_start", "front_page")]
+collision_layer = 16
+collision_mask = 0
+input_ray_pickable = false
+script = ExtResource("1_emufp")
+folder_list_start = NodePath("ListPos")
+front_page = NodePath("FrontPage")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=956906312]
+shape = SubResource("BoxShape3D_tsa4w")
+
+[node name="FrontPage" type="Node3D" parent="." unique_id=807642525]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.055, 0.005, 0)
+
+[node name="FrontPageMesh" type="MeshInstance3D" parent="FrontPage" unique_id=681067876]
+transform = Transform3D(0.99904823, -0.043619387, 0, 0.043619387, 0.99904823, 0, 0, 0, 1, 0.05, 0, 0)
+mesh = SubResource("PlaneMesh_0f8dc")
+
+[node name="ListPos" type="Node3D" parent="." unique_id=1167830800]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0025146604, 0.030394584, -0.051092893)
+
+[node name="BottomPageMesh" type="MeshInstance3D" parent="." unique_id=2113684829]
+mesh = SubResource("PlaneMesh_78x4e")
+
+[node name="Highlight" type="MeshInstance3D" parent="." unique_id=1209520016]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
+visible = false
+mesh = SubResource("PlaneMesh_21ie1")
+
+[connection signal="input_event" from="." to="." method="on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="on_mouse_exited"]
