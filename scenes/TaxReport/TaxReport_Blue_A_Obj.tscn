@@ -26,7 +26,7 @@ size = Vector2i(651, 875)
 size_2d_override = Vector2i(1920, 1080)
 
 [node name="Document" parent="SubViewport" unique_id=2125992226 node_paths=PackedStringArray("fields", "move_parent") instance=ExtResource("2_mrvi0")]
-fields = [NodePath("MarginContainer/Body/CaptchaField"), NodePath("MarginContainer/Body/CheckboxField"), null, NodePath("MarginContainer/Body/SignatureField")]
+fields = [NodePath("MarginContainer/Body/CaptchaField"), NodePath("MarginContainer/Body/CheckboxField"), NodePath("MarginContainer/Body/SignatureField")]
 move_parent = NodePath("../..")
 
 [node name="Quad" type="MeshInstance3D" parent="." unique_id=1419982194]

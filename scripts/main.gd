@@ -93,7 +93,7 @@ func load_level(level: int = 1) -> void:
 		game_over('win')
 		return # maybe not needed
 	# TODO delete comment, only for testing
-	#incoming_folder .add_docs(game_manager.documents_to_submit)
+	incoming_folder.add_docs(game_manager.documents_to_submit)
 	start_timer()
 
 func submit_day() -> void:
