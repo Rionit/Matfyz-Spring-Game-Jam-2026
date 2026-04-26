@@ -4,27 +4,30 @@
 [ext_resource type="PackedScene" uid="uid://cdptnkmj1256p" path="res://scenes/ui/pause_menu.tscn" id="1_jyhfs"]
 [ext_resource type="Script" uid="uid://bevavgob5p1ah" path="res://scripts/main.gd" id="1_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://b2f3frvqldyhg" path="res://models/map/room.glb" id="2_sugp2"]
-[ext_resource type="PackedScene" uid="uid://dv6ic7cllyp02" path="res://scenes/ui/tutorial_menu.tscn" id="2_tbgi4"]
+[ext_resource type="PackedScene" path="res://scenes/ui/tutorial_menu.tscn" id="2_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://dccm5wkm0nlvl" path="res://scenes/ui/TimerCountdown.tscn" id="2_tipki"]
 [ext_resource type="PackedScene" uid="uid://c4c1o7hc6u6l" path="res://sprites/clock.glb" id="6_tefeu"]
-[ext_resource type="FontFile" uid="uid://tqjtn52xe82d" path="res://scenes/ui/clock.ttf" id="9_85g3d"]
 [ext_resource type="PackedScene" uid="uid://d0frkjyyypykh" path="res://scenes/IncomingFolder.tscn" id="8_85g3d"]
 [ext_resource type="PackedScene" uid="uid://cjuct5j48uqah" path="res://scenes/ui/AllFieldsDocObj.tscn" id="8_tipki"]
 [ext_resource type="PackedScene" uid="uid://4tc3bju77eu6" path="res://scenes/ui/HelpbookObj.tscn" id="9_85g3d"]
 [ext_resource type="PackedScene" uid="uid://cdrkieb7mimdx" path="res://scenes/SubmissionFolder.tscn" id="10_choun"]
 [ext_resource type="PackedScene" uid="uid://bxtxqfthsaj13" path="res://scenes/ui/submit_gui.tscn" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://cwtuh1abisqt3" path="res://scenes/ui/payment_buttons_gui.tscn" id="12_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://bw12ikpch1k0q" path="res://scenes/ui/stamp_buttons_gui_red.tscn" id="14_a8y0u"]
+[ext_resource type="PackedScene" uid="uid://byquhyes7qrl2" path="res://scenes/ui/stamp_buttons_gui_green.tscn" id="15_jkv2x"]
+[ext_resource type="PackedScene" uid="uid://bf1qrj151504f" path="res://scenes/ui/stamp_buttons_gui_blue.tscn" id="16_jbj1t"]
+[ext_resource type="AudioStream" uid="uid://cxwa43i8c3c6o" path="res://sounds/alien_background.wav" id="17_muem4"]
 
 [sub_resource type="Environment" id="Environment_0wfyh"]
 
 [sub_resource type="Compositor" id="Compositor_sugp2"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_choun"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_dp3eg"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ya4ey"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ld40"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_choun")
+albedo_texture = SubResource("ViewportTexture_dp3eg")
 
 [node name="Main" type="Node3D" unique_id=31963921 node_paths=PackedStringArray("submission_folder", "incoming_folder")]
 script = ExtResource("1_tbgi4")
@@ -130,12 +133,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.12755403, 0.55396736)
 [node name="TestFolder" parent="TableObject" unique_id=1106081498 instance=ExtResource("8_85g3d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28472355, 0.00067687035, -0.031061232)
 
-[node name="Label3D" type="Label3D" parent="." unique_id=1255954377]
-transform = Transform3D(0.001571035, 0, 0.99999887, 0, 1, 0, -0.99999887, 0, 0.001571035, -0.98750967, 0.06762849, 0.12241647)
-text = "09:00 - 12:00"
-font = ExtResource("9_85g3d")
-font_size = 14
-outline_size = 4
 [node name="Document1" parent="TableObject" unique_id=1503292003 instance=ExtResource("8_tipki")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15147972, 0.2842134, 0.010760665)
 
@@ -146,7 +143,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15147972, 0.2842134, 0.0107
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33928284, 0, 0.111617625)
 
 [node name="Quad" parent="TableObject/HelpbookObj" index="1" unique_id=1341834876]
-surface_material_override/0 = SubResource("StandardMaterial3D_ya4ey")
+surface_material_override/0 = SubResource("StandardMaterial3D_0ld40")
 
 [node name="SubmissionFolder" parent="TableObject" unique_id=1151233729 instance=ExtResource("10_choun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19524977, -0.01045239, -0.019834101)
@@ -157,11 +154,28 @@ transform = Transform3D(1.9604162, 0, 2.5225315, 0, 3.194745, 0, -2.5225315, 0, 
 [node name="PaymentButtonsGUI2" parent="TableObject" unique_id=612734104 instance=ExtResource("12_eb6dy")]
 transform = Transform3D(0.5992611, 0, -1.1452582, 0, 1.2925673, 0, 1.1452582, 0, 0.5992611, 0.71437466, 0.2375531, -0.42608202)
 
+[node name="Label3D" type="Label3D" parent="." unique_id=1255954377]
+transform = Transform3D(0.001571035, 0, 0.99999887, 0, 1, 0, -0.99999887, 0, 0.001571035, -0.98750967, 0.06762849, 0.12241647)
+text = "09:00 - 12:00"
+font_size = 14
+outline_size = 4
+
+[node name="StampButtonsGUI" parent="." unique_id=1825527057 instance=ExtResource("14_a8y0u")]
+transform = Transform3D(1.6484566, 0, 0.7882875, 0, 1.8272401, 0, -0.7882875, 0, 1.6484566, -0.5006839, 0.29448894, -0.5905257)
+
+[node name="StampButtonsGUI2" parent="." unique_id=1477930166 instance=ExtResource("15_jkv2x")]
+transform = Transform3D(1.79724, 0, 0, 0, 1.79724, 0, 0, 0, 1.79724, 0.04323028, 0.30880535, -0.54737616)
+
+[node name="StampButtonsGUI3" parent="." unique_id=1608181359 instance=ExtResource("16_jbj1t")]
+transform = Transform3D(1.4108834, 0, -0.69543403, 0, 1.5729655, 0, 0.69543403, 0, 1.4108834, 0.45139056, 0.32027367, -0.34043682)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1565050669]
+stream = ExtResource("17_muem4")
+autoplay = true
+
 [connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/ButtonsVBox/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/ButtonsVBox/ExitButton" to="." method="_on_exit_button_pressed"]
-[connection signal="pressed" from="TutorialMenu/MarginContainer/VBoxContainer/ButtonsHBox/PreviousButton" to="." method="_on_previous_button_pressed"]
 [connection signal="pressed" from="TutorialMenu/MarginContainer/VBoxContainer/ButtonsHBox/ContinueButton" to="." method="_on_continue_button_pressed"]
-[connection signal="pressed" from="TutorialMenu/MarginContainer/VBoxContainer/ButtonsHBox/NextButton" to="." method="_on_next_button_pressed"]
 
 [editable path="TimerCountdown"]
 [editable path="PauseMenu"]

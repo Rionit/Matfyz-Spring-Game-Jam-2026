@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://k8uc1pnmk1we"]
+
+[ext_resource type="Script" uid="uid://dy21ttf32jj68" path="res://scripts/ui/stamp_buttons.gd" id="1_1g2gt"]
+[ext_resource type="Texture2D" uid="uid://bhrbtapsgsqu2" path="res://sprites/stamps/green_stamp_1.png" id="2_1g2gt"]
+[ext_resource type="Texture2D" uid="uid://cjnb0kp5r3jix" path="res://sprites/stamps/green_stamp_2.png" id="3_7ree2"]
+[ext_resource type="Texture2D" uid="uid://beqx4e2ox1qrm" path="res://sprites/stamps/green_stamp_3.png" id="4_hxpih"]
+
+[node name="StampButtonsGreen" type="Control" unique_id=1904282165]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 300.0
+offset_bottom = 700.0
+script = ExtResource("1_1g2gt")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=576150517]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1566157231]
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="RedHolder" type="Control" parent="MarginContainer/VBoxContainer" unique_id=941975792]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="A" type="Button" parent="MarginContainer/VBoxContainer/RedHolder" unique_id=49068673]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+size_flags_vertical = 3
+icon = ExtResource("2_1g2gt")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="GreenHolder" type="Control" parent="MarginContainer/VBoxContainer" unique_id=1672475297]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="B" type="Button" parent="MarginContainer/VBoxContainer/GreenHolder" unique_id=1471068535]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+size_flags_vertical = 3
+icon = ExtResource("3_7ree2")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="BlueHolder" type="Control" parent="MarginContainer/VBoxContainer" unique_id=1732625967]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="C" type="Button" parent="MarginContainer/VBoxContainer/BlueHolder" unique_id=1600785537]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+size_flags_vertical = 3
+icon = ExtResource("4_hxpih")
+flat = true
+icon_alignment = 1
+expand_icon = true
