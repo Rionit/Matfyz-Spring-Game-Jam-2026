@@ -81,6 +81,7 @@ offset_left = 33.0
 offset_top = 66.0
 offset_right = 1889.0
 offset_bottom = 402.0
+scale = Vector2(0.99595875, 0.99088216)
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.6024352, 0.7753075, 0.90093386, 1)
 theme_override_fonts/font = ExtResource("1_f6eus")
