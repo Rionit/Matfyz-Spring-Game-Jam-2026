@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dm3abpiv7u53u"]
+
+[ext_resource type="Script" uid="uid://cjh3gsqn7imtx" path="res://scripts/hud.gd" id="1_6fi6k"]
+[ext_resource type="Texture2D" uid="uid://bopw7hb7hhefu" path="res://sprites/photo/hand.png" id="1_ahhtf"]
+[ext_resource type="Script" uid="uid://pqtlah4jq266" path="res://scripts/mouse_follower.gd" id="2_oo0fn"]
+[ext_resource type="Texture2D" uid="uid://4udgrn7tsyup" path="res://sprites/photo/photo.png" id="3_5ysmq"]
+
+[node name="HUD" type="Control" unique_id=631780439]
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_6fi6k")
+
+[node name="Picture" type="TextureRect" parent="." unique_id=463971523]
+z_index = -1
+layout_mode = 0
+offset_right = 216.0
+offset_bottom = 242.0
+rotation = 0.035286482
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("3_5ysmq")
+script = ExtResource("2_oo0fn")
+
+[node name="Hand" type="TextureRect" parent="Picture" unique_id=1055272118]
+layout_mode = 0
+offset_left = 30.96641
+offset_top = 234.78851
+offset_right = 287.9664
+offset_bottom = 1114.7886
+rotation = -0.061880723
+scale = Vector2(1.2544038, 1.2544038)
+pivot_offset = Vector2(73.141495, 11.641651)
+texture = ExtResource("1_ahhtf")
