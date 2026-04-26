@@ -105,6 +105,7 @@ var current_drag_drop_time : float = 0.0
 func _ready() -> void:
 	for field in fields:
 		field.document = self
+	disable_fields()
 
 func evaluate() -> int:
 	var total = 0
@@ -119,8 +120,12 @@ func enable_fields():
 	move_finished.disconnect(enable_fields)
 	for field in fields:
 		field.receives_input = true
+		field.mouse_filter = Control.MOUSE_FILTER_PASS
+		field.mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_ENABLED
 func disable_fields():
 	for field in fields:
+		field.mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_DISABLED
+		field.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		field.receives_input = false
 
 func enable_click():

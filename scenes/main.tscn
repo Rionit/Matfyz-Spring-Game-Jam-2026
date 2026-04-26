@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cdptnkmj1256p" path="res://scenes/ui/pause_menu.tscn" id="1_jyhfs"]
 [ext_resource type="Script" uid="uid://bevavgob5p1ah" path="res://scripts/main.gd" id="1_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://b2f3frvqldyhg" path="res://models/map/room.glb" id="2_sugp2"]
-[ext_resource type="PackedScene" path="res://scenes/ui/tutorial_menu.tscn" id="2_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://dv6ic7cllyp02" path="res://scenes/ui/tutorial_menu.tscn" id="2_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://dccm5wkm0nlvl" path="res://scenes/ui/TimerCountdown.tscn" id="2_tipki"]
 [ext_resource type="PackedScene" uid="uid://c4c1o7hc6u6l" path="res://sprites/clock.glb" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://d0frkjyyypykh" path="res://scenes/IncomingFolder.tscn" id="8_85g3d"]
@@ -22,12 +22,12 @@
 
 [sub_resource type="Compositor" id="Compositor_sugp2"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_dp3eg"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_muem4"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ld40"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dp3eg"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_dp3eg")
+albedo_texture = SubResource("ViewportTexture_muem4")
 
 [node name="Main" type="Node3D" unique_id=31963921 node_paths=PackedStringArray("submission_folder", "incoming_folder")]
 script = ExtResource("1_tbgi4")
@@ -143,7 +143,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15147972, 0.2842134, 0.0107
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33928284, 0, 0.111617625)
 
 [node name="Quad" parent="TableObject/HelpbookObj" index="1" unique_id=1341834876]
-surface_material_override/0 = SubResource("StandardMaterial3D_0ld40")
+surface_material_override/0 = SubResource("StandardMaterial3D_dp3eg")
 
 [node name="SubmissionFolder" parent="TableObject" unique_id=1151233729 instance=ExtResource("10_choun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19524977, -0.01045239, -0.019834101)
