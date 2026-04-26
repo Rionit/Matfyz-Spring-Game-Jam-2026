@@ -4,24 +4,18 @@
 [ext_resource type="PackedScene" uid="uid://cdptnkmj1256p" path="res://scenes/ui/pause_menu.tscn" id="1_jyhfs"]
 [ext_resource type="Script" uid="uid://bevavgob5p1ah" path="res://scripts/main.gd" id="1_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://b2f3frvqldyhg" path="res://models/map/room.glb" id="2_sugp2"]
-[ext_resource type="PackedScene" uid="uid://dv6ic7cllyp02" path="res://scenes/ui/tutorial_menu.tscn" id="2_tbgi4"]
+[ext_resource type="PackedScene" path="res://scenes/ui/tutorial_menu.tscn" id="2_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://c4c1o7hc6u6l" path="res://sprites/clock.glb" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://d0frkjyyypykh" path="res://scenes/IncomingFolder.tscn" id="8_85g3d"]
 [ext_resource type="PackedScene" uid="uid://cjuct5j48uqah" path="res://scenes/ui/AllFieldsDocObj.tscn" id="8_tipki"]
 [ext_resource type="PackedScene" uid="uid://4tc3bju77eu6" path="res://scenes/ui/HelpbookObj.tscn" id="9_85g3d"]
 [ext_resource type="PackedScene" uid="uid://cdrkieb7mimdx" path="res://scenes/SubmissionFolder.tscn" id="10_choun"]
+[ext_resource type="PackedScene" uid="uid://bxtxqfthsaj13" path="res://scenes/ui/submit_gui.tscn" id="11_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://cwtuh1abisqt3" path="res://scenes/ui/payment_buttons_gui.tscn" id="12_eb6dy"]
 
 [sub_resource type="Environment" id="Environment_0wfyh"]
 
 [sub_resource type="Compositor" id="Compositor_sugp2"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_choun"]
-viewport_path = NodePath("SubViewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ya4ey"]
-resource_local_to_scene = true
-transparency = 1
-albedo_texture = SubResource("ViewportTexture_choun")
 
 [node name="Main" type="Node3D" unique_id=31963921 node_paths=PackedStringArray("submission_folder", "incoming_folder")]
 script = ExtResource("1_tbgi4")
@@ -122,9 +116,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28472355, 0.00067687035, -
 [node name="Document1" parent="TableObject" unique_id=1503292003 instance=ExtResource("8_tipki")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15147972, 0.2842134, 0.010760665)
 
-[node name="Quad" parent="TableObject/Document1" index="1" unique_id=1419982194]
-surface_material_override/0 = SubResource("StandardMaterial3D_ya4ey")
-
 [node name="Document2" parent="TableObject" unique_id=109233284 instance=ExtResource("8_tipki")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15147972, 0.2842134, 0.010760665)
 
@@ -133,6 +124,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33928284, 0, 0.111617625)
 
 [node name="SubmissionFolder" parent="TableObject" unique_id=1151233729 instance=ExtResource("10_choun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19524977, -0.01045239, -0.019834101)
+
+[node name="PaymentButtonsGUI" parent="TableObject" unique_id=1391087144 instance=ExtResource("11_ya4ey")]
+transform = Transform3D(1.9604162, 0, 2.5225315, 0, 3.194745, 0, -2.5225315, 0, 1.9604162, -0.7220303, 0.16315308, -0.25705954)
+
+[node name="PaymentButtonsGUI2" parent="TableObject" unique_id=612734104 instance=ExtResource("12_eb6dy")]
+transform = Transform3D(0.5992611, 0, -1.1452582, 0, 1.2925673, 0, 1.1452582, 0, 0.5992611, 0.71437466, 0.2375531, -0.42608202)
 
 [connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/ButtonsVBox/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/ButtonsVBox/ExitButton" to="." method="_on_exit_button_pressed"]
