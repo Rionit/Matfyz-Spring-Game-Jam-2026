@@ -10,10 +10,8 @@
 [node name="PhotoField" type="Control" unique_id=1679272487]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 115.0
-offset_top = 288.0
-offset_right = 235.0
-offset_bottom = 438.0
+offset_right = 120.0
+offset_bottom = 150.0
 script = ExtResource("1_40q4o")
 valid_distance_threshold = 20.0
 red_font = ExtResource("2_f0jvt")
@@ -52,6 +50,7 @@ horizontal_alignment = 1
 
 [node name="Photo" type="TextureRect" parent="." unique_id=1478384803]
 unique_name_in_owner = true
+visible = false
 layout_mode = 0
 offset_right = 98.0
 offset_bottom = 110.0
@@ -59,3 +58,14 @@ pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("6_urusc")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="Button" type="Button" parent="." unique_id=1019002308]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

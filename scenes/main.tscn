@@ -4,17 +4,27 @@
 [ext_resource type="PackedScene" uid="uid://cdptnkmj1256p" path="res://scenes/ui/pause_menu.tscn" id="1_jyhfs"]
 [ext_resource type="Script" uid="uid://bevavgob5p1ah" path="res://scripts/main.gd" id="1_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://b2f3frvqldyhg" path="res://models/map/room.glb" id="2_sugp2"]
-[ext_resource type="PackedScene" uid="uid://dv6ic7cllyp02" path="res://scenes/ui/tutorial_menu.tscn" id="2_tbgi4"]
+[ext_resource type="PackedScene" path="res://scenes/ui/tutorial_menu.tscn" id="2_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://c4c1o7hc6u6l" path="res://sprites/clock.glb" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://d0frkjyyypykh" path="res://scenes/IncomingFolder.tscn" id="8_85g3d"]
+[ext_resource type="PackedScene" uid="uid://cjuct5j48uqah" path="res://scenes/ui/AllFieldsDocObj.tscn" id="8_tipki"]
 
 [sub_resource type="Environment" id="Environment_0wfyh"]
 
 [sub_resource type="Compositor" id="Compositor_sugp2"]
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_tipki"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_85g3d"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = SubResource("ViewportTexture_tipki")
+
 [node name="Main" type="Node3D" unique_id=31963921 node_paths=PackedStringArray("incoming_folder")]
 script = ExtResource("1_tbgi4")
 incoming_folder = NodePath("TableObject/TestFolder")
+testing_folders = true
 
 [node name="Timer" type="Timer" parent="." unique_id=141712067]
 
@@ -106,6 +116,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.12755403, 0.55396736)
 [node name="TestFolder" parent="TableObject" unique_id=1106081498 instance=ExtResource("8_85g3d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28472355, 0.00067687035, -0.031061232)
 
+[node name="Document1" parent="TableObject" unique_id=1503292003 instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15147972, 0.2842134, 0.010760665)
+
+[node name="Quad" parent="TableObject/Document1" index="1" unique_id=1419982194]
+surface_material_override/0 = SubResource("StandardMaterial3D_85g3d")
+
+[node name="Document2" parent="TableObject" unique_id=109233284 instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15147972, 0.2842134, 0.010760665)
+
 [connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/ButtonsVBox/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/ButtonsVBox/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="TutorialMenu/MarginContainer/VBoxContainer/ButtonsHBox/PreviousButton" to="." method="_on_previous_button_pressed"]
@@ -114,3 +133,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28472355, 0.00067687035, -
 
 [editable path="PauseMenu"]
 [editable path="TutorialMenu"]
+[editable path="TableObject/Document1"]

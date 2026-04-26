@@ -28,6 +28,7 @@ enum ColorType { RED, GREEN, BLUE }
 @export_range(2000, 6000) var max_progress: float = 5000.0
 
 var is_hovering := false
+var is_mouse_down := false
 var last_mouse_pos := Vector2.ZERO
 var progress := 0.0
 
@@ -82,9 +83,9 @@ func _on_mouse_enter():
 	last_mouse_pos = get_global_mouse_position()
 
 func _on_mouse_exit():
-	if finished:
-		return
 	is_hovering = false
+	if finished or not is_mouse_down:
+		return
 	
 	if progress < max_progress:
 		field_result = false
@@ -96,6 +97,7 @@ func _gui_input(event):
 		return
 		
 	if is_hovering and event is InputEventMouseMotion:
+		print("TADY JSEM KURVAA")
 		var current_pos = event.global_position
 		var delta = current_pos - last_mouse_pos
 		last_mouse_pos = current_pos
@@ -110,3 +112,11 @@ func _gui_input(event):
 
 func evaluate() -> bool:
 	return field_result
+
+func _on_button_button_down() -> void:
+	is_mouse_down = true
+	print("mouse: ", is_mouse_down)
+
+func _on_button_button_up() -> void:
+	is_mouse_down = false
+	print("mouse: ", is_mouse_down)

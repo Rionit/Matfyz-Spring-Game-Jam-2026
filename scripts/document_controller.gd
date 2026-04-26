@@ -102,6 +102,10 @@ var current_drag_drop_time : float = 0.0
 # CAN be clicked (selects document on click)
 # CAN'T click fields
 
+func _ready() -> void:
+	for field in fields:
+		field.document = self
+
 func evaluate() -> int:
 	var total = 0
 	for field in fields:
