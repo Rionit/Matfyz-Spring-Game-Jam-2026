@@ -1,8 +1,15 @@
 [gd_scene format=3 uid="uid://cldduaquiddtd"]
 
+[ext_resource type="Script" uid="uid://dvm7yltqp0j4v" path="res://scripts/helpbook.gd" id="1_d3dop"]
 [ext_resource type="Texture2D" uid="uid://cl278hjbckvgv" path="res://sprites/handbook/handbook.png" id="1_hw568"]
+[ext_resource type="PackedScene" uid="uid://2c6uct1o5gt4" path="res://scenes/ui/tutorial_pages/checkbox_tutorial.tscn" id="2_1nuox"]
+[ext_resource type="PackedScene" uid="uid://bkw887mh3dht3" path="res://scenes/ui/tutorial_pages/signature_tutorial.tscn" id="3_d3dop"]
+[ext_resource type="PackedScene" uid="uid://bm7xbkgdhohjt" path="res://scenes/ui/tutorial_pages/captcha_tutorial.tscn" id="4_emyre"]
+[ext_resource type="PackedScene" uid="uid://bikmfq062pdhn" path="res://scenes/ui/tutorial_pages/payment_tutorial.tscn" id="5_7mhvd"]
+[ext_resource type="PackedScene" uid="uid://s6q7gltfpls2" path="res://scenes/ui/tutorial_pages/stamp_tutorial_a.tscn" id="6_k7yjx"]
+[ext_resource type="PackedScene" uid="uid://dr0i3g3jyotp6" path="res://scenes/ui/tutorial_pages/stamp_tutorial_b.tscn" id="7_lrjxu"]
 
-[node name="Handbook" type="Control" unique_id=1985724167]
+[node name="Helpbook" type="Control" unique_id=1985724167 node_paths=PackedStringArray("left_pages", "right_pages", "left_arrow", "right_arrow", "highlight")]
 layout_mode = 3
 anchor_right = 0.439
 anchor_bottom = 0.551
@@ -10,6 +17,15 @@ offset_right = -0.8800049
 offset_bottom = -0.08001709
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_d3dop")
+left_pages = [NodePath("MarginContainer/HBoxContainer/LeftPageMargin/CheckboxTutorial"), NodePath("MarginContainer/HBoxContainer/LeftPageMargin/TutorialSign"), NodePath("MarginContainer/HBoxContainer/LeftPageMargin/CaptchaTutorial"), NodePath("MarginContainer/HBoxContainer/LeftPageMargin/PaymentTutorial"), NodePath("MarginContainer/HBoxContainer/LeftPageMargin/StampTutorialA")]
+right_pages = [NodePath("MarginContainer/HBoxContainer/RightPageMargin/TutorialSign"), NodePath("MarginContainer/HBoxContainer/RightPageMargin/CaptchaTutorial"), NodePath("MarginContainer/HBoxContainer/RightPageMargin/PaymentTutorial"), NodePath("MarginContainer/HBoxContainer/RightPageMargin/StampTutorialA"), NodePath("MarginContainer/HBoxContainer/RightPageMargin/StampTutorialB")]
+left_arrow = NodePath("HBoxContainer2/RichTextLabel")
+right_arrow = NodePath("HBoxContainer2/RichTextLabel2")
+table_pos = Vector3(0.2, 0, 0)
+highlight = NodePath("Highlight")
+top_look_rot = Vector3(45, 0, 0)
+selection_pos = Vector3(-0.2, 0, 0)
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2012810609]
 layout_mode = 1
@@ -21,16 +37,23 @@ grow_vertical = 2
 texture = ExtResource("1_hw568")
 expand_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1338638078]
-layout_direction = 2
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=125515424]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
-[node name="LeftPageMargin" type="MarginContainer" parent="HBoxContainer" unique_id=322084412]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1338638078]
+layout_direction = 2
+layout_mode = 2
+
+[node name="LeftPageMargin" type="MarginContainer" parent="MarginContainer/HBoxContainer" unique_id=322084412]
 custom_minimum_size = Vector2(421, 0)
 layout_mode = 2
 theme_override_constants/margin_left = 40
@@ -38,10 +61,106 @@ theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 70
 
-[node name="RightPageMargin" type="MarginContainer" parent="HBoxContainer" unique_id=1182282021]
+[node name="CheckboxTutorial" parent="MarginContainer/HBoxContainer/LeftPageMargin" unique_id=638489415 instance=ExtResource("2_1nuox")]
+layout_mode = 2
+
+[node name="TutorialSign" parent="MarginContainer/HBoxContainer/LeftPageMargin" unique_id=1975700824 instance=ExtResource("3_d3dop")]
+visible = false
+layout_mode = 2
+
+[node name="CaptchaTutorial" parent="MarginContainer/HBoxContainer/LeftPageMargin" unique_id=160557411 instance=ExtResource("4_emyre")]
+visible = false
+layout_mode = 2
+
+[node name="PaymentTutorial" parent="MarginContainer/HBoxContainer/LeftPageMargin" unique_id=282763095 instance=ExtResource("5_7mhvd")]
+visible = false
+layout_mode = 2
+
+[node name="StampTutorialA" parent="MarginContainer/HBoxContainer/LeftPageMargin" unique_id=1646810992 instance=ExtResource("6_k7yjx")]
+visible = false
+layout_mode = 2
+
+[node name="RightPageMargin" type="MarginContainer" parent="MarginContainer/HBoxContainer" unique_id=1182282021]
 custom_minimum_size = Vector2(421, 0)
 layout_mode = 2
 theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 70
+
+[node name="TutorialSign" parent="MarginContainer/HBoxContainer/RightPageMargin" unique_id=41608787 instance=ExtResource("3_d3dop")]
+layout_mode = 2
+
+[node name="CaptchaTutorial" parent="MarginContainer/HBoxContainer/RightPageMargin" unique_id=1762705930 instance=ExtResource("4_emyre")]
+visible = false
+layout_mode = 2
+
+[node name="PaymentTutorial" parent="MarginContainer/HBoxContainer/RightPageMargin" unique_id=326596384 instance=ExtResource("5_7mhvd")]
+visible = false
+layout_mode = 2
+
+[node name="StampTutorialA" parent="MarginContainer/HBoxContainer/RightPageMargin" unique_id=1005112126 instance=ExtResource("6_k7yjx")]
+visible = false
+layout_mode = 2
+
+[node name="StampTutorialB" parent="MarginContainer/HBoxContainer/RightPageMargin" unique_id=76748603 instance=ExtResource("7_lrjxu")]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=2049349971]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -101.0
+offset_top = -70.0
+offset_right = 99.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+mouse_behavior_recursive = 1
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer2" unique_id=2033892076]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.85490197, 0.56078434, 0.4509804, 1)
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+bbcode_enabled = true
+text = "[b]←[/b]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="HBoxContainer2" unique_id=90190581]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.85490197, 0.56078434, 0.4509804, 1)
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+bbcode_enabled = true
+text = "[b]→[/b]"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Highlight" type="ColorRect" parent="." unique_id=1652763850]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 1, 1, 0.2509804)
+
+[connection signal="gui_input" from="MarginContainer/HBoxContainer" to="." method="on_helpbook_input"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer" to="." method="on_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/HBoxContainer" to="." method="on_mouse_exited"]
