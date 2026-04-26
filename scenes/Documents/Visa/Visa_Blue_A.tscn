@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://bl4yhqk1xuunw" path="res://scenes/ui/fields/stamp_field.tscn" id="7_bsppf"]
 [ext_resource type="Texture2D" uid="uid://c1dl6od3dhhyx" path="res://sprites/stamps/black_stamp_3.png" id="8_8jk4o"]
 [ext_resource type="Texture2D" uid="uid://b35snm4dor705" path="res://sprites/stamps/blue_stamp_3.png" id="8_bbpgd"]
+[ext_resource type="PackedScene" uid="uid://dm5dske2rdkfo" path="res://scenes/ui/fields/payment_field.tscn" id="10_w10xy"]
+[ext_resource type="Texture2D" uid="uid://b1kieyv0n570a" path="res://sprites/payment/money_blue.png" id="11_s530u"]
 
 [node name="Document" type="Control" unique_id=2125992226 node_paths=PackedStringArray("fields", "highlight_overlay")]
 layout_mode = 3
@@ -21,7 +23,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_2757y")
-fields = [NodePath("MarginContainer/Body/CaptchaField"), NodePath("MarginContainer/Body/CheckboxField"), NodePath("MarginContainer/Body/PhotoField"), NodePath("MarginContainer/Body/SignatureField"), NodePath("MarginContainer/Body/StampField")]
+fields = [NodePath("MarginContainer/Body/CaptchaField"), NodePath("MarginContainer/Body/CheckboxField"), NodePath("MarginContainer/Body/PhotoField"), NodePath("MarginContainer/Body/SignatureField"), NodePath("MarginContainer/Body/StampField"), NodePath("MarginContainer/Body/PaymentField")]
 highlight_overlay = NodePath("HighlightOverlay")
 top_look_pos = Vector3(0, -0.1, -0.12)
 top_look_rot = Vector3(-75, 0, 0)
@@ -85,12 +87,21 @@ offset_bottom = 258.5
 
 [node name="StampField" parent="MarginContainer/Body" unique_id=507597388 instance=ExtResource("7_bsppf")]
 layout_mode = 0
-offset_left = 175.0
-offset_top = 205.0
-offset_right = 275.0
-offset_bottom = 305.0
+offset_left = 111.0
+offset_top = 215.0
+offset_right = 211.0
+offset_bottom = 315.0
 stamp_on_doc = ExtResource("8_8jk4o")
 stamp_at_counter = ExtResource("8_bbpgd")
+
+[node name="PaymentField" parent="MarginContainer/Body" unique_id=511929745 instance=ExtResource("10_w10xy")]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 46.0
+offset_right = 286.0
+offset_bottom = 146.0
+stamp = ExtResource("11_s530u")
+color_type = 2
 
 [node name="HighlightOverlay" type="ColorRect" parent="." unique_id=1902409606]
 visible = false

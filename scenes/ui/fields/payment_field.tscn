@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://dm5dske2rdkfo"]
+
+[ext_resource type="Script" uid="uid://bwktpm1d8ma3f" path="res://scripts/payment_field.gd" id="1_nite0"]
+[ext_resource type="Texture2D" uid="uid://b568l8bywwn80" path="res://sprites/payment/money_red.png" id="2_5sss0"]
+
+[node name="PaymentField" type="Control" unique_id=507597388]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 100.0
+offset_bottom = 100.0
+mouse_filter = 2
+script = ExtResource("1_nite0")
+stamp = ExtResource("2_5sss0")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=396875807]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5sss0")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1393909556]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 2
+stretch_mode = 5

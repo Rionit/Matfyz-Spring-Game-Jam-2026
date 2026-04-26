@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://bikmfq062pdhn" path="res://scenes/ui/tutorial_pages/payment_tutorial.tscn" id="5_7mhvd"]
 [ext_resource type="PackedScene" uid="uid://s6q7gltfpls2" path="res://scenes/ui/tutorial_pages/stamp_tutorial_a.tscn" id="6_k7yjx"]
 [ext_resource type="PackedScene" uid="uid://dr0i3g3jyotp6" path="res://scenes/ui/tutorial_pages/stamp_tutorial_b.tscn" id="7_lrjxu"]
+[ext_resource type="Texture2D" uid="uid://dnis2y80kpgou" path="res://sprites/arrows/left.png" id="9_emyre"]
+[ext_resource type="Texture2D" uid="uid://c78xbm7mjqxlb" path="res://sprites/arrows/right.png" id="10_7mhvd"]
 
 [node name="Helpbook" type="Control" unique_id=1985724167 node_paths=PackedStringArray("left_pages", "right_pages", "left_arrow", "right_arrow", "highlight")]
 layout_mode = 3
@@ -20,10 +22,11 @@ grow_vertical = 2
 script = ExtResource("1_d3dop")
 left_pages = [NodePath("MarginContainer/HBoxContainer/LeftPageMargin/CheckboxTutorial"), NodePath("MarginContainer/HBoxContainer/LeftPageMargin/TutorialSign"), NodePath("MarginContainer/HBoxContainer/LeftPageMargin/CaptchaTutorial"), NodePath("MarginContainer/HBoxContainer/LeftPageMargin/PaymentTutorial"), NodePath("MarginContainer/HBoxContainer/LeftPageMargin/StampTutorialA")]
 right_pages = [NodePath("MarginContainer/HBoxContainer/RightPageMargin/TutorialSign"), NodePath("MarginContainer/HBoxContainer/RightPageMargin/CaptchaTutorial"), NodePath("MarginContainer/HBoxContainer/RightPageMargin/PaymentTutorial"), NodePath("MarginContainer/HBoxContainer/RightPageMargin/StampTutorialA"), NodePath("MarginContainer/HBoxContainer/RightPageMargin/StampTutorialB")]
-left_arrow = NodePath("HBoxContainer2/RichTextLabel")
-right_arrow = NodePath("HBoxContainer2/RichTextLabel2")
+left_arrow = NodePath("HBoxContainer2/Left")
+right_arrow = NodePath("HBoxContainer2/Right")
 table_pos = Vector3(0, -0.013113439, 0.13999999)
 highlight = NodePath("Highlight")
+default_arrow_color = Color(0.3254902, 0.1764706, 0.15686275, 1)
 top_look_pos = Vector3(0, -0.1, -0.12)
 top_look_rot = Vector3(-75, 0, 0)
 selection_pos = Vector3(-0.1, 0, 0)
@@ -147,33 +150,22 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
 mouse_behavior_recursive = 1
-theme_override_constants/separation = 100
+theme_override_constants/separation = 200
 alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer2" unique_id=2033892076]
+[node name="Left" type="TextureRect" parent="HBoxContainer2" unique_id=1788185740]
 layout_mode = 2
 size_flags_horizontal = 3
-mouse_filter = 2
-theme_override_colors/default_color = Color(0.5019608, 0.5019608, 0.5019608, 1)
-theme_override_font_sizes/normal_font_size = 32
-theme_override_font_sizes/bold_font_size = 32
-bbcode_enabled = true
-text = "[b]←[/b]"
-horizontal_alignment = 1
-vertical_alignment = 1
+texture = ExtResource("9_emyre")
+expand_mode = 2
+stretch_mode = 5
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="HBoxContainer2" unique_id=90190581]
+[node name="Right" type="TextureRect" parent="HBoxContainer2" unique_id=814639151]
 layout_mode = 2
 size_flags_horizontal = 3
-mouse_filter = 2
-theme_override_colors/default_color = Color(0.85490197, 0.56078434, 0.4509804, 1)
-theme_override_font_sizes/normal_font_size = 32
-theme_override_font_sizes/bold_font_size = 32
-bbcode_enabled = true
-text = "[b]→[/b]"
-fit_content = true
-horizontal_alignment = 1
-vertical_alignment = 1
+texture = ExtResource("10_7mhvd")
+expand_mode = 2
+stretch_mode = 5
 
 [node name="Highlight" type="ColorRect" parent="." unique_id=1652763850]
 visible = false
