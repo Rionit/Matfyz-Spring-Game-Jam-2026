@@ -15,6 +15,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_6fi6k")
+picture_texture = ExtResource("3_5ysmq")
 
 [node name="Picture" type="TextureRect" parent="." unique_id=463971523]
 z_index = -1

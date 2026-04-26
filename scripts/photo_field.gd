@@ -8,6 +8,8 @@ enum ColorType { RED, GREEN, BLUE }
 		color_type = value
 		_request_update()
 
+@export var valid_distance_threshold: float
+
 @onready var rich_text_label: RichTextLabel = %Label
 @onready var photo: TextureRect = %Photo
 @onready var photo_frame: TextureRect = %PhotoFrame
@@ -20,11 +22,16 @@ enum ColorType { RED, GREEN, BLUE }
 @export var green_font_size: int 
 @export var blue_font_size: int
 
+var photo_distance: float
+
+func _ready() -> void:
+	photo.hide()
+	HUD.show_picture()
 
 func _input(event):
 	if event is InputEventKey and event.pressed and not event.echo:
-		if event.keycode == KEY_P:
-			debug_place_photo_at_mouse()
+		if event.keycode == KEY_Q and not photo.visible: # TODO: REMOVE ME!!
+			place_photo_at_mouse()
 
 
 func _get_screen_pos() -> Vector2:
@@ -50,7 +57,7 @@ func _get_screen_pos() -> Vector2:
 		push_error("Quad mesh is null.")
 		return Vector2.ZERO
 
-	var rect: Rect2 = photo.get_global_rect()
+	var rect: Rect2 = photo_frame.get_global_rect()
 	var sub_size: Vector2 = viewport.size
 
 	if sub_size == Vector2.ZERO:
@@ -76,29 +83,72 @@ func _get_screen_pos() -> Vector2:
 
 	return camera.unproject_position(world_pos)
 
-func debug_place_photo_at_mouse():
+func screen_to_subviewport(screen_pos: Vector2) -> Vector2:
+	var viewport: Viewport = get_viewport()
+	var host: Node = viewport.get_parent()
+
+	if host == null or not (host is GUI_3D):
+		push_error("Invalid GUI_3D host.")
+		return Vector2.ZERO
+
+	var gui_3d: GUI_3D = host
+	var quad: MeshInstance3D = gui_3d.node_quad
+
+	if quad == null or quad.mesh == null:
+		push_error("Quad or mesh is null.")
+		return Vector2.ZERO
+
+	var camera: Camera3D = GameManager.camera_node
+	if camera == null:
+		push_error("No Camera3D found.")
+		return Vector2.ZERO
+
+	var from: Vector3 = camera.project_ray_origin(screen_pos)
+	var dir: Vector3 = camera.project_ray_normal(screen_pos)
+
+	var plane: Plane = Plane(quad.global_transform.basis.z, quad.global_transform.origin)
+	var world_pos: Variant = plane.intersects_ray(from, dir)
+
+	if world_pos == null:
+		return Vector2.ZERO
+
+	var local_pos: Vector3 = quad.global_transform.affine_inverse() * world_pos
+	var quad_size: Vector2 = quad.mesh.size
+
+	var uv: Vector2 = Vector2(
+		local_pos.x / quad_size.x + 0.5,
+		- local_pos.y / quad_size.y + 0.5
+	)
+
+	var vp_size: Vector2 = Vector2(viewport.size)
+	return uv * vp_size
+
+func place_photo_at_mouse():
 	if not is_inside_tree():
 		return
 
-	var hud_photo_size := HUD.picture.size
-	var mouse_pos := HUD.picture.global_position - (hud_photo_size * 0.5)
-
-	print(_get_screen_pos())
-
 	# center the photo on the mouse position
 	var photo_size := photo.size
-	photo.global_position = mouse_pos - (photo_size * 0.5)
+	photo.global_position = screen_to_subviewport(HUD.picture.global_position + (HUD.picture.size * 0.5)) - (photo_size * 0.5)
 
 	var frame_center := photo_frame.global_position + (photo_frame.size * 0.5)
-	var distance := mouse_pos.distance_to(frame_center)
-
-	print("Distance from photo_frame: ", distance)
+	var photo_pos = photo.global_position + (photo_size * 0.5)
+	var distance := photo_pos.distance_to(frame_center)
+	
+	HUD.hide_picture()
+	photo.show()
+	
+	photo_distance = distance
+	
+	if not evaluate():
+		photo.rotation += sign(randf() - 0.5) * randf_range(0.1, 0.3)
+	
+	print("Distance from photo_frame: ", distance, " and result is: ", evaluate(), " and: ", photo_distance < valid_distance_threshold)
 
 func _request_update():
 	if not is_inside_tree():
 		return
 	call_deferred("_update_ui")
-
 
 func _update_ui():
 	if not is_inside_tree():
@@ -123,6 +173,5 @@ func _update_ui():
 				%Label.add_theme_font_override("normal_font", blue_font)
 				%Label.add_theme_font_size_override("normal_font_size", blue_font_size)
 
-
 func evaluate() -> bool:
-	return true
+	return photo_distance <= valid_distance_threshold and photo.visible

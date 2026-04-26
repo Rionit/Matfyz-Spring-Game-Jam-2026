@@ -1,28 +1,66 @@
 extends TextureRect
+class_name Hand
 
 @export var strength: float = 25.0
 @export var damping: float = 8.0
 
 var velocity: Vector2 = Vector2.ZERO
+var following_mouse: bool = true
+
 
 func _get_offset_from_mouse() -> Vector2:
 	var mouse_pos: Vector2 = get_global_mouse_position()
 	return (mouse_pos - (global_position + (size * 0.5)))
 
-func _process(delta: float) -> void:
+
+func hide_hand() -> void:
+	following_mouse = false
+	
+	var screen_size: Vector2 = get_viewport().get_visible_rect().size
+	var off_screen_pos: Vector2 = Vector2(global_position.x, screen_size.y + size.y * 0.6)
+	
+	create_tween().tween_property(self, "global_position", off_screen_pos, 0.5)\
+		.set_trans(Tween.TRANS_SINE)\
+		.set_ease(Tween.EASE_IN)
+
+
+func show_hand() -> void:
 	var screen_size: Vector2 = get_viewport().get_visible_rect().size
 	
-	# mouse position in global space
 	var mouse_pos: Vector2 = get_global_mouse_position()
-	
-	# we want the pivot to sit on the mouse
 	var target: Vector2 = mouse_pos - (size * 0.5)
 	
-	# clamp so pivot stays inside screen bounds
 	target.x = clamp(target.x, -(size * 0.5).x, screen_size.x - (size * 0.5).x)
 	target.y = clamp(target.y, -(size * 0.5).y, screen_size.y - (size * 0.5).y)
 	
+	var start_pos: Vector2 = Vector2(global_position.x, screen_size.y + size.y * 0.6)
+	global_position = start_pos
+	
+	following_mouse = false
+	
+	var tween := create_tween()
+	tween.tween_property(self, "global_position", target, 0.6)\
+		.set_trans(Tween.TRANS_SINE)\
+		.set_ease(Tween.EASE_OUT)
+	
+	tween.finished.connect(func():
+		following_mouse = true
+	)
+
+
+func _process(delta: float) -> void:
+	var screen_size: Vector2 = get_viewport().get_visible_rect().size
+	
 	var pos: Vector2 = global_position
+	
+	var target: Vector2 = pos
+	
+	if following_mouse:
+		var mouse_pos: Vector2 = get_global_mouse_position()
+		target = mouse_pos - (size * 0.5)
+		
+		target.x = clamp(target.x, -(size * 0.5).x, screen_size.x - (size * 0.5).x)
+		target.y = clamp(target.y, -(size * 0.5).y, screen_size.y - (size * 0.5).y)
 	
 	var force: Vector2 = (target - pos) * strength
 	velocity += force * delta
@@ -31,7 +69,6 @@ func _process(delta: float) -> void:
 	
 	pos += velocity * delta
 	
-	# enforce bounds (and kill velocity on impact)
 	if pos.x < -(size * 0.5).x:
 		pos.x = -(size * 0.5).x
 		velocity.x = 0.0
