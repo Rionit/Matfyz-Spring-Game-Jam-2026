@@ -1,6 +1,14 @@
 [gd_scene format=3 uid="uid://cgv075o7xqryx"]
 
 [ext_resource type="Script" uid="uid://bip7r4dhwb501" path="res://scripts/ui/credit.gd" id="1_rjnpu"]
+[ext_resource type="Texture2D" uid="uid://bs2cq4hp1f2le" path="res://sprites/images/mainmenu.png" id="2_p0jyi"]
+[ext_resource type="FontFile" uid="uid://duyo07uotl2qi" path="res://fonts/blue_font.ttf" id="3_kwb5s"]
+[ext_resource type="FontFile" uid="uid://chsiqrkupps43" path="res://fonts/red_font.ttf" id="4_7ybtb"]
+[ext_resource type="FontFile" uid="uid://ia0gu52dxka1" path="res://fonts/green_font.ttf" id="5_mtqlt"]
+
+[sub_resource type="SystemFont" id="SystemFont_dt1pq"]
+
+[sub_resource type="SystemFont" id="SystemFont_j02qh"]
 
 [node name="Credit" type="Control" unique_id=297501966]
 layout_mode = 3
@@ -11,6 +19,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rjnpu")
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1800347599]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_p0jyi")
+
 [node name="ColorRect" type="ColorRect" parent="." unique_id=754031602]
 layout_mode = 1
 anchors_preset = 15
@@ -18,7 +32,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.35686275, 1, 1, 1)
+color = Color(0.03357882, 0.05193322, 0.051260293, 0.7058824)
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=748198632]
 layout_mode = 1
@@ -38,45 +52,86 @@ layout_mode = 2
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=237294265]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 26
-text = "[Placeholder for name or image of game name]"
+theme_override_colors/font_color = Color(0.079825364, 0.5967844, 0.7936201, 1)
+theme_override_fonts/font = ExtResource("3_kwb5s")
+theme_override_font_sizes/font_size = 170
+text = "CREDITS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1148147953]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
-text = "[Placeholder for first name]"
+theme_override_colors/font_color = Color(0.76743567, 0, 0.116391845, 1)
+theme_override_fonts/font = ExtResource("4_7ybtb")
+theme_override_font_sizes/font_size = 50
+text = "Programming"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label8" type="Label" parent="MarginContainer/VBoxContainer" unique_id=300707384]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.76743567, 0, 0.116391845, 1)
+theme_override_fonts/font = SubResource("SystemFont_dt1pq")
+theme_override_font_sizes/font_size = 37
+text = "(Programming)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label3" type="Label" parent="MarginContainer/VBoxContainer" unique_id=159457644]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
-text = "[Placeholder for second name]"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 39
+text = "Filip Doležal - Rionit"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label4" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1220711610]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
-text = "[Placeholder for third name]"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 39
+text = "Martin Verner - Falcos"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label5" type="Label" parent="MarginContainer/VBoxContainer" unique_id=673711632]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
-text = "[Placeholder for fourth name]"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 39
+text = "Tomáš Vikiszály - Twafla"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1729249015]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.62706256, 0.75452554, 0.09410261, 1)
+theme_override_fonts/font = ExtResource("5_mtqlt")
+theme_override_font_sizes/font_size = 89
+text = "egs"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label9" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1549766752]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.62706256, 0.75452554, 0.09410261, 1)
+theme_override_fonts/font = SubResource("SystemFont_j02qh")
+theme_override_font_sizes/font_size = 37
+text = "Art)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label7" type="Label" parent="MarginContainer/VBoxContainer" unique_id=47002823]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 39
+text = "Arina Streltsova - Aristrela"
 horizontal_alignment = 1
 vertical_alignment = 1
 
