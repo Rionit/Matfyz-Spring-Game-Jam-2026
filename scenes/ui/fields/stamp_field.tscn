@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://84f8k5ubm2f1" path="res://scripts/stamp_field.gd" id="1_pfkbk"]
 [ext_resource type="Texture2D" uid="uid://c1dl6od3dhhyx" path="res://sprites/stamps/black_stamp_3.png" id="2_w55w3"]
-[ext_resource type="Texture2D" uid="uid://bhrbtapsgsqu2" path="res://sprites/stamps/green_stamp_1.png" id="3_qoyvi"]
 
 [node name="StampField" type="Control" unique_id=507597388]
 layout_mode = 3
@@ -11,8 +10,6 @@ offset_right = 100.0
 offset_bottom = 100.0
 mouse_filter = 2
 script = ExtResource("1_pfkbk")
-stamp_black = ExtResource("2_w55w3")
-stamp_color = ExtResource("3_qoyvi")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=396875807]
 layout_mode = 1
@@ -22,5 +19,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_w55w3")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=730519956]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 expand_mode = 2
 stretch_mode = 5
