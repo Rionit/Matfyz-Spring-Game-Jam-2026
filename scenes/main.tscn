@@ -16,17 +16,18 @@
 [ext_resource type="PackedScene" uid="uid://bw12ikpch1k0q" path="res://scenes/ui/stamp_buttons_gui_red.tscn" id="14_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://byquhyes7qrl2" path="res://scenes/ui/stamp_buttons_gui_green.tscn" id="15_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://bf1qrj151504f" path="res://scenes/ui/stamp_buttons_gui_blue.tscn" id="16_jbj1t"]
+[ext_resource type="AudioStream" uid="uid://cxwa43i8c3c6o" path="res://sounds/alien_background.wav" id="17_muem4"]
 
 [sub_resource type="Environment" id="Environment_0wfyh"]
 
 [sub_resource type="Compositor" id="Compositor_sugp2"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_jbj1t"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_dp3eg"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_muem4"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ld40"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_jbj1t")
+albedo_texture = SubResource("ViewportTexture_dp3eg")
 
 [node name="Main" type="Node3D" unique_id=31963921 node_paths=PackedStringArray("submission_folder", "incoming_folder")]
 script = ExtResource("1_tbgi4")
@@ -142,7 +143,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15147972, 0.2842134, 0.0107
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33928284, 0, 0.111617625)
 
 [node name="Quad" parent="TableObject/HelpbookObj" index="1" unique_id=1341834876]
-surface_material_override/0 = SubResource("StandardMaterial3D_muem4")
+surface_material_override/0 = SubResource("StandardMaterial3D_0ld40")
 
 [node name="SubmissionFolder" parent="TableObject" unique_id=1151233729 instance=ExtResource("10_choun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19524977, -0.01045239, -0.019834101)
@@ -167,6 +168,10 @@ transform = Transform3D(1.79724, 0, 0, 0, 1.79724, 0, 0, 0, 1.79724, 0.04323028,
 
 [node name="StampButtonsGUI3" parent="." unique_id=1608181359 instance=ExtResource("16_jbj1t")]
 transform = Transform3D(1.4108834, 0, -0.69543403, 0, 1.5729655, 0, 0.69543403, 0, 1.4108834, 0.45139056, 0.32027367, -0.34043682)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1565050669]
+stream = ExtResource("17_muem4")
+autoplay = true
 
 [connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/ButtonsVBox/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/ButtonsVBox/ExitButton" to="." method="_on_exit_button_pressed"]
