@@ -1,10 +1,10 @@
-[gd_scene format=3 uid="uid://dvm1vmcia8ojk"]
+[gd_scene format=3 uid="uid://y206sardm05v"]
 
-[ext_resource type="Script" uid="uid://c6t6wnq3gd84v" path="res://scripts/document_controller.gd" id="1_wdfyb"]
-[ext_resource type="Texture2D" uid="uid://dm3y58jv3wdq8" path="res://sprites/documents/red/tax.png" id="2_4dx5d"]
-[ext_resource type="PackedScene" uid="uid://gok16fqapo66" path="res://scenes/ui/fields/signature_field.tscn" id="3_k35p8"]
-[ext_resource type="PackedScene" uid="uid://chu43i7oryotp" path="res://scenes/ui/fields/captcha_field.tscn" id="4_fgo3e"]
-[ext_resource type="PackedScene" uid="uid://b2b2qewlviril" path="res://scenes/ui/fields/checkbox_field.tscn" id="5_sk1xj"]
+[ext_resource type="Script" uid="uid://c6t6wnq3gd84v" path="res://scripts/document_controller.gd" id="1_kmggy"]
+[ext_resource type="Texture2D" uid="uid://uxd0g5gr2ouo" path="res://sprites/documents/green/tax.png" id="2_2cijb"]
+[ext_resource type="PackedScene" uid="uid://gok16fqapo66" path="res://scenes/ui/fields/signature_field.tscn" id="3_5m3pt"]
+[ext_resource type="PackedScene" uid="uid://chu43i7oryotp" path="res://scenes/ui/fields/captcha_field.tscn" id="4_lhbxb"]
+[ext_resource type="PackedScene" uid="uid://b2b2qewlviril" path="res://scenes/ui/fields/checkbox_field.tscn" id="5_amb2w"]
 
 [node name="Document" type="Control" unique_id=2125992226 node_paths=PackedStringArray("fields", "highlight_overlay")]
 layout_mode = 3
@@ -16,7 +16,7 @@ offset_bottom = -205.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-script = ExtResource("1_wdfyb")
+script = ExtResource("1_kmggy")
 fields = [NodePath("MarginContainer/Body/CaptchaField"), NodePath("MarginContainer/Body/CheckboxField"), NodePath("MarginContainer/Body/SignatureField")]
 highlight_overlay = NodePath("HighlightOverlay")
 top_look_pos = Vector3(0, -0.1, -0.12)
@@ -26,7 +26,7 @@ top_look_rot = Vector3(-75, 0, 0)
 layout_mode = 0
 offset_right = 651.0
 offset_bottom = 875.0
-texture = ExtResource("2_4dx5d")
+texture = ExtResource("2_2cijb")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1799867776]
 layout_mode = 1
@@ -44,33 +44,33 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 mouse_filter = 1
 
-[node name="SignatureField" parent="MarginContainer/Body" unique_id=739498873 instance=ExtResource("3_k35p8")]
+[node name="SignatureField" parent="MarginContainer/Body" unique_id=739498873 instance=ExtResource("3_5m3pt")]
 layout_mode = 1
 offset_left = 37.04
-offset_top = -263.5
+offset_top = 97.5
 offset_right = 36.973938
-offset_bottom = -263.5
-color_type = 0
+offset_bottom = 97.5
+color_type = 1
 
-[node name="CaptchaField" parent="MarginContainer/Body" unique_id=9917882 instance=ExtResource("4_fgo3e")]
+[node name="CaptchaField" parent="MarginContainer/Body" unique_id=9917882 instance=ExtResource("4_lhbxb")]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -426.0
-offset_top = 250.0
+offset_top = 24.0
 offset_right = -153.0
-offset_bottom = 567.0
+offset_bottom = 341.0
 grow_horizontal = 0
-correct_answer_types = 11
+correct_answer_types = 5
 
-[node name="CheckboxField" parent="MarginContainer/Body" unique_id=979512527 instance=ExtResource("5_sk1xj")]
+[node name="CheckboxField" parent="MarginContainer/Body" unique_id=979512527 instance=ExtResource("5_amb2w")]
 layout_mode = 1
 offset_left = 316.0
 offset_top = 701.0
 offset_right = 316.0
 offset_bottom = 701.0
-color_type = 0
+color_type = 1
 correct_answers = 1
 
 [node name="HighlightOverlay" type="ColorRect" parent="." unique_id=1902409606]
