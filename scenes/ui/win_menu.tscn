@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://des6q48jbg0v2"]
+[gd_scene format=3 uid="uid://dlthp43yewtgi"]
 
-[ext_resource type="Script" uid="uid://b8ofjwl34ggdn" path="res://scripts/ui/win_menu.gd" id="1_2hvk1"]
-[ext_resource type="Texture2D" uid="uid://bs2cq4hp1f2le" path="res://sprites/images/mainmenu.png" id="2_8ch8s"]
+[ext_resource type="Script" path="res://scripts/ui/win_menu.gd" id="1_2hvk1"]
+[ext_resource type="Texture2D" uid="uid://sqwymrv8brn7" path="res://sprites/images/good_ending.png" id="2_2hvk1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1g8jr"]
 
@@ -33,22 +33,24 @@ offset_right = -0.5
 offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_8ch8s")
+texture = ExtResource("2_2hvk1")
 expand_mode = 1
 
 [node name="MainMenuButton" type="Button" parent="." unique_id=1829853515]
 layout_mode = 0
-offset_left = 1941.0
-offset_top = 718.99994
-offset_right = 2282.9998
-offset_bottom = 955.4286
-rotation = -3.5670578
-scale = Vector2(1.5315332, 1.1650586)
+offset_left = 1458.0
+offset_top = 873.0
+offset_right = 1907.0
+offset_bottom = 1109.4287
+rotation = -6.281497
+scale = Vector2(0.931709, 0.9406329)
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxEmpty_1g8jr")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_btxxm")
 theme_override_styles/hover = SubResource("StyleBoxLine_1g8jr")
 theme_override_styles/focus = SubResource("StyleBoxLine_uhagc")
+text = "Back to main menu"
 
 [connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
