@@ -17,6 +17,15 @@
 layout_mode = 3
 anchors_preset = 0
 
+[node name="Label" type="RichTextLabel" parent="." unique_id=1183916846]
+layout_mode = 0
+offset_right = 1.0
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[i][b]Stamps 2/2[/b][/i]"
+autowrap_mode = 2
+
 [node name="Line4" type="ColorRect" parent="." unique_id=1195571938]
 layout_mode = 0
 offset_left = 72.99997

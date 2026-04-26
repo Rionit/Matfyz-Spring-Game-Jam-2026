@@ -30,7 +30,7 @@ func _ready():
 		btn.mouse_entered.connect(func(): _hover_in(h))
 		btn.mouse_exited.connect(func(): _hover_out(h))
 
-	show_buttons()
+	hide_buttons()
 
 func _select_payment(type):
 	GameManager.selected_payment = type
