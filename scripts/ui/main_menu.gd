@@ -6,12 +6,15 @@ func _ready() -> void:
 	focus_button()
 
 func _on_start_game_button_pressed() -> void:
+	SoundPlayer.play_sound(preload("res://sounds/click.wav"))
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
 
 func _on_credit_button_pressed() -> void:
+	SoundPlayer.play_sound(preload("res://sounds/click.wav"))
 	get_tree().change_scene_to_file("res://scenes/ui/credit.tscn")
 
 func _on_exit_button_pressed() -> void:
+	SoundPlayer.play_sound(preload("res://sounds/click.wav"))
 	get_tree().quit()
 
 func _on_visbility_changed() -> void:

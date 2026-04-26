@@ -1,14 +1,6 @@
 [gd_scene format=3 uid="uid://dil8np8g2fxfe"]
 
-[ext_resource type="AudioStream" uid="uid://cxwa43i8c3c6o" path="res://sounds/alien_background.wav" id="1_5se8y"]
-[ext_resource type="AudioStream" uid="uid://bs81ju4o7rg28" path="res://sounds/atmo.wav" id="2_54gq2"]
+[ext_resource type="Script" uid="uid://udhj02ivhyn0" path="res://scenes/sound_player.gd" id="1_p8c8o"]
 
-[node name="Node3D" type="Node3D" unique_id=605723774]
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1772006664]
-stream = ExtResource("1_5se8y")
-autoplay = true
-
-[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="." unique_id=796301441]
-stream = ExtResource("2_54gq2")
-autoplay = true
+[node name="Node" type="Node" unique_id=2051686033]
+script = ExtResource("1_p8c8o")
