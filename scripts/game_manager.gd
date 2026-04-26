@@ -16,6 +16,8 @@ var helpbook_selected : bool = false
 
 @export var test_folder_list : Node3D
 
+@export var testing_folders : bool = false
+
 # TODO: Add helpbook
 var helpbook : Node3D
 
