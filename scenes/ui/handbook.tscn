@@ -22,9 +22,10 @@ left_pages = [NodePath("MarginContainer/HBoxContainer/LeftPageMargin/CheckboxTut
 right_pages = [NodePath("MarginContainer/HBoxContainer/RightPageMargin/TutorialSign"), NodePath("MarginContainer/HBoxContainer/RightPageMargin/CaptchaTutorial"), NodePath("MarginContainer/HBoxContainer/RightPageMargin/PaymentTutorial"), NodePath("MarginContainer/HBoxContainer/RightPageMargin/StampTutorialA"), NodePath("MarginContainer/HBoxContainer/RightPageMargin/StampTutorialB")]
 left_arrow = NodePath("HBoxContainer2/RichTextLabel")
 right_arrow = NodePath("HBoxContainer2/RichTextLabel2")
-table_pos = Vector3(0, 0, 0.2)
+table_pos = Vector3(0, -0.013113439, 0.13999999)
 highlight = NodePath("Highlight")
-top_look_rot = Vector3(45, 0, 0)
+top_look_pos = Vector3(0, -0.1, -0.12)
+top_look_rot = Vector3(-75, 0, 0)
 selection_pos = Vector3(-0.1, 0, 0)
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2012810609]
@@ -153,7 +154,7 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
-theme_override_colors/default_color = Color(0.85490197, 0.56078434, 0.4509804, 1)
+theme_override_colors/default_color = Color(0.5019608, 0.5019608, 0.5019608, 1)
 theme_override_font_sizes/normal_font_size = 32
 theme_override_font_sizes/bold_font_size = 32
 bbcode_enabled = true

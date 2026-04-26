@@ -81,14 +81,14 @@ func put_on_table():
 func move_to_top():
 	if selected_document != null:
 		selected_document.move_to_top()
-	# if helpbook_selected:
-	# 	helpbook.move_to_top()
+	if helpbook.can_browse:
+		helpbook.move_to_top()
 
 func move_from_top():
 	if selected_document != null:
 		selected_document.move_from_top()
-	# if helpbook_selected:
-	# 	helpbook.move_from_top()
+	if helpbook.can_browse:
+		helpbook.move_from_top()
 
 func move_to_folder_test(document : DocumentController):
 	pass # Disabled
