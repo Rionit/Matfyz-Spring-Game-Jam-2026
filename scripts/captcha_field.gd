@@ -29,7 +29,7 @@ var correct_answer_types: int = 0
 
 func _ready():
 	_randomize()
-	call_deferred("_update_ui")
+	_request_update()
 
 func _randomize():
 	for i in range(captcha.item_count):

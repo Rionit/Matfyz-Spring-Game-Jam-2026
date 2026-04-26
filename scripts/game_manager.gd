@@ -23,9 +23,7 @@ var helpbook : Helpbook
 
 var selected_document : DocumentController = null
 
-enum PaymentType { NONE, RED, GREEN, BLUE }
-
-var selected_payment : PaymentType = PaymentType.NONE
+var selected_payment : Texture2D = null
 
 var selected_stamp : Texture2D = null
 

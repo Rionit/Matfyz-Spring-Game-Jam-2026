@@ -36,9 +36,9 @@ var field_result: bool = false
 var finished: bool = false
 
 func _ready():
-	call_deferred("_update_ui")
 	mouse_entered.connect(_on_mouse_enter)
 	mouse_exited.connect(_on_mouse_exit)
+	_request_update()
 
 func _process(delta: float) -> void:
 	if not finished:

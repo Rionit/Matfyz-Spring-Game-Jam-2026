@@ -14,9 +14,9 @@ var tweens: Array[Tween] = []
 func _ready():
 	holders = [red_holder, green_holder, blue_holder]
 
-	red.pressed.connect(func(): _select_payment(GameManager.PaymentType.RED))
-	green.pressed.connect(func(): _select_payment(GameManager.PaymentType.GREEN))
-	blue.pressed.connect(func(): _select_payment(GameManager.PaymentType.BLUE))
+	red.pressed.connect(func(): _select_payment(red.icon))
+	green.pressed.connect(func(): _select_payment(green.icon))
+	blue.pressed.connect(func(): _select_payment(blue.icon))
 
 	await get_tree().process_frame
 
@@ -34,10 +34,6 @@ func _ready():
 
 func _select_payment(type):
 	GameManager.selected_payment = type
-
-	print("Button selected:", GameManager.PaymentType.keys()[type])
-	print("GameManager.selected_payment is now:", GameManager.PaymentType.keys()[GameManager.selected_payment])
-
 	hide_buttons()
 
 func _input(event: InputEvent) -> void:

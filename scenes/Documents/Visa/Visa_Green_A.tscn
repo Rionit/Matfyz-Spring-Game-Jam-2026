@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://bl4yhqk1xuunw" path="res://scenes/ui/fields/stamp_field.tscn" id="7_kk11r"]
 [ext_resource type="Texture2D" uid="uid://c5eh35lhvskmp" path="res://sprites/stamps/black_stamp_2.png" id="8_dqj8k"]
 [ext_resource type="Texture2D" uid="uid://cjnb0kp5r3jix" path="res://sprites/stamps/green_stamp_2.png" id="9_yrmdj"]
+[ext_resource type="PackedScene" uid="uid://dm5dske2rdkfo" path="res://scenes/ui/fields/payment_field.tscn" id="10_r0rjp"]
+[ext_resource type="Texture2D" uid="uid://cehqw60d8lm5l" path="res://sprites/payment/money_green.png" id="11_670ai"]
 
 [node name="Document" type="Control" unique_id=2125992226 node_paths=PackedStringArray("fields", "highlight_overlay")]
 layout_mode = 3
@@ -21,7 +23,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_c0x2h")
-fields = [NodePath("MarginContainer/Body/CaptchaField"), NodePath("MarginContainer/Body/CheckboxField"), NodePath("MarginContainer/Body/PhotoField"), NodePath("MarginContainer/Body/SignatureField"), NodePath("MarginContainer/Body/StampField")]
+fields = [NodePath("MarginContainer/Body/CaptchaField"), NodePath("MarginContainer/Body/CheckboxField"), NodePath("MarginContainer/Body/PhotoField"), NodePath("MarginContainer/Body/SignatureField"), NodePath("MarginContainer/Body/StampField"), NodePath("MarginContainer/Body/PaymentField")]
 highlight_overlay = NodePath("HighlightOverlay")
 top_look_pos = Vector3(0, -0.1, -0.12)
 top_look_rot = Vector3(-75, 0, 0)
@@ -92,6 +94,15 @@ offset_right = 212.0
 offset_bottom = 314.0
 stamp_on_doc = ExtResource("8_dqj8k")
 stamp_at_counter = ExtResource("9_yrmdj")
+
+[node name="PaymentField" parent="MarginContainer/Body" unique_id=753543532 instance=ExtResource("10_r0rjp")]
+layout_mode = 0
+offset_left = 182.0
+offset_top = 54.0
+offset_right = 282.0
+offset_bottom = 154.0
+stamp = ExtResource("11_670ai")
+color_type = 1
 
 [node name="HighlightOverlay" type="ColorRect" parent="." unique_id=1902409606]
 visible = false
