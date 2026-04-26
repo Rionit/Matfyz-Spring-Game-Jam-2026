@@ -8,9 +8,14 @@ extends Control
 @export var base_move_ease : Tween.EaseType = Tween.EaseType.EASE_IN_OUT
 @export var base_move_transition : Tween.TransitionType = Tween.TRANS_QUAD
 
+@export var top_look_pos : Vector3
+@export var top_look_rot : Vector3
+
 @export var base_start_scale : Vector3 = Vector3(1, 1, 1)
 @export var base_end_scale : Vector3 = Vector3(1, 1,1)
 
+@export var selection_pos : Vector3
+@export var selection_rot : Vector3
 
 @export var receives_input : bool = false
 
@@ -66,3 +71,9 @@ func move(startPos : Vector3, endPos : Vector3, startRot : Vector3, endRot : Vec
 
 func restore_input():
 	receives_input = original_input
+
+func move_to_top():
+	move(move_parent.position, top_look_pos, move_parent.rotation_degrees, top_look_rot, move_parent.scale, Vector3.ONE, base_move_duration)
+
+func move_from_top():
+	move(move_parent.position, selection_pos, move_parent.rotation_degrees, selection_rot, move_parent.scale, Vector3.ONE, base_move_duration)

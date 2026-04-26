@@ -43,6 +43,9 @@ func remove(doc: DocumentController) -> void:
 func remove_reorder(doc : DocumentController) -> void:
 	var index = documents.find(doc)
 	documents.remove_at(index)
+	doc.folder = null
+
+	print("Removed document - new size: " + str(documents.size()))
 
 	if documents.size() > 0:
 		receives_input = false
@@ -94,17 +97,23 @@ func unlist_all():
 	close()
 	
 func on_mouse_entered():
+	print("Mouse entered folder area")
 	if receives_input and documents.size() > 0:
 		highlight.visible = true
 
 func on_mouse_exited():
+	print("Mouse exited folder area")
 	if highlight.visible:
 		highlight.visible = false
 
 func on_input_event(camera : Node, event : InputEvent, eventPos : Vector3, eventNormal : Vector3, shapeIdx : int):
 	if receives_input and event is InputEventMouseButton and !event.pressed:
+
+		print("Press or release! - opened: " + str(opened) + " documents: " + str(documents.size()))
 		if opened:
+			print("Folder is open - closing!")
 			unlist_all()
 		elif documents.size() > 0:
+			print("Folder is closed - opening!")
 			list_all()
 		highlight.visible = false

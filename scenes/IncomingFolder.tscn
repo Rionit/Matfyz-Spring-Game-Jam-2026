@@ -33,7 +33,6 @@ size = Vector2(0.1, 0.155)
 [node name="IncomingFolder" type="Area3D" unique_id=1106081498 node_paths=PackedStringArray("folder_list_start", "front_page", "highlight")]
 collision_layer = 16
 collision_mask = 0
-input_ray_pickable = false
 script = ExtResource("1_emufp")
 folder_list_start = NodePath("ListPos")
 front_page = NodePath("FrontPage")

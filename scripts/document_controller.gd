@@ -20,12 +20,8 @@ var current_state = DocState.HIDDEN
 @export var default_table_pos : Vector3
 @export var default_table_rot : Vector3
 
-@export var top_look_pos : Vector3
-@export var top_look_rot : Vector3
-@export var highlight_overlay : Control
 
-@export var selection_pos : Vector3
-@export var selection_rot : Vector3
+@export var highlight_overlay : Control
 
 var current_table_pos : Vector3
 
@@ -152,6 +148,11 @@ func disable_drag_drop():
 func change_parent(new_parent : Node3D):
 	move_parent.reparent(new_parent)
 
+func disable_fields_except(dont_disable : Field):
+	for field in fields:
+		if field != dont_disable:
+			field.receives_input = false
+
 func select():
 	if move_parent.get_parent() == GameManager.table_object && can_drag_drop:
 		current_table_pos = move_parent.position
@@ -175,24 +176,21 @@ func put_on_table():
 	print ("Putting on table, current table pos: ", current_table_pos)
 	move(move_parent.position, current_table_pos, move_parent.rotation_degrees, Vector3(-90,0,0), move_parent.scale, Vector3.ONE, base_move_duration)
 
-func stash(folderPos : Vector3):
+func stash(folder : Folder):
 	change_parent(GameManager.table_object)
 	disable_click()
 	disable_highlight()
 	disable_drag_drop()
 	print("Resetting current pos to default table pos: ", default_table_pos)
 	current_table_pos = default_table_pos
-	move(move_parent.position, folderPos, move_parent.rotation_degrees, Vector3(-90,0,0), move_parent.scale, Vector3.ZERO, base_move_duration)
+	move(move_parent.position, folder.position, move_parent.rotation_degrees, Vector3(-90,0,0), move_parent.scale, Vector3.ZERO, base_move_duration)
 
 func move_to_top():
 	disable_fields()
 
-	# TODO: Make helpbook offset conditional
 	move(move_parent.position, top_look_pos + GameManager.helpbook_offset, move_parent.rotation_degrees, top_look_rot, move_parent.scale, Vector3.ONE, base_move_duration)
 
 func move_from_top():
-	#TODO: Make helpbook offset conditional
-
 	move_finished.connect(enable_fields)
 	move(move_parent.position, selection_pos + GameManager.helpbook_offset, move_parent.rotation_degrees, selection_rot, move_parent.scale, Vector3.ONE, base_move_duration)
 
@@ -241,17 +239,20 @@ func on_mouse_released():
 		release_drag_drop()
 
 		var cursor_folder_object = _get_cursor_folder_object()
-
+		
 		if cursor_folder_object != null:
-			print("Collided with folder!")
-			stash(cursor_folder_object.global_position - GameManager.table_object.global_position)
+			var folder = cursor_folder_object as Folder
+			folder.add(self)
+			if folder.opened:
+				list(move_parent.position, folder.position + folder.folder_list_start.position + folder.folder_list_offset * (folder.documents.size() - 1))			
+			else:
+				stash(folder)
 		# TODO: Add folder logic
 		return
 	elif can_click:
 		GameManager.select_document(self)
 
 func release_drag_drop():
-
 	GameManager.camera_node.unlocked = true
 	is_drag_dropping = false
 	counting_drag_drop = false
