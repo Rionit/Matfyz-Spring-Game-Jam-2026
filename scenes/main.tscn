@@ -13,14 +13,6 @@
 
 [sub_resource type="Compositor" id="Compositor_sugp2"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_tipki"]
-viewport_path = NodePath("SubViewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_85g3d"]
-resource_local_to_scene = true
-transparency = 1
-albedo_texture = SubResource("ViewportTexture_tipki")
-
 [node name="Main" type="Node3D" unique_id=31963921 node_paths=PackedStringArray("incoming_folder")]
 script = ExtResource("1_tbgi4")
 incoming_folder = NodePath("TableObject/TestFolder")
@@ -119,9 +111,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28472355, 0.00067687035, -
 [node name="Document1" parent="TableObject" unique_id=1503292003 instance=ExtResource("8_tipki")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15147972, 0.2842134, 0.010760665)
 
-[node name="Quad" parent="TableObject/Document1" index="1" unique_id=1419982194]
-surface_material_override/0 = SubResource("StandardMaterial3D_85g3d")
-
 [node name="Document2" parent="TableObject" unique_id=109233284 instance=ExtResource("8_tipki")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15147972, 0.2842134, 0.010760665)
 
@@ -133,4 +122,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15147972, 0.2842134, 0.0107
 
 [editable path="PauseMenu"]
 [editable path="TutorialMenu"]
-[editable path="TableObject/Document1"]
