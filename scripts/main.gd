@@ -18,6 +18,8 @@ var game_manager
 @export var tutorial_3: Array[DocumentController] = []
 @export var tutorial_4: Array[DocumentController] = []
 
+@export var testing_folders : bool = false
+
 var pause: bool = false
 var tutorial: bool = false
 
@@ -27,6 +29,8 @@ func _ready() -> void:
 	pauseScene.hide()
 	create_timer()
 	game_manager = $'../GameManager'
+	game_manager.testing_folders = testing_folders
+	start_timer()
 	game_manager.main_game()
 	load_level(game_manager.actual_level)
 

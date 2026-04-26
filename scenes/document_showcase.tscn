@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bsnfdqhgelq2l"]
+[gd_scene format=3 uid="uid://chbtx82tf5yoh"]
 
 [ext_resource type="Script" uid="uid://bevavgob5p1ah" path="res://scripts/main.gd" id="1_twmxf"]
 [ext_resource type="PackedScene" uid="uid://cdptnkmj1256p" path="res://scenes/ui/pause_menu.tscn" id="2_thi68"]
@@ -7,24 +7,25 @@
 [ext_resource type="Script" uid="uid://thhm5whoy2gr" path="res://scripts/main_camera.gd" id="5_7n0sf"]
 [ext_resource type="PackedScene" uid="uid://dqww7m5dojdwd" path="res://scenes/ui/DocumentObj.tscn" id="6_thi68"]
 [ext_resource type="Script" path="res://scripts/ui/test_document.gd" id="7_ahnse"]
+[ext_resource type="Script" uid="uid://de7a5nuhpqnmn" path="res://scripts/folder.gd" id="7_l6tnw"]
 
 [sub_resource type="Environment" id="Environment_0wfyh"]
 
 [sub_resource type="Compositor" id="Compositor_sugp2"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_tsa4w"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_l6tnw"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l6tnw"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jyudn"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_tsa4w")
+albedo_texture = SubResource("ViewportTexture_l6tnw")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tsa4w"]
+size = Vector3(0.1, 0.1, 0.1)
 
 [sub_resource type="TextMesh" id="TextMesh_tsa4w"]
 text = "Folder"
 font_size = 2
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_tsa4w"]
-size = Vector3(0.1, 0.1, 0.1)
 
 [sub_resource type="TextMesh" id="TextMesh_l6tnw"]
 text = "List"
@@ -33,6 +34,7 @@ font_size = 2
 [node name="Main" type="Node3D" unique_id=31963921]
 script = ExtResource("1_twmxf")
 time_for_documents = 100000
+testing_folders = true
 
 [node name="Timer" type="Timer" parent="." unique_id=141712067]
 
@@ -123,29 +125,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.12755403, 0.55396736)
 transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 0, 0, 0)
 
 [node name="Quad" parent="TableObject/DocumentObj" index="1" unique_id=1419982194]
-surface_material_override/0 = SubResource("StandardMaterial3D_l6tnw")
+surface_material_override/0 = SubResource("StandardMaterial3D_jyudn")
 
-[node name="TestFolder" type="Node3D" parent="TableObject" unique_id=1499222637]
+[node name="Folder" type="Area3D" parent="TableObject" unique_id=122781295]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1621772, 0.013079464, -0.06928557)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="TableObject/TestFolder" unique_id=717778570]
-transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.14142136, 0, -0.70710677, 0.14142136, 0, 0, 0)
-mesh = SubResource("TextMesh_tsa4w")
-
-[node name="Area3D" type="Area3D" parent="TableObject/TestFolder" unique_id=122781295]
 collision_layer = 16
 collision_mask = 0
 input_ray_pickable = false
+script = ExtResource("7_l6tnw")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TableObject/TestFolder/Area3D" unique_id=1174539363]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TableObject/Folder" unique_id=1174539363]
 shape = SubResource("BoxShape3D_tsa4w")
 
-[node name="TestList" type="Node3D" parent="TableObject" unique_id=1689292382]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15966254, 0.04347405, -0.120378464)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TableObject/Folder" unique_id=717778570]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.14142136, 0, -0.70710677, 0.14142136, 0, 0, 0)
+mesh = SubResource("TextMesh_tsa4w")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="TableObject/TestList" unique_id=2040231896]
+[node name="TestList" type="Node3D" parent="TableObject/Folder" unique_id=1689292382]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0025146604, 0.030394584, -0.051092893)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TableObject/Folder/TestList" unique_id=2040231896]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.2, 0, 0, 0)
 mesh = SubResource("TextMesh_l6tnw")
+
+[node name="TestFolder" type="Node3D" parent="TableObject" unique_id=1499222637]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1621772, 0.013079464, -0.06928557)
 
 [node name="Node3D" type="Node3D" parent="TableObject" unique_id=470051546]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)

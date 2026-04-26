@@ -16,7 +16,7 @@ extends Control
 
 var original_input = receives_input # Store the original input state to restore it after moves.
 
-# Register your callbacks for when the move is finished here
+# Register your callbacks for when the move is finished here ... passes the source of the signal to disconnect properly
 signal move_finished
 
 signal is_shown
@@ -30,21 +30,21 @@ func hide_item():
 
 func enable_camera():
 	GameManager.camera_active = true
+	
 
 func _ready() -> void:
 	move_finished.connect(enable_camera)
-	pass
-	#move_finished.connect()
-
-
 
 func move(startPos : Vector3, endPos : Vector3, startRot : Vector3, endRot : Vector3, startScale : Vector3, endScale : Vector3, duration : float, ease : Tween.EaseType = base_move_ease, transition : Tween.TransitionType = base_move_transition):
 	if move_parent == null:
 		print("ERROR: Move Parent is not set.")
 
+	# Convert degrees to radians for rotation
 	var start_rot_rad = Vector3(deg_to_rad(startRot.x), deg_to_rad(startRot.y), deg_to_rad(startRot.z))
 	var end_rot_rad = Vector3(deg_to_rad(endRot.x), deg_to_rad(endRot.y), deg_to_rad(endRot.z))
+	GameManager.camera_active = false
 
+	# Saves original input state to restore it after the move is finished. This prevents interference during the move.
 	original_input = receives_input
 	receives_input = false # Disable input during the move to prevent interference. It will be re-enabled when the tween finishes.
 
@@ -52,6 +52,7 @@ func move(startPos : Vector3, endPos : Vector3, startRot : Vector3, endRot : Vec
 	move_parent.scale = startScale
 	move_parent.rotation = start_rot_rad
 
+	# Tweens the movement
 	var tween = create_tween()
 	tween.set_trans(transition)
 	tween.set_ease(ease)
@@ -59,6 +60,7 @@ func move(startPos : Vector3, endPos : Vector3, startRot : Vector3, endRot : Vec
 	tween.parallel().tween_property(move_parent, "rotation", end_rot_rad, duration) 
 	tween.parallel().tween_property(move_parent, "scale", endScale, duration)
 
+	# Restores original input state and emits the move_finished signal when the tween is done.
 	tween.finished.connect(restore_input)
 	tween.finished.connect(func(): move_finished.emit()) # Emit the move_finished signal when the tween is done.
 
