@@ -8,7 +8,7 @@ var game_manager
 @export var time_for_documents: float = 180.0
 @export var max_misstakes: int = 10
 @export var submission_folder: SubmissionFolder
-@export var incomming_folder: Folder
+@export var incoming_folder : Folder
 @export var level_1: Array[DocumentController] = []
 @export var level_2: Array[DocumentController] = []
 @export var level_3: Array[DocumentController] = []
@@ -63,7 +63,7 @@ func load_level(level: int = 1) -> void:
 		game_over('win')
 		return # maybe not needed
 	# TODO delete comment, only for testing
-	#incomming_folder.add_docs(game_manager.documents_to_submit)
+	#incoming_folder .add_docs(game_manager.documents_to_submit)
 	start_timer()
 	show_tutorial(tutorial_pages)
 
@@ -90,7 +90,6 @@ func stop_timer() -> void:
 
 func _on_timer_timeout() -> void:
 	timer.stop()
-	timer.timeout.disconnect()
 	game_over("timeout")
 
 ###
@@ -99,9 +98,9 @@ func _on_timer_timeout() -> void:
 func game_over(reason) -> void:
 	if reason == "timeout":
 		get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
-	if reason == "misstakes":
+	elif reason == "misstakes":
 		get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
-	if reason == "win":
+	elif reason == "win":
 		get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
 	else:
 		get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")

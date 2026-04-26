@@ -16,8 +16,6 @@ var helpbook_selected : bool = false
 
 @export var test_folder_list : Node3D
 
-@export var testing_folders : bool = false
-
 # TODO: Add helpbook
 var helpbook : Node3D
 
@@ -42,10 +40,8 @@ func main_game() -> void:
 	camera_node = $'../Main/MainCamera'
 	player_face = $'../Main/MainCamera/PlayerFace'
 	table_object = $'../Main/TableObject'
-
-	if testing_folders:
-		test_folder = $'../Main/TableObject/TestFolder'
-		test_folder_list = $'../Main/TableObject/TestList'
+	test_folder = $'../Main/TableObject/TestFolder'
+	test_folder_list = $'../Main/TableObject/TestList'
 
 	#helpbook = $'../Main/Helpbook'
 
@@ -53,9 +49,6 @@ func select_document(doc : DocumentController):
 	if selected_document != null:
 		put_on_table()
 
-	if doc.folder != null:
-		doc.folder.remove_reorder(doc)
-	
 	doc.select()
 	selected_document = doc
 
@@ -92,6 +85,7 @@ func evaluate_day():
 	max_misstakes -= misstakes
 	if max_misstakes <= 0:
 		main.game_over('misstakes')
+		return
 	var missing_documents = main.submission_folder.missing(documents_to_submit)
 	documents_to_submit = []
 	for i in missing_documents:

@@ -21,4 +21,4 @@ func evaluate(docs_to_submit: Array[DocumentController]) -> int:
 	return misstakes
 
 func missing(docs_to_submit: Array[DocumentController]) -> Array[DocumentController]:
-	return documents.filter(func(doc): return doc not in docs_to_submit)
+	return docs_to_submit.filter(func(doc): return doc not in documents)
