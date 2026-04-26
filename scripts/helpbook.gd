@@ -66,12 +66,12 @@ func enable_browsing():
 func select():
 	change_parent(GameManager.player_face)
 	move_finished.connect(enable_browsing)
-	move(move_parent.position, selection_pos, move_parent.rotation, selection_rot, move_parent.scale, base_end_scale, base_move_duration, base_move_ease, base_move_transition)
+	move(move_parent.position, selection_pos, move_parent.rotation_degrees, selection_rot, move_parent.scale, base_end_scale, base_move_duration, base_move_ease, base_move_transition)
 
 func put_on_table():
 	can_browse = false
 	change_parent(GameManager.table_object)
-	move(move_parent.position, table_pos, move_parent.rotation, Vector3(-90, 0,0), move_parent.scale, base_start_scale, base_move_duration, base_move_ease, base_move_transition)
+	move(move_parent.position, table_pos, move_parent.rotation_degrees, Vector3(-90, 0,0), move_parent.scale, base_start_scale, base_move_duration, base_move_ease, base_move_transition)
 
 func on_helpbook_input():
 	if receives_input:
@@ -89,3 +89,6 @@ func on_mouse_exited():
 func on_input_event(event : InputEvent):
 	if event is InputEventMouseButton and !event.pressed:
 		on_helpbook_input()
+
+func _ready() -> void:
+	receives_input = true
