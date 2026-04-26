@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://gok16fqapo66"]
+
+[ext_resource type="Script" uid="uid://d0ptdb8qmaxw5" path="res://scripts/signature_field.gd" id="1_gwwnm"]
+[ext_resource type="Texture2D" uid="uid://bk44u3t6aiaeh" path="res://sprites/signs/sign_red.png" id="2_ymow5"]
+[ext_resource type="Texture2D" uid="uid://28yxnhwhnhjd" path="res://sprites/signs/sign_green.png" id="3_p7xnm"]
+[ext_resource type="Texture2D" uid="uid://byw0pjmxge1te" path="res://sprites/signs/sign_blue.png" id="4_om033"]
+[ext_resource type="FontFile" uid="uid://chsiqrkupps43" path="res://fonts/red_font.ttf" id="5_lw8ra"]
+[ext_resource type="FontFile" uid="uid://ia0gu52dxka1" path="res://fonts/green_font.ttf" id="6_x423a"]
+[ext_resource type="FontFile" uid="uid://duyo07uotl2qi" path="res://fonts/blue_font.ttf" id="7_70u6b"]
+[ext_resource type="Shader" uid="uid://bi5vu5cly13nf" path="res://shaders/reveal_signature.gdshader" id="8_qoqbg"]
+[ext_resource type="Texture2D" uid="uid://cl1c5j5u4aeun" path="res://sprites/signature.png" id="9_obvp3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kcm51"]
+shader = ExtResource("8_qoqbg")
+shader_parameter/reveal = 0.0
+
+[node name="SignatureField" type="Control" unique_id=739498873]
+layout_mode = 3
+anchors_preset = 0
+anchor_left = 0.020000001
+anchor_top = 0.5
+anchor_right = 0.94200003
+anchor_bottom = 0.5
+offset_left = -0.060001373
+offset_right = -0.1260376
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gwwnm")
+color_type = 2
+red_field = ExtResource("2_ymow5")
+green_field = ExtResource("3_p7xnm")
+blue_field = ExtResource("4_om033")
+red_font = ExtResource("5_lw8ra")
+green_font = ExtResource("6_x423a")
+blue_font = ExtResource("7_70u6b")
+red_font_size = 10
+green_font_size = 20
+blue_font_size = 20
+max_progress = 2000.0
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1685225599]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=613158630]
+layout_mode = 2
+
+[node name="Text" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=1191848565]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("7_70u6b")
+theme_override_font_sizes/normal_font_size = 20
+text = "You hereby sell your soul to the glurpazorp corporation for the rest of your human lifespan of at least sixty nine thousand days. In case of premature death you will be printed as a cyborg shell with an ai of your human consciousness."
+fit_content = true
+
+[node name="Field" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=792649904]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(170, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("4_om033")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Signature" type="TextureRect" parent="MarginContainer/VBoxContainer/Field" unique_id=1947380329]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_kcm51")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -65.0
+offset_top = -43.5
+offset_right = 65.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_obvp3")
+expand_mode = 2
+stretch_mode = 5
+
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Field" to="." method="on_mouse_enter"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/Field" to="." method="on_mouse_exit"]

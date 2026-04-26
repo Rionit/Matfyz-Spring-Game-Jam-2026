@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://chu43i7oryotp"]
+
+[ext_resource type="Script" uid="uid://bxukl6o2ifxsv" path="res://scripts/captcha_field.gd" id="1_ejvpe"]
+[ext_resource type="FontFile" uid="uid://chsiqrkupps43" path="res://fonts/red_font.ttf" id="2_bht2w"]
+[ext_resource type="FontFile" uid="uid://ia0gu52dxka1" path="res://fonts/green_font.ttf" id="3_qdrap"]
+[ext_resource type="FontFile" uid="uid://duyo07uotl2qi" path="res://fonts/blue_font.ttf" id="4_4kn3m"]
+[ext_resource type="Texture2D" uid="uid://cqnjx6jwp0atr" path="res://sprites/capcha/capcha_red.png" id="5_b55xn"]
+[ext_resource type="Texture2D" uid="uid://cepv46hbo451n" path="res://sprites/capcha/capcha_green.png" id="6_0wcpr"]
+[ext_resource type="Texture2D" uid="uid://dh82bvmn5mw4v" path="res://sprites/capcha/capcha_blue.png" id="7_pplw2"]
+[ext_resource type="Texture2D" uid="uid://driiscsf1af2b" path="res://sprites/capcha/capcha_human.png" id="8_vnd0l"]
+
+[node name="CaptchaField" type="Control" unique_id=9917882]
+layout_mode = 3
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ejvpe")
+color_type = 2
+red_font = ExtResource("2_bht2w")
+green_font = ExtResource("3_qdrap")
+blue_font = ExtResource("4_4kn3m")
+red_font_size = 10
+green_font_size = 15
+blue_font_size = 18
+captcha_icons = Array[Texture2D]([ExtResource("5_b55xn"), ExtResource("6_0wcpr"), ExtResource("7_pplw2"), ExtResource("8_vnd0l")])
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1398926259]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = -114.0
+offset_right = 105.0
+offset_bottom = 114.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="RichTextLabel" parent="VBoxContainer" unique_id=1390636137]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_4kn3m")
+theme_override_font_sizes/normal_font_size = 18
+text = "Select all correct races."
+fit_content = true
+
+[node name="Captcha" type="ItemList" parent="VBoxContainer" unique_id=1717502100]
+unique_name_in_owner = true
+layout_mode = 2
+select_mode = 2
+allow_search = false
+auto_width = true
+auto_height = true
+item_count = 9
+max_columns = 3
+same_column_width = true
+icon_scale = 0.5
+item_0/icon = ExtResource("6_0wcpr")
+item_1/icon = ExtResource("5_b55xn")
+item_2/icon = ExtResource("7_pplw2")
+item_3/icon = ExtResource("8_vnd0l")
+item_4/icon = ExtResource("6_0wcpr")
+item_5/icon = ExtResource("8_vnd0l")
+item_6/icon = ExtResource("5_b55xn")
+item_7/icon = ExtResource("5_b55xn")
+item_8/icon = ExtResource("6_0wcpr")
+
+[node name="SubmitButton" type="Button" parent="VBoxContainer" unique_id=2002292051]
+unique_name_in_owner = true
+layout_mode = 2
+text = "SUBMIT"
+
+[connection signal="pressed" from="VBoxContainer/SubmitButton" to="." method="test"]
