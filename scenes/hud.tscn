@@ -13,7 +13,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
+mouse_filter = 2
+mouse_behavior_recursive = 1
 script = ExtResource("1_6fi6k")
 picture_texture = ExtResource("3_5ysmq")
 
@@ -25,6 +26,8 @@ offset_right = 216.0
 offset_bottom = 242.0
 rotation = 0.035286482
 pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+mouse_behavior_recursive = 1
 texture = ExtResource("3_5ysmq")
 script = ExtResource("2_oo0fn")
 
@@ -37,4 +40,6 @@ offset_bottom = 1114.7886
 rotation = -0.061880723
 scale = Vector2(1.2544038, 1.2544038)
 pivot_offset = Vector2(73.141495, 11.641651)
+mouse_filter = 2
+mouse_behavior_recursive = 1
 texture = ExtResource("1_ahhtf")

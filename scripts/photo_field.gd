@@ -26,13 +26,6 @@ var photo_distance: float
 
 func _ready() -> void:
 	photo.hide()
-	HUD.show_picture()
-
-func _input(event):
-	if event is InputEventKey and event.pressed and not event.echo:
-		if event.keycode == KEY_Q and not photo.visible: # TODO: REMOVE ME!!
-			place_photo_at_mouse()
-
 
 func _get_screen_pos() -> Vector2:
 	var viewport: Viewport = get_viewport()
@@ -143,6 +136,8 @@ func place_photo_at_mouse():
 	if not evaluate():
 		photo.rotation += sign(randf() - 0.5) * randf_range(0.1, 0.3)
 	
+	document.enable_fields()
+	
 	print("Distance from photo_frame: ", distance, " and result is: ", evaluate(), " and: ", photo_distance < valid_distance_threshold)
 
 func _request_update():
@@ -175,3 +170,10 @@ func _update_ui():
 
 func evaluate() -> bool:
 	return photo_distance <= valid_distance_threshold and photo.visible
+
+func _on_button_pressed() -> void:
+	if receives_input and HUD.is_hand_hidden:
+		HUD.show_picture()
+		document.disable_fields_except(self)
+	elif receives_input and not HUD.is_hand_hidden:
+		place_photo_at_mouse()

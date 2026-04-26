@@ -16,7 +16,6 @@ shader_parameter/reveal = 0.0
 
 [node name="SignatureField" type="Control" unique_id=739498873]
 layout_mode = 3
-anchors_preset = 0
 anchor_left = 0.020000001
 anchor_top = 0.5
 anchor_right = 0.94200003
@@ -90,5 +89,16 @@ texture = ExtResource("9_obvp3")
 expand_mode = 2
 stretch_mode = 5
 
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/Field" unique_id=1350520530]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Field" to="." method="on_mouse_enter"]
 [connection signal="mouse_exited" from="MarginContainer/VBoxContainer/Field" to="." method="on_mouse_exit"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/Field/Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/Field/Button" to="." method="_on_button_button_up"]
