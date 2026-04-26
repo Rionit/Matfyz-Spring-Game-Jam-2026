@@ -95,7 +95,6 @@ func load_level(level: int = 1) -> void:
 	# TODO delete comment, only for testing
 	#incoming_folder .add_docs(game_manager.documents_to_submit)
 	start_timer()
-	show_tutorial(tutorial_pages)
 
 func submit_day() -> void:
 	game_manager.evaluate_day()
