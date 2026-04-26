@@ -47,7 +47,7 @@ func main_game() -> void:
 	camera_node = $'../Main/MainCamera'
 	player_face = $'../Main/MainCamera/PlayerFace'
 	table_object = $'../Main/TableObject'
-	helpbook = $'../Main/HelpbookObj/SubViewport/Helpbook' # TODO: Add
+	helpbook = $'../Main/TableObject/HelpbookObj/SubViewport/Helpbook'
 
 	if testing_folders:
 		test_folder = $'../Main/TableObject/TestFolder'

@@ -12,6 +12,10 @@ extends BaseMove
 
 @export var table_pos : Vector3
 
+@export var highlight : Control
+
+@export var default_arrow_color : Color = Color("da8f73")
+
 var current_page : int = 0
 
 var total_pages : int = 5
@@ -39,6 +43,8 @@ func next_page():
 
 		if current_page == total_pages - 1:
 			right_arrow.theme_override_colors.font_color = Color(0.5, 0.5, 0.5)
+		else:
+			right_arrow.theme_override_colors.font_color = default_arrow_color
 
 func previous_page():
 	if receives_input:
@@ -47,6 +53,9 @@ func previous_page():
 
 		if current_page == 0:
 			left_arrow.theme_override_colors.font_color = Color(0.5, 0.5, 0.5)
+		else:
+			left_arrow.theme_override_colors.font_color = default_arrow_color
+
 func change_parent(new_parent : Node3D):
 	move_parent.reparent(new_parent)
 
@@ -70,3 +79,13 @@ func on_helpbook_input():
 			put_on_table()
 		else:
 			select()
+
+func on_mouse_entered():
+	if receives_input:
+		highlight.visible = true
+func on_mouse_exited():
+	highlight.visible = false
+
+func on_input_event(event : InputEvent):
+	if event is InputEventMouseButton and !event.pressed:
+		on_helpbook_input()

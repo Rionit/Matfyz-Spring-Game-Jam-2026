@@ -39,12 +39,20 @@ func _input(event):
 		pause_game()
 		
 	if event.is_action_pressed("help_action"):
+		print("Helpbook input")
 		GameManager.helpbook.on_helpbook_input()
 		#show_tutorial(tutorial_1)
 	if event.is_action_pressed("previous_page"):
+		print("Previous page pressed")
 		GameManager.helpbook.previous_page()
 	if event.is_action_pressed("next_page"):
+		print("Next page pressed")
 		GameManager.helpbook.next_page()
+	if event.is_action_pressed("put_on_table"):
+		print("Put on table pressed")
+		GameManager.put_on_table()
+
+	
 
 ###
 # level loading functionality
