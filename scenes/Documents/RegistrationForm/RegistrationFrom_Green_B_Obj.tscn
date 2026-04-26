@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://caeky4ivqovhr"]
+[gd_scene format=3 uid="uid://b4nx3woawcqf5"]
 
-[ext_resource type="Script" uid="uid://dmau22786qpha" path="res://scripts/gui_3d.gd" id="1_gfxkn"]
-[ext_resource type="PackedScene" uid="uid://gc373c5g6qtw" path="res://scenes/ui/AllFieldsDocument.tscn" id="2_is4cy"]
+[ext_resource type="Script" uid="uid://dmau22786qpha" path="res://scripts/gui_3d.gd" id="1_ppa5w"]
+[ext_resource type="PackedScene" uid="uid://clp8rnaah8nku" path="res://scenes/Documents/RegistrationForm/RegistrationFrom_Green_B.tscn" id="2_ppa5w"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_5yl67"]
 size = Vector2(0.1, 0.141)
@@ -18,15 +18,14 @@ albedo_texture = SubResource("ViewportTexture_75eap")
 size = Vector3(0.1, 0.141, 0.01)
 
 [node name="DocumentObj" type="Node3D" unique_id=1503292003]
-script = ExtResource("1_gfxkn")
+script = ExtResource("1_ppa5w")
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=1923274324]
 transparent_bg = true
 size = Vector2i(651, 875)
 size_2d_override = Vector2i(1920, 1080)
 
-[node name="Document" parent="SubViewport" unique_id=2125992226 node_paths=PackedStringArray("move_parent") instance=ExtResource("2_is4cy")]
-mouse_filter = 1
+[node name="Document" parent="SubViewport" unique_id=2125992226 node_paths=PackedStringArray("move_parent") instance=ExtResource("2_ppa5w")]
 move_parent = NodePath("../..")
 
 [node name="Quad" type="MeshInstance3D" parent="." unique_id=1419982194]

@@ -19,7 +19,6 @@ var helpbook_selected : bool = false
 # 2 documents are tested
 var tested_documents : Array[DocumentController]
 
-# TODO: Add helpbook
 var helpbook : Helpbook
 
 var selected_document : DocumentController = null
