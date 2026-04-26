@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dccm5wkm0nlvl"]
+
+[ext_resource type="Script" uid="uid://bb6n4v2ul7e5t" path="res://scripts/ui/timer_countdown.gd" id="1_2r76u"]
+[ext_resource type="FontFile" uid="uid://tqjtn52xe82d" path="res://scenes/ui/clock.ttf" id="2_33nk3"]
+
+[node name="TimerCountdown" type="Node" unique_id=1144034343]
+script = ExtResource("1_2r76u")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=473602639]
+font = ExtResource("2_33nk3")

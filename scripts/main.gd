@@ -9,14 +9,15 @@ var game_manager
 @export var max_misstakes: int = 10
 @export var submission_folder: SubmissionFolder
 @export var incoming_folder : Folder
-@export var level_1: Array[DocumentController] = []
-@export var level_2: Array[DocumentController] = []
-@export var level_3: Array[DocumentController] = []
-@export var level_4: Array[DocumentController] = []
-@export var tutorial_1: Array[DocumentController] = []
-@export var tutorial_2: Array[DocumentController] = []
-@export var tutorial_3: Array[DocumentController] = []
-@export var tutorial_4: Array[DocumentController] = []
+@export var level_1_guis: Array[GUI_3D] = []
+@export var level_2_guis: Array[GUI_3D] = []
+@export var level_3_guis: Array[GUI_3D] = []
+@export var level_4_guis: Array[GUI_3D] = []
+
+var level_1 : Array[DocumentController] = []
+var level_2 : Array[DocumentController] = []
+var level_3 : Array[DocumentController] = []
+var level_4 : Array[DocumentController] = []
 
 @export var testing_folders : bool = false
 
@@ -30,9 +31,26 @@ func _ready() -> void:
 	create_timer()
 	game_manager = $'../GameManager'
 	game_manager.testing_folders = testing_folders
+	var levels_guis = [level_1_guis, level_2_guis, level_3_guis, level_4_guis]
+	var levels_docs = [level_1, level_2, level_3, level_4]
+
+	for i in range(4):
+		var level_guis = levels_guis[i]
+		var level_docs = levels_docs[i]
+		for j in range(level_guis.size()):
+			var doc = level_guis[j].find_child("Document")
+			if doc != null:
+				print("Adding " + level_guis[j].name + " to level " + str(i+1))
+				level_docs.append(doc)
+			else:
+				print("ERROR: Document not found in GUI_3D for level " + str(i+1) + " index " + str(j))
+
 	start_timer()
 	game_manager.main_game()
+
 	load_level(game_manager.actual_level)
+	if game_manager.actual_level == 1:
+		show_tutorial()
 
 func _input(event):
 	if event.is_action_pressed("pause_action"):
@@ -61,16 +79,16 @@ func load_level(level: int = 1) -> void:
 	var tutorial_pages: Array[DocumentController] = []
 	if level == 1:# and level_1.size() > 0:
 		game_manager.load_level(level_1)
-		tutorial_pages = tutorial_1
+		#tutorial_pages = tutorial_1
 	elif level == 2 and level_2.size() > 0:
 		game_manager.load_level(level_2)
-		tutorial_pages = tutorial_2
+		#tutorial_pages = tutorial_2
 	elif level == 3 and level_3.size() > 0:
 		game_manager.load_level(level_3)
-		tutorial_pages = tutorial_3
+		#tutorial_pages = tutorial_3
 	elif level == 4 and level_4.size() > 0:
 		game_manager.load_level(level_4)
-		tutorial_pages = tutorial_4
+		#tutorial_pages = tutorial_4
 	else:
 		game_over('win')
 		return # maybe not needed
@@ -120,7 +138,7 @@ func game_over(reason) -> void:
 ###
 # tutorial menu functionality
 ###
-func show_tutorial(tutorial_pages: Array[DocumentController]) -> void:
+func show_tutorial() -> void:
 	if pause:
 		return
 	stop_timer()

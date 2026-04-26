@@ -22,10 +22,10 @@ left_pages = [NodePath("MarginContainer/HBoxContainer/LeftPageMargin/CheckboxTut
 right_pages = [NodePath("MarginContainer/HBoxContainer/RightPageMargin/TutorialSign"), NodePath("MarginContainer/HBoxContainer/RightPageMargin/CaptchaTutorial"), NodePath("MarginContainer/HBoxContainer/RightPageMargin/PaymentTutorial"), NodePath("MarginContainer/HBoxContainer/RightPageMargin/StampTutorialA"), NodePath("MarginContainer/HBoxContainer/RightPageMargin/StampTutorialB")]
 left_arrow = NodePath("HBoxContainer2/RichTextLabel")
 right_arrow = NodePath("HBoxContainer2/RichTextLabel2")
-table_pos = Vector3(0.2, 0, 0)
+table_pos = Vector3(0, 0, 0.2)
 highlight = NodePath("Highlight")
 top_look_rot = Vector3(45, 0, 0)
-selection_pos = Vector3(-0.2, 0, 0)
+selection_pos = Vector3(-0.1, 0, 0)
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2012810609]
 layout_mode = 1
@@ -56,6 +56,8 @@ layout_mode = 2
 [node name="LeftPageMargin" type="MarginContainer" parent="MarginContainer/HBoxContainer" unique_id=322084412]
 custom_minimum_size = Vector2(421, 0)
 layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
 theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 40
@@ -63,26 +65,38 @@ theme_override_constants/margin_bottom = 70
 
 [node name="CheckboxTutorial" parent="MarginContainer/HBoxContainer/LeftPageMargin" unique_id=638489415 instance=ExtResource("2_1nuox")]
 layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
 
 [node name="TutorialSign" parent="MarginContainer/HBoxContainer/LeftPageMargin" unique_id=1975700824 instance=ExtResource("3_d3dop")]
 visible = false
 layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
 
 [node name="CaptchaTutorial" parent="MarginContainer/HBoxContainer/LeftPageMargin" unique_id=160557411 instance=ExtResource("4_emyre")]
 visible = false
 layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
 
 [node name="PaymentTutorial" parent="MarginContainer/HBoxContainer/LeftPageMargin" unique_id=282763095 instance=ExtResource("5_7mhvd")]
 visible = false
 layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
 
 [node name="StampTutorialA" parent="MarginContainer/HBoxContainer/LeftPageMargin" unique_id=1646810992 instance=ExtResource("6_k7yjx")]
 visible = false
 layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
 
 [node name="RightPageMargin" type="MarginContainer" parent="MarginContainer/HBoxContainer" unique_id=1182282021]
 custom_minimum_size = Vector2(421, 0)
 layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
 theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 40
@@ -90,22 +104,32 @@ theme_override_constants/margin_bottom = 70
 
 [node name="TutorialSign" parent="MarginContainer/HBoxContainer/RightPageMargin" unique_id=41608787 instance=ExtResource("3_d3dop")]
 layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
 
 [node name="CaptchaTutorial" parent="MarginContainer/HBoxContainer/RightPageMargin" unique_id=1762705930 instance=ExtResource("4_emyre")]
 visible = false
 layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
 
 [node name="PaymentTutorial" parent="MarginContainer/HBoxContainer/RightPageMargin" unique_id=326596384 instance=ExtResource("5_7mhvd")]
 visible = false
 layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
 
 [node name="StampTutorialA" parent="MarginContainer/HBoxContainer/RightPageMargin" unique_id=1005112126 instance=ExtResource("6_k7yjx")]
 visible = false
 layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
 
 [node name="StampTutorialB" parent="MarginContainer/HBoxContainer/RightPageMargin" unique_id=76748603 instance=ExtResource("7_lrjxu")]
 visible = false
 layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=2049349971]
 layout_mode = 1
@@ -161,6 +185,6 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 1, 1, 0.2509804)
 
-[connection signal="gui_input" from="MarginContainer/HBoxContainer" to="." method="on_helpbook_input"]
+[connection signal="gui_input" from="MarginContainer/HBoxContainer" to="." method="on_input_event"]
 [connection signal="mouse_entered" from="MarginContainer/HBoxContainer" to="." method="on_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/HBoxContainer" to="." method="on_mouse_exited"]
