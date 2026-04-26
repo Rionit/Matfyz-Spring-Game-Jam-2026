@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://chbtx82tf5yoh"]
 
 [ext_resource type="Script" uid="uid://bevavgob5p1ah" path="res://scripts/main.gd" id="1_twmxf"]
-[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="2_thi68"]
-[ext_resource type="PackedScene" path="res://scenes/ui/tutorial_menu.tscn" id="3_ahnse"]
+[ext_resource type="PackedScene" uid="uid://cdptnkmj1256p" path="res://scenes/ui/pause_menu.tscn" id="2_thi68"]
+[ext_resource type="PackedScene" uid="uid://dv6ic7cllyp02" path="res://scenes/ui/tutorial_menu.tscn" id="3_ahnse"]
 [ext_resource type="PackedScene" uid="uid://b2f3frvqldyhg" path="res://models/map/room.glb" id="4_spqhl"]
 [ext_resource type="Script" uid="uid://thhm5whoy2gr" path="res://scripts/main_camera.gd" id="5_7n0sf"]
-[ext_resource type="PackedScene" path="res://scenes/ui/DocumentObj.tscn" id="6_thi68"]
+[ext_resource type="PackedScene" uid="uid://dqww7m5dojdwd" path="res://scenes/ui/DocumentObj.tscn" id="6_thi68"]
 [ext_resource type="Script" path="res://scripts/ui/test_document.gd" id="7_ahnse"]
 [ext_resource type="Script" uid="uid://de7a5nuhpqnmn" path="res://scripts/folder.gd" id="7_l6tnw"]
 
@@ -34,6 +34,7 @@ font_size = 2
 [node name="Main" type="Node3D" unique_id=31963921]
 script = ExtResource("1_twmxf")
 time_for_documents = 100000
+testing_folders = true
 
 [node name="Timer" type="Timer" parent="." unique_id=141712067]
 
