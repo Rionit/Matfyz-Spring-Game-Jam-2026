@@ -3,10 +3,15 @@ extends Node3D
 @onready var pauseScene: Node = $PauseMenu
 @onready var tutorialScene: Node = $TutorialMenu
 @onready var timer = $Timer
+var game_manager
 
 @export var time_for_documents: int = 180
 @export var max_misstakes: int = 10
 @export var submission_folder: SubmissionFolder
+@export var level_1: Array[DocumentController]
+@export var level_2: Array[DocumentController]
+@export var level_3: Array[DocumentController]
+@export var level_4: Array[DocumentController]
 
 var pause: bool = false
 var tutorial: bool = false
@@ -16,9 +21,9 @@ func _ready() -> void:
 	tutorialScene.hide()
 	pauseScene.hide()
 	create_timer()
-	start_timer()
-	var game_manager = $'../GameManager'
+	game_manager = $'../GameManager'
 	game_manager.main_game()
+	load_level()
 
 func _input(event):
 	if event.is_action_pressed("pause_action"):
@@ -28,13 +33,31 @@ func _input(event):
 		show_tutorial()
 
 ###
+# level loading functionality
+###
+func load_level(level: int = 0) -> void:
+	if level == 0:
+		game_manager.load_level(level_1)
+	if level == 1:
+		game_manager.load_level(level_2)
+	if level == 2:
+		game_manager.load_level(level_3)
+	if level == 3:
+		game_manager.load_level(level_4)
+	else:
+		game_over('win')
+		return
+	start_timer()
+	show_tutorial()
+
+###
 # timer functionality
 ###
 func create_timer():
 	timer.timeout.connect(_on_timer_timeout)
-	timer.wait_time = time_for_documents
 
 func start_timer():
+	timer.wait_time = time_for_documents
 	timer.start()
 
 func resume_timer():
@@ -45,6 +68,7 @@ func stop_timer():
 
 func _on_timer_timeout():
 	timer.stop()
+	timer.timeout.disconnect()
 	game_over("timeout")
 
 ###
@@ -54,6 +78,8 @@ func game_over(reason):
 	if reason == "timeout":
 		get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
 	if reason == "misstakes":
+		get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
+	if reason == "win":
 		get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
 	else:
 		get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")

@@ -72,9 +72,14 @@ func move_to_folder_test(document : DocumentController):
 func move_to_list_test(document : DocumentController):
 	document.list(test_folder.position, test_folder_list.position)
 
+func load_level(docs: Array[DocumentController]) ->void:
+	documents_to_submit = docs
+
 func evaluate_day():
 	max_misstakes = max_misstakes_from_main
 	var misstakes = main.submission_folder.evaluate(documents_to_submit)
 	max_misstakes -= misstakes
 	if max_misstakes <= 0:
 		main.game_over('misstakes')
+	var missing_documents = main.submission_folder.missing(documents_to_submit)
+	documents_to_submit = missing_documents
