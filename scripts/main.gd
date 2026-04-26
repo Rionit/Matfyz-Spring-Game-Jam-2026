@@ -37,10 +37,14 @@ func _ready() -> void:
 func _input(event):
 	if event.is_action_pressed("pause_action"):
 		pause_game()
-
+		
 	if event.is_action_pressed("help_action"):
-		#TODO place for helpbook call
-		show_tutorial(tutorial_1)
+		GameManager.helpbook.on_helpbook_input()
+		#show_tutorial(tutorial_1)
+	if event.is_action_pressed("previous_page"):
+		GameManager.helpbook.previous_page()
+	if event.is_action_pressed("next_page"):
+		GameManager.helpbook.next_page()
 
 ###
 # level loading functionality

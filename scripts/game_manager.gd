@@ -20,7 +20,7 @@ var helpbook_selected : bool = false
 var tested_documents : Array[DocumentController]
 
 # TODO: Add helpbook
-var helpbook : Node3D
+var helpbook : Helpbook
 
 var selected_document : DocumentController = null
 
@@ -47,6 +47,7 @@ func main_game() -> void:
 	camera_node = $'../Main/MainCamera'
 	player_face = $'../Main/MainCamera/PlayerFace'
 	table_object = $'../Main/TableObject'
+	helpbook = $'../Main/HelpbookObj/SubViewport/Helpbook' # TODO: Add
 
 	if testing_folders:
 		test_folder = $'../Main/TableObject/TestFolder'
