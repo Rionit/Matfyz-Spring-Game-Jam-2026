@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b2f3frvqldyhg" path="res://models/map/room.glb" id="4_spqhl"]
 [ext_resource type="Script" uid="uid://thhm5whoy2gr" path="res://scripts/main_camera.gd" id="5_7n0sf"]
 [ext_resource type="PackedScene" uid="uid://dqww7m5dojdwd" path="res://scenes/ui/DocumentObj.tscn" id="6_thi68"]
-[ext_resource type="Script" uid="uid://d4ncy3qfu0fuw" path="res://scripts/ui/test_document.gd" id="7_ahnse"]
+[ext_resource type="Script" path="res://scripts/ui/test_document.gd" id="7_ahnse"]
 
 [sub_resource type="Environment" id="Environment_0wfyh"]
 
