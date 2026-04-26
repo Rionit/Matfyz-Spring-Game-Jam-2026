@@ -8,6 +8,8 @@ extends Node3D
 @export var max_misstakes: int = 10
 @export var submission_folder: SubmissionFolder
 
+@export var testing_folders : bool = false
+
 var pause: bool = false
 var tutorial: bool = false
 
@@ -18,6 +20,7 @@ func _ready() -> void:
 	create_timer()
 	start_timer()
 	var game_manager = $'../GameManager'
+	game_manager.testing_folders = testing_folders
 	game_manager.main_game()
 
 func _input(event):
