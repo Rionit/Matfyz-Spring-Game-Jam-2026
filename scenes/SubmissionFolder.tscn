@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cdrkieb7mimdx"]
 
-[ext_resource type="Script" uid="uid://de7a5nuhpqnmn" path="res://scripts/folder.gd" id="1_ai2nw"]
+[ext_resource type="Script" path="res://scripts/SubmissionFolder.gd" id="1_ai2nw"]
 [ext_resource type="Texture2D" uid="uid://de37gafnberic" path="res://sprites/folders/folder_ready_top.png" id="2_ai2nw"]
 [ext_resource type="Texture2D" uid="uid://dr5k1ja2qo38u" path="res://sprites/folders/folder_ready_bottom.png" id="3_ai2nw"]
 
