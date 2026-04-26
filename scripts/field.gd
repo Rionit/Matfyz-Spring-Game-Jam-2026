@@ -4,5 +4,7 @@ extends Control
 
 var receives_input : bool = false
 
-func evaluate(): # override
+var document: DocumentController = null
+
+func evaluate() -> bool: # override
 	return 0

@@ -11,14 +11,10 @@
 
 [node name="CaptchaField" type="Control" unique_id=9917882]
 layout_mode = 3
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 script = ExtResource("1_ejvpe")
 color_type = 2
+correct_answer_types = 0
 red_font = ExtResource("2_bht2w")
 green_font = ExtResource("3_qdrap")
 blue_font = ExtResource("4_4kn3m")
@@ -61,14 +57,14 @@ item_count = 9
 max_columns = 3
 same_column_width = true
 icon_scale = 0.5
-item_0/icon = ExtResource("6_0wcpr")
-item_1/icon = ExtResource("5_b55xn")
-item_2/icon = ExtResource("7_pplw2")
+item_0/icon = ExtResource("5_b55xn")
+item_1/icon = ExtResource("7_pplw2")
+item_2/icon = ExtResource("5_b55xn")
 item_3/icon = ExtResource("8_vnd0l")
-item_4/icon = ExtResource("6_0wcpr")
+item_4/icon = ExtResource("8_vnd0l")
 item_5/icon = ExtResource("8_vnd0l")
-item_6/icon = ExtResource("5_b55xn")
-item_7/icon = ExtResource("5_b55xn")
+item_6/icon = ExtResource("6_0wcpr")
+item_7/icon = ExtResource("8_vnd0l")
 item_8/icon = ExtResource("6_0wcpr")
 
 [node name="SubmitButton" type="Button" parent="VBoxContainer" unique_id=2002292051]

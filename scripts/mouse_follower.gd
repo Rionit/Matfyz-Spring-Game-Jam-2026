@@ -21,10 +21,11 @@ func hide_hand() -> void:
 	
 	create_tween().tween_property(self, "global_position", off_screen_pos, 0.5)\
 		.set_trans(Tween.TRANS_SINE)\
-		.set_ease(Tween.EASE_IN)
+		.set_ease(Tween.EASE_IN).finished.connect(func(): hide())
 
 
 func show_hand() -> void:
+	
 	var screen_size: Vector2 = get_viewport().get_visible_rect().size
 	
 	var mouse_pos: Vector2 = get_global_mouse_position()
@@ -37,6 +38,8 @@ func show_hand() -> void:
 	global_position = start_pos
 	
 	following_mouse = false
+	
+	show()
 	
 	var tween := create_tween()
 	tween.tween_property(self, "global_position", target, 0.6)\
