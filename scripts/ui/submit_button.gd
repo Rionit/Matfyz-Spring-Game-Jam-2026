@@ -1,22 +1,20 @@
 extends Control
 
-@onready var red: Button = %Red
-@onready var green: Button = %Green
-@onready var blue: Button = %Blue
+@onready var submit: Button = %Submit
 
-@onready var red_holder: Control = %RedHolder
-@onready var green_holder: Control = %GreenHolder
-@onready var blue_holder: Control = %BlueHolder
+@onready var holder: Control = %Holder
 
 var holders: Array[Control]
 var tweens: Array[Tween] = []
 
-func _ready():
-	holders = [red_holder, green_holder, blue_holder]
+func _on_submit():
+	GameManager.main.submit_day()
+	hide_buttons()
 
-	red.pressed.connect(func(): _select_payment(GameManager.PaymentType.RED))
-	green.pressed.connect(func(): _select_payment(GameManager.PaymentType.GREEN))
-	blue.pressed.connect(func(): _select_payment(GameManager.PaymentType.BLUE))
+func _ready():
+	holders = [holder]
+	
+	submit.pressed.connect(_on_submit)
 
 	await get_tree().process_frame
 
@@ -32,14 +30,6 @@ func _ready():
 
 	hide_buttons()
 
-func _select_payment(type):
-	GameManager.selected_payment = type
-
-	print("Button selected:", GameManager.PaymentType.keys()[type])
-	print("GameManager.selected_payment is now:", GameManager.PaymentType.keys()[GameManager.selected_payment])
-
-	hide_buttons()
-
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo:
 		if event.keycode == KEY_Q:
@@ -52,8 +42,6 @@ func _kill_tweens():
 	tweens.clear()
 
 func show_buttons():
-	if GameManager.selected_document == null:
-		return
 	
 	_kill_tweens()
 
