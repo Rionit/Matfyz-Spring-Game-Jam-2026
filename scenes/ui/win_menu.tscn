@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://des6q48jbg0v2"]
+
+[ext_resource type="Script" uid="uid://b8ofjwl34ggdn" path="res://scenes/ui/win_menu.gd" id="1_2hvk1"]
+[ext_resource type="Texture2D" uid="uid://bs2cq4hp1f2le" path="res://sprites/images/mainmenu.png" id="2_8ch8s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1g8jr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_btxxm"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_1g8jr"]
+thickness = 5
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_uhagc"]
+thickness = 5
+
+[node name="WinMenu" type="Control" unique_id=297501966]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2hvk1")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1264879454]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_top = -2.5
+offset_right = -0.5
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_8ch8s")
+expand_mode = 1
+
+[node name="MainMenuButton" type="Button" parent="." unique_id=1829853515]
+layout_mode = 0
+offset_left = 1941.0
+offset_top = 718.99994
+offset_right = 2282.9998
+offset_bottom = 955.4286
+rotation = -3.5670578
+scale = Vector2(1.5315332, 1.1650586)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1g8jr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_btxxm")
+theme_override_styles/hover = SubResource("StyleBoxLine_1g8jr")
+theme_override_styles/focus = SubResource("StyleBoxLine_uhagc")
