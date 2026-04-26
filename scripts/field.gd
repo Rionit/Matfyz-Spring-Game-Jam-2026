@@ -4,5 +4,5 @@ extends Control
 
 var receives_input : bool = false
 
-func evaluate() -> bool: # override
-	return false
+func evaluate(): # override
+	return 0
