@@ -3,10 +3,20 @@ extends Node3D
 @onready var pauseScene: Node = $PauseMenu
 @onready var tutorialScene: Node = $TutorialMenu
 @onready var timer = $Timer
+var game_manager
 
-@export var time_for_documents: int = 180
+@export var time_for_documents: float = 180.0
 @export var max_misstakes: int = 10
 @export var submission_folder: SubmissionFolder
+@export var incoming_folder : Folder
+@export var level_1: Array[DocumentController] = []
+@export var level_2: Array[DocumentController] = []
+@export var level_3: Array[DocumentController] = []
+@export var level_4: Array[DocumentController] = []
+@export var tutorial_1: Array[DocumentController] = []
+@export var tutorial_2: Array[DocumentController] = []
+@export var tutorial_3: Array[DocumentController] = []
+@export var tutorial_4: Array[DocumentController] = []
 
 @export var testing_folders : bool = false
 
@@ -18,45 +28,79 @@ func _ready() -> void:
 	tutorialScene.hide()
 	pauseScene.hide()
 	create_timer()
-	start_timer()
-	var game_manager = $'../GameManager'
+	game_manager = $'../GameManager'
 	game_manager.testing_folders = testing_folders
+	start_timer()
 	game_manager.main_game()
+	load_level(game_manager.actual_level)
 
 func _input(event):
 	if event.is_action_pressed("pause_action"):
 		pause_game()
 
 	if event.is_action_pressed("help_action"):
-		show_tutorial()
+		#TODO place for helpbook call
+		show_tutorial(tutorial_1)
+
+###
+# level loading functionality
+###
+func load_level(level: int = 1) -> void:
+	var tutorial_pages: Array[DocumentController] = []
+	if level == 1:# and level_1.size() > 0:
+		game_manager.load_level(level_1)
+		tutorial_pages = tutorial_1
+	elif level == 2 and level_2.size() > 0:
+		game_manager.load_level(level_2)
+		tutorial_pages = tutorial_2
+	elif level == 3 and level_3.size() > 0:
+		game_manager.load_level(level_3)
+		tutorial_pages = tutorial_3
+	elif level == 4 and level_4.size() > 0:
+		game_manager.load_level(level_4)
+		tutorial_pages = tutorial_4
+	else:
+		game_over('win')
+		return # maybe not needed
+	# TODO delete comment, only for testing
+	#incoming_folder .add_docs(game_manager.documents_to_submit)
+	start_timer()
+	show_tutorial(tutorial_pages)
+
+func submit_day() -> void:
+	game_manager.evaluate_day()
+	game_manager.next_level()
+	load_level(game_manager.actual_level)
 
 ###
 # timer functionality
 ###
-func create_timer():
+func create_timer() -> void:
 	timer.timeout.connect(_on_timer_timeout)
-	timer.wait_time = time_for_documents
 
-func start_timer():
+func start_timer() -> void:
+	timer.wait_time = time_for_documents
 	timer.start()
 
-func resume_timer():
+func resume_timer() -> void:
 	timer.set_paused(false)
 
-func stop_timer():
+func stop_timer() -> void:
 	timer.set_paused(true)
 
-func _on_timer_timeout():
+func _on_timer_timeout() -> void:
 	timer.stop()
 	game_over("timeout")
 
 ###
 # game over functionality
 ###
-func game_over(reason):
+func game_over(reason) -> void:
 	if reason == "timeout":
 		get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
-	if reason == "misstakes":
+	elif reason == "misstakes":
+		get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
+	elif reason == "win":
 		get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
 	else:
 		get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
@@ -64,14 +108,16 @@ func game_over(reason):
 ###
 # tutorial menu functionality
 ###
-func show_tutorial():
+func show_tutorial(tutorial_pages: Array[DocumentController]) -> void:
 	if pause:
 		return
 	stop_timer()
+	# TODO add helpboook pages
+	#tutorialScene... tutorial_pages
 	tutorialScene.show()
 	tutorial = true
 
-func hide_tutorial():
+func hide_tutorial() -> void:
 	if pause:
 		return
 	resume_timer()
@@ -97,7 +143,7 @@ func _on_exit_button_pressed() -> void:
 	stop_timer()
 	get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
 
-func pause_game():
+func pause_game() -> void:
 	if tutorial:
 		return
 	if pause:
