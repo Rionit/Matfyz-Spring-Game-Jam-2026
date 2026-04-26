@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://bgop400jhtjnq"]
+[gd_scene format=3 uid="uid://brdsw74fa1ur4"]
 
-[ext_resource type="Script" uid="uid://dmau22786qpha" path="res://scripts/gui_3d.gd" id="1_3qa4k"]
-[ext_resource type="PackedScene" uid="uid://0rpyacjk720n" path="res://scenes/TaxReport/TaxReport_Blue_A.tscn" id="2_mrvi0"]
+[ext_resource type="Script" uid="uid://dmau22786qpha" path="res://scripts/gui_3d.gd" id="1_6uk25"]
+[ext_resource type="PackedScene" uid="uid://vkhbiiu7rsgj" path="res://scenes/Documents/TaxReport/TaxReport_Red_A.tscn" id="2_6uk25"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_5yl67"]
 size = Vector2(0.1, 0.141)
@@ -18,15 +18,14 @@ albedo_texture = SubResource("ViewportTexture_75eap")
 size = Vector3(0.1, 0.141, 0.01)
 
 [node name="DocumentObj" type="Node3D" unique_id=1503292003]
-script = ExtResource("1_3qa4k")
+script = ExtResource("1_6uk25")
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=1923274324]
 transparent_bg = true
 size = Vector2i(651, 875)
 size_2d_override = Vector2i(1920, 1080)
 
-[node name="Document" parent="SubViewport" unique_id=2125992226 node_paths=PackedStringArray("fields", "move_parent") instance=ExtResource("2_mrvi0")]
-fields = [NodePath("MarginContainer/Body/CaptchaField"), NodePath("MarginContainer/Body/CheckboxField"), NodePath("MarginContainer/Body/SignatureField")]
+[node name="Document" parent="SubViewport" unique_id=2125992226 node_paths=PackedStringArray("move_parent") instance=ExtResource("2_6uk25")]
 move_parent = NodePath("../..")
 
 [node name="Quad" type="MeshInstance3D" parent="." unique_id=1419982194]
