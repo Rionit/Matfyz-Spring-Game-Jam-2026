@@ -18,10 +18,14 @@ var current_state = DocState.HIDDEN
 
 # Default position on the table where the document should be put
 @export var default_table_pos : Vector3
+@export var default_table_rot : Vector3
 
 @export var top_look_pos : Vector3
 @export var top_look_rot : Vector3
 @export var highlight_overlay : Control
+
+@export var selection_pos : Vector3
+@export var selection_rot : Vector3
 
 var current_table_pos : Vector3
 
@@ -40,14 +44,17 @@ var can_drag_drop : bool = false # Whether the document can be dragged & dropped
 var counting_drag_drop : bool = false # Whether the cooldown for drag & drop is currently counted
 var is_drag_dropping : bool = false # Whether the document is currently being dragged & dropped
 
-@export var drag_drop_table_height_offset : float = 0.01
+#How high from the table the document should be when being dragged & dropped
+@export var drag_drop_table_height_offset : float = 0.01 
 
-
+# Time the document needs to be pressed for to start drag & drop
 @export var drag_drop_time : float = 0.8
 var current_drag_drop_time : float = 0.0
 
+# Scale of the document when it's listed in a folder
+@export var listed_scale : Vector3 = Vector3(0.5,0.5,0.5)
 
-@export var listed_scale : Vector3 = Vector3(0.3,0.3,0.3)
+@export var drag_drop_stick : float = 40
 
 # Hidden -> Listed
 # Moves from folder base position to listed position
@@ -97,7 +104,8 @@ var current_drag_drop_time : float = 0.0
 func evaluate() -> int:
 	var total = 0
 	for field in fields:
-		total += field.evaluate()
+		if field.evaluate():
+			total += 1
 	return total
 
 ### ENABLE/DISABLE TOGGLES
@@ -126,32 +134,50 @@ func disable_highlight():
 	can_highlight = false
 
 func enable_drag_drop():
+	print("enabled drag drop")
+	move_finished.disconnect(enable_drag_drop)
 	can_drag_drop = true
 
 func disable_drag_drop():
+	print("disabled drag drop")
 	can_drag_drop = false
 
 ### ACTIONS (SELECT, PUT ON TABLE, STASH, MOVE TO TOP, MOVE FROM TOP)
 
-func select(selectionPos : Vector3, selectionRot : Vector3):
+func change_parent(new_parent : Node3D):
+	move_parent.reparent(new_parent)
+
+func select():
+	if move_parent.get_parent() == GameManager.table_object && can_drag_drop:
+		current_table_pos = move_parent.position
+	
+	change_parent(GameManager.player_face)
+
 	disable_click()
 	disable_highlight()
 	move_finished.connect(enable_fields)
 	# TODO: Make helpbook offset conditional
-	move(move_parent.position, selectionPos + GameManager.helpbook_offset, move_parent.rotation_degrees, selectionRot, move_parent.scale, Vector3.ONE, base_move_duration)
+	move(move_parent.position, selection_pos + GameManager.helpbook_offset, move_parent.rotation_degrees, selection_rot, move_parent.scale, Vector3.ONE, base_move_duration)
 
 func put_on_table():
 	disable_fields()
+	change_parent(GameManager.table_object)
 
 	move_finished.connect(enable_drag_drop)
 	move_finished.connect(enable_highlight)
 	move_finished.connect(enable_click)
 
-func stash(folderPos : Vector3, folderRot : Vector3):	
+	print ("Putting on table, current table pos: ", current_table_pos)
+	move(move_parent.position, current_table_pos, move_parent.rotation_degrees, Vector3(-90,0,0), move_parent.scale, Vector3.ONE, base_move_duration)
+
+func stash(folderPos : Vector3):
+	change_parent(GameManager.table_object)
 	disable_click()
 	disable_highlight()
 	disable_drag_drop()
-	move(move_parent.position, folderPos, move_parent.rotation_degrees, folderRot, move_parent.scale, Vector3.ZERO, base_move_duration)
+	print("Resetting current pos to default table pos: ", default_table_pos)
+	current_table_pos = default_table_pos
+	move(move_parent.position, folderPos, move_parent.rotation_degrees, Vector3(-90,0,0), move_parent.scale, Vector3.ZERO, base_move_duration)
 
 func move_to_top():
 	disable_fields()
@@ -159,50 +185,86 @@ func move_to_top():
 	# TODO: Make helpbook offset conditional
 	move(move_parent.position, top_look_pos + GameManager.helpbook_offset, move_parent.rotation_degrees, top_look_rot, move_parent.scale, Vector3.ONE, base_move_duration)
 
-func move_from_top(selectionPos : Vector3, selectionRot : Vector3):
+func move_from_top():
 	#TODO: Make helpbook offset conditional
 
 	move_finished.connect(enable_fields)
-	move(move_parent.position, selectionPos + GameManager.helpbook_offset, move_parent.rotation_degrees, selectionRot, move_parent.scale, Vector3.ONE, base_move_duration)
+	move(move_parent.position, selection_pos + GameManager.helpbook_offset, move_parent.rotation_degrees, selection_rot, move_parent.scale, Vector3.ONE, base_move_duration)
 
-func list(folderPos : Vector3, listPos : Vector3, listScale : Vector3):
+func list(folderPos : Vector3, listPos : Vector3):
 	move_finished.connect(enable_highlight)
 	move_finished.connect(enable_click)
 
-	move(folderPos, listPos, move_parent.rotation_degrees, move_parent.rotation_degrees, \
-	move_parent.scale, listScale, base_move_duration)
+	move(folderPos, listPos, move_parent.rotation_degrees, Vector3.ZERO, \
+	move_parent.scale, listed_scale , base_move_duration)
 
 func unlist(listPos : Vector3, folderPos : Vector3):
 	disable_highlight()
-	move(listPos, folderPos, move_parent.rotation_degrees, move_parent.rotation_degrees, \
+	move(listPos, folderPos, move_parent.rotation_degrees, Vector3(-90, 0,0), \
 	move_parent.scale, Vector3.ZERO, base_move_duration)
 
 ### MOUSE INTERACTION CALLBACKS
 
 func on_mouse_entered():
+	print("Mouse entered document area.")
 	if can_highlight:
 		highlight_overlay.visible = true
 
 func on_mouse_exited():
+	print("Mouse exited document area.")
 	if can_highlight:
 		highlight_overlay.visible = false
-
-func on_mouse_pressed():
-	if can_drag_drop:
-		counting_drag_drop = true
-
-
-func on_mouse_released():
-	if is_drag_dropping:
-		is_drag_dropping = false
+	if counting_drag_drop:
+		print("Stopped counting drag & drop.")
 		counting_drag_drop = false
 		current_drag_drop_time = 0.0
-		current_table_pos = move_parent.position
-		return
+	if is_drag_dropping:
+		print("ERROR: Mouse exited")
+		release_drag_drop()
 
-	if can_click:
+func on_mouse_pressed():
+	print("Mouse pressed!")
+	if can_drag_drop:
+		print("Enabled counting drag & drop.")
+		counting_drag_drop = true
+
+func on_mouse_released():
+	print("Mouse released!")
+	current_drag_drop_time = 0.0
+	if is_drag_dropping:
+		print("Stopped drag & drop.")
+		release_drag_drop()
+
+		var cursor_folder_object = _get_cursor_folder_object()
+
+		if cursor_folder_object != null:
+			print("Collided with folder!")
+			stash(cursor_folder_object.global_position - GameManager.table_object.global_position)
+		# TODO: Add folder logic
+		return
+	elif can_click:
 		GameManager.select_document(self)
 
+func release_drag_drop():
+	print("Released drag & drop.")
+
+	GameManager.camera_node.unlocked = true
+	is_drag_dropping = false
+	counting_drag_drop = false
+	current_drag_drop_time = 0.0
+	move_parent.position.y -= drag_drop_table_height_offset
+
+	
+	current_table_pos = move_parent.position
+	print("Releasing drag & drop, current table pos: ", current_table_pos)
+
+func on_input_event(event : InputEvent):
+	print("Input event: ", event)
+	if event is InputEventMouseButton:
+		if event.pressed:
+			on_mouse_pressed()
+		else:
+			on_mouse_released()
 
 func _get_drag_camera() -> Camera3D:
 	if GameManager.camera_node != null:
@@ -216,24 +278,66 @@ func _get_cursor_table_position() -> Variant:
 	if camera == null:
 		return null
 
-	var mouse_pos := get_viewport().get_mouse_position()
+	var mouse_pos := get_tree().root.get_mouse_position()
+	var ray_origin := camera.project_ray_origin(mouse_pos)
+	print("Mouse origin ", ray_origin )
+
+	var ray_normal := camera.project_ray_normal(mouse_pos)
+	print("Mouse direction ", ray_normal)
+
+	var table_1 = GameManager.table_object.global_position
+	table_1.y += drag_drop_table_height_offset
+	var table_2 = table_1 + Vector3(1,0,0)
+	var table_3 = table_1 + Vector3(0,0,1)
+
+	var table_plane := Plane(table_1, table_2, table_3)
+	return table_plane.intersects_ray(ray_origin, ray_normal)
+
+func _get_cursor_folder_object() -> Object:
+	var camera := _get_drag_camera()
+	if camera == null:
+		return null
+
+	var mouse_pos := get_tree().root.get_mouse_position()
 	var ray_origin := camera.project_ray_origin(mouse_pos)
 	var ray_normal := camera.project_ray_normal(mouse_pos)
+	var ray_end := ray_origin + ray_normal * 1000.0
 
-	var table_plane := Plane(Vector3.UP, default_table_pos.y)
-	return table_plane.intersects_ray(ray_origin, ray_normal)
+	var layer_mask := 1 << (5 - 1)
+	var query := PhysicsRayQueryParameters3D.create(ray_origin, ray_end, layer_mask)
+	query.collide_with_areas = true
+	query.collide_with_bodies = true
+
+	var result := camera.get_world_3d().direct_space_state.intersect_ray(query)
+	if result.is_empty():
+		return null
+
+	return result.get("collider", null)
 	
 func _process(delta: float) -> void:
 	if counting_drag_drop:
 		current_drag_drop_time += delta
 		if current_drag_drop_time >= drag_drop_time:
+			print("Started drag & drop")
+			GameManager.camera_node.unlocked = false
+
+			print("Camera unlocked ? ", !GameManager.camera_node.unlocked)
 			is_drag_dropping = true
 			counting_drag_drop = false
 			current_drag_drop_time = 0.0
 	if is_drag_dropping:
 		var cursor_pos = _get_cursor_table_position()
+
 		if cursor_pos != null:
-			var drag_pos: Vector3 = cursor_pos
-			drag_pos.y += drag_drop_table_height_offset
-			move_parent.position = drag_pos
-			current_table_pos = drag_pos
+			print("Cursor world position: ", cursor_pos)
+			cursor_pos -= GameManager.table_object.global_position
+
+			print("Cursor table position: ", cursor_pos)
+			cursor_pos.y = drag_drop_table_height_offset
+
+			var dist = cursor_pos - current_table_pos
+			var test = Vector3(dist.x * drag_drop_stick * delta, dist.y * drag_drop_stick * delta / 10.0, dist.z * drag_drop_stick/4.0 * delta)
+
+			move_parent.position += (cursor_pos - current_table_pos) * drag_drop_stick * delta
+			print("Setting current table pos, new pos" , move_parent.position) 
+			current_table_pos = move_parent.position
