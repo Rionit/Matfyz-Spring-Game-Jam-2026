@@ -1,16 +1,16 @@
 [gd_scene format=3 uid="uid://dtnagq5anrirp"]
 
-[ext_resource type="Script" uid="uid://dy21ttf32jj68" path="res://scripts/ui/stamp_buttons.gd" id="1_o8mqd"]
-[ext_resource type="Texture2D" uid="uid://b568l8bywwn80" path="res://sprites/payment/money_red.png" id="2_y1cuv"]
-[ext_resource type="Texture2D" uid="uid://cehqw60d8lm5l" path="res://sprites/payment/money_green.png" id="3_g410u"]
-[ext_resource type="Texture2D" uid="uid://b1kieyv0n570a" path="res://sprites/payment/money_blue.png" id="4_5vlpi"]
+[ext_resource type="Script" uid="uid://dy21ttf32jj68" path="res://scripts/ui/stamp_buttons.gd" id="1_ekdeh"]
+[ext_resource type="Texture2D" uid="uid://cr2pada3do7ex" path="res://sprites/stamps/red_stamp_1.png" id="2_kyd2w"]
+[ext_resource type="Texture2D" uid="uid://dspq4hnwt7vsb" path="res://sprites/stamps/red_stamp_2.png" id="3_feyee"]
+[ext_resource type="Texture2D" uid="uid://bfnxbo682fn2u" path="res://sprites/stamps/red_stamp_3.png" id="4_x0vyy"]
 
-[node name="StampButtons" type="Control" unique_id=1904282165]
+[node name="StampButtonsRed" type="Control" unique_id=1904282165]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 300.0
 offset_bottom = 700.0
-script = ExtResource("1_o8mqd")
+script = ExtResource("1_ekdeh")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=576150517]
 layout_mode = 1
@@ -44,7 +44,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 size_flags_vertical = 3
-icon = ExtResource("2_y1cuv")
+icon = ExtResource("2_kyd2w")
 flat = true
 icon_alignment = 1
 expand_icon = true
@@ -64,7 +64,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 size_flags_vertical = 3
-icon = ExtResource("3_g410u")
+icon = ExtResource("3_feyee")
 flat = true
 icon_alignment = 1
 expand_icon = true
@@ -84,7 +84,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 size_flags_vertical = 3
-icon = ExtResource("4_5vlpi")
+icon = ExtResource("4_x0vyy")
 flat = true
 icon_alignment = 1
 expand_icon = true

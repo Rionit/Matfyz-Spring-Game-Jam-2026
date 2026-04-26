@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://d0vqmwu8leggi"]
+[gd_scene format=3 uid="uid://byquhyes7qrl2"]
 
-[ext_resource type="Script" uid="uid://dmau22786qpha" path="res://scripts/gui_3d.gd" id="1_0j30j"]
-[ext_resource type="PackedScene" uid="uid://dtnagq5anrirp" path="res://scenes/ui/stamp_buttons.tscn" id="2_0j30j"]
+[ext_resource type="Script" uid="uid://dmau22786qpha" path="res://scripts/gui_3d.gd" id="1_v1mj6"]
+[ext_resource type="PackedScene" uid="uid://k8uc1pnmk1we" path="res://scenes/ui/stamp_buttons_green.tscn" id="2_v1mj6"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_hw568"]
 size = Vector2(0.15, 0.35)
@@ -18,13 +18,13 @@ albedo_texture = SubResource("ViewportTexture_hw568")
 size = Vector3(0.1015625, 0.35351563, 0.009521484)
 
 [node name="StampButtonsGUI" type="Node3D" unique_id=1668765249]
-script = ExtResource("1_0j30j")
+script = ExtResource("1_v1mj6")
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=518393152]
 transparent_bg = true
 size = Vector2i(300, 700)
 
-[node name="StampButtonsUI" parent="SubViewport" unique_id=1904282165 instance=ExtResource("2_0j30j")]
+[node name="StampButtonsGreen" parent="SubViewport" unique_id=1904282165 instance=ExtResource("2_v1mj6")]
 
 [node name="Quad" type="MeshInstance3D" parent="." unique_id=1341834876]
 mesh = SubResource("QuadMesh_hw568")
@@ -34,3 +34,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_yg5x4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quad/Area3D" unique_id=525376047]
 shape = SubResource("BoxShape3D_hw568")
+
+[connection signal="mouse_entered" from="Quad/Area3D" to="SubViewport/StampButtonsGreen" method="show_buttons"]
+[connection signal="mouse_exited" from="Quad/Area3D" to="SubViewport/StampButtonsGreen" method="hide_buttons"]
