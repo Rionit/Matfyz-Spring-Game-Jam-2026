@@ -50,3 +50,5 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_1g8jr")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_btxxm")
 theme_override_styles/hover = SubResource("StyleBoxLine_1g8jr")
 theme_override_styles/focus = SubResource("StyleBoxLine_uhagc")
+
+[connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
