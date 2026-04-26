@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://bsnfdqhgelq2l"]
 
 [ext_resource type="Script" uid="uid://bevavgob5p1ah" path="res://scripts/main.gd" id="1_twmxf"]
-[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="2_thi68"]
+[ext_resource type="PackedScene" uid="uid://cdptnkmj1256p" path="res://scenes/ui/pause_menu.tscn" id="2_thi68"]
 [ext_resource type="PackedScene" path="res://scenes/ui/tutorial_menu.tscn" id="3_ahnse"]
 [ext_resource type="PackedScene" uid="uid://b2f3frvqldyhg" path="res://models/map/room.glb" id="4_spqhl"]
 [ext_resource type="Script" uid="uid://thhm5whoy2gr" path="res://scripts/main_camera.gd" id="5_7n0sf"]
 [ext_resource type="PackedScene" uid="uid://dqww7m5dojdwd" path="res://scenes/ui/DocumentObj.tscn" id="6_thi68"]
 [ext_resource type="Script" uid="uid://d4ncy3qfu0fuw" path="res://scripts/ui/test_document.gd" id="7_ahnse"]
+[ext_resource type="PackedScene" uid="uid://cwtuh1abisqt3" path="res://scenes/ui/payment_buttons_gui.tscn" id="8_l6tnw"]
 
 [sub_resource type="Environment" id="Environment_0wfyh"]
 
@@ -203,6 +204,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 mouse_behavior_recursive = 2
 text = "List"
+
+[node name="PaymentButtonsGUI" parent="." unique_id=1668765249 instance=ExtResource("8_l6tnw")]
+transform = Transform3D(0.725098, 0, -0.6886457, 0, 1, 0, 0.6886457, 0, 0.725098, 0.58292145, 0.19549653, 0.2461583)
 
 [connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/ButtonsVBox/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/ButtonsVBox/ExitButton" to="." method="_on_exit_button_pressed"]

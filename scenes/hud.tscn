@@ -18,6 +18,7 @@ script = ExtResource("1_6fi6k")
 picture_texture = ExtResource("3_5ysmq")
 
 [node name="Picture" type="TextureRect" parent="." unique_id=463971523]
+visible = false
 z_index = -1
 layout_mode = 0
 offset_right = 216.0

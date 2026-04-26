@@ -21,6 +21,10 @@ var helpbook : Node3D
 
 var selected_document : DocumentController = null
 
+enum PaymentType { NONE, RED, GREEN, BLUE }
+
+var selected_payment : PaymentType = PaymentType.NONE
+
 var max_misstakes : int
 var max_misstakes_from_main : int
 
