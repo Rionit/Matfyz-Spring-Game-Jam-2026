@@ -28,10 +28,9 @@ viewport_path = NodePath("SubViewport")
 resource_local_to_scene = true
 albedo_texture = SubResource("ViewportTexture_bmpos")
 
-[node name="Main" type="Node3D" unique_id=31963921 node_paths=PackedStringArray("incoming_folder", "level_1_guis")]
+[node name="Main" type="Node3D" unique_id=31963921 node_paths=PackedStringArray("incoming_folder")]
 script = ExtResource("1_twmxf")
 incoming_folder = NodePath("TableObject/TestFolder")
-level_1_guis = [NodePath("TableObject/Document2")]
 testing_folders = true
 
 [node name="Timer" type="Timer" parent="." unique_id=141712067]

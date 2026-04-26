@@ -73,7 +73,7 @@ func restore_input():
 	receives_input = original_input
 
 func move_to_top():
-	move(move_parent.position, top_look_pos, move_parent.rotation_degrees, top_look_rot, move_parent.scale, Vector3.ONE, base_move_duration)
+	move(move_parent.position, selection_pos + top_look_pos, move_parent.rotation_degrees, top_look_rot, move_parent.scale, Vector3.ONE, base_move_duration)
 
 func move_from_top():
 	move(move_parent.position, selection_pos, move_parent.rotation_degrees, selection_rot, move_parent.scale, Vector3.ONE, base_move_duration)
