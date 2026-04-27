@@ -33,7 +33,8 @@ func _ready():
 	hide_buttons()
 
 func _select_payment(type):
-	GameManager.selected_payment = type
+	if GameManager.selected_document != null:
+		GameManager.selected_payment = type
 	hide_buttons()
 
 func _input(event: InputEvent) -> void:
