@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*uid://d1ctje5rexdx7"
 HUD="*uid://dm3abpiv7u53u"
+AudioManager="*uid://b3jgottx3wi3u"
 
 [display]
 

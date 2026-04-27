@@ -183,6 +183,7 @@ func put_on_table():
 	move_finished.connect(enable_highlight)
 	move_finished.connect(enable_click)
 
+	AudioManager.play_sfx("document_place")
 	print ("Putting on table, current table pos: ", current_table_pos)
 	move(move_parent.position, current_table_pos, move_parent.rotation_degrees, Vector3(-90,0,0), move_parent.scale, Vector3.ONE, base_move_duration)
 
