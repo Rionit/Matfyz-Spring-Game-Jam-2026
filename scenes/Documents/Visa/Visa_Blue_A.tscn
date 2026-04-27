@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b35snm4dor705" path="res://sprites/stamps/blue_stamp_3.png" id="8_bbpgd"]
 [ext_resource type="PackedScene" uid="uid://dm5dske2rdkfo" path="res://scenes/ui/fields/payment_field.tscn" id="10_w10xy"]
 [ext_resource type="Texture2D" uid="uid://b1kieyv0n570a" path="res://sprites/payment/money_blue.png" id="11_s530u"]
+[ext_resource type="PackedScene" uid="uid://ce600nwb7wrc8" path="res://scenes/ui/fields/gibberish.tscn" id="12_wu50b"]
 
 [node name="Document" type="Control" unique_id=2125992226 node_paths=PackedStringArray("fields", "highlight_overlay")]
 layout_mode = 3
@@ -64,10 +65,10 @@ correct_answer_types = 10
 
 [node name="CheckboxField" parent="MarginContainer/Body" unique_id=979512527 instance=ExtResource("4_meq56")]
 layout_mode = 1
-offset_left = 294.0
-offset_top = 495.0
-offset_right = 294.0
-offset_bottom = 495.0
+offset_left = 384.0
+offset_top = 533.0
+offset_right = 384.0
+offset_bottom = 533.0
 correct_answers = 4
 
 [node name="PhotoField" parent="MarginContainer/Body" unique_id=1679272487 instance=ExtResource("5_17jvb")]
@@ -80,17 +81,17 @@ color_type = 2
 
 [node name="SignatureField" parent="MarginContainer/Body" unique_id=739498873 instance=ExtResource("6_7p6g2")]
 layout_mode = 1
-offset_left = 9.039999
-offset_top = 258.5
-offset_right = 8.973938
-offset_bottom = 258.5
+offset_left = 1.039999
+offset_top = 292.5
+offset_right = 0.973938
+offset_bottom = 292.5
 
 [node name="StampField" parent="MarginContainer/Body" unique_id=507597388 instance=ExtResource("7_bsppf")]
 layout_mode = 0
-offset_left = 111.0
-offset_top = 215.0
-offset_right = 211.0
-offset_bottom = 315.0
+offset_left = 232.0
+offset_top = 194.0
+offset_right = 332.0
+offset_bottom = 294.0
 stamp_on_doc = ExtResource("8_8jk4o")
 stamp_at_counter = ExtResource("8_bbpgd")
 
@@ -102,6 +103,22 @@ offset_right = 286.0
 offset_bottom = 146.0
 stamp = ExtResource("11_s530u")
 color_type = 2
+
+[node name="Gibberish" parent="MarginContainer/Body" unique_id=1068846807 instance=ExtResource("12_wu50b")]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 175.0
+offset_right = 160.0
+offset_bottom = 602.0
+text = "OH YEAH BABY I WANT MY VISA PLEASE GIVE ME VISA I WANT TO STAY IN THE COUNTRY PLEASE JUST LET ME STAY I HAVE A GLORPIAN WIFE YOU CANT JUST SEND ME BACK TO EARTH WHAT KIND OF BUREAUCRATIC HELL IS THIS THAT SENDS POOR HUMANS BACK HOME THIS IS NOT FAIR I WILL SUE YOU IN AN INTERGALACTIC COURT!!! FUCK THIS!"
+
+[node name="Gibberish2" parent="MarginContainer/Body" unique_id=114812459 instance=ExtResource("12_wu50b")]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 339.0
+offset_right = 584.0
+offset_bottom = 492.0
+text = "Okay so what that the game was broken when we submitted on itch. What I will ask you is, can you give me 1 more day? Im not asking for a week, Im not asking for a month, Im not asking for a year. Can you give me 1 more day? Please I'm begging you just a few hours and it will be fixed, pleaase please its almost fixed just give me a minute!"
 
 [node name="HighlightOverlay" type="ColorRect" parent="." unique_id=1902409606]
 visible = false

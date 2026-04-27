@@ -59,18 +59,21 @@ func _update_ui():
 
 	match color_type:
 		ColorType.RED:
+			%Text.add_theme_color_override("default_color", Color(0.359, 0.0, 0.0, 1.0))
 			field.texture = red_field
 			if red_font:
 				%Text.add_theme_font_override("normal_font", red_font)
 				%Text.add_theme_font_size_override("normal_font_size", red_font_size)
 
 		ColorType.GREEN:
+			%Text.add_theme_color_override("default_color", Color(0.0, 0.33, 0.0, 1.0)) 
 			field.texture = green_field
 			if green_font:
 				%Text.add_theme_font_override("normal_font", green_font)
 				%Text.add_theme_font_size_override("normal_font_size", green_font_size)
 
 		ColorType.BLUE:
+			%Text.add_theme_color_override("default_color", Color(0.116, 0.148, 0.29, 1.0)) 
 			field.texture = blue_field
 			if blue_font:
 				%Text.add_theme_font_override("normal_font", blue_font)
