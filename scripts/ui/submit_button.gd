@@ -8,6 +8,7 @@ var holders: Array[Control]
 var tweens: Array[Tween] = []
 
 func _on_submit():
+	get_viewport().get_parent().queue_free()
 	GameManager.main.submit_day()
 	hide_buttons()
 

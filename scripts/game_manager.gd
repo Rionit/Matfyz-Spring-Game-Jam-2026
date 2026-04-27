@@ -42,6 +42,8 @@ var actual_level : int = 1
 ## new documents, not submitted documents from previous day, recurent documents
 var documents_to_submit : Array[DocumentController] = []
 
+var evaluation_results : EvaluationResults
+
 var main : Node = null
 
 func main_game() -> void:
@@ -109,24 +111,27 @@ func evaluate_day():
 	max_misstakes = max_misstakes_from_main
 	var misstakes = main.submission_folder.evaluate(documents_to_submit)
 	print("Mistakes from submitted folder: " + str(misstakes))
-	max_misstakes -= misstakes
-	if max_misstakes <= 0:
-		print("Too many mistakes!")
-		main.game_over('misstakes')
-		return
 
 	var missing_documents = main.submission_folder.missing(documents_to_submit)
+	var missing_docs_num = missing_documents.size()
 
-	if missing_documents.size() > max_documents_unsubmitted:
-		print("Too many unsubmitted documents!")
-		main.game_over('misstakes')
-		return
+
 	documents_to_submit = []
 	for i in missing_documents:
 		documents_to_submit.append(i)
 	
+	var result : bool = misstakes <= max_misstakes and missing_docs_num <= max_documents_unsubmitted
+
+	evaluation_results = EvaluationResults.new()
+	evaluation_results.setup(misstakes, missing_docs_num, max_misstakes, max_documents_unsubmitted)
+
+	if result:
+		actual_level += 1
+
+	
 	max_documents_unsubmitted += documents_unsubmitted_addition
+	get_tree().change_scene_to_file("res://scenes/ui/evaluation_screen.tscn")
+
 
 func next_level() -> void:
 	actual_level += 1
-	

@@ -98,8 +98,8 @@ func load_level(level: int = 1) -> void:
 
 func submit_day() -> void:
 	game_manager.evaluate_day()
-	game_manager.next_level()
-	load_level(game_manager.actual_level)
+	#game_manager.next_level()
+	#load_level(game_manager.actual_level)
 
 ###
 # timer functionality

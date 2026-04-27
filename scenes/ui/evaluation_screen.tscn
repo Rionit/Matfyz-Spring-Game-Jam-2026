@@ -1,0 +1,214 @@
+[gd_scene format=3 uid="uid://o2ibve11ghhe"]
+
+[ext_resource type="Script" uid="uid://bv0o7q1tfdr5x" path="res://scripts/ui/evaluation_screen.gd" id="1_qkn3p"]
+[ext_resource type="Texture2D" uid="uid://sqwymrv8brn7" path="res://sprites/images/good_ending.png" id="2_6opsf"]
+[ext_resource type="PackedScene" uid="uid://sy0q2r7xo415" path="res://scenes/ui/main_menu.tscn" id="2_ud3bh"]
+[ext_resource type="PackedScene" uid="uid://dc3bfo1s1vrip" path="res://scenes/main.tscn" id="3_frf6k"]
+[ext_resource type="Texture2D" uid="uid://x6t3nlyl27k7" path="res://sprites/images/ending_back.png" id="3_ud3bh"]
+
+[sub_resource type="Curve" id="Curve_4rw76"]
+
+[sub_resource type="Curve" id="Curve_i5xhf"]
+
+[sub_resource type="Curve" id="Curve_3y508"]
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_bgbaq"]
+curve_x = SubResource("Curve_4rw76")
+curve_y = SubResource("Curve_i5xhf")
+curve_z = SubResource("Curve_3y508")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_frf6k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mfm0t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7cgwv"]
+
+[node name="EvaluationScreen" type="Control" unique_id=1025563964 node_paths=PackedStringArray("header_label", "mistakes_text_label", "documents_unsubmitted_text_label", "mistakes_value_label", "max_mistakes_label", "documents_unsubmitted_value_label", "max_documents_unsubmitted_label", "result_text_label", "result_value_label", "main_menu_button", "next_day_button", "background")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qkn3p")
+header_label = NodePath("Header")
+mistakes_text_label = NodePath("MarginContainer/EvaluationValues/TextLabels/MistakesLabel")
+documents_unsubmitted_text_label = NodePath("MarginContainer/EvaluationValues/TextLabels/UnsubmittedDocsLabel")
+mistakes_value_label = NodePath("MarginContainer/EvaluationValues/ValueLabels/MistakesValue")
+max_mistakes_label = NodePath("MarginContainer/EvaluationValues/MaxValueLabels/MaxMistakesValue")
+documents_unsubmitted_value_label = NodePath("MarginContainer/EvaluationValues/ValueLabels/UnsubmittedDocsValue")
+max_documents_unsubmitted_label = NodePath("MarginContainer/EvaluationValues/MaxValueLabels/MaxUnsubmittedDocsValue")
+result_text_label = NodePath("MarginContainer/EvaluationValues/TextLabels/ResultLabel")
+result_value_label = NodePath("MarginContainer/EvaluationValues/ValueLabels/ResultValue")
+main_menu_button = NodePath("Buttons/MainMenuButton")
+next_day_button = NodePath("Buttons/NextDayButton")
+main_menu_scene = ExtResource("2_ud3bh")
+day_scenes = Array[PackedScene]([ExtResource("3_frf6k")])
+background = NodePath("Background")
+win_background = ExtResource("2_6opsf")
+failure_background = ExtResource("3_ud3bh")
+black_background = SubResource("CurveXYZTexture_bgbaq")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1350841690]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6opsf")
+stretch_mode = 1
+
+[node name="Header" type="RichTextLabel" parent="." unique_id=687671833]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -290.0
+offset_top = 50.0
+offset_right = 310.0
+offset_bottom = 200.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 80
+theme_override_font_sizes/bold_font_size = 80
+bbcode_enabled = true
+text = "[b]EVALUATION[/b]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1577766111]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -68.0
+offset_bottom = 432.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="EvaluationValues" type="HBoxContainer" parent="MarginContainer" unique_id=956617333]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+
+[node name="TextLabels" type="VBoxContainer" parent="MarginContainer/EvaluationValues" unique_id=958641049]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+
+[node name="MistakesLabel" type="RichTextLabel" parent="MarginContainer/EvaluationValues/TextLabels" unique_id=494506623]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/bold_font_size = 50
+bbcode_enabled = true
+text = "[b]Total mistakes:[/b]"
+
+[node name="UnsubmittedDocsLabel" type="RichTextLabel" parent="MarginContainer/EvaluationValues/TextLabels" unique_id=111296294]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/bold_font_size = 50
+bbcode_enabled = true
+text = "[b]Unsubmitted documents:[/b]"
+
+[node name="ResultLabel" type="RichTextLabel" parent="MarginContainer/EvaluationValues/TextLabels" unique_id=1164504955]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/bold_font_size = 50
+bbcode_enabled = true
+text = "[b]Result[/b]"
+
+[node name="ValueLabels" type="VBoxContainer" parent="MarginContainer/EvaluationValues" unique_id=2023571765]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="MistakesValue" type="RichTextLabel" parent="MarginContainer/EvaluationValues/ValueLabels" unique_id=240306641]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 50
+text = "10"
+
+[node name="UnsubmittedDocsValue" type="RichTextLabel" parent="MarginContainer/EvaluationValues/ValueLabels" unique_id=4235230]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 50
+text = "10
+"
+
+[node name="ResultValue" type="RichTextLabel" parent="MarginContainer/EvaluationValues/ValueLabels" unique_id=826026730]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 50
+text = "10
+"
+
+[node name="MaxValueLabels" type="VBoxContainer" parent="MarginContainer/EvaluationValues" unique_id=2114174830]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MaxMistakesValue" type="RichTextLabel" parent="MarginContainer/EvaluationValues/MaxValueLabels" unique_id=508097074]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 50
+text = "/10"
+
+[node name="MaxUnsubmittedDocsValue" type="RichTextLabel" parent="MarginContainer/EvaluationValues/MaxValueLabels" unique_id=598483384]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 50
+text = "/10"
+
+[node name="Empty" type="RichTextLabel" parent="MarginContainer/EvaluationValues/MaxValueLabels" unique_id=334785261]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 50
+
+[node name="Buttons" type="HBoxContainer" parent="." unique_id=1057548428]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -180.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="NextDayButton" type="Button" parent="Buttons" unique_id=209508555]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../ResumeButton")
+focus_neighbor_bottom = NodePath("../ResumeButton")
+focus_next = NodePath("../ResumeButton")
+focus_previous = NodePath("../ResumeButton")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxEmpty_frf6k")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_mfm0t")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7cgwv")
+text = "Next Level"
+
+[node name="MainMenuButton" type="Button" parent="Buttons" unique_id=1270126334]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../ResumeButton")
+focus_neighbor_bottom = NodePath("../ResumeButton")
+focus_next = NodePath("../ResumeButton")
+focus_previous = NodePath("../ResumeButton")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxEmpty_frf6k")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_mfm0t")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7cgwv")
+text = "Exit to Menu"
+
+[connection signal="pressed" from="Buttons/NextDayButton" to="." method="go_to_next_day"]
+[connection signal="pressed" from="Buttons/MainMenuButton" to="." method="go_to_menu"]

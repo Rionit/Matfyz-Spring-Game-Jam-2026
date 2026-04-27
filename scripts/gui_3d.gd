@@ -36,6 +36,8 @@ func _mouse_exited_area():
 
 
 func _unhandled_input(event):
+	if !is_inside_tree():
+		return 
 	# Check if the event is a non-mouse/non-touch event
 	for mouse_event in [InputEventMouseButton, InputEventMouseMotion, InputEventScreenDrag, InputEventScreenTouch]:
 		if is_instance_of(event, mouse_event):
@@ -46,6 +48,9 @@ func _unhandled_input(event):
 
 
 func _mouse_input_event(_camera: Camera3D, event: InputEvent, event_position: Vector3, _normal: Vector3, _shape_idx: int):
+	if !is_inside_tree():
+		return
+	
 	# Get mesh size to detect edges and make conversions. This code only support PlaneMesh and QuadMesh.
 	var quad_mesh_size = node_quad.mesh.size
 
@@ -106,9 +111,15 @@ func _mouse_input_event(_camera: Camera3D, event: InputEvent, event_position: Ve
 	# Update last_event_time to current time.
 	last_event_time = now
 
-	# Finally, send the processed input event to the viewport.
-	node_viewport.push_input(event)
+	if is_inside_tree() and node_viewport.is_inside_tree():
+		# Finally, send the processed input event to the viewport.
+		node_viewport.push_input(event)
 
+func _exit_tree() -> void:
+	# Clean up signals to avoid potential issues with dangling connections.
+	node_area.mouse_entered.disconnect(_mouse_entered_area)
+	node_area.mouse_exited.disconnect(_mouse_exited_area)
+	node_area.input_event.disconnect(_mouse_input_event)
 
 func rotate_area_to_billboard():
 	var billboard_mode = node_quad.get_surface_override_material(0).params_billboard_mode
