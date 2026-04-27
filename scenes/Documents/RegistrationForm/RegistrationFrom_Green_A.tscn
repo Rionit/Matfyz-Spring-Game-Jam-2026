@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://chu43i7oryotp" path="res://scenes/ui/fields/captcha_field.tscn" id="3_1v5tb"]
 [ext_resource type="PackedScene" uid="uid://dkw6ev72i83gp" path="res://scenes/ui/fields/photo_field.tscn" id="4_1ftsb"]
 [ext_resource type="PackedScene" uid="uid://gok16fqapo66" path="res://scenes/ui/fields/signature_field.tscn" id="5_fiave"]
+[ext_resource type="PackedScene" uid="uid://ce600nwb7wrc8" path="res://scenes/ui/fields/gibberish.tscn" id="6_k0f7r"]
+[ext_resource type="FontFile" uid="uid://ia0gu52dxka1" path="res://fonts/green_font.ttf" id="7_qo15y"]
 
 [node name="Document" type="Control" unique_id=2125992226 node_paths=PackedStringArray("fields", "highlight_overlay")]
 layout_mode = 3
@@ -49,37 +51,62 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -535.0
-offset_top = 408.0
-offset_right = -262.0
-offset_bottom = 725.0
+offset_left = -539.0
+offset_top = 460.0
+offset_right = -266.0
+offset_bottom = 777.0
 grow_horizontal = 0
 color_type = 1
 correct_answer_types = 5
 
 [node name="PhotoField" parent="MarginContainer/Body" unique_id=1679272487 instance=ExtResource("4_1ftsb")]
 layout_mode = 0
-offset_left = 388.0
+offset_left = 366.0
 offset_top = 84.0
-offset_right = 508.0
+offset_right = 486.0
 offset_bottom = 234.0
 color_type = 1
 
 [node name="SignatureField" parent="MarginContainer/Body" unique_id=739498873 instance=ExtResource("5_fiave")]
 layout_mode = 1
-offset_left = 33.04
-offset_top = -191.5
-offset_right = -195.31604
-offset_bottom = -176.5
+offset_left = 93.04
+offset_top = -24.5
+offset_right = -281.31604
+offset_bottom = 72.5
 color_type = 1
 
 [node name="SignatureField2" parent="MarginContainer/Body" unique_id=587505805 instance=ExtResource("5_fiave")]
 layout_mode = 1
-offset_left = 321.04
-offset_top = 107.5
-offset_right = -12.31604
-offset_bottom = 110.5
+offset_left = 322.04
+offset_top = 264.5
+offset_right = -48.31604
+offset_bottom = 371.5
 color_type = 1
+
+[node name="Gibberish" parent="MarginContainer/Body" unique_id=1068846807 instance=ExtResource("6_k0f7r")]
+layout_mode = 0
+offset_left = 345.0
+offset_top = 268.0
+offset_right = 510.0
+offset_bottom = 652.0
+theme_override_colors/default_color = Color(0, 0.33, 0, 1)
+theme_override_fonts/normal_font = ExtResource("7_qo15y")
+color_type = 1
+
+[node name="Gibberish2" parent="MarginContainer/Body" unique_id=849483386 instance=ExtResource("6_k0f7r")]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 53.0
+offset_right = 316.0
+offset_bottom = 394.0
+theme_override_colors/default_color = Color(0, 0.33, 0, 1)
+theme_override_fonts/normal_font = ExtResource("7_qo15y")
+theme_override_font_sizes/normal_font_size = 23
+text = "you think this is a game 
+you think you can just do what you want and walk away from it no consequences no nothing 
+well let me tell you something right now im about to take this to a whole different level im gonna hurt you in ways you cant even imagine im gonna get medieval on yo ass"
+color_type = 1
+font_size = 23
 
 [node name="HighlightOverlay" type="ColorRect" parent="." unique_id=1902409606]
 visible = false

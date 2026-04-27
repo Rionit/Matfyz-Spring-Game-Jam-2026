@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://gok16fqapo66" path="res://scenes/ui/fields/signature_field.tscn" id="3_03uj2"]
 [ext_resource type="PackedScene" uid="uid://chu43i7oryotp" path="res://scenes/ui/fields/captcha_field.tscn" id="4_241ll"]
 [ext_resource type="PackedScene" uid="uid://b2b2qewlviril" path="res://scenes/ui/fields/checkbox_field.tscn" id="5_3hdsw"]
+[ext_resource type="PackedScene" uid="uid://ce600nwb7wrc8" path="res://scenes/ui/fields/gibberish.tscn" id="6_dqysc"]
+[ext_resource type="FontFile" uid="uid://ia0gu52dxka1" path="res://fonts/green_font.ttf" id="7_5p80v"]
 
 [node name="Document" type="Control" unique_id=2125992226 node_paths=PackedStringArray("fields", "highlight_overlay")]
 layout_mode = 3
@@ -46,10 +48,10 @@ mouse_filter = 1
 
 [node name="SignatureField" parent="MarginContainer/Body" unique_id=739498873 instance=ExtResource("3_03uj2")]
 layout_mode = 1
-offset_left = 37.04
-offset_top = -263.5
-offset_right = 36.973938
-offset_bottom = -263.5
+offset_left = 5.039999
+offset_top = 44.5
+offset_right = -312.31604
+offset_bottom = 149.5
 color_type = 1
 
 [node name="CaptchaField" parent="MarginContainer/Body" unique_id=9917882 instance=ExtResource("4_241ll")]
@@ -57,9 +59,9 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -426.0
+offset_left = -320.0
 offset_top = 250.0
-offset_right = -153.0
+offset_right = -47.0
 offset_bottom = 567.0
 grow_horizontal = 0
 color_type = 1
@@ -68,11 +70,22 @@ correct_answer_types = 5
 [node name="CheckboxField" parent="MarginContainer/Body" unique_id=979512527 instance=ExtResource("5_3hdsw")]
 layout_mode = 1
 offset_left = 316.0
-offset_top = 701.0
+offset_top = 729.0
 offset_right = 316.0
-offset_bottom = 701.0
+offset_bottom = 729.0
 color_type = 1
 correct_answers = 1
+
+[node name="Gibberish" parent="MarginContainer/Body" unique_id=1068846807 instance=ExtResource("6_dqysc")]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 573.0
+offset_right = 561.0
+offset_bottom = 663.0
+theme_override_colors/default_color = Color(0, 0.33, 0, 1)
+theme_override_fonts/normal_font = ExtResource("7_5p80v")
+text = "co dal co dal ja ti reknu co dal zavolam par zfetovanych negru s klestema let lampou pro pana domaciho aby si tady hosi trochu zablbli slysis me co rikam ty vidlaku jeste jsem tebou neskoncil tva prdel pozna stredovek"
+color_type = 1
 
 [node name="HighlightOverlay" type="ColorRect" parent="." unique_id=1902409606]
 visible = false
@@ -84,6 +97,37 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0.25490198, 1, 1, 0.2509804)
+
+[node name="Gibberish" parent="." unique_id=1129685083 instance=ExtResource("6_dqysc")]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 97.0
+offset_right = 298.0
+offset_bottom = 568.0
+theme_override_colors/default_color = Color(0, 0.33, 0, 1)
+theme_override_fonts/normal_font = ExtResource("7_5p80v")
+text = "kryton pokud vesmir jednoho dne exploduje koho zajima jestli je v troube trochu sajrajtu na nicem nezalezi pane
+
+spravedlnost pravda kultura moralka zivot smrt vira valka vsechno je absurdni proc se vubec rano zvedat z postele
+lister na to se ptam uz roky
+kryton co budu delat
+rimmer proc si nedas ledovou sprchu to by pomohlo
+kryton pane nejsem vodeodolny
+rimmer presne"
+color_type = 1
+
+[node name="Gibberish2" parent="." unique_id=1323745768 instance=ExtResource("6_dqysc")]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 97.0
+offset_right = 544.0
+offset_bottom = 568.0
+theme_override_colors/default_color = Color(0, 0.33, 0, 1)
+theme_override_fonts/normal_font = ExtResource("7_5p80v")
+text = "ty si myslis ze si v bezpeci ze se ti nic nestane ze to jen tak prejde 
+
+ale ja ti rikam ted a tady ze tohle pujde uplne jinam nez si dokazes predstavit pujdu na tebe tvrde pomalu a bez slitovani a zapamatujes si to na hodne dlouho"
+color_type = 1
 
 [connection signal="gui_input" from="MarginContainer/Body" to="." method="on_input_event"]
 [connection signal="mouse_entered" from="MarginContainer/Body" to="." method="on_mouse_entered"]

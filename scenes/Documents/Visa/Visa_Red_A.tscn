@@ -83,10 +83,10 @@ offset_bottom = 161.0
 
 [node name="SignatureField" parent="MarginContainer/Body" unique_id=739498873 instance=ExtResource("6_8kedq")]
 layout_mode = 1
-offset_left = -0.960001
-offset_top = 211.5
-offset_right = -327.31604
-offset_bottom = 225.5
+offset_left = 7.039999
+offset_top = 276.5
+offset_right = -348.31604
+offset_bottom = 372.5
 color_type = 0
 
 [node name="StampField" parent="MarginContainer/Body" unique_id=507597388 instance=ExtResource("7_iypgh")]
@@ -117,6 +117,19 @@ theme_override_font_sizes/normal_font_size = 19
 text = "co dal co dal Ja ti reknu co dal zavolam par zfetovanych negru s klestema let Lampou pro pana domaciho aby si tady hosi trochu zablbli slysis me co rikam ty vidlaku jeste jsem tebou neskoncil Tva prdel pozna stredovek"
 color_type = 0
 font_size = 19
+
+[node name="Gibberish4" parent="MarginContainer/Body" unique_id=803629802 instance=ExtResource("11_ke84t")]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 460.0
+offset_right = 227.0
+offset_bottom = 676.0
+theme_override_colors/default_color = Color(0.359, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("12_122d7")
+theme_override_font_sizes/normal_font_size = 14
+text = "to byla dulezita informace a bylo nutne ji sdelit avsak navrhuji aby od teto chvile byla dalsi jednani vedena temi co maji mozek vetsi nez angrest"
+color_type = 0
+font_size = 14
 
 [node name="Gibberish2" parent="MarginContainer/Body" unique_id=213382875 instance=ExtResource("11_ke84t")]
 layout_mode = 0
