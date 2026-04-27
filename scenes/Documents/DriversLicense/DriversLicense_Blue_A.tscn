@@ -1,11 +1,13 @@
-[gd_scene format=3 uid="uid://dvevvrwewqpax"]
+[gd_scene format=3 uid="uid://dxrce7anhpygy"]
 
-[ext_resource type="Script" uid="uid://c6t6wnq3gd84v" path="res://scripts/document_controller.gd" id="1_vdtgv"]
-[ext_resource type="Texture2D" uid="uid://cbc2an22842sm" path="res://sprites/documents/blue/registration.png" id="2_vdtgv"]
-[ext_resource type="PackedScene" uid="uid://chu43i7oryotp" path="res://scenes/ui/fields/captcha_field.tscn" id="3_8rx7u"]
-[ext_resource type="PackedScene" uid="uid://dkw6ev72i83gp" path="res://scenes/ui/fields/photo_field.tscn" id="4_f2xod"]
-[ext_resource type="PackedScene" uid="uid://gok16fqapo66" path="res://scenes/ui/fields/signature_field.tscn" id="5_011kl"]
-[ext_resource type="PackedScene" uid="uid://ce600nwb7wrc8" path="res://scenes/ui/fields/gibberish.tscn" id="6_cjhpo"]
+[ext_resource type="Script" uid="uid://c6t6wnq3gd84v" path="res://scripts/document_controller.gd" id="1_u8xdy"]
+[ext_resource type="Texture2D" uid="uid://ekkvjphenlfo" path="res://sprites/documents/blue/driving.png" id="2_2iifg"]
+[ext_resource type="PackedScene" uid="uid://dkw6ev72i83gp" path="res://scenes/ui/fields/photo_field.tscn" id="4_k28a1"]
+[ext_resource type="PackedScene" uid="uid://gok16fqapo66" path="res://scenes/ui/fields/signature_field.tscn" id="5_sf7q3"]
+[ext_resource type="PackedScene" uid="uid://bl4yhqk1xuunw" path="res://scenes/ui/fields/stamp_field.tscn" id="6_bufe2"]
+[ext_resource type="PackedScene" uid="uid://ce600nwb7wrc8" path="res://scenes/ui/fields/gibberish.tscn" id="6_xixfv"]
+[ext_resource type="Texture2D" uid="uid://dumn3rkjxpa0y" path="res://sprites/stamps/black_stamp_1.png" id="7_btpcn"]
+[ext_resource type="Texture2D" uid="uid://dcb4atvqp522" path="res://sprites/stamps/blue_stamp_1.png" id="8_vuixf"]
 
 [node name="Document" type="Control" unique_id=2125992226 node_paths=PackedStringArray("fields", "highlight_overlay")]
 layout_mode = 3
@@ -17,8 +19,8 @@ offset_bottom = -205.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-script = ExtResource("1_vdtgv")
-fields = [NodePath("MarginContainer/Body/CaptchaField"), NodePath("MarginContainer/Body/SignatureField2"), NodePath("MarginContainer/Body/PhotoField"), NodePath("MarginContainer/Body/SignatureField")]
+script = ExtResource("1_u8xdy")
+fields = [NodePath("MarginContainer/Body/PhotoField"), NodePath("MarginContainer/Body/SignatureField"), NodePath("MarginContainer/Body/StampField")]
 highlight_overlay = NodePath("HighlightOverlay")
 top_look_pos = Vector3(0, -0.1, -0.12)
 top_look_rot = Vector3(-75, 0, 0)
@@ -27,7 +29,7 @@ top_look_rot = Vector3(-75, 0, 0)
 layout_mode = 0
 offset_right = 651.0
 offset_bottom = 875.0
-texture = ExtResource("2_vdtgv")
+texture = ExtResource("2_2iifg")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1799867776]
 layout_mode = 1
@@ -45,46 +47,27 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 mouse_filter = 1
 
-[node name="CaptchaField" parent="MarginContainer/Body" unique_id=9917882 instance=ExtResource("3_8rx7u")]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -558.0
-offset_top = 455.0
-offset_right = -285.0
-offset_bottom = 772.0
-grow_horizontal = 0
-correct_answer_types = 10
-
-[node name="PhotoField" parent="MarginContainer/Body" unique_id=1679272487 instance=ExtResource("4_f2xod")]
+[node name="PhotoField" parent="MarginContainer/Body" unique_id=1679272487 instance=ExtResource("4_k28a1")]
 layout_mode = 0
-offset_left = 368.0
-offset_top = 95.0
-offset_right = 488.0
-offset_bottom = 245.0
+offset_left = 409.0
+offset_top = 51.0
+offset_right = 529.0
+offset_bottom = 201.0
 color_type = 2
 
-[node name="SignatureField" parent="MarginContainer/Body" unique_id=739498873 instance=ExtResource("5_011kl")]
+[node name="SignatureField" parent="MarginContainer/Body" unique_id=739498873 instance=ExtResource("5_sf7q3")]
 layout_mode = 1
-offset_left = 319.04
-offset_top = 266.5
-offset_right = -52.31604
-offset_bottom = 361.5
+offset_left = 57.04
+offset_top = 270.5
+offset_right = -314.31604
+offset_bottom = 365.5
 
-[node name="SignatureField2" parent="MarginContainer/Body" unique_id=587505805 instance=ExtResource("5_011kl")]
-layout_mode = 1
-offset_left = 40.04
-offset_top = -26.5
-offset_right = -308.31604
-offset_bottom = 64.5
-
-[node name="Gibberish" parent="MarginContainer/Body" unique_id=1068846807 instance=ExtResource("6_cjhpo")]
+[node name="Gibberish" parent="MarginContainer/Body" unique_id=1068846807 instance=ExtResource("6_xixfv")]
 layout_mode = 0
 offset_left = 76.0
-offset_top = 68.0
-offset_right = 326.0
-offset_bottom = 368.0
+offset_top = 50.0
+offset_right = 371.0
+offset_bottom = 350.0
 text = "rimmer byl obzalovan z vrazdy 1167 lidi
 
 rimmer to musi byt omyl nikdy jsem nedostal ani pokutu z knihovny vrazda druheho stupne tisic lidi to bych si pamatoval
@@ -93,13 +76,22 @@ hlas vase vedoma nedbalost pri oprave tepelneho stitu zpusobila smrt cele posadk
 
 rimmer jo tohle"
 
-[node name="Gibberish2" parent="MarginContainer/Body" unique_id=382483488 instance=ExtResource("6_cjhpo")]
+[node name="Gibberish2" parent="MarginContainer/Body" unique_id=382483488 instance=ExtResource("6_xixfv")]
 layout_mode = 0
-offset_left = 330.0
-offset_top = 367.0
-offset_right = 520.0
-offset_bottom = 707.0
+offset_left = 76.0
+offset_top = 388.0
+offset_right = 266.0
+offset_bottom = 728.0
 text = "Ted stop! 6 minut 47 sekund, to neni zly casek na kilasek. Skoda ze jsem bezel jen 300 metru. Ale zase jsem se zdrzel s Listerem, to znamena o ctyri minuty min, a taky jsem si vydech, abych nevypadal tak vyplivane, az kolem neho pobezim, tak to taky odec tu a je to svetovy rekord! Vyborne, Rimmsy, skvela fyzicka!"
+
+[node name="StampField" parent="MarginContainer/Body" unique_id=507597388 instance=ExtResource("6_bufe2")]
+layout_mode = 0
+offset_left = 421.0
+offset_top = 648.0
+offset_right = 521.0
+offset_bottom = 748.0
+stamp_on_doc = ExtResource("7_btpcn")
+stamp_at_counter = ExtResource("8_vuixf")
 
 [node name="HighlightOverlay" type="ColorRect" parent="." unique_id=1902409606]
 visible = false

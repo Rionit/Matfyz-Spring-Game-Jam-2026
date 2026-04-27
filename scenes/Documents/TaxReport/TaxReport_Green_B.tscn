@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://gok16fqapo66" path="res://scenes/ui/fields/signature_field.tscn" id="3_5m3pt"]
 [ext_resource type="PackedScene" uid="uid://chu43i7oryotp" path="res://scenes/ui/fields/captcha_field.tscn" id="4_lhbxb"]
 [ext_resource type="PackedScene" uid="uid://b2b2qewlviril" path="res://scenes/ui/fields/checkbox_field.tscn" id="5_amb2w"]
+[ext_resource type="PackedScene" uid="uid://ce600nwb7wrc8" path="res://scenes/ui/fields/gibberish.tscn" id="6_cvipv"]
+[ext_resource type="FontFile" uid="uid://ia0gu52dxka1" path="res://fonts/green_font.ttf" id="7_cndpn"]
 
 [node name="Document" type="Control" unique_id=2125992226 node_paths=PackedStringArray("fields", "highlight_overlay")]
 layout_mode = 3
@@ -46,10 +48,10 @@ mouse_filter = 1
 
 [node name="SignatureField" parent="MarginContainer/Body" unique_id=739498873 instance=ExtResource("3_5m3pt")]
 layout_mode = 1
-offset_left = 37.04
-offset_top = 97.5
-offset_right = 36.973938
-offset_bottom = 97.5
+offset_left = 181.04
+offset_top = 145.5
+offset_right = 180.97394
+offset_bottom = 145.5
 color_type = 1
 
 [node name="CaptchaField" parent="MarginContainer/Body" unique_id=9917882 instance=ExtResource("4_lhbxb")]
@@ -57,22 +59,59 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -426.0
-offset_top = 24.0
-offset_right = -153.0
-offset_bottom = 341.0
+offset_left = -314.0
+offset_top = -16.0
+offset_right = -41.0
+offset_bottom = 301.0
 grow_horizontal = 0
 color_type = 1
 correct_answer_types = 5
 
 [node name="CheckboxField" parent="MarginContainer/Body" unique_id=979512527 instance=ExtResource("5_amb2w")]
 layout_mode = 1
-offset_left = 316.0
-offset_top = 701.0
-offset_right = 316.0
-offset_bottom = 701.0
+offset_left = 306.0
+offset_top = 643.0
+offset_right = 306.0
+offset_bottom = 643.0
 color_type = 1
 correct_answers = 1
+
+[node name="Gibberish" parent="MarginContainer/Body" unique_id=1068846807 instance=ExtResource("6_cvipv")]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 672.0
+offset_right = 558.0
+offset_bottom = 762.0
+theme_override_colors/default_color = Color(0, 0.33, 0, 1)
+theme_override_fonts/normal_font = ExtResource("7_cndpn")
+text = "co dal co dal ja ti reknu co dal zavolam par zfetovanych negru s klestema let lampou pro pana domaciho aby si tady hosi trochu zablbli slysis me co rikam ty vidlaku jeste jsem tebou neskoncil tva prdel pozna stredovek"
+color_type = 1
+
+[node name="Gibberish2" parent="MarginContainer/Body" unique_id=637549361 instance=ExtResource("6_cvipv")]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 5.0
+offset_right = 295.0
+offset_bottom = 581.0
+theme_override_colors/default_color = Color(0, 0.33, 0, 1)
+theme_override_fonts/normal_font = ExtResource("7_cndpn")
+theme_override_font_sizes/normal_font_size = 17
+text = "you know what the funniest thing about europe is what they got all the same stuff we got but its just a little different like what well like you can walk into a place and get a beer but it aint called a beer and what else well they got this thing about foot massages foot massages yeah like its a big deal over there you giving a guy a foot massage dont mean nothing hold up it dont mean nothing nah man its just a massage i dont know man i think youre underselling it giving a foot massage is personal its intimate you ever given a guy a foot massage no exactly cause its weird its not weird yes it is youre touching a persons feet thats like the most sensitive part of the body thats not sexual it aint sexual but its something its definitely something look if it was nothing then why does everybody react like its something cause people are weird nah man its cause deep down they know theres a line and once you cross it you crossed it you saying you wouldnt give a foot massage im saying it means more than just a massage thats all im saying"
+color_type = 1
+font_size = 17
+
+[node name="Gibberish3" parent="MarginContainer/Body" unique_id=2104089222 instance=ExtResource("6_cvipv")]
+layout_mode = 0
+offset_left = 317.0
+offset_top = 297.0
+offset_right = 541.0
+offset_bottom = 518.0
+theme_override_colors/default_color = Color(0, 0.33, 0, 1)
+theme_override_fonts/normal_font = ExtResource("7_cndpn")
+text = "ty si myslis ze si v bezpeci ze se ti nic nestane ze to jen tak prejde 
+
+ale ja ti rikam ted a tady ze tohle pujde uplne jinam nez si dokazes predstavit pujdu na tebe tvrde pomalu a bez slitovani a zapamatujes si to na hodne dlouho"
+color_type = 1
 
 [node name="HighlightOverlay" type="ColorRect" parent="." unique_id=1902409606]
 visible = false

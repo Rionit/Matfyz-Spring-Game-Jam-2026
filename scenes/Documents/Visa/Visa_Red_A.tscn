@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://dumn3rkjxpa0y" path="res://sprites/stamps/black_stamp_1.png" id="8_4qx0k"]
 [ext_resource type="Texture2D" uid="uid://cr2pada3do7ex" path="res://sprites/stamps/red_stamp_1.png" id="9_vinun"]
 [ext_resource type="PackedScene" uid="uid://dm5dske2rdkfo" path="res://scenes/ui/fields/payment_field.tscn" id="10_8cg0p"]
+[ext_resource type="PackedScene" uid="uid://ce600nwb7wrc8" path="res://scenes/ui/fields/gibberish.tscn" id="11_ke84t"]
+[ext_resource type="FontFile" uid="uid://chsiqrkupps43" path="res://fonts/red_font.ttf" id="12_122d7"]
 
 [node name="Document" type="Control" unique_id=2125992226 node_paths=PackedStringArray("fields", "highlight_overlay")]
 layout_mode = 3
@@ -54,53 +56,106 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -283.0
-offset_top = 11.0
-offset_right = -10.0
-offset_bottom = 328.0
+offset_left = -278.0
+offset_top = -8.0
+offset_right = -5.0
+offset_bottom = 309.0
 grow_horizontal = 0
 color_type = 0
 correct_answer_types = 11
 
 [node name="CheckboxField" parent="MarginContainer/Body" unique_id=979512527 instance=ExtResource("4_4gdrp")]
 layout_mode = 1
-offset_left = 288.0
-offset_top = 403.0
-offset_right = 288.0
-offset_bottom = 403.0
+offset_left = 402.0
+offset_top = 740.0
+offset_right = 402.0
+offset_bottom = 740.0
+scale = Vector2(0.6875143, 0.6875143)
 color_type = 0
 correct_answers = 1
 
 [node name="PhotoField" parent="MarginContainer/Body" unique_id=1679272487 instance=ExtResource("5_p54xn")]
 layout_mode = 0
-offset_left = 23.0
-offset_top = 5.0
-offset_right = 143.0
-offset_bottom = 155.0
+offset_left = 22.0
+offset_top = 11.0
+offset_right = 142.0
+offset_bottom = 161.0
 
 [node name="SignatureField" parent="MarginContainer/Body" unique_id=739498873 instance=ExtResource("6_8kedq")]
 layout_mode = 1
-offset_left = 24.039999
-offset_top = 146.5
-offset_right = 9.68396
-offset_bottom = 152.5
+offset_left = 7.039999
+offset_top = 276.5
+offset_right = -348.31604
+offset_bottom = 372.5
 color_type = 0
 
 [node name="StampField" parent="MarginContainer/Body" unique_id=507597388 instance=ExtResource("7_iypgh")]
 layout_mode = 0
-offset_left = 135.0
-offset_top = 206.0
-offset_right = 235.0
-offset_bottom = 306.0
+offset_left = 117.0
+offset_top = 345.0
+offset_right = 217.0
+offset_bottom = 445.0
 stamp_on_doc = ExtResource("8_4qx0k")
 stamp_at_counter = ExtResource("9_vinun")
 
 [node name="PaymentField" parent="MarginContainer/Body" unique_id=1097950701 instance=ExtResource("10_8cg0p")]
 layout_mode = 0
-offset_left = 186.0
-offset_top = 57.0
-offset_right = 286.0
-offset_bottom = 157.0
+offset_left = 17.0
+offset_top = 345.0
+offset_right = 117.0
+offset_bottom = 445.0
+
+[node name="Gibberish" parent="MarginContainer/Body" unique_id=1068846807 instance=ExtResource("11_ke84t")]
+layout_mode = 0
+offset_left = 238.0
+offset_top = 337.0
+offset_right = 568.0
+offset_bottom = 709.0
+theme_override_colors/default_color = Color(0.359, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("12_122d7")
+theme_override_font_sizes/normal_font_size = 19
+text = "co dal co dal Ja ti reknu co dal zavolam par zfetovanych negru s klestema let Lampou pro pana domaciho aby si tady hosi trochu zablbli slysis me co rikam ty vidlaku jeste jsem tebou neskoncil Tva prdel pozna stredovek"
+color_type = 0
+font_size = 19
+
+[node name="Gibberish4" parent="MarginContainer/Body" unique_id=803629802 instance=ExtResource("11_ke84t")]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 460.0
+offset_right = 227.0
+offset_bottom = 676.0
+theme_override_colors/default_color = Color(0.359, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("12_122d7")
+theme_override_font_sizes/normal_font_size = 14
+text = "to byla dulezita informace a bylo nutne ji sdelit avsak navrhuji aby od teto chvile byla dalsi jednani vedena temi co maji mozek vetsi nez angrest"
+color_type = 0
+font_size = 14
+
+[node name="Gibberish2" parent="MarginContainer/Body" unique_id=213382875 instance=ExtResource("11_ke84t")]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 182.0
+offset_right = 334.0
+offset_bottom = 332.0
+theme_override_colors/default_color = Color(0.359, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("12_122d7")
+theme_override_font_sizes/normal_font_size = 18
+text = "i am going to steal the declaration of independence and then im gonna put lemon juice on it"
+color_type = 0
+font_size = 18
+
+[node name="Gibberish3" parent="MarginContainer/Body" unique_id=123792484 instance=ExtResource("11_ke84t")]
+layout_mode = 0
+offset_left = 147.0
+offset_top = 3.0
+offset_right = 337.0
+offset_bottom = 213.0
+theme_override_colors/default_color = Color(0.359, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("12_122d7")
+theme_override_font_sizes/normal_font_size = 18
+text = "i am nicholas cage from national treasure movie and im so cool and i am gonna"
+color_type = 0
+font_size = 18
 
 [node name="HighlightOverlay" type="ColorRect" parent="." unique_id=1902409606]
 visible = false

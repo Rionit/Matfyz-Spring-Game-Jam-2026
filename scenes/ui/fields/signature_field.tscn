@@ -53,15 +53,6 @@ theme_override_constants/margin_bottom = 20
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=613158630]
 layout_mode = 2
 
-[node name="Text" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=1191848565]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("7_70u6b")
-theme_override_font_sizes/normal_font_size = 20
-text = "You hereby sell your soul to the glurpazorp corporation for the rest of your human lifespan of at least sixty nine thousand days. In case of premature death you will be printed as a cyborg shell with an ai of your human consciousness."
-fit_content = true
-
 [node name="Field" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=792649904]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(170, 80)

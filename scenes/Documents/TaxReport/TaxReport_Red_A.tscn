@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://b2b2qewlviril" path="res://scenes/ui/fields/checkbox_field.tscn" id="3_35j7n"]
 [ext_resource type="PackedScene" uid="uid://gok16fqapo66" path="res://scenes/ui/fields/signature_field.tscn" id="4_dkmxs"]
 [ext_resource type="PackedScene" uid="uid://chu43i7oryotp" path="res://scenes/ui/fields/captcha_field.tscn" id="5_spwgw"]
+[ext_resource type="PackedScene" uid="uid://ce600nwb7wrc8" path="res://scenes/ui/fields/gibberish.tscn" id="6_5velw"]
+[ext_resource type="FontFile" uid="uid://chsiqrkupps43" path="res://fonts/red_font.ttf" id="7_8y0hy"]
 
 [node name="Document" type="Control" unique_id=2125992226 node_paths=PackedStringArray("fields", "highlight_overlay")]
 layout_mode = 3
@@ -46,10 +48,10 @@ mouse_filter = 1
 
 [node name="SignatureField" parent="MarginContainer/Body" unique_id=739498873 instance=ExtResource("4_dkmxs")]
 layout_mode = 1
-offset_left = 37.04
-offset_top = -225.5
-offset_right = -290.31604
-offset_bottom = -225.5
+offset_left = 45.04
+offset_top = -167.5
+offset_right = -315.31604
+offset_bottom = -74.5
 color_type = 0
 
 [node name="CaptchaField" parent="MarginContainer/Body" unique_id=9917882 instance=ExtResource("5_spwgw")]
@@ -57,10 +59,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -323.0
-offset_top = 3.0
-offset_right = -50.0
-offset_bottom = 320.0
+offset_left = -305.0
+offset_top = 19.0
+offset_right = -32.0
+offset_bottom = 336.0
 grow_horizontal = 0
 color_type = 0
 correct_answer_types = 11
@@ -73,6 +75,32 @@ offset_right = 308.0
 offset_bottom = 722.0
 color_type = 0
 correct_answers = 1
+
+[node name="Gibberish" parent="MarginContainer/Body" unique_id=1068846807 instance=ExtResource("6_5velw")]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 348.0
+offset_right = 546.0
+offset_bottom = 658.0
+theme_override_colors/default_color = Color(0.359, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("7_8y0hy")
+theme_override_font_sizes/normal_font_size = 21
+text = "co dal co dal ja ti reknu co dal zavolam par zfetovanych negru s klestema let lampou pro pana domaciho aby si tady hosi trochu zablbli slysis me co rikam ty vidlaku jeste jsem tebou neskoncil tva prdel pozna stredovek"
+color_type = 0
+font_size = 21
+
+[node name="Gibberish2" parent="MarginContainer/Body" unique_id=988697088 instance=ExtResource("6_5velw")]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 57.0
+offset_right = 292.0
+offset_bottom = 197.0
+theme_override_colors/default_color = Color(0.359, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("7_8y0hy")
+theme_override_font_sizes/normal_font_size = 21
+text = "i am going to steal the declaration of independence"
+color_type = 0
+font_size = 21
 
 [node name="HighlightOverlay" type="ColorRect" parent="." unique_id=1902409606]
 visible = false

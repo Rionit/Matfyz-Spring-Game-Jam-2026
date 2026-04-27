@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://chu43i7oryotp" path="res://scenes/ui/fields/captcha_field.tscn" id="3_rlpbx"]
 [ext_resource type="PackedScene" uid="uid://dkw6ev72i83gp" path="res://scenes/ui/fields/photo_field.tscn" id="4_j8ons"]
 [ext_resource type="PackedScene" uid="uid://gok16fqapo66" path="res://scenes/ui/fields/signature_field.tscn" id="5_sgth1"]
+[ext_resource type="PackedScene" uid="uid://ce600nwb7wrc8" path="res://scenes/ui/fields/gibberish.tscn" id="6_e523w"]
 
 [node name="Document" type="Control" unique_id=2125992226 node_paths=PackedStringArray("fields", "highlight_overlay")]
 layout_mode = 3
@@ -49,35 +50,76 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -433.0
+offset_left = -439.0
 offset_top = 72.0
-offset_right = -160.0
+offset_right = -166.0
 offset_bottom = 389.0
 grow_horizontal = 0
 correct_answer_types = 10
 
 [node name="PhotoField" parent="MarginContainer/Body" unique_id=1679272487 instance=ExtResource("4_j8ons")]
 layout_mode = 0
-offset_left = 355.0
-offset_top = 415.0
-offset_right = 475.0
-offset_bottom = 565.0
+offset_left = 297.0
+offset_top = 406.0
+offset_right = 417.0
+offset_bottom = 556.0
 color_type = 2
 
 [node name="PhotoField2" parent="MarginContainer/Body" unique_id=865661742 instance=ExtResource("4_j8ons")]
 layout_mode = 0
-offset_left = 131.0
-offset_top = 412.0
-offset_right = 251.0
-offset_bottom = 562.0
+offset_left = 45.0
+offset_top = 405.0
+offset_right = 165.0
+offset_bottom = 555.0
 color_type = 2
 
 [node name="SignatureField" parent="MarginContainer/Body" unique_id=739498873 instance=ExtResource("5_sgth1")]
 layout_mode = 1
-offset_left = 23.039999
-offset_top = 276.5
-offset_right = 1.68396
-offset_bottom = 279.5
+offset_left = 129.04
+offset_top = 315.5
+offset_right = 107.68396
+offset_bottom = 318.5
+
+[node name="Gibberish" parent="MarginContainer/Body" unique_id=1068846807 instance=ExtResource("6_e523w")]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 567.0
+offset_right = 536.0
+offset_bottom = 672.0
+theme_override_font_sizes/normal_font_size = 14
+text = "to kdyz umrel tata mne bylo mi teprve sest dostal jsem od kazdyho kupu darku jako o vanocich pral jsem si aby se to stalo jeste par lidem abych si doplnil cely lego babicka se mi to pokousela vysvetlit ze jako odesel a ze uz se nevrati jasne ze me zajimalo kamze sel rikala ze je moc stastnej a ze odesel tam co moje zlata rybka tak jsem si myslel ze ho splachli do zachoda myslel jsem ze je hned za tou vohnutou rourou posilal jsem mu tam jidlo a casopisy aby mel co cist nakonec me poslali k detskymu cvokari protoze me nasli s hlavou v mise jak ctu fotbalovy vysledky
+"
+font_size = 14
+
+[node name="Gibberish2" parent="MarginContainer/Body" unique_id=1837288546 instance=ExtResource("6_e523w")]
+layout_mode = 0
+offset_left = 173.0
+offset_top = 407.0
+offset_right = 288.0
+offset_bottom = 547.0
+theme_override_font_sizes/normal_font_size = 13
+text = "co dal co dal Ja ti reknu co dal zavolam par zfetovanych negru s klestema let Lampou pro pana domaciho aby si tady hosi trochu zablbli slysis me co rikam ty vidlaku jeste jsem tebou neskoncil Tva prdel pozna stredovek"
+font_size = 13
+
+[node name="Gibberish3" parent="MarginContainer/Body" unique_id=102931835 instance=ExtResource("6_e523w")]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 61.0
+offset_right = 176.0
+offset_bottom = 373.0
+theme_override_font_sizes/normal_font_size = 11
+text = "you know what they call a quarter pounder with cheese in france. they dont call it a quarter pounder. what do they call it. they call it a royal with cheese. royal with cheese. thats because of the metric system. they wouldnt know what the hell a quarter pound is. they dont even use that system over there. so they just go with something that makes sense to them. and it sounds a little fancier too. and the other guy is like what about a big mac. do they call it something different. and yeah they probably do. they just rename everything so it fits better with how they talk over there. its not the same language so the food ends up sounding different even though its basically the same thing."
+font_size = 11
+
+[node name="Gibberish4" parent="MarginContainer/Body" unique_id=303615659 instance=ExtResource("6_e523w")]
+layout_mode = 0
+offset_left = 417.0
+offset_top = 63.0
+offset_right = 538.0
+offset_bottom = 375.0
+theme_override_font_sizes/normal_font_size = 11
+text = "i guess what i would want to say is to look on the bright side first of all nobody on the ground was killed and that i mean an incident like this over a populated urban center that right there thats thats just gotta be some minor miracle so plus neither plane was full you know the the 737 was was what maybe two thirds full i believe right yes or maybe even three quarters full on any rate what youre left with casualty wise is just the 50th worst air disaster actually tied for 50th there are in truth 53 crashes throughout history that are just as bad or worse tenerife has has anybody anybody heard of tenerife no in 1977 two fully loaded 747s crashed into each other on tenerife does anybody know how big a 747 is i mean its way bigger than a 737 and were talking about two of them nearly 600 people died from tenerife but do any of you even remember it at all any of you i doubt it you know why its because people move on they just move on and we will too we will move on and we will get past this because that is what human beings do we survive and uh we survive and we we overcome we survive we survive and"
+font_size = 11
 
 [node name="HighlightOverlay" type="ColorRect" parent="." unique_id=1902409606]
 visible = false

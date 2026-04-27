@@ -11,8 +11,6 @@ enum ColorType { RED, GREEN, BLUE }
 @onready var field: TextureRect = %Field
 @onready var signature: TextureRect = %Signature
 
-@onready var rich_text_label: RichTextLabel = %Text
-
 @export var red_field: Texture2D
 @export var green_field: Texture2D
 @export var blue_field: Texture2D
@@ -54,27 +52,14 @@ func _update_ui():
 	if not is_inside_tree():
 		return
 		
-	%Text.remove_theme_font_override("normal_font")
-	%Text.remove_theme_font_size_override("normal_font_size")
 
 	match color_type:
 		ColorType.RED:
 			field.texture = red_field
-			if red_font:
-				%Text.add_theme_font_override("normal_font", red_font)
-				%Text.add_theme_font_size_override("normal_font_size", red_font_size)
-
 		ColorType.GREEN:
 			field.texture = green_field
-			if green_font:
-				%Text.add_theme_font_override("normal_font", green_font)
-				%Text.add_theme_font_size_override("normal_font_size", green_font_size)
-
 		ColorType.BLUE:
 			field.texture = blue_field
-			if blue_font:
-				%Text.add_theme_font_override("normal_font", blue_font)
-				%Text.add_theme_font_size_override("normal_font_size", blue_font_size)
 
 func _on_mouse_enter():
 	if finished:

@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://bmcvw2wcdy5jh"]
+
+[ext_resource type="Script" uid="uid://c6t6wnq3gd84v" path="res://scripts/document_controller.gd" id="1_fuu52"]
+[ext_resource type="Texture2D" uid="uid://co443y2svexni" path="res://sprites/documents/red/driving.png" id="2_rt1h4"]
+[ext_resource type="PackedScene" uid="uid://dkw6ev72i83gp" path="res://scenes/ui/fields/photo_field.tscn" id="3_moawm"]
+[ext_resource type="PackedScene" uid="uid://gok16fqapo66" path="res://scenes/ui/fields/signature_field.tscn" id="4_e4qrs"]
+[ext_resource type="PackedScene" uid="uid://ce600nwb7wrc8" path="res://scenes/ui/fields/gibberish.tscn" id="5_dkkpf"]
+[ext_resource type="FontFile" uid="uid://chsiqrkupps43" path="res://fonts/red_font.ttf" id="6_7fhyp"]
+[ext_resource type="PackedScene" uid="uid://bl4yhqk1xuunw" path="res://scenes/ui/fields/stamp_field.tscn" id="7_qma2y"]
+[ext_resource type="Texture2D" uid="uid://c1dl6od3dhhyx" path="res://sprites/stamps/black_stamp_3.png" id="8_fuu52"]
+[ext_resource type="Texture2D" uid="uid://bfnxbo682fn2u" path="res://sprites/stamps/red_stamp_3.png" id="9_rt1h4"]
+
+[node name="Document" type="Control" unique_id=2125992226 node_paths=PackedStringArray("fields", "highlight_overlay")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1269.0
+offset_bottom = -205.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_fuu52")
+fields = [NodePath("MarginContainer/Body/PhotoField"), NodePath("MarginContainer/Body/SignatureField"), NodePath("MarginContainer/Body/StampField")]
+highlight_overlay = NodePath("HighlightOverlay")
+top_look_pos = Vector3(0, -0.1, -0.12)
+top_look_rot = Vector3(-75, 0, 0)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1903551588]
+layout_mode = 0
+offset_right = 651.0
+offset_bottom = 875.0
+texture = ExtResource("2_rt1h4")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1799867776]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 13
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 10
+
+[node name="Body" type="Control" parent="MarginContainer" unique_id=134183375]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="PhotoField" parent="MarginContainer/Body" unique_id=1679272487 instance=ExtResource("3_moawm")]
+layout_mode = 0
+offset_left = 231.0
+offset_top = 585.0
+offset_right = 351.0
+offset_bottom = 735.0
+
+[node name="SignatureField" parent="MarginContainer/Body" unique_id=739498873 instance=ExtResource("4_e4qrs")]
+layout_mode = 1
+offset_left = 188.04
+offset_top = 2.5
+offset_right = -183.31604
+offset_bottom = 97.5
+color_type = 0
+
+[node name="Gibberish" parent="MarginContainer/Body" unique_id=1068846807 instance=ExtResource("5_dkkpf")]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 35.0
+offset_right = 191.0
+offset_bottom = 755.0
+theme_override_colors/default_color = Color(0.359, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_7fhyp")
+theme_override_font_sizes/normal_font_size = 14
+text = "you know what they call a quarter pounder with cheese in france. they dont call it a quarter pounder. what do they call it. they call it a royal with cheese. royal with cheese. thats because of the metric system. they wouldnt know what the hell a quarter pound is. what about big mac. Big mac is just big mac"
+color_type = 0
+font_size = 14
+
+[node name="Gibberish2" parent="MarginContainer/Body" unique_id=382483488 instance=ExtResource("5_dkkpf")]
+layout_mode = 0
+offset_left = 206.0
+offset_top = 155.0
+offset_right = 552.0
+offset_bottom = 635.0
+theme_override_colors/default_color = Color(0.359, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_7fhyp")
+theme_override_font_sizes/normal_font_size = 14
+text = "co dal 
+Ja ti reknu co dal 
+zavolam par zfetovanych negru s klestema a let Lampou pro pana domaciho aby si tady hosi trochu zablbli 
+slysis me co rikam ty vidlaku 
+jeste jsem s tebou neskoncil 
+
+Tva prdel pozna stredovek"
+scroll_active = false
+color_type = 0
+font_size = 14
+
+[node name="StampField" parent="MarginContainer/Body" unique_id=507597388 instance=ExtResource("7_qma2y")]
+layout_mode = 0
+offset_left = 450.0
+offset_top = 49.0
+offset_right = 550.0
+offset_bottom = 149.0
+stamp_on_doc = ExtResource("8_fuu52")
+stamp_at_counter = ExtResource("9_rt1h4")
+
+[node name="HighlightOverlay" type="ColorRect" parent="." unique_id=1902409606]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.25490198, 1, 1, 0.2509804)
+
+[connection signal="gui_input" from="MarginContainer/Body" to="." method="on_input_event"]
+[connection signal="mouse_entered" from="MarginContainer/Body" to="." method="on_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/Body" to="." method="on_mouse_exited"]

@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://cjnb0kp5r3jix" path="res://sprites/stamps/green_stamp_2.png" id="9_yrmdj"]
 [ext_resource type="PackedScene" uid="uid://dm5dske2rdkfo" path="res://scenes/ui/fields/payment_field.tscn" id="10_r0rjp"]
 [ext_resource type="Texture2D" uid="uid://cehqw60d8lm5l" path="res://sprites/payment/money_green.png" id="11_670ai"]
+[ext_resource type="PackedScene" uid="uid://ce600nwb7wrc8" path="res://scenes/ui/fields/gibberish.tscn" id="12_3n7dt"]
+[ext_resource type="FontFile" uid="uid://ia0gu52dxka1" path="res://fonts/green_font.ttf" id="13_0px0d"]
 
 [node name="Document" type="Control" unique_id=2125992226 node_paths=PackedStringArray("fields", "highlight_overlay")]
 layout_mode = 3
@@ -65,10 +67,11 @@ correct_answer_types = 5
 
 [node name="CheckboxField" parent="MarginContainer/Body" unique_id=979512527 instance=ExtResource("4_7ik8m")]
 layout_mode = 1
-offset_left = 305.0
-offset_top = 401.0
-offset_right = 305.0
-offset_bottom = 401.0
+offset_left = 390.99997
+offset_top = 477.0
+offset_right = 390.99997
+offset_bottom = 477.0
+scale = Vector2(0.84327066, 0.84327066)
 color_type = 1
 correct_answers = 5
 
@@ -82,16 +85,18 @@ color_type = 1
 
 [node name="SignatureField" parent="MarginContainer/Body" unique_id=739498873 instance=ExtResource("6_hef63")]
 layout_mode = 1
-offset_top = 136.5
-offset_bottom = 136.5
+offset_left = 382.04
+offset_top = 287.5
+offset_right = -7.31604
+offset_bottom = 385.5
 color_type = 1
 
 [node name="StampField" parent="MarginContainer/Body" unique_id=507597388 instance=ExtResource("7_kk11r")]
 layout_mode = 0
-offset_left = 112.0
-offset_top = 214.0
-offset_right = 212.0
-offset_bottom = 314.0
+offset_left = 70.0
+offset_top = 196.0
+offset_right = 170.0
+offset_bottom = 296.0
 stamp_on_doc = ExtResource("8_dqj8k")
 stamp_at_counter = ExtResource("9_yrmdj")
 
@@ -103,6 +108,58 @@ offset_right = 282.0
 offset_bottom = 154.0
 stamp = ExtResource("11_670ai")
 color_type = 1
+
+[node name="Gibberish" parent="MarginContainer/Body" unique_id=1068846807 instance=ExtResource("12_3n7dt")]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 446.0
+offset_right = 206.0
+offset_bottom = 782.0
+theme_override_colors/default_color = Color(0, 0.33, 0, 1)
+theme_override_fonts/normal_font = ExtResource("13_0px0d")
+theme_override_font_sizes/normal_font_size = 12
+text = "i am not crazy i know he swapped those numbers i knew it was one two one six one after magna carta as if i could ever make such a mistake never never i just i just couldnt prove it he he covered his tracks he got that idiot at the copy shop to lie for him you think this is something you think this is bad this this chicanery hes done worse that billboard are you telling me that a man just happens to fall like that no he orchestrated it jimmy he defecated through a sunroof and i saved him and i shouldnt have i took him into my own firm what was i thinking hell never change hell never change ever since he was nine always the same couldnt keep his hands out of the cash drawer but not our jimmy couldnt be precious jimmy stealing them blind and he gets to be a lawyer what a sick joke i shouldve stopped him when i had the chance and you you have to stop him you"
+color_type = 1
+font_size = 12
+
+[node name="Gibberish3" parent="MarginContainer/Body" unique_id=2026032668 instance=ExtResource("12_3n7dt")]
+layout_mode = 0
+offset_left = 225.0
+offset_top = 500.0
+offset_right = 556.0
+offset_bottom = 680.0
+theme_override_colors/default_color = Color(0, 0.33, 0, 1)
+theme_override_fonts/normal_font = ExtResource("13_0px0d")
+theme_override_font_sizes/normal_font_size = 12
+text = "i am not crazy i know he swapped those numbers i knew it was one two one six one after magna carta as if i could ever make such a mistake never never i just i just couldnt prove it he he covered his tracks he got that idiot at the copy shop to lie for him you think this is something you think this is bad this this chicanery hes done worse that billboard are you telling me that a man just happens to fall like that no he orchestrated it jimmy he defecated through a sunroof and i saved him and i shouldnt have i took him into my own firm what was i thinking hell never change hell never change ever since he was nine always the same couldnt keep his hands out of the cash drawer but not our jimmy couldnt be precious jimmy stealing them blind and he gets to be a lawyer what a sick joke i shouldve stopped him when i had the chance and you you have to stop him you"
+color_type = 1
+font_size = 12
+
+[node name="Gibberish4" parent="MarginContainer/Body" unique_id=1496632628 instance=ExtResource("12_3n7dt")]
+layout_mode = 0
+offset_left = 225.0
+offset_top = 681.0
+offset_right = 389.0
+offset_bottom = 784.0
+theme_override_colors/default_color = Color(0, 0.33, 0, 1)
+theme_override_fonts/normal_font = ExtResource("13_0px0d")
+theme_override_font_sizes/normal_font_size = 11
+text = "co dal co dal Ja ti reknu co dal zavolam par zfetovanych negru s klestema let Lampou pro pana domaciho aby si tady hosi trochu zablbli slysis me co rikam ty vidlaku jeste jsem tebou neskoncil Tva prdel pozna stredovek"
+color_type = 1
+font_size = 11
+
+[node name="Gibberish2" parent="MarginContainer/Body" unique_id=5213135 instance=ExtResource("12_3n7dt")]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 325.0
+offset_right = 556.0
+offset_bottom = 423.0
+theme_override_colors/default_color = Color(0, 0.33, 0, 1)
+theme_override_fonts/normal_font = ExtResource("13_0px0d")
+theme_override_font_sizes/normal_font_size = 11
+text = "you know what they call a quarter pounder with cheese in france. they dont call it a quarter pounder. what do they call it. they call it a royal with cheese. royal with cheese. thats because of the metric system. they wouldnt know what the hell a quarter pound is. they dont even use that system over there. so they just go with something that makes sense to them. and it sounds a little fancier too. and the other guy is like what about a big mac. do they call it something different. and yeah they probably do. they just rename everything so it fits better with how they talk over there. its not the same language so the food ends up sounding different even though its basically the same thing."
+color_type = 1
+font_size = 11
 
 [node name="HighlightOverlay" type="ColorRect" parent="." unique_id=1902409606]
 visible = false

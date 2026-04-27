@@ -4,7 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://b81mnvrcveljg" path="res://sprites/documents/red/registration.png" id="2_gcpsh"]
 [ext_resource type="PackedScene" uid="uid://chu43i7oryotp" path="res://scenes/ui/fields/captcha_field.tscn" id="3_514cj"]
 [ext_resource type="PackedScene" uid="uid://dkw6ev72i83gp" path="res://scenes/ui/fields/photo_field.tscn" id="5_jgqli"]
+[ext_resource type="PackedScene" uid="uid://ce600nwb7wrc8" path="res://scenes/ui/fields/gibberish.tscn" id="6_e67s2"]
 [ext_resource type="PackedScene" uid="uid://gok16fqapo66" path="res://scenes/ui/fields/signature_field.tscn" id="6_u3tk3"]
+[ext_resource type="FontFile" uid="uid://chsiqrkupps43" path="res://fonts/red_font.ttf" id="7_2fxmf"]
 
 [node name="Document" type="Control" unique_id=2125992226 node_paths=PackedStringArray("fields", "highlight_overlay")]
 layout_mode = 3
@@ -51,35 +53,68 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -334.0
-offset_top = 261.0
+offset_top = 256.0
 offset_right = -61.0
-offset_bottom = 578.0
+offset_bottom = 573.0
 grow_horizontal = 0
 color_type = 0
 correct_answer_types = 11
 
 [node name="PhotoField" parent="MarginContainer/Body" unique_id=1679272487 instance=ExtResource("5_jgqli")]
 layout_mode = 0
-offset_left = 94.0
-offset_top = 404.0
-offset_right = 214.0
-offset_bottom = 554.0
+offset_left = 110.0
+offset_top = 399.0
+offset_right = 230.0
+offset_bottom = 549.0
 
 [node name="SignatureField" parent="MarginContainer/Body" unique_id=739498873 instance=ExtResource("6_u3tk3")]
 layout_mode = 1
-offset_left = 25.039999
-offset_top = 267.5
-offset_right = -11.31604
-offset_bottom = 280.5
+offset_left = 301.04
+offset_top = 269.5
+offset_right = -31.31604
+offset_bottom = 373.5
 color_type = 0
 
 [node name="SignatureField2" parent="MarginContainer/Body" unique_id=587505805 instance=ExtResource("6_u3tk3")]
 layout_mode = 1
-offset_left = 29.039999
-offset_top = -260.5
-offset_right = -289.31604
-offset_bottom = -146.5
+offset_left = 37.04
+offset_top = -119.5
+offset_right = -281.31604
+offset_bottom = -5.5
 color_type = 0
+
+[node name="Gibberish" parent="MarginContainer/Body" unique_id=1068846807 instance=ExtResource("6_e67s2")]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 55.0
+offset_right = 510.0
+offset_bottom = 270.0
+theme_override_colors/default_color = Color(0.359, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("7_2fxmf")
+theme_override_font_sizes/normal_font_size = 10
+text = "to kdyz umrel tata mne bylo mi teprve sest dostal jsem od kazdyho kupu darku jako o vanocich pral jsem si aby se to stalo jeste par lidem abych si doplnil cely lego babicka se mi to pokousela vysvetlit ze jako odesel a ze uz se nevrati jasne ze me zajimalo kamze sel rikala ze je moc stastnej a ze odesel tam co moje zlata rybka tak jsem si myslel ze ho splachli do zachoda myslel jsem ze je hned za tou vohnutou rourou posilal jsem mu tam jidlo a casopisy aby mel co cist nakonec me poslali k detskymu cvokari protoze me nasli s hlavou v mise jak ctu fotbalovy vysledky
+"
+color_type = 0
+font_size = 10
+
+[node name="Gibberish2" parent="MarginContainer/Body" unique_id=1796832503 instance=ExtResource("6_e67s2")]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 569.0
+offset_right = 510.0
+offset_bottom = 785.0
+theme_override_colors/default_color = Color(0.359, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("7_2fxmf")
+theme_override_font_sizes/normal_font_size = 10
+text = "kryton pokud vesmir jednoho dne exploduje koho zajima jestli je v troube trochu sajrajtu na nicem nezalezi pane spravedlnost pravda kultura moralka zivot smrt vira valka vsechno je absurdni proc se vubec rano zvedat z postele
+lister na to se ptam uz roky
+kryton co budu delat
+rimmer proc si nedas ledovou 
+sprchu to by pomohlo
+kryton pane nejsem 
+vodeodolny rimmer presne"
+color_type = 0
+font_size = 10
 
 [node name="HighlightOverlay" type="ColorRect" parent="." unique_id=1902409606]
 visible = false
