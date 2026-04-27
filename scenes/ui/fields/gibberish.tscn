@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://ce600nwb7wrc8"]
+
+[ext_resource type="FontFile" uid="uid://duyo07uotl2qi" path="res://fonts/blue_font.ttf" id="1_ic381"]
+[ext_resource type="Script" uid="uid://csvmeypqqmurl" path="res://scripts/ui/gibberish.gd" id="2_tkb7l"]
+[ext_resource type="FontFile" uid="uid://chsiqrkupps43" path="res://fonts/red_font.ttf" id="3_sb73q"]
+[ext_resource type="FontFile" uid="uid://ia0gu52dxka1" path="res://fonts/green_font.ttf" id="4_jmm23"]
+
+[node name="Gibberish" type="RichTextLabel" unique_id=1068846807]
+offset_left = 45.0
+offset_top = 79.0
+offset_right = 210.0
+offset_bottom = 326.0
+theme_override_colors/default_color = Color(0.116, 0.148, 0.29, 1)
+theme_override_fonts/normal_font = ExtResource("1_ic381")
+theme_override_font_sizes/normal_font_size = 20
+text = "Hello guys you can change this text to whatever you want to make it fit and look like gibberish, also changing font size changes the override automatically, make sure no characters are missing from the current font. You can change autowrap to smart, Arbitrary makes it look more like a block."
+fit_content = true
+autowrap_mode = 1
+script = ExtResource("2_tkb7l")
+color_type = 2
+red_font = ExtResource("3_sb73q")
+green_font = ExtResource("4_jmm23")
+blue_font = ExtResource("1_ic381")
+font_size = 20
