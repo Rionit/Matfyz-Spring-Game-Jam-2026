@@ -108,6 +108,7 @@ layout_mode = 1
 [node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=2130962265]
 stream = ExtResource("3_1g8jr")
 volume_db = -1.0
+autoplay = true
 attenuation = 1.0717734
 
 [node name="Click" type="AudioStreamPlayer2D" parent="." unique_id=1175940407]
