@@ -242,6 +242,7 @@ func on_mouse_pressed():
 func on_mouse_released():
 	print("Mouse released!")
 	current_drag_drop_time = 0.0
+	disable_drag_drop()
 	if is_drag_dropping:
 		print("Stopped drag & drop.")
 		release_drag_drop()
