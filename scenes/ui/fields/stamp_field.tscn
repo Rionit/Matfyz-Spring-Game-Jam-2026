@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bl4yhqk1xuunw"]
 
 [ext_resource type="Script" uid="uid://84f8k5ubm2f1" path="res://scripts/stamp_field.gd" id="1_pfkbk"]
-[ext_resource type="Texture2D" uid="uid://c1dl6od3dhhyx" path="res://sprites/stamps/black_stamp_3.png" id="2_w55w3"]
 
 [node name="StampField" type="Control" unique_id=507597388]
 layout_mode = 3
@@ -18,7 +17,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_w55w3")
 expand_mode = 2
 stretch_mode = 5
 

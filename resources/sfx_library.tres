@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="SFXLibrary" format=3 uid="uid://ta7a33vyea6l"]
+
+[ext_resource type="Script" uid="uid://jlfteruv1ecs" path="res://scripts/resources/sfx_library.gd" id="1_i85md"]
+[ext_resource type="Script" uid="uid://p135ls6k653f" path="res://scripts/resources/sfx.gd" id="2_qr3e3"]
+[ext_resource type="AudioStream" uid="uid://hsnxuojres7n" path="res://sounds/pick_up.wav" id="3_i1gyi"]
+[ext_resource type="AudioStream" uid="uid://bdr88m61lu02m" path="res://sounds/put_down.wav" id="4_vkf5m"]
+
+[sub_resource type="Resource" id="Resource_vkf5m"]
+script = ExtResource("2_qr3e3")
+tag = "document_pickup"
+stream = ExtResource("3_i1gyi")
+metadata/_custom_type_script = "uid://p135ls6k653f"
+
+[sub_resource type="Resource" id="Resource_u3agq"]
+script = ExtResource("2_qr3e3")
+tag = "document_place"
+stream = ExtResource("4_vkf5m")
+metadata/_custom_type_script = "uid://p135ls6k653f"
+
+[resource]
+script = ExtResource("1_i85md")
+sound_effects = Array[ExtResource("2_qr3e3")]([SubResource("Resource_vkf5m"), SubResource("Resource_u3agq")])
+metadata/_custom_type_script = "uid://jlfteruv1ecs"

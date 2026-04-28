@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 	
 	if GameManager.selected_stamp != null and GameManager.selected_document == document and selected_stamp == null:
 		selected_stamp = GameManager.selected_stamp
-		GameManager.selected_stamp == null
+		GameManager.selected_stamp = null
 		color_stamp_texture.texture = selected_stamp
 		color_stamp_texture.show()
 

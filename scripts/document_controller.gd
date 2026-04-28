@@ -47,7 +47,7 @@ var folder : Folder = null # The folder the document is currently in, null if no
 @export var drag_drop_table_height_offset : float = 0.01 
 
 # Time the document needs to be pressed for to start drag & drop
-@export var drag_drop_time : float = 0.8
+var drag_drop_time : float = 0.1
 var current_drag_drop_time : float = 0.0
 
 # Scale of the document when it's listed in a folder
@@ -183,6 +183,7 @@ func put_on_table():
 	move_finished.connect(enable_highlight)
 	move_finished.connect(enable_click)
 
+	AudioManager.play_sfx("document_place")
 	print ("Putting on table, current table pos: ", current_table_pos)
 	move(move_parent.position, current_table_pos, move_parent.rotation_degrees, Vector3(-90,0,0), move_parent.scale, Vector3.ONE, base_move_duration)
 
@@ -231,9 +232,6 @@ func on_mouse_exited():
 		print("Stopped counting drag & drop.")
 		counting_drag_drop = false
 		current_drag_drop_time = 0.0
-	if is_drag_dropping:
-		print("ERROR: Mouse exited")
-		release_drag_drop()
 
 func on_mouse_pressed():
 	print("Mouse pressed!")

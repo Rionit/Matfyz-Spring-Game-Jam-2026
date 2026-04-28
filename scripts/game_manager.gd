@@ -73,7 +73,9 @@ func select_document(doc : DocumentController):
 
 	doc.select()
 	selected_document = doc
-
+	
+	AudioManager.play_sfx("document_pickup")
+	
 func put_on_table():
 	if selected_document != null:
 		selected_document.put_on_table()

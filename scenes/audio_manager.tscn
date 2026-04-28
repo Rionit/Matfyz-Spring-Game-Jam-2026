@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b3jgottx3wi3u"]
+
+[ext_resource type="Script" uid="uid://c4lyinyt6epku" path="res://scripts/audio_manager.gd" id="1_8qd8g"]
+[ext_resource type="Resource" uid="uid://ta7a33vyea6l" path="res://resources/sfx_library.tres" id="2_liach"]
+
+[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_fceot"]
+
+[node name="AudioManager" type="Node2D" unique_id=1361622010]
+script = ExtResource("1_8qd8g")
+sfx_library = ExtResource("2_liach")
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="." unique_id=1829715655]
+stream = SubResource("AudioStreamPolyphonic_fceot")

@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://dmyusnm47hini" path="res://scripts/ui/main_menu.gd" id="1_sl1te"]
 [ext_resource type="Texture2D" uid="uid://bs2cq4hp1f2le" path="res://sprites/images/mainmenu.png" id="2_fe2o3"]
 [ext_resource type="AudioStream" uid="uid://cwlwifc2ets3q" path="res://sounds/alien_music.wav" id="3_1g8jr"]
+[ext_resource type="PackedScene" uid="uid://cgv075o7xqryx" path="res://scenes/ui/credit.tscn" id="3_x2yvf"]
+[ext_resource type="AudioStream" uid="uid://bxx5pspf7c8u0" path="res://sounds/click.wav" id="4_m1kxf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fe2o3"]
 
@@ -73,10 +75,10 @@ theme_override_styles/focus = SubResource("StyleBoxLine_uhagc")
 [node name="CreditButton" type="Button" parent="." unique_id=1146384219]
 layout_mode = 0
 offset_left = 1262.2327
-offset_top = 929.6652
+offset_top = 934.0001
 offset_right = 1308.7804
-offset_bottom = 940.8929
-rotation = -3.4598188
+offset_bottom = 945.2278
+rotation = -3.403958
 scale = Vector2(6.044943, 5.8130097)
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -99,12 +101,27 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_btxxm")
 theme_override_styles/hover = SubResource("StyleBoxLine_1g8jr")
 theme_override_styles/focus = SubResource("StyleBoxLine_uhagc")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2130962265]
+[node name="Credit" parent="." unique_id=899044623 instance=ExtResource("3_x2yvf")]
+visible = false
+layout_mode = 1
+
+[node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=2130962265]
 stream = ExtResource("3_1g8jr")
 volume_db = -1.0
 autoplay = true
 attenuation = 1.0717734
 
+[node name="Click" type="AudioStreamPlayer2D" parent="." unique_id=1175940407]
+stream = ExtResource("4_m1kxf")
+volume_db = 3.0
+pitch_scale = 0.7
+
+[node name="Hover" type="AudioStreamPlayer2D" parent="." unique_id=1039817480]
+stream = ExtResource("4_m1kxf")
+
+[connection signal="mouse_entered" from="StartGameButton" to="." method="_on_button_hover"]
 [connection signal="pressed" from="StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="mouse_entered" from="CreditButton" to="." method="_on_button_hover"]
 [connection signal="pressed" from="CreditButton" to="." method="_on_credit_button_pressed"]
+[connection signal="mouse_entered" from="ExitButton" to="." method="_on_button_hover"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

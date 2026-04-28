@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://b71gyybgtskgd" path="res://scenes/Documents/RegistrationForm/RegistrationFrom_Blue_A_Obj.tscn" id="12_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://cwtuh1abisqt3" path="res://scenes/ui/payment_buttons_gui.tscn" id="12_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://bo0txc4qbmiwo" path="res://scenes/Documents/Visa/Visa_Blue_A_Obj.tscn" id="13_0ld40"]
-[ext_resource type="PackedScene" uid="uid://c8sn36o5f2k8b" path="res://scenes/Documents/TaxReport/TaxReport_Green_A_Obj.tscn" id="13_jscy8"]
 [ext_resource type="PackedScene" uid="uid://bw12ikpch1k0q" path="res://scenes/ui/stamp_buttons_gui_red.tscn" id="14_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://bmc6yv3028vhj" path="res://scenes/Documents/Visa/Visa_Green_A_Obj.tscn" id="14_gqmmt"]
 [ext_resource type="PackedScene" uid="uid://4cbfsg8l0yfe" path="res://scenes/Documents/TaxReport/TaxReport_Red_B_Obj.tscn" id="14_pm3ni"]
@@ -31,12 +30,12 @@ glow_bloom = 0.3
 
 [sub_resource type="Compositor" id="Compositor_sugp2"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_pm3ni"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_jscy8"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y6deb"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pm3ni"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_pm3ni")
+albedo_texture = SubResource("ViewportTexture_jscy8")
 
 [node name="Main" type="Node3D" unique_id=31963921 node_paths=PackedStringArray("submission_folder", "incoming_folder", "level_1_guis", "level_2_guis")]
 script = ExtResource("1_tbgi4")
@@ -156,7 +155,7 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.0
 table_pos = Vector3(-0.027567744, -0.024873972, 0.18987125)
 
 [node name="Quad" parent="TableObject/HelpbookObj" index="1" unique_id=1341834876]
-surface_material_override/0 = SubResource("StandardMaterial3D_y6deb")
+surface_material_override/0 = SubResource("StandardMaterial3D_pm3ni")
 
 [node name="SubmissionFolder" parent="TableObject" unique_id=1151233729 instance=ExtResource("10_choun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17859145, -0.030712515, 0.2026568)
@@ -171,14 +170,14 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.14734572, 0)
 [node name="DocumentObj2" parent="TableObject/Documents/Level1" unique_id=1509063483 instance=ExtResource("12_dp3eg")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.1207048, 0)
 
-[node name="DocumentObj3" parent="TableObject/Documents/Level1" unique_id=633190018 instance=ExtResource("13_jscy8")]
-transform = Transform3D(0.1, 0, 0, 0, -4.371139e-09, 0.1, 0, -0.1, -4.371139e-09, -0.2747094, -0.029683366, 0)
-
 [node name="DocumentObj4" parent="TableObject/Documents/Level1" unique_id=1638920540 instance=ExtResource("14_pm3ni")]
 transform = Transform3D(0.1, 0, 0, 0, -4.371139e-09, 0.1, 0, -0.1, -4.371139e-09, -0.2747094, -0.029683366, 0)
 
 [node name="DocumentObj5" parent="TableObject/Documents/Level1" unique_id=1090565620 instance=ExtResource("15_pm3ni")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.12910447, 0)
+
+[node name="DocumentObj3" parent="TableObject/Documents/Level1" unique_id=916937153 instance=ExtResource("14_gqmmt")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.12528878, 0)
 
 [node name="Level2" type="Node3D" parent="TableObject/Documents" unique_id=1189079364]
 
@@ -194,7 +193,7 @@ text = "09:00 - 12:00"
 font_size = 14
 outline_size = 4
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1565050669]
+[node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=1565050669]
 stream = ExtResource("17_muem4")
 autoplay = true
 
